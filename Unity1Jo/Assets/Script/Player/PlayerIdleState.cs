@@ -17,11 +17,18 @@ public class PlayerIdleState : PlayerState
     {
         base.Exit();
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //    player.stateMachine.ChangeState(player.jumpState);
 
-        //if (Input.GetKeyDown(KeyCode.S))
-        //    player.stateMachine.ChangeState(player.slideState);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            player.stateMachine.ChangeState(player.jumpState);
+
+        if (Input.GetKeyDown(KeyCode.S))
+            player.stateMachine.ChangeState(player.slideState);
 
         if (Input.GetKeyDown(KeyCode.D))
             player.stateMachine.ChangeState(player.dashState);
@@ -34,10 +41,5 @@ public class PlayerIdleState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.H))
             player.stateMachine.ChangeState(player.highState);
-    }
-
-    public override void Update()
-    {
-        base.Update();
     }
 }
