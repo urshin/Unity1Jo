@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
     #region Components 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
+    public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
+
     #endregion
 
     public bool isBusy { get; private set; }
@@ -61,6 +63,19 @@ public class Player : MonoBehaviour
        // stateMachine.Initialize(idleState); //처음에는 idle상태로
     }
 
-    // code by 하은
+    //code by. 하은
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            Damage();
+        }
+    }
+
+    // code by. 하은
+    public void Damage()
+    {
+        fx.StartCoroutine("FlashFX");
+    }
     
 }
