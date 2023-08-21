@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<PlayerFX>();
 
-       // stateMachine.Initialize(idleState); //처음에는 idle상태로    
+        stateMachine.Initialize(idleState); //처음에는 idle상태로      
     }
 
     public void Update()
