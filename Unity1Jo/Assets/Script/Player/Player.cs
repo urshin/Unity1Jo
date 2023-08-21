@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     #region Components 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
+    public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
+
     #endregion
 
     public bool isBusy { get; private set; }
@@ -45,12 +47,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         stateMachine = new PlayerStateMachine();
-        //idleState = new PlayerIdleState(this, stateMachine, "Idle"); //this : 자기참조(Player)
+        idleState = new PlayerIdleState(this, stateMachine, "Idle"); //this : 자기참조(Player)
         //jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        //slideState = new PlayerSlideState(this, stateMachine, "Slide");
         //airState = new PlayerAirState(this, stateMachine, "Jump");
-        //dashState = new PlayerDashState(this, stateMachine, "Dash");
-        //hitState = new PlayerHitState(this, stateMachine, "Hit");
-        //giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
+        dashState = new PlayerDashState(this, stateMachine, "Dash");
+        hitState = new PlayerHitState(this, stateMachine, "Hit");
+        giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
         highState = new PlayerHighState(this, stateMachine, "High");
         downState = new PlayerDownState(this, stateMachine, "High");
         deathState = new PlayerDeathState(this, stateMachine, "Death");
@@ -61,9 +64,24 @@ public class Player : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
+        fx = GetComponent<PlayerFX>();
+
        // stateMachine.Initialize(idleState); //처음에는 idle상태로    
     }
 
-    // code by 하은
+    //code by. 하은
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Damage();
+        }
+    }
+
+    // code by. 하은
+    public void Damage()
+    {
+        fx.StartCoroutine("FlashFX");
+    }
     
 }
