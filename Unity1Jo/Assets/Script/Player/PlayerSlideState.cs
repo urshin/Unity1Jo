@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSlideState : MonoBehaviour
+public class PlayerSlideState : PlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerSlideState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
     }
+
+    public override void Update()
+    {
+        base.Update();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
 }

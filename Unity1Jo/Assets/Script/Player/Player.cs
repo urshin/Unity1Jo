@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     {
         stateMachine = new PlayerStateMachine();
         //idleState = new PlayerIdleState(this, stateMachine, "Idle"); //this : 자기참조(Player)
-        //jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         //airState = new PlayerAirState(this, stateMachine, "Jump");
         //dashState = new PlayerDashState(this, stateMachine, "Dash");
         //hitState = new PlayerHitState(this, stateMachine, "Hit");
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
-       // stateMachine.Initialize(idleState); //처음에는 idle상태로
+        //stateMachine.Initialize(idleState); //처음에는 idle상태로
     }
 
     // code by 하은
