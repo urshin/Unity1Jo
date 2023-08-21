@@ -17,13 +17,23 @@ public class PlayerIdleState : PlayerState
     {
         base.Exit();
 
-        //if(점프키누르면)
-        //Slide키 누르면
-        //Dash아이템 먹으면
-        //Gigantic아이템 먹으면
-        //죽으면
-        //보너스알파벳 모으면
-        //맞으면
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //    player.stateMachine.ChangeState(player.jumpState);
+
+        //if (Input.GetKeyDown(KeyCode.S))
+        //    player.stateMachine.ChangeState(player.slideState);
+
+        if (Input.GetKeyDown(KeyCode.D))
+            player.stateMachine.ChangeState(player.dashState);
+
+        if (Input.GetKeyDown(KeyCode.G))
+            player.stateMachine.ChangeState(player.giganticState);
+
+        if (Input.GetKeyDown(KeyCode.D))
+            player.stateMachine.ChangeState(player.deathState);
+
+        if (Input.GetKeyDown(KeyCode.H))
+            player.stateMachine.ChangeState(player.highState);
     }
 
     public override void Update()
