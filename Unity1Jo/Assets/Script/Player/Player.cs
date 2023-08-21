@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public PlayerDownState downState { get; private set; }
     public PlayerHitState hitState { get; private set; }
 
+    public PlayerDeathState deathState { get; private set; }
+
     #endregion
 
     [Header("player")]
@@ -49,8 +51,9 @@ public class Player : MonoBehaviour
         //dashState = new PlayerDashState(this, stateMachine, "Dash");
         //hitState = new PlayerHitState(this, stateMachine, "Hit");
         //giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
-        //highState = new PlayerHighState(this, stateMachine, "High");
-        //downState = new PlayerDownState(this, stateMachine, "High");
+        highState = new PlayerHighState(this, stateMachine, "High");
+        downState = new PlayerDownState(this, stateMachine, "High");
+        deathState = new PlayerDeathState(this, stateMachine, "Death");
     }
 
 
@@ -58,7 +61,7 @@ public class Player : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
-       // stateMachine.Initialize(idleState); //처음에는 idle상태로
+       // stateMachine.Initialize(idleState); //처음에는 idle상태로    
     }
 
     // code by 하은

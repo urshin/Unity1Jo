@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeathState : MonoBehaviour
+public class PlayerDeathState : PlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerDeathState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
-        
     }
-
-    // Update is called once per frame
-    void Update()
+    // code by 동호
+    public override void Enter()
     {
-        
+        base.Enter();
+    }
+    // code by 동호
+    public override void Exit()
+    {
+        base.Exit();
+    }
+    // code by 동호
+    public override void Update()
+    {
+        base.Update();
     }
 }
