@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
     {
         stateMachine = new PlayerStateMachine();
         idleState = new PlayerIdleState(this, stateMachine, "Idle"); //this : 자기참조(Player)
-        //jumpState = new PlayerJumpState(this, stateMachine, "Jump");
-        //slideState = new PlayerSlideState(this, stateMachine, "Slide");
-        //airState = new PlayerAirState(this, stateMachine, "Jump");
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        slideState = new PlayerSlideState(this, stateMachine, "Slide");
+        airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
@@ -67,6 +67,12 @@ public class Player : MonoBehaviour
         fx = GetComponent<PlayerFX>();
 
        // stateMachine.Initialize(idleState); //처음에는 idle상태로    
+    }
+
+    public void Update()
+    {
+        stateMachine.currentState.Update();
+
     }
 
     //code by. 하은
