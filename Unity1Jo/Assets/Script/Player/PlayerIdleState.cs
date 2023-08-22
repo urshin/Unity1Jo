@@ -16,16 +16,14 @@ public class PlayerIdleState : PlayerState
     public override void Exit()
     {
         base.Exit();
-
-
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            player.stateMachine.ChangeState(player.jumpState);
+        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
+            player.stateMachine.ChangeState(player.jumpState);        
 
         if (Input.GetKeyDown(KeyCode.S))
             player.stateMachine.ChangeState(player.slideState);
