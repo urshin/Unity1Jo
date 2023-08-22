@@ -16,13 +16,13 @@ public class PlayerDashState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(3 * Time.deltaTime, 0, 0);
+        //GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(3 * Time.deltaTime, 0, 0);
     }
 
     public override void Exit()
     {
         base.Exit();
-        GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(-3 * Time.deltaTime, 0, 0);
+        //GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(-3 * Time.deltaTime, 0, 0);
     }
 
     public override void Update()
