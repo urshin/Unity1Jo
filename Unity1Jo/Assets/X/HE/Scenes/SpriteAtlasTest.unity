@@ -714,6 +714,7 @@ MonoBehaviour:
   srcTextures:
   - {fileID: 2800000, guid: dfd23c59ee12c3140acdaad72cbde247, type: 3}
   - {fileID: 2800000, guid: 688e4d72f1439ca4f92c37a39683e51b, type: 3}
+  atlas: {fileID: 100100200, guid: ca73f9030decb084b8d101d399326017, type: 3}
 --- !u!4 &1672207695
 Transform:
   m_ObjectHideFlags: 0
