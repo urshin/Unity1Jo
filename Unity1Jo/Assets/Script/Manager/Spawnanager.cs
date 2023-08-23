@@ -14,4 +14,5 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     {
         base.Awake();
     }
+
 }

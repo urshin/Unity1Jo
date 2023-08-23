@@ -11,7 +11,7 @@ public class UIScrollView : MonoBehaviour
     {
         //i값의 범위를 조절하면 스크롤뷰에 쿠키종류를 무한으로 늘릴 수 있음
         //Cookie 5개 생성(기본, 바다요정 ...)
-        for (int i = 0; i <5; i++)
+        for (int i = 0; i <50; i++)
         {
             AddCookies();
         }
