@@ -9,6 +9,10 @@ public class ChangeScene : MonoBehaviour
     [SerializeField] GameObject startBtn;
     [SerializeField] GameObject myCookiesBtn;
 
+    //public void Awake()
+    //{
+    //    startBtn.GetComponent<Button>().onClick.AddListener(GotoLobby);
+    //}
     public void GotoLobby()
     {
         SceneManager.LoadScene("LOBBY");
