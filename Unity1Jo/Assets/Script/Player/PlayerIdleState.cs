@@ -28,11 +28,11 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.S))
             player.stateMachine.ChangeState(player.slideState);
 
-        if (Input.GetKeyDown(KeyCode.D))
-            player.stateMachine.ChangeState(player.dashState);
+        //if (Input.GetKeyDown(KeyCode.D))
+        //    player.stateMachine.ChangeState(player.dashState);
 
-        if (Input.GetKeyDown(KeyCode.G))
-            player.stateMachine.ChangeState(player.giganticState);
+        //if (Input.GetKeyDown(KeyCode.G))
+        //    player.stateMachine.ChangeState(player.giganticState);
 
         if (Input.GetKeyDown(KeyCode.D))
             player.stateMachine.ChangeState(player.deathState);
