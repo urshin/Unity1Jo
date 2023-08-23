@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerState
 {
-
-    
-
     public PlayerJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -16,8 +13,7 @@ public class PlayerJumpState : PlayerState
         base.Enter();
 
         Vector2 jumpVec = new Vector2(rb.velocity.x, player.jumpPower);
-        rb.velocity = jumpVec;
-        //rb.AddForce(jumpVec, ForceMode2D.Impulse);
+        rb.AddForce(jumpVec, ForceMode2D.Impulse);
     }
 
     public override void Update()
@@ -28,7 +24,8 @@ public class PlayerJumpState : PlayerState
         {
             stateMachine.ChangeState(player.doubleJumpState);
         }
-        else if(player.IsGroundDetected())
+
+        if (player.IsGroundDetected() && rb.velocity.y == 0)
         {
             stateMachine.ChangeState(player.idleState);
         }

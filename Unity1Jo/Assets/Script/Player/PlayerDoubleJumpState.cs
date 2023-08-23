@@ -12,11 +12,11 @@ public class PlayerDoubleJumpState : PlayerState
     {
         base.Enter();
 
+        rb.velocity = Vector2.zero;
 
-        Vector2 jumpVec = new Vector2(rb.velocity.x, player.jumpPower);
+        rb.AddForce(new Vector2(rb.velocity.x, player.jumpPower), ForceMode2D.Impulse);
 
-        rb.velocity = jumpVec; // AddForce말고 벡터로 값을 주니 연속으로 눌러도 더 높이 올라가지 않았음.
-    }
+    } 
 
     public override void Update()
     {
