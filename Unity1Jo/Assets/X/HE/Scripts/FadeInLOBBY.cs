@@ -23,8 +23,6 @@ public class FadeInLOBBY : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        yield return new WaitForSeconds(0.5f); // 초기 2초 대기
-
         while (panel.color.a > 0)
         {
             alpha -= Time.deltaTime * fadeSpeed;

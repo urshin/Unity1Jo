@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/X/HE/Scenes/LOBBY.unity
     guid: 1d0579dd8c41c0e468c9eddf938ef364
+  - enabled: 1
+    path: Assets/X/HE/Scenes/MYCOOKIES.unity
+    guid: ed8471724c3800944b6d7a04b2d32525
   m_configObjects: {}
