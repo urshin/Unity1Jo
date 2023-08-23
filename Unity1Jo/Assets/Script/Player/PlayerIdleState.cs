@@ -13,19 +13,14 @@ public class PlayerIdleState : PlayerState
         base.Enter();
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
-            player.stateMachine.ChangeState(player.jumpState);        
+        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected()) // 수정
+            player.stateMachine.ChangeState(player.jumpState);
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && player.IsGroundDetected()) // 수정
             player.stateMachine.ChangeState(player.slideState);
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -39,5 +34,10 @@ public class PlayerIdleState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.H))
             player.stateMachine.ChangeState(player.highState);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }

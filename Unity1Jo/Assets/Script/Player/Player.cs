@@ -27,11 +27,12 @@ public class Player : MonoBehaviour
     [SerializeField] float hp;
     [SerializeField] float originSpeed;
     [SerializeField] float dashSpeed;
-    [SerializeField] float originSize;
-    [SerializeField] float giganticSize;
-    [SerializeField] public float jumpPower; // code by. 대석
-    
-    
+    public float jumpPower; // code by. 대석
+    //[HideInInspector] public Vector2 originSize;
+    //public Vector2 giganticSize;
+
+
+
 
     [Header("Collision Info")]
     [SerializeField] Transform groundCheck;
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
 
-    public BoxCollider2D collider { get; private set; } // code by. 대석
+    public BoxCollider2D collider1 { get; private set; } // code by. 대석
 
     #endregion
 
@@ -70,12 +71,12 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
+        anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<PlayerFX>();
-        collider = GetComponent<BoxCollider2D>(); // code by. 대석
+        collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
 
-        stateMachine.Initialize(idleState); //처음에는 idle상태로      
+        stateMachine.Initialize(idleState);
     }
 
     public void Update()
