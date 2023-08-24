@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiScrollView: {fileID: 1961149454}
+  atlas: {fileID: 100100200, guid: b673f82506e53d74d9391ca050f2dd12, type: 3}
 --- !u!1 &1961149448
 GameObject:
   m_ObjectHideFlags: 0

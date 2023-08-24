@@ -22,7 +22,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     [SerializeField] public GameObject[] BonusTimeJelly; //보너스타임젤리 가져오기
 
 
-
+    [SerializeField] public float GroundScrollSpeed;
 
 
 

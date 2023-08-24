@@ -9,10 +9,14 @@ using UnityEngine;
 
 public class PlayerManager : SingletonBehaviour<PlayerManager>
 {
-    //public static PlayerManager Instance;
-
+    [SerializeField] private GameObject player;
     void Awake()
     {
-        base.Awake();  
+        base.Awake();
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }

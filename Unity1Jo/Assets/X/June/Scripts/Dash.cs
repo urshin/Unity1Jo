@@ -20,6 +20,10 @@ public class Dash : MonoBehaviour
             Invoke("goingToOrigin", 3); //3초뒤 원상복구 시키기
         }
     }
+    void Update()
+    {
+        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+    }
 
     void goingToOrigin() //원상복구 시키는 함수
     {

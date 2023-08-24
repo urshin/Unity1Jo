@@ -21,17 +21,24 @@ public class Player : MonoBehaviour
 
     public PlayerDeathState deathState { get; private set; }
 
+    public PlayerBonusDownState bonusDownState { get; private set; }
+    public PlayerBonusUpState bonusUpState { get; private set; }
+
     #endregion
 
     [Header("player")]
     [SerializeField] float hp;
     [SerializeField] float originSpeed;
     [SerializeField] float dashSpeed;
+    [SerializeField] float originSize;
+    [SerializeField] float giganticSize;
     public float jumpPower; // code by. 대석
-    //[HideInInspector] public Vector2 originSize;
-    //public Vector2 giganticSize;
 
-
+    [Header("Bonus Map Info")]      // code by. 동호
+    public float topTime;           // 최대로 올라갈 떄의 시간  
+    public GameObject topPos;       // 쿠키가 보너스 타임으로 갈 때 최대로 올라 갈 수 있는 위치
+    public float downTime;          // 중앙 위치로 갈 때의 시간 
+    public GameObject middlePos;    // 쿠키가 최대로 올라간 후 중앙 위치로 가는 위치 
 
 
     [Header("Collision Info")]
@@ -44,7 +51,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
 
-    public BoxCollider2D collider1 { get; private set; } // code by. 대석
+    public BoxCollider2D collider { get; private set; } // code by. 대석
 
     #endregion
 
@@ -62,19 +69,21 @@ public class Player : MonoBehaviour
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
         highState = new PlayerHighState(this, stateMachine, "High");
-        downState = new PlayerDownState(this, stateMachine, "High");
+        downState = new PlayerDownState(this, stateMachine, "Down");
         deathState = new PlayerDeathState(this, stateMachine, "Death");
+        bonusDownState = new PlayerBonusDownState(this, stateMachine, "BonusDown");
+        bonusUpState = new PlayerBonusUpState(this, stateMachine, "BonusUp");
     }
 
 
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<PlayerFX>();
-        collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
+        collider = GetComponent<BoxCollider2D>(); // code by. 대석
 
-        stateMachine.Initialize(idleState);
+        stateMachine.Initialize(idleState); //처음에는 idle상태로      
     }
 
     public void Update()
@@ -95,6 +104,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("적!!!!!!!!!!!!!!!!!!!"); //code by. 준 적 충돌 확인용
             Damage();
         }
     }
@@ -102,7 +112,7 @@ public class Player : MonoBehaviour
     // code by. 하은
     public void Damage()
     {
-        fx.StartCoroutine("FlashFX");
+       // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }
 
     // code by. 대석

@@ -9,7 +9,7 @@ public class PlayerState
 
     protected Rigidbody2D rb;
 
-    protected BoxCollider2D collider; // code by. 대석
+    public BoxCollider2D collider; // code by. 대석
     
     private string animBoolName;
 
@@ -30,7 +30,7 @@ public class PlayerState
     {
         player.anim.SetBool(animBoolName, true);
         rb = player.rb;
-        collider = player.collider1; // code by. 대석
+        collider = player.collider; // code by. 대석
         triggerCalled = false;
     }
 
