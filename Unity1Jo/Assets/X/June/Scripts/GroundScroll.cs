@@ -20,7 +20,7 @@ public class GroundScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(-ScrollSpeed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
     }
 
     private void OnBecameInvisible()
