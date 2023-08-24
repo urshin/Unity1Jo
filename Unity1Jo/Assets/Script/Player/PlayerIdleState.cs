@@ -35,6 +35,9 @@ public class PlayerIdleState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.H))
             player.stateMachine.ChangeState(player.highState);
+
+        if(Input.GetKeyDown(KeyCode.F))
+            player.stateMachine.ChangeState(player.fallingState);  
     }
 
     public override void Exit()
