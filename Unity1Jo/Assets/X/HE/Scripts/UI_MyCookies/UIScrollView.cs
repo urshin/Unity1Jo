@@ -9,19 +9,41 @@ public class UIScrollView : MonoBehaviour
 
     public void Initialize()
     {
-        //i값의 범위를 조절하면 스크롤뷰에 쿠키종류를 무한으로 늘릴 수 있음
-        //Cookie 5개 생성(기본, 바다요정 ...)
-        for (int i = 0; i <50; i++)
+        List<MycookiesData> list = HE_DataManager.instance.GetMycookiesDatas();
+
+        foreach (MycookiesData data in list)
         {
-            AddCookies();
+            if (data.type == 0)
+            {
+                AddCookies(data);
+                //lock
+            }
+            else if (data.type == 1)
+            {
+                AddCookies(data);
+                //unlock
+            }
         }
     }
-    public void AddCookies()
+    public void AddCookies(MycookiesData data)
     {
         //프리팹 인스턴스 생성, contentTrans 자식으로 부착
         var go = Instantiate(itemPrefab, contentTrans);
         UIScrollViewCookiesSelect cookies = go.GetComponent<UIScrollViewCookiesSelect>();
-        cookies.selectBtn.onClick.AddListener(() => { Debug.Log("이 캐릭터 선택"); });
-        cookies.buyBtn.onClick.AddListener(() => { Debug.Log("이 캐릭터 구매"); });
+
+        cookies.Initialize(data);
+
+        cookies.selectBtn.onClick.AddListener(() => {
+            Debug.LogFormat("이 캐릭터(id:{0}) 선택", cookies.id);
+
+            //Event발생
+            EventManager.instance.onSelectBtnClick();
+        });
+        cookies.buyBtn.onClick.AddListener(() => {
+            Debug.LogFormat("이 캐릭터(id:{0}) 구매", cookies.id);
+
+            //Event발생
+            EventManager.instance.onBuyBtnClick(cookies.id);
+        });
     }
 }

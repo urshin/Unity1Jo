@@ -61,8 +61,6 @@ public class Player : MonoBehaviour
 
     public bool isBusy { get; private set; }
 
-
-
     private void Awake()
     {
         stateMachine = new PlayerStateMachine();
@@ -99,11 +97,19 @@ public class Player : MonoBehaviour
 
     }
 
+    public IEnumerator BusyFor(float _second)
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(_second);
+        isBusy = false;
+    }
+
     //code by. 하은
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("적!!!!!!!!!!!!!!!!!!!"); //code by. 준 적 충돌 확인용
             Damage();
         }
     }
@@ -111,7 +117,7 @@ public class Player : MonoBehaviour
     // code by. 하은
     public void Damage()
     {
-        fx.StartCoroutine("FlashFX");
+       // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }
 
     // code by. 대석

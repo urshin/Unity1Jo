@@ -16,8 +16,10 @@ public class PlayerAirState : PlayerState
     public override void Update()
     {
         base.Update();
-        
-        if (player.IsGroundDetected())
+
+        if (Input.GetKey(KeyCode.S) && player.IsGroundDetected()) // 수정
+            player.stateMachine.ChangeState(player.slideState);
+        else if (player.IsGroundDetected())// 수정 동시 작동하면 에러남
         {
             stateMachine.ChangeState(player.idleState);
         }

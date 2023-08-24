@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
-    //code by. 하은
+
     public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -21,7 +21,10 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected()) // 수정
             player.stateMachine.ChangeState(player.jumpState);
 
-        if (Input.GetKey(KeyCode.S) && player.IsGroundDetected()) // 수정
+        if (Input.GetKeyDown(KeyCode.Space) && !player.IsGroundDetected()) // 추가
+            player.stateMachine.ChangeState(player.doubleJumpState);
+
+        if (Input.GetKeyDown(KeyCode.S) && player.IsGroundDetected()) // 수정
             player.stateMachine.ChangeState(player.slideState);
 
         //if (Input.GetKeyDown(KeyCode.D))
