@@ -50,8 +50,6 @@ public class Player : MonoBehaviour
 
     public bool isBusy { get; private set; }
 
-
-
     private void Awake()
     {
         stateMachine = new PlayerStateMachine();
@@ -83,6 +81,13 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
 
+    }
+
+    public IEnumerator BusyFor(float _second)
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(_second);
+        isBusy = false;
     }
 
     //code by. гою╨
