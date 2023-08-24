@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
 
     public PlayerDeathState deathState { get; private set; }
 
+    public PlayerBonusDownState bonusDownState { get; private set; }
+    public PlayerBonusUpState bonusUpState { get; private set; }
+
     #endregion
 
     [Header("player")]
@@ -29,9 +32,14 @@ public class Player : MonoBehaviour
     [SerializeField] float dashSpeed;
     [SerializeField] float originSize;
     [SerializeField] float giganticSize;
-    [SerializeField] public float jumpPower; // code by. 대석
-    
-    
+    public float jumpPower; // code by. 대석
+
+    [Header("Bonus Map Info")]      // code by. 동호
+    public float topTime;           // 최대로 올라갈 떄의 시간  
+    public GameObject topPos;       // 쿠키가 보너스 타임으로 갈 때 최대로 올라 갈 수 있는 위치
+    public float downTime;          // 중앙 위치로 갈 때의 시간 
+    public GameObject middlePos;    // 쿠키가 최대로 올라간 후 중앙 위치로 가는 위치 
+
 
     [Header("Collision Info")]
     [SerializeField] Transform groundCheck;
@@ -63,8 +71,10 @@ public class Player : MonoBehaviour
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
         highState = new PlayerHighState(this, stateMachine, "High");
-        downState = new PlayerDownState(this, stateMachine, "High");
+        downState = new PlayerDownState(this, stateMachine, "Down");
         deathState = new PlayerDeathState(this, stateMachine, "Death");
+        bonusDownState = new PlayerBonusDownState(this, stateMachine, "BonusDown");
+        bonusUpState = new PlayerBonusUpState(this, stateMachine, "BonusUp");
     }
 
 

@@ -30,7 +30,7 @@ public class PlayerState
     {
         player.anim.SetBool(animBoolName, true);
         rb = player.rb;
-        collider = player.collider; // code by. 대석
+        collider = player.collider1; // code by. 대석
         triggerCalled = false;
     }
 
@@ -39,7 +39,6 @@ public class PlayerState
         stateTimer -= Time.deltaTime;//Dash timer 등의 기능
 
         player.anim.SetFloat("yVelocity", rb.velocity.y); //JumpFall애니메이션의 블렌딩값 적용
-
     }
 
     public virtual void Exit()
