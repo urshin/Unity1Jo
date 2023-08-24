@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayUI : MonoBehaviour
+public class PlayUIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameManager mainImage; // 전체 이미지
+    public GameObject panel;
+
+    public Image HpdownEffect;
+    public Image HpGage;
+    public float HpValue;
+    public float MaxHP;
+
+    public GameObject CoinText;
+    public GameObject JellyText;
+    
+    public int totalScore;
+
+    public GameObject inputUI; // 추후 모바일 빌딩하기 전에 할 것
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        HpValue -= Time.deltaTime;
     }
 }
