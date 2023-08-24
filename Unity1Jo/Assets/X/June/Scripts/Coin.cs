@@ -14,4 +14,8 @@ public class Coin : MonoBehaviour
             Destroy(gameObject); //ªË¡¶
         }
     }
+    void Update()
+    {
+        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+    }
 }

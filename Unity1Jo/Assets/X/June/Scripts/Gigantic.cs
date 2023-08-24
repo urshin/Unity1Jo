@@ -27,7 +27,10 @@ public class Gigantic : MonoBehaviour
         Invoke("goingToOrigin", 3); //3초 뒤 원래대로 돌아가는 함수 실행
     }
 
-
+    void Update()
+    {
+        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+    }
 
     void goingToOrigin() //원래대로 돌아가는 함수
     {
