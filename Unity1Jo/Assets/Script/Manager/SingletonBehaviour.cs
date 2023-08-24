@@ -6,7 +6,8 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
 
-    public static T Instance
+    // code by 동호
+    public static T Instance // 프로퍼티 
     {
         get
         {
@@ -21,6 +22,7 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
+    // code by 동호
     protected void Awake()  
     {
         // 이제는 이 조건이 2가지를 시사하게 된다.

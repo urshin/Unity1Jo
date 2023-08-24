@@ -12,17 +12,20 @@ public class Player : MonoBehaviour
     public PlayerSlideState slideState { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerGiganticState giganticState { get; private set;}
-    public PlayerHighState highState { get; private set; }
+    public PlayerHighState highState { get; private set; } // code by.동호
     public PlayerAirState airState { get; private set; }
-    public PlayerDownState downState { get; private set; }
+    public PlayerDownState downState { get; private set; } // code by.동호
     public PlayerHitState hitState { get; private set; }
 
     public PlayerDoubleJumpState doubleJumpState { get; private set; } // code by 대석
 
-    public PlayerDeathState deathState { get; private set; }
+    public PlayerDeathState deathState { get; private set; } // code by.동호
 
-    public PlayerBonusDownState bonusDownState { get; private set; }
-    public PlayerBonusUpState bonusUpState { get; private set; }
+    public PlayerBonusDownState bonusDownState { get; private set; }// code by.동호
+    public PlayerBonusUpState bonusUpState { get; private set; } // code by.동호
+    
+    public PlayerFallingState fallingState { get; private set; } // code by.동호
+
 
     #endregion
 
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
     public GameObject topPos;       // 쿠키가 보너스 타임으로 갈 때 최대로 올라 갈 수 있는 위치
     public float downTime;          // 중앙 위치로 갈 때의 시간 
     public GameObject middlePos;    // 쿠키가 최대로 올라간 후 중앙 위치로 가는 위치 
+    public float bonusJumpPower = 1; // 쿠키가 점프버튼 클릭 시 올라갈 속도 파워 설정    
 
 
     [Header("Collision Info")]
@@ -68,11 +72,12 @@ public class Player : MonoBehaviour
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         giganticState = new PlayerGiganticState(this, stateMachine, "Gigantic");
-        highState = new PlayerHighState(this, stateMachine, "High");
-        downState = new PlayerDownState(this, stateMachine, "Down");
+        highState = new PlayerHighState(this, stateMachine, "High"); // code by.동호
+        downState = new PlayerDownState(this, stateMachine, "Down"); // code by.동호
         deathState = new PlayerDeathState(this, stateMachine, "Death");
-        bonusDownState = new PlayerBonusDownState(this, stateMachine, "BonusDown");
-        bonusUpState = new PlayerBonusUpState(this, stateMachine, "BonusUp");
+        bonusDownState = new PlayerBonusDownState(this, stateMachine, "BonusDown"); // code by.동호
+        bonusUpState = new PlayerBonusUpState(this, stateMachine, "BonusUp"); // code by.동호
+        fallingState = new PlayerFallingState(this, stateMachine, "Falling"); // code by.동호 
     }
 
 
@@ -125,5 +130,10 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
     }
+    // code by. 동호
+    public void SetVelocity(float _xVelocity, float _yVelocity)
+    {
+        rb.velocity = new Vector2(_xVelocity, _yVelocity);  
+    }  
 }
 
