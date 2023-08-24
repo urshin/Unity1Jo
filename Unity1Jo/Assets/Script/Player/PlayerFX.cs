@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerFX : MonoBehaviour
 {
+    //code by. гою╨
     SpriteRenderer sr;
 
     [Header("Flash FX")]
