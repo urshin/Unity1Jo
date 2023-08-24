@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static Item;
 
-public class TestingScript : MonoBehaviour
+public class PlayerBonusTimeCount : MonoBehaviour
 {
     int BonusJelly;
 
