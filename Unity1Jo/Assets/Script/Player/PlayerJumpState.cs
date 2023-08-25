@@ -12,7 +12,7 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
 
-        Vector2 jumpVec = new Vector2(rb.velocity.x, player.jumpPower);
+        Vector2 jumpVec = new Vector2(rb.velocity.x, player.GetJumpPower());
         rb.AddForce(jumpVec, ForceMode2D.Impulse);
     }
 

@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     [SerializeField] float dashSpeed;
     [SerializeField] float originSize;
     [SerializeField] float giganticSize;
-    public float jumpPower; // code by. 대석
+    [SerializeField] float jumpPower; // code by. 대석
 
     [Header("Bonus Map Info")]      // code by. 동호
     public float topTime;           // 최대로 올라갈 떄의 시간  
@@ -135,5 +135,9 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(_xVelocity, _yVelocity);  
     }  
+    public float GetJumpPower()
+    {
+        return jumpPower;
+    }
 }
 
