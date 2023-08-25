@@ -11,23 +11,19 @@ public class PlayerBonusDownState : PlayerState
     // code by 동호
     public override void Enter()
     {
-        base.Enter();
-        rb.gravityScale = 1;
+        base.Enter(); // 부모의 Enter 함수 실행 
+        rb.gravityScale = 1; // 중력을 1으로 반듬 
 
     }
     // code by 동호
     public override void Exit()
     {
-        base.Exit();
-        rb.gravityScale = 0;
-
+        base.Exit(); // 부모의 Exit 함수 실행 
     }
     // code by 동호
     public override void Update()
     {
-        base.Update();
+        base.Update();  // 부모의 Update 함수 실행 
 
-        if (Input.GetKeyDown(KeyCode.Q))
-            player.stateMachine.ChangeState(player.bonusUpState);    
     }
 }
