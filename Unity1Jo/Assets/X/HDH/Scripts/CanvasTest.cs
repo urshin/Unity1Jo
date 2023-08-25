@@ -26,6 +26,7 @@ public class CanvasTest : UI_Base
     // code by 동호
     void OnButtonDown(PointerEventData data) // 보너스 타임에서의 플레이어 점프 버튼 클릭시 
     {
+        Debug.Log("OnButtonDown");    
         _buttonPush = true; // 버튼 푸시 플래스 활성화
         if (player == null )  // 플레이어 컴포넌트 없으면 리턴 
             return;

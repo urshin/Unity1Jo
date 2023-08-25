@@ -10,7 +10,7 @@ public class PlayerBonusTimeCount : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.BonusTimeAlp;
+        var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.BonusTimeAlp;
         Sprite sprite = collision.gameObject.GetComponent<GetItem>().item.itemImage;
         
         switch(WhatAlpa)

@@ -12,7 +12,8 @@ public class PlayerBonusDownState : PlayerState
     public override void Enter()
     {
         base.Enter(); // 부모의 Enter 함수 실행 
-        rb.gravityScale = 1; // 중력을 1으로 반듬 
+        //rb.gravityScale = 0.5f; // 중력을 1으로 반듬 
+        player.SetVelocity(0, -player.bonusJumpPower);
 
     }
     // code by 동호
