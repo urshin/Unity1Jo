@@ -47,7 +47,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     void SpawnPattern()
     {
 
-        if (Time.time > LastSpawnTime + 5.0f)//몬스터 생성 주기
+        if (Time.time > LastSpawnTime + 15/GameManager.Instance.GroundScrollSpeed)//몬스터 생성 주기
         {
             LastSpawnTime = Time.time;
             patternNum = Random.Range(0, 3);  //패턴 랜덤
@@ -65,7 +65,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
             for (int i = 0; i < 3; i++)
             {
                 Instantiate(ShortEnemy, GroundSpawnPos.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.5f/GameManager.Instance.GroundScrollSpeed);
             }
         }
 
@@ -74,7 +74,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
             for (int i = 0; i < 2; i++)
             {
                 Instantiate(LongEnemy, GroundSpawnPos.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.5f / GameManager.Instance.GroundScrollSpeed);
             }
         }
         if (p == 2)
@@ -82,7 +82,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
             for (int i = 0; i < 2; i++)
             {
                 Instantiate(UpEnemy, SlideSpawnPos.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.5f / GameManager.Instance.GroundScrollSpeed);
             }
         }
 

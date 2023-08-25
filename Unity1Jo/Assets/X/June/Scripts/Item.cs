@@ -32,6 +32,7 @@ public enum BonusTimeType  // 아이템 유형
         I,
         M,
         E,
+      
     }
 
     public string itemName; // 아이템의 이름
