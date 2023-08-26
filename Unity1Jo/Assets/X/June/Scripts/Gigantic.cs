@@ -57,5 +57,8 @@ public class Gigantic : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
     }
-
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

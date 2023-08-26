@@ -36,4 +36,8 @@ public class Dash : MonoBehaviour
         GameManager.Instance.GroundScrollSpeed /= 3;
         Destroy(gameObject); //삭제시키기
     }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
