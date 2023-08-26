@@ -12,6 +12,18 @@ public class EnvironmentManager : SingletonBehaviour<EnvironmentManager>
     {
         base.Awake(); // 부모의 awake 호출 
     }
-
-
+    private void Start()
+    {
+        SetActiveBonusTimeEnvironment(false);  
+    }
+    // code by 동호
+    public void SetActiveInGameEnvironment(bool flag)
+    {
+        InGame_EnvironmentObjs.SetActive(flag);
+    }
+    // code by 동호
+    public void SetActiveBonusTimeEnvironment(bool flag)      
+    {
+        BonusTime_EnvironmentObjs.SetActive(flag);  
+    }
 }

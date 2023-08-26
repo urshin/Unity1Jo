@@ -37,9 +37,13 @@ public class PlayerIdleState : PlayerState
             player.stateMachine.ChangeState(player.deathState);
 
         if (Input.GetKeyDown(KeyCode.H))
+        {
             player.stateMachine.ChangeState(player.highState);
+            player.SetActiveShinyEffect(true);
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();        
+        }
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
             player.stateMachine.ChangeState(player.fallingState);  
     }
 

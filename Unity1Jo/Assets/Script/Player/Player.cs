@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public float downTime;          // 중앙 위치로 갈 때의 시간 
     public GameObject middlePos;    // 쿠키가 최대로 올라간 후 중앙 위치로 가는 위치 
     public float bonusJumpPower = 1; // 쿠키가 점프버튼 클릭 시 올라갈 속도 파워 설정    
+    [SerializeField] GameObject shinyEffect;  
 
 
     [Header("Collision Info")]
@@ -87,6 +88,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<PlayerFX>();
         collider = GetComponent<BoxCollider2D>(); // code by. 대석
+        SetActiveShinyEffect(false);  // code by.동호      
+
 
         stateMachine.Initialize(idleState); //처음에는 idle상태로      
     }
@@ -138,6 +141,14 @@ public class Player : MonoBehaviour
     public float GetJumpPower()
     {
         return jumpPower;
+    }
+    public void SetActiveShinyEffect(bool flag)
+    {
+        shinyEffect.SetActive(flag);      
+    }
+    public GameObject GetShinyEffect()
+    {
+        return shinyEffect;
     }
 }
 

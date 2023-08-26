@@ -14,13 +14,18 @@ public class PlayerHighState : PlayerState
     public override void Enter()
     {
         base.Enter(); // 부모의 Enter 함수 실행 
-
+        float time = player.topTime;  
         if (player.topPos != null)
-            player.transform.DOMoveY(player.topPos.transform.position.y, player.topTime).OnComplete(
+            player.transform.DOMoveY(player.topPos.transform.position.y, time).OnComplete(
                 () => {
-                    // 최대 위치까지 이동이 끝났으면 downState로 이동 
+                    // 최대 위치까지 이동이 끝났으면 downState로 이동
+                    EnvironmentManager.Instance.SetActiveInGameEnvironment(false);
+                    EnvironmentManager.Instance.SetActiveBonusTimeEnvironment(true);  
+
                     stateMachine.ChangeState(player.downState);
                 });
+
+
     }
     // code by 동호
     public override void Exit()
