@@ -1,9 +1,3 @@
-//아이템 및 장애물 생성 매니저
-//아이템 및 장애물 생성 매니저
-//아이템 및 장애물 생성 매니저
-//아이템 및 장애물 생성 매니저
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +5,9 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine.Experimental.GlobalIllumination;
-using Random = UnityEngine.Random;//랜덤함수 처리
 
-public class Spawnanager : SingletonBehaviour<Spawnanager>
+public class SpawnSystemTest : MonoBehaviour
 {
-
-    void Awake()
-    {
-        base.Awake();
-    }
-
-
     public Transform[] SpawnPos;
 
 
@@ -110,7 +96,6 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     }
 
 
-
     [System.Serializable]
     public class JsonData //data파일 읽은 정보 넣기
     {
@@ -121,7 +106,5 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         public List<int> ObstacleType; //장애물 타입
         public List<int> Obstacle; //장애물
     }
-
-
 
 }
