@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static Item;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     public PlayerBonusUpState bonusUpState { get; private set; } // code by.동호
     
     public PlayerFallingState fallingState { get; private set; } // code by.동호
+
 
 
     #endregion
@@ -97,7 +99,7 @@ public class Player : MonoBehaviour
     public void Update()
     {
         stateMachine.currentState.Update();
-
+        
     }
 
     public IEnumerator BusyFor(float _second)
@@ -115,6 +117,8 @@ public class Player : MonoBehaviour
             Debug.Log("적!!!!!!!!!!!!!!!!!!!"); //code by. 준 적 충돌 확인용
             Damage();
         }
+       
+
     }
 
     // code by. 하은

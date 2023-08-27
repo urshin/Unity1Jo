@@ -18,6 +18,7 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
 
+
         if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected()) // ¼öÁ¤
             player.stateMachine.ChangeState(player.jumpState);
 
@@ -44,9 +45,17 @@ public class PlayerIdleState : PlayerState
         }
 
         if (Input.GetKeyDown(KeyCode.F))
-            player.stateMachine.ChangeState(player.fallingState);  
-    }
+            player.stateMachine.ChangeState(player.fallingState);
 
+        
+        if(GameManager.Instance.OriginalGroundScrollSpeed < GameManager.Instance.GroundScrollSpeed)
+        {
+            player.stateMachine.ChangeState(player.dashState);
+        }
+
+
+    }
+   
     public override void Exit()
     {
         base.Exit();

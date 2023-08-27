@@ -13,7 +13,7 @@ public class PlayerBonusTimeCount : MonoBehaviour
         if (collision.gameObject.CompareTag("Item")&& collision.gameObject.GetComponent<GetItem>())
         {
 
-            var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.BonusTimeAlp;
+            var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.ItemType;
             Sprite sprite = collision.gameObject.GetComponent<GetItem>().item.itemImage;
 
             switch (WhatAlpa)
