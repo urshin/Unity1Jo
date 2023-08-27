@@ -14,13 +14,13 @@ public class AtlasManager : MonoBehaviour
     {
         AtlasManager.instance = this;
 
-        Debug.LogFormat("arrAtlas.Length: {0}", arrAtlas.Length);
+        //Debug.LogFormat("arrAtlas.Length: {0}", arrAtlas.Length);
 
         for(int i = 0; i < arrAtlas.Length; i++)
         {
             var atlas = arrAtlas[i];
 
-            //현재 atlas파일명을 (이름)Atlas로 해놔서, 파일명에서 Atlas를 제거된 '이름'을 Dictionary의 Key로 사용함
+            //현재 atlas파일명을 (이름)Atlas로 해놔서, 파일명에서 Atlas를 제거된 '이름'을 Key로 사용함
             var atlasName = atlas.name.Replace("Atlas", "");
             dicAtlas.Add(atlasName, atlas);
             

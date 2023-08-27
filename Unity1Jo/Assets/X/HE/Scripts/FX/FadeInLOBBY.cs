@@ -29,5 +29,7 @@ public class FadeInLOBBY : MonoBehaviour
             panel.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+
+        panel.gameObject.SetActive(false);
     }
 }

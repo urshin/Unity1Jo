@@ -326,6 +326,12 @@ MonoBehaviour:
   dashSpeed: 0
   originSize: 0
   giganticSize: 0
+  jumpPower: 0
+  topTime: 0
+  topPos: {fileID: 0}
+  downTime: 0
+  middlePos: {fileID: 0}
+  bonusJumpPower: 1
   groundCheck: {fileID: 0}
   groundCheckDistance: 0
   whatIsGround:
