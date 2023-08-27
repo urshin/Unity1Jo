@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class AtlasManager : MonoBehaviour
+public class AtlasManager : MonoBehaviour //code by. гою╨
 {
     public static AtlasManager instance;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.Linq;
 
-public class HE_DataManager //혹시 DataManager를 쓴 사람이 있을까봐 충돌방지로 HE 달아둠. 나중에 DataManager로 이름 수정예정
+public class HE_DataManager //혹시 DataManager를 쓴 사람이 있을까봐 충돌방지로 HE 달아둠. 나중에 DataManager로 이름 수정예정 //code by. 하은
 {
     public static readonly HE_DataManager instance = new HE_DataManager();
 

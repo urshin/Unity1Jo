@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayBtnAnimation : MonoBehaviour
+public class PlayBtnAnimation : MonoBehaviour //code by. 하은
 {
     public float maxScaleMultiplier = 1.2f;
     public float animationDuration = 1.0f;
@@ -28,6 +28,7 @@ public class PlayBtnAnimation : MonoBehaviour
 
     private IEnumerator ScaleAnimation()
     {
+        //originalScale에서 targetScale로 서서히 확대
         float timer = 0.0f;
         Vector3 targetScale = originalScale * maxScaleMultiplier;
 
@@ -40,8 +41,8 @@ public class PlayBtnAnimation : MonoBehaviour
             yield return null;
         }
 
+        //targetScale에서 originalScale로 서서히 축소
         timer = 0.0f;
-
         while (timer < animationDuration)
         {
             float t = timer / animationDuration;
