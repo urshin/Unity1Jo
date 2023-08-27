@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartTxtBlink : MonoBehaviour
+public class StartTxtBlink : MonoBehaviour //code by. гою╨
 {
     Text text;
     [SerializeField] float fadeTime = 0.5f;

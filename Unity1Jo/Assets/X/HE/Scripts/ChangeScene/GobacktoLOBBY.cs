@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GobacktoLOBBY : MonoBehaviour
+public class GobacktoLOBBY : MonoBehaviour //code by. гою╨
 {
     [SerializeField] GameObject gobackBtn;
 

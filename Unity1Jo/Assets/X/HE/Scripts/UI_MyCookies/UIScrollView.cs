@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIScrollView : MonoBehaviour
+public class UIScrollView : MonoBehaviour //code by. гою╨
 {
     [SerializeField] Transform contentTrans;
     [SerializeField] GameObject cookiePrefab;

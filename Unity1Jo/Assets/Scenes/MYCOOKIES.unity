@@ -709,7 +709,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 26.18
+  m_Spacing: 45
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrAtlas:
-  - {fileID: 100100200, guid: b673f82506e53d74d9391ca050f2dd12, type: 3}
+  - {fileID: 100100200, guid: 4a4903fbe150ce2499dac2a51de4816f, type: 3}
 --- !u!4 &1495308938
 Transform:
   m_ObjectHideFlags: 0
@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 1777018894}
   - component: {fileID: 1777018896}
   - component: {fileID: 1777018895}
+  - component: {fileID: 1777018897}
   m_Layer: 5
   m_Name: CoinBox
   m_TagString: Untagged
@@ -923,6 +924,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777018893}
   m_CullTransparentMesh: 1
+--- !u!114 &1777018897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777018893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668a8d08e7508f344a8c469d8c702279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 281850737}
+  JellyPoint: 0
+  Coin: 0
+  BonusTimeJelly: []
+  GroundScrollSpeed: 0
 --- !u!1 &1876064677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
+  m_ShowMaskGraphic: 0
 --- !u!114 &1961149454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,7 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentTrans: {fileID: 1046528939}
-  cookiePrefab: {fileID: 4850841123281624841, guid: 38c5ee36f16ec9142a37681f4e6b8a14, type: 3}
+  cookiePrefab: {fileID: 4850841123281624841, guid: b6ceb0ddfe8b1874992569f10c5c78e0, type: 3}
 --- !u!1 &2041327129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1270,7 @@ GameObject:
   - component: {fileID: 2041327132}
   - component: {fileID: 2041327131}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: GuideTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

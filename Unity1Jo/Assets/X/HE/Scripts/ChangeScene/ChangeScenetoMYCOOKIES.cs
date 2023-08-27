@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ChangeScenetoMYCOOKIES : MonoBehaviour
+public class ChangeScenetoMYCOOKIES : MonoBehaviour //code by. гою╨
 {
     [SerializeField] GameObject myCookiesBtn;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIScrollViewCookiesSelect : MonoBehaviour
+public class UIScrollViewCookiesSelect : MonoBehaviour //code by. гою╨
 {
     public Text cookieName;
     public Image cookieImg;

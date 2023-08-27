@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ChangeScenetoLOBBY : MonoBehaviour
+public class ChangeScenetoLOBBY : MonoBehaviour //code by. гою╨
 {
     [SerializeField] GameObject startBtn;
 

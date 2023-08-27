@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeInLOBBY : MonoBehaviour
+public class FadeInLOBBY : MonoBehaviour //code by. гою╨
 {
     [SerializeField] float fadeSpeed = 2.0f;
     float alpha = 1;

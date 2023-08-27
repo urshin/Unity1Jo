@@ -315,8 +315,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0008544922, y: -0.0012512207}
-  m_SizeDelta: {x: 493.52, y: 710.83}
+  m_AnchoredPosition: {x: -0.000015258789, y: -6}
+  m_SizeDelta: {x: 517.6769, y: 729.7975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2596023522219028871
 CanvasRenderer:
@@ -346,8 +346,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 81d1b6bb1e6adeb48af71f7742b85035, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -393,7 +393,7 @@ RectTransform:
   - {fileID: 8084276722339606066}
   - {fileID: 56061353503747774}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -455,6 +455,7 @@ MonoBehaviour:
   selectBtn: {fileID: 3723336962227373548}
   buyBtn: {fileID: 6874998606445286520}
   priceTxt: {fileID: 9140633280929531013}
+  id: 0
 --- !u!1 &5993336829842100147
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMyCookies : MonoBehaviour
+public class UIMyCookies : MonoBehaviour //code by. гою╨
 {
     public UIScrollView uiScrollView;
 
