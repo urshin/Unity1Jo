@@ -15,6 +15,7 @@ public class PlayerState
 
     protected float stateTimer;
     protected bool triggerCalled;
+    protected bool isjumping; // code by. 대석
 
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) //생성자
@@ -30,7 +31,7 @@ public class PlayerState
     {
         player.anim.SetBool(animBoolName, true);
         rb = player.rb;
-        collider = player.collider; // code by. 대석
+        collider = player.collider1; // code by. 대석
         triggerCalled = false;
     }
 
@@ -50,4 +51,5 @@ public class PlayerState
     {
         triggerCalled = true;
     }
+    
 }

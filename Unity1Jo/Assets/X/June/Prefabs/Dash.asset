@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab606003aebe1a42a88429a07d24b2e, type: 3}
+  m_Name: Dash
+  m_EditorClassIdentifier: 
+  itemName: Dash
+  BonusTimeAlp: 11
+  itemImage: {fileID: 21300000, guid: 685f8d72af0aa2346b2fe364e94418c8, type: 3}
+  itemPrefab: {fileID: 2040493670243917846, guid: 2f0a9387d6509204e89e813c721a6899, type: 3}

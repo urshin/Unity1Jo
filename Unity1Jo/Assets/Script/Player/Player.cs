@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Progress;
+using static Item;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     public PlayerBonusUpState bonusUpState { get; private set; } // code by.동호
     
     public PlayerFallingState fallingState { get; private set; } // code by.동호
+
 
 
     #endregion
@@ -51,16 +54,21 @@ public class Player : MonoBehaviour
     [SerializeField] float groundCheckDistance;
     [SerializeField] LayerMask whatIsGround;
 
+    public float jellyScore; // code by. 대석 (임시)
+    public float coinScore; // code by. 대석 (임시)
+
     #region Components 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
 
-    public BoxCollider2D collider { get; private set; } // code by. 대석
+    public BoxCollider2D collider1 { get; private set; } // code by. 대석
+    
 
     #endregion
 
     public bool isBusy { get; private set; }
+   
 
     private void Awake()
     {
@@ -87,17 +95,17 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<PlayerFX>();
-        collider = GetComponent<BoxCollider2D>(); // code by. 대석
+        collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
         SetActiveShinyEffect(false);  // code by.동호      
-
-
+        
+        
         stateMachine.Initialize(idleState); //처음에는 idle상태로      
     }
 
     public void Update()
     {
         stateMachine.currentState.Update();
-
+        
     }
 
     public IEnumerator BusyFor(float _second)
@@ -114,6 +122,16 @@ public class Player : MonoBehaviour
         {
             Debug.Log("적!!!!!!!!!!!!!!!!!!!"); //code by. 준 적 충돌 확인용
             Damage();
+        }
+
+        if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
+        {
+            //ItemDataDS itemds = collision.gameObject.GetComponent<ItemDataDS>(); // 임시 Item값
+            if (GameManager.Instance == null) return;
+            jellyScore += GameManager.Instance.JellyPoint; //itemds.value;
+            coinScore += GameManager.Instance.Coin;
+            Destroy(collision.gameObject);
+            
         }
     }
 

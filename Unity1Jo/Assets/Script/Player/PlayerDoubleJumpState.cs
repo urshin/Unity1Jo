@@ -14,7 +14,7 @@ public class PlayerDoubleJumpState : PlayerState
 
             rb.velocity = Vector2.zero;
 
-            rb.AddForce(new Vector2(rb.velocity.x, player.jumpPower), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(rb.velocity.x, player.GetJumpPower()), ForceMode2D.Impulse);
     } 
 
     public override void Update()
