@@ -33,7 +33,7 @@ public class InGameUIManager : MonoBehaviour
    
     private void Awake()
     {
-        player = PlayerManager.Instance.GetPlayer().GetComponent<Player>();  
+        player = PlayerManager.Instance.GetPlayer().GetComponent<Player>();
         pausePanel.SetActive(false);
     }
     private void Start()

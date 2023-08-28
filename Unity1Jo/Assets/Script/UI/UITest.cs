@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UITest : UI_Base
@@ -12,9 +13,12 @@ public class UITest : UI_Base
     [SerializeField] GameObject PausePanel;
     [SerializeField] Button Pause;
     [SerializeField] Button KeepGame;
+    [SerializeField] Button ReStart;
+    [SerializeField] Button GiveUp;
     bool _buttonPush; // button push flag
-   
+    bool isjumping = false; // 점프 유무 플래그
     Player player;
+    InGameUIManager gameUIManager;
 
     public bool bonusTimeFinish = false; // 보너스 시간 끝났을 때 체크 (이거는 UIManager에서 보너스타임이 끝났는 지 알아야 할 플래그 변수 )
     private void Start()
@@ -25,6 +29,8 @@ public class UITest : UI_Base
         Jump.gameObject.AddUIEvent(DoubleJumpUP, type: Define.UIEvent.PointerUp);
         Pause.gameObject.AddUIEvent(PauseGame);
         KeepGame.gameObject.AddUIEvent(PauseCancle);
+        ReStart.gameObject.AddUIEvent(ReStartDown);
+        GiveUp.gameObject.AddUIEvent(GiveUP);
 
         Slide.gameObject.AddUIEvent(SlideButton, type: Define.UIEvent.PointerDown);
         Slide.gameObject.AddUIEvent(SlideButtonUp, type: Define.UIEvent.PointerUp);
@@ -33,6 +39,19 @@ public class UITest : UI_Base
         if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
             return;
         player = playerObj.GetComponent<Player>(); // 플레이어 컴포넌트 가져옴 
+        gameUIManager = GetComponent<InGameUIManager>();
+    }
+
+    void GiveUP(PointerEventData data)
+    {
+        if (gameUIManager != null) return;
+        SceneManager.LoadScene("LOBBY");
+    }
+
+    void ReStartDown(PointerEventData data)
+    {
+        
+        SceneManager.LoadScene("MainScene");
     }
 
     void PauseGame(PointerEventData data)
@@ -52,11 +71,11 @@ public class UITest : UI_Base
     void JumpButton(PointerEventData data)
     {
         _buttonPush = true;
-       
         
         if(player == null) return;
         if (player.IsGroundDetected())
         {
+            isjumping = true;
             player.stateMachine.ChangeState(player.jumpState);
         }
     }
@@ -70,10 +89,13 @@ public class UITest : UI_Base
     void DoubleJump(PointerEventData data)
     {
         _buttonPush = true;
-
+       
         if(player == null) return;
-        if (!player.IsGroundDetected())
+        if (!player.IsGroundDetected() && isjumping)
+        {
+            isjumping = false;
             player.stateMachine.ChangeState(player.doubleJumpState);
+        }
         
     }
 
@@ -85,14 +107,19 @@ public class UITest : UI_Base
     void SlideButton(PointerEventData data)
     {
         _buttonPush = true;
+        
         if(player == null) return;
-        if(player.IsGroundDetected())
+        if (!player.IsGroundDetected())
+            player.stateMachine.ChangeState(player.slideState);
+        else
             player.stateMachine.ChangeState(player.slideState);
     }
 
     void SlideButtonUp(PointerEventData data)
     {
         _buttonPush = false;
+        
+        player.anim.SetBool("Idle", true); 
         player.stateMachine.ChangeState(player.idleState);
     }
 
