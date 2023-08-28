@@ -21,11 +21,10 @@ public class UITest : UI_Base
     {
         //BonusJump.gameObject.AddUIEvent(ButtonClicked, type : Define.UIEvent.PointerDown);  
         Jump.gameObject.AddUIEvent(JumpButton, type: Define.UIEvent.PointerDown); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
-        Jump.gameObject.AddUIEvent(JumpButtonUp, type: Define.UIEvent.PointerUp); // 버튼 업 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
         Jump.gameObject.AddUIEvent(DoubleJump, type: Define.UIEvent.PointerDown);
         Jump.gameObject.AddUIEvent(DoubleJumpUP, type: Define.UIEvent.PointerUp);
-        Pause.gameObject.AddUIEvent(PauseGame, type: Define.UIEvent.PointerDown);
-        KeepGame.gameObject.AddUIEvent(PauseCancle, type: Define.UIEvent.PointerDown);
+        Pause.gameObject.AddUIEvent(PauseGame);
+        KeepGame.gameObject.AddUIEvent(PauseCancle);
 
         Slide.gameObject.AddUIEvent(SlideButton, type: Define.UIEvent.PointerDown);
         Slide.gameObject.AddUIEvent(SlideButtonUp, type: Define.UIEvent.PointerUp);

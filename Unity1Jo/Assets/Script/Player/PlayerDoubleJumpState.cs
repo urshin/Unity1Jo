@@ -25,6 +25,10 @@ public class PlayerDoubleJumpState : PlayerState
         {
             stateMachine.ChangeState(player.airState);
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            stateMachine.ChangeState(player.slideState);
+        }
     }
 
     public override void Exit()

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
 {
-    GameObject cookie; // 쿠키에서 HP 변수 가져오기
     Player player;
 
     public GameObject mainImage; // 전체 이미지
@@ -22,17 +21,11 @@ public class InGameUIManager : MonoBehaviour
     public Image HpGage; // HP 실린더
     float HpValue; // 변화하는 값
     float MaxHpValue; // 고정 값
-    
-
-    float CookieHP = 100; // 변화할 쿠키 HP(player 임시변수) delete 예정
 
     bool HpDown = true;
 
     public Text CoinText;
     public Text JellyText;
-
-    float CoinValue; // 임시변수
-    float JellyValue; // 임시변수
     
     public static int totalScore;
 
@@ -40,23 +33,17 @@ public class InGameUIManager : MonoBehaviour
    
     private void Awake()
     {
-        cookie = GameObject.FindGameObjectWithTag("Player");
-        player = GetComponent<Player>();
-        //pausePanel.SetActive(false);
+        player = PlayerManager.Instance.GetPlayer().GetComponent<Player>();  
+        pausePanel.SetActive(false);
     }
     private void Start()
     {
-        //cookie = GameObject.FindGameObjectWithTag("Player"); 
-        //player = GetComponent<Player>();
-        
-
-        pausePanel.SetActive(false);
 
         if (HpDown)
         {
             //MaxHp와 Hp가 같음
-            MaxHpValue = CookieHP; //player.hp; // 보호수준을 public으로 낮추거나 프로퍼티로 만들어야함
-            HpValue = CookieHP; //player.hp; // 갑자기 player.hp를 불러올 수가 없어졌다.
+            MaxHpValue = player.GetHP(); 
+            HpValue = player.GetHP();
         }
     }
 
@@ -79,9 +66,9 @@ public class InGameUIManager : MonoBehaviour
             }
         }
 
-       // CoinValue = player.coinScore;  왜 참조가 안되지?
-        JellyText.text = string.Format("{0:n0}", JellyValue); // CoinValue, JellyValue 임시 변수들
-        CoinText.text = string.Format("{0:n0}", CoinValue); // 정규표현식 참고
+      
+        JellyText.text = string.Format("{0:n0}", GameManager.Instance.JellyPoint);
+        CoinText.text = string.Format("{0:n0}", GameManager.Instance.Coin); // 정규표현식 참고
         
 
     }

@@ -48,7 +48,7 @@ public class PlayerIdleState : PlayerState
             player.stateMachine.ChangeState(player.fallingState);
 
         
-        if(GameManager.Instance.OriginalGroundScrollSpeed < GameManager.Instance.GroundScrollSpeed)
+        if(player.OriginalGroundScrollSpeed < player.GroundScrollSpeed)
         {
             player.stateMachine.ChangeState(player.dashState);
         }

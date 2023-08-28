@@ -57,7 +57,7 @@ public class PlayerDashState : PlayerState
         if (Input.GetKeyDown(KeyCode.F))
             player.stateMachine.ChangeState(player.fallingState);
 
-        if (GameManager.Instance.OriginalGroundScrollSpeed == GameManager.Instance.GroundScrollSpeed)
+        if (player.OriginalGroundScrollSpeed == player.GroundScrollSpeed)
         {
             player.stateMachine.ChangeState(player.idleState);
         }

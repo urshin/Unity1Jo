@@ -11,16 +11,17 @@ public class GroundScroll : MonoBehaviour
 
     Vector2 startPos;
     float newPos;
-
-    // Start is called before the first frame update
-    void Start()
+    Player p;
+    private void Start()
     {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
+ 
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
     }
 
     private void OnBecameInvisible()

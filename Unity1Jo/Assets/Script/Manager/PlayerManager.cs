@@ -19,4 +19,17 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     {
         return player;
     }
+
+    [SerializeField] Transform OriginPlayerPos;
+
+    public void SetOriginPlayerPosition()
+    {
+        player.transform.position = OriginPlayerPos.position;
+        player.GetComponent<Player>().rb.velocity = Vector2.zero;
+
+        //OriginPlayerPos.position = new Vector3(0,0,0);
+    }
+
+    
+
 }

@@ -68,7 +68,52 @@ public class Player : MonoBehaviour
     #endregion
 
     public bool isBusy { get; private set; }
-   
+
+    /// ///////////////////////////////////////////////////////////////////////////
+
+
+    [Header("대쉬 관련")]
+    [SerializeField] public bool isDashing;
+    [SerializeField] public float DashDuration; //대쉬 남아있는 시간
+    [SerializeField] public float GroundScrollSpeed; //현재 진행중인 스피드
+    [SerializeField] public float OriginalGroundScrollSpeed; //원래 초기값 스피드
+    public float DashTime; //대쉬 지속 시간
+
+
+    [Header("거대화 관련")]
+    [SerializeField] public bool isGigantic;
+    [SerializeField] public float GiganticSize; //얼마나 커질지
+    [SerializeField] public Vector3 OriginalSize; //원래의 크기
+    [SerializeField] public float GiganticDuration; //거대화 남아있는 시간
+    public float GiganticTime; //거대화 지속 시간
+
+
+    private void Start()
+    {
+        OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
+        DashDuration = DashTime; //삭제해도 무방
+
+        OriginalSize = transform.localScale; //원래 플레이어의 사이즈 저장
+        GiganticDuration = GiganticTime; //삭제해도 무방
+
+        anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
+        rb = GetComponent<Rigidbody2D>();
+        fx = GetComponent<PlayerFX>();
+        collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
+        SetActiveShinyEffect(false);  // code by.동호      
+
+
+        stateMachine.Initialize(idleState); //처음에는 idle상태로      
+    }
+    private void FixedUpdate()
+    {
+        DashDuration -= Time.deltaTime; //시간에 따라서 값 감소
+        GiganticDuration -= Time.deltaTime;//시간에 따라서 값 감소
+    }
+
+
+
+    /// ///////////////////////////////////////////////////////////////////////////
 
     private void Awake()
     {
@@ -90,17 +135,17 @@ public class Player : MonoBehaviour
     }
 
 
-    private void Start()
-    {
-        anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
-        rb = GetComponent<Rigidbody2D>();
-        fx = GetComponent<PlayerFX>();
-        collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
-        SetActiveShinyEffect(false);  // code by.동호      
+    //private void Start()
+    //{
+    //    anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
+    //    rb = GetComponent<Rigidbody2D>();
+    //    fx = GetComponent<PlayerFX>();
+    //    collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
+    //    SetActiveShinyEffect(false);  // code by.동호      
         
         
-        stateMachine.Initialize(idleState); //처음에는 idle상태로      
-    }
+    //    stateMachine.Initialize(idleState); //처음에는 idle상태로      
+    //}
 
     public void Update()
     {
@@ -126,7 +171,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
         {
-            //ItemDataDS itemds = collision.gameObject.GetComponent<ItemDataDS>(); // 임시 Item값
+           
             if (GameManager.Instance == null) return;
             jellyScore += GameManager.Instance.JellyPoint; //itemds.value;
             coinScore += GameManager.Instance.Coin;
@@ -167,6 +212,11 @@ public class Player : MonoBehaviour
     public GameObject GetShinyEffect()
     {
         return shinyEffect;
+    }
+    public float GetHP()
+    {
+        return hp;
+
     }
 }
 

@@ -30,11 +30,14 @@ public class PlayerJumpState : PlayerState
             stateMachine.ChangeState(player.idleState);
         }
 
-        if(Input.GetKey(KeyCode.S) && player.IsGroundDetected())
+        if(Input.GetKey(KeyCode.S))
         {
             stateMachine.ChangeState(player.slideState);
         }
-
+        //if (Input.GetKey(KeyCode.S) && player.IsGroundDetected())
+        //{
+        //    stateMachine.ChangeState(player.slideState);
+        //}
     }
 
     public override void Exit()

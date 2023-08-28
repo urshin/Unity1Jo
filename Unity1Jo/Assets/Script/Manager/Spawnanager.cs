@@ -22,11 +22,18 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     }
 
 
-    public Transform[] SpawnPos;
+    public Transform[] SpawnPos; //스폰 포지션 //yPos
 
 
-    public GameObject[] whatjelly;
-    public GameObject[] whatobstacle;
+    public GameObject[] whatjelly; //젤리 타입
+    public GameObject[] whatobstacle; //장애물 타입
+
+    Player p;
+    private void Start()
+    {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        patternNum = 0; //indexnumber
+    }
 
 
     [SerializeField] int patternNum; //패턴 번호
@@ -43,13 +50,13 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     public string map3 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map4 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
 
-    public void Start()
-    {
-        patternNum = 0;
+    //public void Start()
+    //{
+    //    patternNum = 0; //indexnumber
 
 
 
-    }
+    //}
     void FixedUpdate()
     {
         //나중에 특정 값으로 map구분 하게 만듦
@@ -66,7 +73,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
 
             // 출력
 
-            if (Time.time > LastSpawnTime + 3 / GameManager.Instance.GroundScrollSpeed && patternNum < jsonData.index.Count)//몬스터 생성 주기
+            if (Time.time > LastSpawnTime + 3 / p.GroundScrollSpeed && patternNum < jsonData.index.Count)//몬스터 생성 주기
             {
                 LastSpawnTime = Time.time;
                 //Debug.Log(jsonData.index.Count); //count체크용
@@ -95,7 +102,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         for (int i = 0; i < jellyAmount; i++)
         {
             Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos]);
-            yield return new WaitForSeconds(0.7f / GameManager.Instance.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
+            yield return new WaitForSeconds(0.7f / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
         }
         //몬스터 생성. json파일 내의 값이 0일경우 생성 x
         if (obstacleType >= 1)
@@ -103,7 +110,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
             for (int i = 0; i < obstacle; i++)
             {
                 Instantiate(whatobstacle[obstacleType], SpawnPos[0]);
-                yield return new WaitForSeconds(0.7f / GameManager.Instance.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
+                yield return new WaitForSeconds(0.7f / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
 
             }
         }

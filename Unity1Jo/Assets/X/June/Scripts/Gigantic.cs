@@ -9,20 +9,26 @@ public class Gigantic : MonoBehaviour
 
     private bool isTriggerEneter;
 
-
+    Player p;
     private void Start()
     {
-        Size = GameManager.Instance.GiganticSize; //게임메니저에서 설정 가능하게 함
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Size = p.GiganticSize; //게임메니저에서 설정 가능하게 함
     }
+
+    //private void Start()
+    //{
+    //    Size = p.GiganticSize; //게임메니저에서 설정 가능하게 함
+    //}
     private void OnTriggerEnter2D(Collider2D collision) //플레이어와 닿았을 때
     {
         if (collision.gameObject.CompareTag("Player")) //플레이어의 태그가 있을 때
         {
             player = GameObject.FindGameObjectWithTag("Player"); //게임오브젝트에 닿은 상대 게임오브젝트 대입
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //플레이어의 이미지 끄기
-            GameManager.Instance.GiganticDuration = GameManager.Instance.GiganticTime; //아이템 지속 시간 초기화
+            p.GiganticDuration = p.GiganticTime; //아이템 지속 시간 초기화
 
-            if (!GameManager.Instance.isGigantic) //거대화 상태가 아닐 때
+            if (!p.isGigantic) //거대화 상태가 아닐 때
             {
                 player.transform.position += new Vector3(0, Size / 10, 0);// 포지션 값 움직이기
                 for (int i = 0; i < Size; i++) //정한 사이즈 만큼 커짐
@@ -31,7 +37,7 @@ public class Gigantic : MonoBehaviour
                 }
 
             }
-            GameManager.Instance.isGigantic = true;
+            p.isGigantic = true;
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 거대화 문구 값 설정
 
             isTriggerEneter = true; 
@@ -41,7 +47,7 @@ public class Gigantic : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
 
 
 
@@ -51,10 +57,10 @@ public class Gigantic : MonoBehaviour
             StartCoroutine(ShowText());
 
         }
-        if (GameManager.Instance.GiganticDuration <= 0) //거대화 지속시간이 끝난다면
+        if (p.GiganticDuration <= 0) //거대화 지속시간이 끝난다면
         {
-            GameManager.Instance.isGigantic = false;
-            if (GameObject.FindGameObjectWithTag("Player").transform.localScale != GameManager.Instance.OriginalSize) //원래의 크기와 현재 크기가 일치 하지 않는다면
+            p.isGigantic = false;
+            if (GameObject.FindGameObjectWithTag("Player").transform.localScale != p.OriginalSize) //원래의 크기와 현재 크기가 일치 하지 않는다면
             {
                 StartCoroutine(SizeDown());
 

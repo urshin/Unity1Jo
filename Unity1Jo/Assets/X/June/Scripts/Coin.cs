@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+
+    Player p;
+    private void Start()
+    {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
+
+
     [SerializeField] private float CoinPoint;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +25,7 @@ public class Coin : MonoBehaviour
     }
     void Update()
     {
-        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
     }
     private void OnBecameInvisible()
     {

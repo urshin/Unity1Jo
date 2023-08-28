@@ -11,21 +11,26 @@ public class Dash : MonoBehaviour
 
     private bool isTriggerEneter;
 
-    
-    
+
+
+    Player p;
+    private void Start()
+    {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) //trigger로 닿았을 때
     {
         if (collision.gameObject.CompareTag("Player")) //플레이어라면
         {
-            GameManager.Instance.DashDuration = GameManager.Instance.DashTime;//대쉬 지속시간 초기화
+            p.DashDuration = p.DashTime;//대쉬 지속시간 초기화
 
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
 
-            GameManager.Instance.isDashing = true;
-            if (GameManager.Instance.DashDuration > 0) //대쉬 지속시간이 남아있다면.
+            p.isDashing = true;
+            if (p.DashDuration > 0) //대쉬 지속시간이 남아있다면.
             {
-                GameManager.Instance.GroundScrollSpeed = GameManager.Instance.OriginalGroundScrollSpeed * 3; //원래 속도에서 3배 빠르게한 값을 넣어줌
+                p.GroundScrollSpeed = p.OriginalGroundScrollSpeed * 3; //원래 속도에서 3배 빠르게한 값을 넣어줌
 
             }
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0); //자식객체로 있는 문구 설정
@@ -40,17 +45,17 @@ public class Dash : MonoBehaviour
     {
         
 
-        transform.position += new Vector3(-GameManager.Instance.GroundScrollSpeed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
         if (isTriggerEneter)  //문구 보여주기
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
             StartCoroutine(ShowText());
 
         }
-        if (GameManager.Instance.DashDuration <= 0)
+        if (p.DashDuration <= 0)
         {
-            GameManager.Instance.GroundScrollSpeed = GameManager.Instance.OriginalGroundScrollSpeed;
-            GameManager.Instance.isDashing = false;
+            p.GroundScrollSpeed = p.OriginalGroundScrollSpeed;
+            p.isDashing = false;
         }
 
 

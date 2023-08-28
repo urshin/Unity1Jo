@@ -363,6 +363,7 @@ MonoBehaviour:
   Coin: 0
   BonusTimeJelly: []
   GroundScrollSpeed: 3
+  OriginalGroundScrollSpeed: 0
 --- !u!4 &1640905704
 Transform:
   m_ObjectHideFlags: 0
@@ -593,6 +594,10 @@ PrefabInstance:
     - target: {fileID: 4968974241442308642, guid: 33a25c92eb80510418570ee50b8bfec0, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947159760044698533, guid: 33a25c92eb80510418570ee50b8bfec0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
