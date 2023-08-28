@@ -41,7 +41,7 @@ public class Gigantic : MonoBehaviour
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 거대화 문구 값 설정
 
             isTriggerEneter = true; 
-            Invoke("DestroySelf", 5); //5초 뒤 본인 삭제
+            Invoke("DestroySelf", 6); //5초 뒤 본인 삭제
         }
     }
 
@@ -60,7 +60,7 @@ public class Gigantic : MonoBehaviour
         if (p.GiganticDuration <= 0) //거대화 지속시간이 끝난다면
         {
             p.isGigantic = false;
-            if (GameObject.FindGameObjectWithTag("Player").transform.localScale != p.OriginalSize) //원래의 크기와 현재 크기가 일치 하지 않는다면
+            if (GameObject.FindGameObjectWithTag("Player").transform.localScale.y >= p.OriginalSize.y) //원래의 크기와 현재 크기가 일치 하지 않는다면
             {
                 StartCoroutine(SizeDown());
 
