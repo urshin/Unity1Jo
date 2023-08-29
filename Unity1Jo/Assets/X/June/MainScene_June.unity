@@ -320,6 +320,7 @@ MonoBehaviour:
   map2: Assets/Resources/Map1.json
   map3: Assets/Resources/Map1.json
   map4: Assets/Resources/Map1.json
+  CurrentMap: 
 --- !u!1 &246682167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2499519915091106113, guid: 8793b7a5f10866c428957ffffadfacbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.96
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 2499519915091106113, guid: 8793b7a5f10866c428957ffffadfacbc, type: 3}
       propertyPath: m_LocalPosition.z

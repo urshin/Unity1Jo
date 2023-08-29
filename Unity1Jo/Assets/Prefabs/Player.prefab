@@ -488,7 +488,7 @@ MonoBehaviour:
   hp: 100
   originSpeed: 0
   dashSpeed: 0
-  originSize: 0
+  originSize: {fileID: 0}
   giganticSize: 0
   jumpPower: 11
   topTime: 0.8
@@ -504,6 +504,20 @@ MonoBehaviour:
     m_Bits: 64
   jellyScore: 0
   coinScore: 0
+  isDashing: 0
+  DashDuration: 0
+  GroundScrollSpeed: 3
+  OriginalGroundScrollSpeed: 0
+  DashTime: 3
+  isGigantic: 0
+  GiganticSize: 20
+  OriginalSize: {x: 0, y: 0, z: 0}
+  GiganticDuration: 0
+  GiganticTime: 3
+  isMagnet: 0
+  MagnetDuration: 0
+  MagnetTime: 0
+  MagnetSpeed: 0
 --- !u!114 &3838423952106224188
 MonoBehaviour:
   m_ObjectHideFlags: 0

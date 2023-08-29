@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -52,6 +53,7 @@ public class UITest : UI_Base
     {
         
         SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1;
     }
 
     void PauseGame(PointerEventData data)
@@ -73,6 +75,7 @@ public class UITest : UI_Base
         _buttonPush = true;
         
         if(player == null) return;
+
         if (player.IsGroundDetected())
         {
             isjumping = true;

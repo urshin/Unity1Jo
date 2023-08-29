@@ -11,14 +11,16 @@ using UnityEngine;
 public class PlayerManager : SingletonBehaviour<PlayerManager>
 {
     [SerializeField] private GameObject player;
+    Player p;
+
     void Awake()
     {
         base.Awake();
     }
-    Player p;
+
     private void Start()
     {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        p = player.GetComponent<Player>();
         
     }
     public GameObject GetPlayer()

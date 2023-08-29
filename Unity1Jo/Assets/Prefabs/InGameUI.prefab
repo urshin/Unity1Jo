@@ -271,7 +271,7 @@ RectTransform:
   - {fileID: 5565084282569382450}
   - {fileID: 5693290036742702398}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -363,6 +363,7 @@ MonoBehaviour:
   HpGage: {fileID: 1722806834155399993}
   CoinText: {fileID: 5063456300334974836}
   JellyText: {fileID: 7989306078509875880}
+  Bonus: {fileID: 4859881190704214092}
 --- !u!114 &2949921125137308786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +381,8 @@ MonoBehaviour:
   PausePanel: {fileID: 3659795894765504511}
   Pause: {fileID: 7854432378857460786}
   KeepGame: {fileID: 4029701113190846825}
+  ReStart: {fileID: 3879336355240733403}
+  GiveUp: {fileID: 6341374370802133733}
   bonusTimeFinish: 0
 --- !u!1 &1249681397829988898
 GameObject:
