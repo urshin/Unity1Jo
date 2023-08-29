@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
     public bool isBusy { get; private set; }
 
-    /// ///////////////////////////////////////////////////////////////////////////
+    /// /////////////////////////////////////////////////////////////////////////// code by. 
 
 
     [Header("대쉬 관련")]
@@ -86,6 +86,12 @@ public class Player : MonoBehaviour
     [SerializeField] public Vector3 OriginalSize; //원래의 크기
     [SerializeField] public float GiganticDuration; //거대화 남아있는 시간
     public float GiganticTime; //거대화 지속 시간
+
+    [Header("자석 관련")]
+    [SerializeField] public bool isMagnet;
+    [SerializeField] public float MagnetDuration; //대쉬 남아있는 시간
+    public float MagnetTime; //거대화 지속 시간
+    public float MagnetSpeed; //거대화 지속 시간
 
 
     private void Start()
@@ -109,6 +115,8 @@ public class Player : MonoBehaviour
     {
         DashDuration -= Time.deltaTime; //시간에 따라서 값 감소
         GiganticDuration -= Time.deltaTime;//시간에 따라서 값 감소
+        MagnetDuration -= Time.deltaTime; ; //시간에 따라서 값 감소
+
     }
 
 

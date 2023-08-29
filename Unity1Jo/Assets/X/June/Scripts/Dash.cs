@@ -43,9 +43,14 @@ public class Dash : MonoBehaviour
     }
     void Update()
     {
-        
 
-        transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
+
+        if (p.isMagnet)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, p.gameObject.transform.position - new Vector3(0, 2, 0), p.MagnetSpeed);
+        }
+        else
+            transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
         if (isTriggerEneter)  //문구 보여주기
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);

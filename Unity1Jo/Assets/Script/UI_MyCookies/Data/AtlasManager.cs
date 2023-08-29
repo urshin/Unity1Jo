@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class AtlasManager : MonoBehaviour //code by. 하은
+public class AtlasManager : SingletonBehaviour<AtlasManager> //code by. 하은
 {
-    public static AtlasManager instance;
+    //public static AtlasManager instance;
 
     public SpriteAtlas[] arrAtlas; //혹시 장애물도 SpriteAtlas로 쓸 수 있으니 배열로 해놨음
     public Dictionary<string, SpriteAtlas> dicAtlas = new Dictionary<string, SpriteAtlas>();
 
     private void Awake()
     {
-        AtlasManager.instance = this;
+        base.Awake();
+        //AtlasManager.instance = this;
 
         //Debug.LogFormat("arrAtlas.Length: {0}", arrAtlas.Length);
 

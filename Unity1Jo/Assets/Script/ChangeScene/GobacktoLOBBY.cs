@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GobacktoLOBBY : MonoBehaviour //code by. гою╨
 {
     [SerializeField] GameObject gobackBtn;
+    [SerializeField] 
 
     public void Awake()
     {

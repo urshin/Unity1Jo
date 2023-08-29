@@ -29,6 +29,8 @@ public class InGameUIManager : MonoBehaviour
     
     public static int totalScore;
 
+    [SerializeField] GameObject Bonus;  
+
     //public GameObject inputUI; // 추후 모바일 빌딩하기 전에 할 것
    
     private void Awake()

@@ -21,8 +21,6 @@ public class GameManager : SingletonBehaviour<GameManager>
     //bonusTime젤리는 어찌 처리할지 고민이라 일단 게임 오브젝트로 만들어 두었습니다.
     [SerializeField] public GameObject[] BonusTimeJelly; //보너스타임젤리 가져오기
 
-
-
     //[Header("대쉬 관련")]
     //[SerializeField] public bool isDashing;
     //[SerializeField] public float DashDuration; //대쉬 남아있는 시간
