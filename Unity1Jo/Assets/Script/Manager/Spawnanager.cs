@@ -109,7 +109,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         {
             for (int i = 0; i < obstacle; i++)
             {
-                Instantiate(whatobstacle[obstacleType], SpawnPos[0]);
+                Instantiate(whatobstacle[obstacleType-1], SpawnPos[0]);
                 yield return new WaitForSeconds(0.7f / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
 
             }
