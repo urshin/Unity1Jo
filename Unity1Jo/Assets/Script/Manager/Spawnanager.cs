@@ -51,21 +51,36 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         patternNum = 0; //indexnumber
-        if (p.mapcount == 0)
-            CurrentMap = map1; //게임 시작 시 현재 맵 == map1
-        else if (p.mapcount == 1)
-            CurrentMap = map2;
-        else if (p.mapcount == 2)
-            CurrentMap = map3;
-        else if (p.mapcount == 3)
-            CurrentMap = map4;
+
     }
 
 
     void FixedUpdate()
     {
         //나중에 특정 값으로 map구분 하게 만듦
-
+        if (p.mapcount == 0)
+        {
+            CurrentMap = map1; //게임 시작 시 현재 맵 == map1
+            
+        }
+        else if (p.mapcount == 1 && p.isMapChange)
+        {
+            CurrentMap = map2;
+            patternNum = 0;
+            p.isMapChange = false;
+        }
+        else if (p.mapcount == 2 && p.isMapChange)
+        {
+            CurrentMap = map3;
+            patternNum = 0;
+            p.isMapChange = false;
+        }
+        else if (p.mapcount == 3 && p.isMapChange)
+        {
+            CurrentMap = map4;
+            patternNum = 0;
+            p.isMapChange = false;
+        }
         string jsonFilePath = CurrentMap; //리소스 파일 안에 있는 data읽기
 
 
@@ -104,16 +119,16 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     }
     IEnumerator spawn() //생성 코루틴
     {
-      
-        
-            //젤리 생성
-            for (int i = 0; i < jellyAmount; i++)
-            {
-                Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos]);
-                // yield return new WaitForSeconds(1 / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
-            }
 
-       
+
+        //젤리 생성
+        for (int i = 0; i < jellyAmount; i++)
+        {
+            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos]);
+            // yield return new WaitForSeconds(1 / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
+        }
+
+
 
         //몬스터 생성. json파일 내의 값이 0일경우 생성 x
         if (obstacleType >= 1)

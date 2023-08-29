@@ -95,10 +95,11 @@ public class Player : MonoBehaviour
 
     [Header("MAP")]
     public int mapcount;
-
+    public bool isMapChange;
     private void Start()
     {
         mapcount = 0;
+        isMapChange = false;
         OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
         DashDuration = DashTime; //삭제해도 무방
 
@@ -188,6 +189,11 @@ public class Player : MonoBehaviour
             coinScore += GameManager.Instance.Coin;
             //Destroy(collision.gameObject);
             
+        }
+        if(collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>().item.itemName == "HealBig")
+        {
+            mapcount++;
+            isMapChange = true;
         }
     }
 
