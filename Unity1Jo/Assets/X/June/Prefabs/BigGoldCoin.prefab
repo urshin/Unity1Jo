@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3800584417636273626}
   - component: {fileID: 1487642917394723256}
   - component: {fileID: 3859979838115671591}
+  - component: {fileID: -7900956746541751505}
   m_Layer: 0
   m_Name: BigGoldCoin
   m_TagString: Untagged
@@ -156,3 +157,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.295
+--- !u!114 &-7900956746541751505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811669600672549306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a79071c3522dd40b56dc5498157061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: d3b34989ce729b6429793b6fdeaa7edf, type: 2}

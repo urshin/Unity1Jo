@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6755377663930514151}
   - component: {fileID: 4410725128947157075}
   - component: {fileID: 3006201330350762457}
+  - component: {fileID: 4765898393337179960}
   m_Layer: 0
   m_Name: BasicJelly
   m_TagString: Untagged
@@ -134,3 +135,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.22499998
+--- !u!114 &4765898393337179960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224232679521921525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a79071c3522dd40b56dc5498157061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: b424794c3ee13494499ffb9a02021b0e, type: 2}

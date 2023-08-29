@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4421299629110302261}
   - component: {fileID: 813115737991330671}
   - component: {fileID: 2218072599233650826}
+  - component: {fileID: -4335436306803512463}
   m_Layer: 0
   m_Name: SmallHeal
   m_TagString: Item
@@ -156,3 +157,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HowMuchHeal: 10
+--- !u!114 &-4335436306803512463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605087707642266256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a79071c3522dd40b56dc5498157061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 4eb4c502d48f244498cae7b9d1bfa6a3, type: 2}

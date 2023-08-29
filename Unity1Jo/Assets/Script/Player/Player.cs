@@ -93,9 +93,12 @@ public class Player : MonoBehaviour
     public float MagnetTime; //거대화 지속 시간
     public float MagnetSpeed; //거대화 지속 시간
 
+    [Header("MAP")]
+    public int mapcount;
 
     private void Start()
     {
+        mapcount = 0;
         OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
         DashDuration = DashTime; //삭제해도 무방
 

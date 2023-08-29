@@ -14,7 +14,7 @@ public class PlayerSlideState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        PlayerManager.Instance.SetOriginPlayerPosition();
+        PlayerManager.Instance.SetOriginPlayerPositi2on();
         
 
         collider.size = new Vector2(collider.size.x * 1.15f, collider.size.y / 2.16f);

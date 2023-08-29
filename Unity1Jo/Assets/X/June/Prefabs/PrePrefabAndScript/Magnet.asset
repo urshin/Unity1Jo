@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ab606003aebe1a42a88429a07d24b2e, type: 3}
-  m_Name: N
+  m_Name: Magnet
   m_EditorClassIdentifier: 
-  itemName: N
-  ItemType: 2
-  itemImage: {fileID: 21300000, guid: bd06a28d8d3e00d458bde28f191669e8, type: 3}
-  itemPrefab: {fileID: 8117811080864785608, guid: 812b8835dca017c48a0b18a29552ae1e, type: 3}
+  itemName: Magnet
+  ItemType: 13
+  itemImage: {fileID: 21300000, guid: 47db4f3af4f9fcd4a91286736133c083, type: 3}
+  itemPrefab: {fileID: 3449217268410964595, guid: 8793b7a5f10866c428957ffffadfacbc, type: 3}

@@ -31,12 +31,7 @@ public class Magnet : MonoBehaviour
     }
     void Update()
     {
-        if (p.isMagnet)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, p.gameObject.transform.position - new Vector3(0, 2, 0), p.MagnetSpeed); 
-        }
-        else
-            transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
+       
         if (p.MagnetDuration < 0)
         {
             p.isMagnet = false;

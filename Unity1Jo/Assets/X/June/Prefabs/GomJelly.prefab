@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4283958409646932895}
   - component: {fileID: 5503505884853870637}
   - component: {fileID: 5021514472714587565}
+  - component: {fileID: 7323031552640886330}
   m_Layer: 0
   m_Name: GomJelly
   m_TagString: Untagged
@@ -156,3 +157,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.72
+--- !u!114 &7323031552640886330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343904508088213656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a79071c3522dd40b56dc5498157061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: bf7fee2a1d557784b9ec2fb2c7714268, type: 2}

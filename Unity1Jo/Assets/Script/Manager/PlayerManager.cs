@@ -30,7 +30,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
 
     [SerializeField] Transform OriginPlayerPos;
 
-    public void SetOriginPlayerPosition()
+    public void SetOriginPlayerPositi2on()
     {
         if (player.transform.localScale.y > p.OriginalSize.y)
         {

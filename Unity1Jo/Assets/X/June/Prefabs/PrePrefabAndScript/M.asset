@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: M
   m_EditorClassIdentifier: 
   itemName: M
-  BonusTimeAlp: 7
+  ItemType: 7
   itemImage: {fileID: 21300000, guid: 6e6b538c92a0072429db4595972a1ade, type: 3}
   itemPrefab: {fileID: 1183210740257004181, guid: 0b6a12224f7da484da4edb0b80a5ff5f, type: 3}

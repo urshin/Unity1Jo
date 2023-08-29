@@ -391,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7635871222859886402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.16, z: 0}
+  m_LocalPosition: {x: -5.5, y: 3.25, z: 0}
   m_LocalScale: {x: 1.27522, y: 1.27522, z: 1.27522}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -518,6 +518,7 @@ MonoBehaviour:
   MagnetDuration: 0
   MagnetTime: 0
   MagnetSpeed: 0
+  mapcount: 0
 --- !u!114 &3838423952106224188
 MonoBehaviour:
   m_ObjectHideFlags: 0
