@@ -815,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1495308937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,11 +936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668a8d08e7508f344a8c469d8c702279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 281850737}
   JellyPoint: 0
   Coin: 0
   BonusTimeJelly: []
-  GroundScrollSpeed: 0
 --- !u!1 &1876064677
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiMyCookies: {fileID: 1907528568}
+  myCookiesContent: {fileID: 1046528938}
 --- !u!4 &1876064679
 Transform:
   m_ObjectHideFlags: 0
