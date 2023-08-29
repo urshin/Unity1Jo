@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     [SerializeField] float hp;
     [SerializeField] float originSpeed;
     [SerializeField] float dashSpeed;
-    [SerializeField] float originSize;
+    [SerializeField] Transform originSize;
     [SerializeField] float giganticSize;
     [SerializeField] public float jumpPower; // code by. ´ë¼®
 
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
             if (GameManager.Instance == null) return;
             jellyScore += GameManager.Instance.JellyPoint; //itemds.value;
             coinScore += GameManager.Instance.Coin;
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             
         }
     }
@@ -217,6 +217,12 @@ public class Player : MonoBehaviour
     {
         return hp;
 
+    }
+    public float HealHP(float howmuchheal)
+    {
+        hp += howmuchheal;
+        return hp;
+        
     }
 }
 
