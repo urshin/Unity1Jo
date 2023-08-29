@@ -29,11 +29,6 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     public GameObject[] whatobstacle; //장애물 타입
 
     Player p;
-    private void Start()
-    {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        patternNum = 0; //indexnumber
-    }
 
 
     [SerializeField] int patternNum; //패턴 번호
@@ -49,18 +44,19 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     public string map2 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map3 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map4 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
+    public string CurrentMap;
+    private void Start()
+    {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        patternNum = 0; //indexnumber
+        CurrentMap = map1; //게임 시작 시 현재 맵 == map1
+    }
 
-    //public void Start()
-    //{
-    //    patternNum = 0; //indexnumber
-
-
-
-    //}
+    
     void FixedUpdate()
     {
         //나중에 특정 값으로 map구분 하게 만듦
-        string jsonFilePath = map1; //리소스 파일 안에 있는 data읽기
+        string jsonFilePath = CurrentMap; //리소스 파일 안에 있는 data읽기
 
 
 
