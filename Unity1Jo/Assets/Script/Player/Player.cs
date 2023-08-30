@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 //using static UnityEditor.Progress;
 using static Item;
 
@@ -97,8 +98,21 @@ public class Player : MonoBehaviour
     [Header("MAP")]
     public int mapcount;
     public bool isMapChange;
+
+    [Header("보너스 타임 관련")]
+    public float BonusTimeDuration;
+    public bool isBonusTime;
+    public int BonusJellyCount;
+    public Image BonusTimeGage; //보너스타임 게이지
+    public Image BonusTimeGage_Prefab;
+    public float gValue = 0; //게이지 값
+        
+
     private void Start()
     {
+        BonusTimeGage = GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(9).GetComponent<Image>();
+        gValue = 0;
+        BonusJellyCount = 0;
         mapcount = 0;
         isMapChange = false;
         OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
@@ -121,6 +135,15 @@ public class Player : MonoBehaviour
         DashDuration -= Time.deltaTime; //시간에 따라서 값 감소
         GiganticDuration -= Time.deltaTime;//시간에 따라서 값 감소
         MagnetDuration -= Time.deltaTime; ; //시간에 따라서 값 감소
+        
+        //보너스 타임 UI스크롤
+        gValue -= Time.deltaTime/ BonusTimeDuration;
+        if (gValue <= 0)
+        {
+            //gValue = 0;
+            isBonusTime = false;
+        }
+        BonusTimeGage.fillAmount = gValue;
 
     }
 

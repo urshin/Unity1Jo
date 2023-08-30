@@ -10,11 +10,16 @@ public class ChangScenetoMainGame : MonoBehaviour
 
     public void Awake()
     {
-        playBtn.GetComponent<Button>().onClick.AddListener(GotoLobby);
+        playBtn.GetComponent<Button>().onClick.AddListener(GotoMainScene);
     }
 
-    public void GotoLobby()
+    public void GotoMainScene()
     {
         SceneManager.LoadScene("MainScene");
+
+        if(FindObjectOfType<Spawnanager>() != null)
+            Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = true;          
+
+
     }
 }

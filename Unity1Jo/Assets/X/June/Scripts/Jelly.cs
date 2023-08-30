@@ -17,7 +17,7 @@ public class Jelly : MonoBehaviour
     Player p;
     private void Start()
     {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        p = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player>();
     }
 
     void Update()
