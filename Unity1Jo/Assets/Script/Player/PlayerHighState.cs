@@ -1,10 +1,15 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class PlayerHighState : PlayerState
 {
+   
+
     public PlayerHighState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
 
@@ -24,7 +29,7 @@ public class PlayerHighState : PlayerState
 
                     stateMachine.ChangeState(player.downState);
                 });
-
+       
 
     }
     // code by 동호
@@ -36,5 +41,6 @@ public class PlayerHighState : PlayerState
     public override void Update()
     {
         base.Update(); // 부모의 Update 함수 실행 
+        
     }
 }

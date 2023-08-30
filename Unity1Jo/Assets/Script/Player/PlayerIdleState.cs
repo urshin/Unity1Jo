@@ -37,6 +37,12 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.D))
             player.stateMachine.ChangeState(player.deathState);
 
+        if(player.isBonusTime)
+        {
+            
+            player.stateMachine.ChangeState(player.highState);
+        }
+
         if (Input.GetKeyDown(KeyCode.H))
         {
             player.stateMachine.ChangeState(player.highState);
