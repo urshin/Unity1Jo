@@ -6261,6 +6261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LobbyCookieImg: {fileID: 1211561504}
+  coinTxt: {fileID: 1697323645}
 --- !u!4 &1724467379
 Transform:
   m_ObjectHideFlags: 0

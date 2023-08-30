@@ -28,8 +28,6 @@ public class UIScrollView : MonoBehaviour //code by. 하은
 
         cookies.Initialize(data);
         // 장금처리 
-        
-
 
         //각 버튼을 누르면 해당 cookies의 id를 EventManager에게 전달
         cookies.selectBtn.onClick.AddListener(() => {

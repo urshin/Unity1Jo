@@ -9,5 +9,4 @@ public class MycookiesData  //code by. гою╨
     public string name;
     public string sprite_name;
     public int price;
-    public int type;
 }

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class LOBBY_Main : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer LobbyCookieImg;    
+    [SerializeField] SpriteRenderer LobbyCookieImg;
+    [SerializeField] Text coinTxt;
     void Start()
     {
         //데이터 로드
@@ -14,19 +15,19 @@ public class LOBBY_Main : MonoBehaviour
         string cookieName = string.Empty;
         if(data != null)
         {
-            var atlas = AtlasManager.Instance.GetAtlasByName("MyCookies"); //만약 장애물 sprite도 atlas로 해서 key가 많아지면 enum으로 정리  
+            var atlas = AtlasManager.Instance.GetAtlasByName("MyCookies");
             cookieName = data.sprite_name;
             if (!string.IsNullOrEmpty(cookieName))
             {
+                //MYCOOKIES에서 선택한 쿠키의 spirte를 LOBBY에 출력
                 LobbyCookieImg.sprite = atlas.GetSprite(cookieName);
                 LobbyCookieImg.gameObject.transform.localScale = new Vector2(1.2f, 1.2f);  
             }
-
         }
     }
 
     void Update()
     {
-        
+        coinTxt.text = string.Format("{0:n0}", GameManager.Instance.Coin);
     }
 }

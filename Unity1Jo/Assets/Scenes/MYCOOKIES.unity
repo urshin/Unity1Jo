@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiScrollView: {fileID: 1961149454}
+  coinTxt: {fileID: 281850737}
 --- !u!114 &1907528569
 MonoBehaviour:
   m_ObjectHideFlags: 0

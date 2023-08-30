@@ -22,7 +22,7 @@ public class Magnet : MonoBehaviour
             isTriggerEneter = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
             
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 거대화 문구 값 설정
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 
 
 
             Invoke("SelfDestroy", 10); //5초뒤 본인 삭제

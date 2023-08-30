@@ -45,7 +45,6 @@ public class UITest : UI_Base
 
     void GiveUP(PointerEventData data)
     {
-        if (gameUIManager != null) return;
         SceneManager.LoadScene("LOBBY");
     }
 

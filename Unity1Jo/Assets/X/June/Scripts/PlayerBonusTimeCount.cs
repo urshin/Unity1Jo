@@ -49,8 +49,8 @@ public class PlayerBonusTimeCount : MonoBehaviour
             }
 
 
-            GameObject.Find("Canvas").transform.GetChild(BonusJelly).GetComponent<Image>().sprite = sprite;
-            GameObject.Find("Canvas").transform.GetChild(BonusJelly).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+    //        GameObject.Find("Canvas").transform.GetChild(BonusJelly).GetComponent<Image>().sprite = sprite;
+      //      GameObject.Find("Canvas").transform.GetChild(BonusJelly).GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
         }
 
