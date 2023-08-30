@@ -17,23 +17,23 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
   
     }
 
-    private void SetHasCookie(int key, bool hasCookie)
-    {
-        if (HasCookieDic.ContainsKey(key))
-        {
-            HasCookieDic[key] = hasCookie ? 1 : 0;
-        }
-        return;
-    }
+    //private void SetHasCookie(int key, bool hasCookie)
+    //{
+    //    if (HasCookieDic.ContainsKey(key))
+    //    {
+    //        HasCookieDic[key] = hasCookie ? 1 : 0;
+    //    }
+    //    return;
+    //}
 
-    private int GetHasCookie(int key)
-    {
-        if (HasCookieDic.ContainsKey(key))
-        {
-            return HasCookieDic[key];
-        }
-        return 0; //기본 값은 0
-    }
+    //private int GetHasCookie(int key)
+    //{
+    //    if (HasCookieDic.ContainsKey(key))
+    //    {
+    //        return HasCookieDic[key];
+    //    }
+    //    return 0; //기본 값은 0
+    //}
 
     public void SetSelectCookieID(int id)
     {

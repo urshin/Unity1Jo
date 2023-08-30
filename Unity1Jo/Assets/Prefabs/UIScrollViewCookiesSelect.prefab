@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4772687424667903420
 RectTransform:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6202076236840913544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6939346947724659714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -607,13 +607,10 @@ MonoBehaviour:
   cookieName: {fileID: 3535130943115483943}
   cookieImg: {fileID: 3428128589822706659}
   selectBtn: {fileID: 3723336962227373548}
-  selectBtncookieIcon: {fileID: 0}
-  selectTxt: {fileID: 0}
   buyBtn: {fileID: 6874998606445286520}
   priceTxt: {fileID: 9140633280929531013}
   id: 0
-  lockIcon: {fileID: 0}
-  checkIcon: {fileID: 0}
+  checkIcon: {fileID: 411137172682619289}
 --- !u!1 &5993336829842100147
 GameObject:
   m_ObjectHideFlags: 0
