@@ -7,6 +7,8 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected Player player;
 
+    protected InGameUIManager ingameuiManager; // code.by. 대석
+
     protected Rigidbody2D rb;
 
     public BoxCollider2D collider; // code by. 대석
@@ -33,6 +35,7 @@ public class PlayerState
         rb = player.rb;
         collider = player.collider1; // code by. 대석
         triggerCalled = false;
+        ingameuiManager = GameObject.Find("InGameUI").GetComponent<InGameUIManager>();// code by. 대석
     }
 
     public virtual void Update()

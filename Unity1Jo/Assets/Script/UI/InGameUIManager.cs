@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -44,7 +45,7 @@ public class InGameUIManager : MonoBehaviour
         if (HpDown)
         {
             //MaxHp와 Hp가 같음
-            MaxHpValue = player.GetHP(); 
+            MaxHpValue = player.GetHP(); // 수정
             HpValue = player.GetHP();
         }
     }
@@ -54,12 +55,13 @@ public class InGameUIManager : MonoBehaviour
         float hpGage = HpValue / MaxHpValue;
         HpGage.fillAmount = hpGage;
 
+        float HpEffect = HpGage.fillAmount;
+        HpdownEffect.anchorMin = new Vector2(HpEffect, HpdownEffect.anchorMin.y);
+        HpdownEffect.anchorMax = new Vector2(HpEffect, HpdownEffect.anchorMax.y);
+        HpdownEffect.anchoredPosition = Vector2.zero; // 없어도 이상없음
+
         if (HpDown)
         {
-            Vector2 effect = HpdownEffect.position;
-            effect = new Vector2 (effect.x - Time.deltaTime * 8.25f, effect.y); 
-            HpdownEffect.position = effect;
-           
             HpValue -= Time.deltaTime;
 
             if(HpValue <= 0f)
@@ -72,6 +74,11 @@ public class InGameUIManager : MonoBehaviour
         JellyText.text = string.Format("{0:n0}", GameManager.Instance.JellyPoint);
         CoinText.text = string.Format("{0:n0}", GameManager.Instance.TotalCoin); // 정규표현식 참고
         
+        
+    }
 
+    public float GetHpValue()
+    {
+        return HpValue;
     }
 }
