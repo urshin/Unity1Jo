@@ -12,7 +12,9 @@ public class PlayerFallingState : PlayerState
     public override void Enter()
     {
         base.Enter(); // 부모의 Enter 함수 실행 
-        rb.gravityScale = 1; // 중력을 1으로 반듬 
+        rb.gravityScale = 5; // 중력을 1으로 반듬  //중력값 바뀐 중력값인 5로 만들었습니다.
+        
+        
     }
 
     public override void Exit()
