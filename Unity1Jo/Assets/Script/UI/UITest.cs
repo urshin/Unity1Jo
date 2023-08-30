@@ -45,7 +45,10 @@ public class UITest : UI_Base
 
     void GiveUP(PointerEventData data)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("LOBBY");
+        Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = false;  
+
     }
 
     void ReStartDown(PointerEventData data)

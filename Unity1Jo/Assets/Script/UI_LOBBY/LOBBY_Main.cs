@@ -28,6 +28,8 @@ public class LOBBY_Main : MonoBehaviour
 
     void Update()
     {
+        if (coinTxt == null)
+            return;
         coinTxt.text = string.Format("{0:n0}", GameManager.Instance.Coin);
     }
 }

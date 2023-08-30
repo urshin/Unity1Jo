@@ -14,6 +14,7 @@ public class FadeInLOBBY : MonoBehaviour //code by. 하은
     {
         //작업용으로 유니티 인스펙터에서 False해놔서 Awake()에서 true로 켜줌
         panel.gameObject.SetActive(true);
+
     }
 
     private void Start()
@@ -23,13 +24,17 @@ public class FadeInLOBBY : MonoBehaviour //code by. 하은
 
     IEnumerator FadeIn()
     {
+        //Debug.Log("Fade in");
+        //Debug.Log($"alpha : {panel.color.a}");  
         while (panel.color.a > 0)
         {
             alpha -= Time.deltaTime * fadeSpeed;
             panel.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+        //Debug.Log($"alpha : {panel.color.a}");  
 
-        panel.gameObject.SetActive(false);
+        panel.gameObject.SetActive(false);  
     }
+
 }

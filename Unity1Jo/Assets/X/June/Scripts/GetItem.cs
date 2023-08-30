@@ -10,7 +10,7 @@ public class GetItem : MonoBehaviour
     Player p;
     private void Start()
     {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();    
     }
 
     public void FixedUpdate()
