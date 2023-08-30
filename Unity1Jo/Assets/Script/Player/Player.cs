@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
 
     public float jellyScore; // code by. 대석 (임시)
     public float coinScore; // code by. 대석 (임시)
+    public float totalCoinScore; //code by. 하은
 
     #region Components 
     public Animator anim { get; private set; }
