@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask whatIsGround;
 
     public float jellyScore; // code by. 대석 (임시)
-    public float coinScore; // code by. 대석 (임시)
+    public float coinScore ; // code by. 대석 (임시)
     public float totalCoinScore; //code by. 하은
 
     #region Components 
@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         isMapChange = false;
         OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
         DashDuration = DashTime; //삭제해도 무방
-
+        GameManager.Instance.IngameCoin = 0; //현재 게임 coin점수 초기화
         OriginalSize = transform.localScale; //원래 플레이어의 사이즈 저장
         GiganticDuration = GiganticTime; //삭제해도 무방
 
@@ -205,15 +205,12 @@ public class Player : MonoBehaviour
             Damage();
         }
 
-        if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
-        {
-           
-            if (GameManager.Instance == null) return;
-            jellyScore += GameManager.Instance.JellyPoint; //itemds.value;
-            coinScore += GameManager.Instance.Coin;
-            //Destroy(collision.gameObject);
-            
-        }
+        //if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
+        //{
+        //    if (GameManager.Instance == null) return;
+        //    //Destroy(collision.gameObject);
+        //}
+
         if(collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>().item.itemName == "HealBig")
         {
             mapcount++;
@@ -264,6 +261,11 @@ public class Player : MonoBehaviour
         hp += howmuchheal;
         return hp;
         
+    }
+
+    public float GetTotalCoin() //code by.하은
+    {
+        return totalCoinScore;
     }
 }
 
