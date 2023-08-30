@@ -50,6 +50,8 @@ public class PlayerDashState : PlayerState
         if(player.isBonusTime)
         {
             player.stateMachine.ChangeState(player.highState);
+            player.SetActiveShinyEffect(true);
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();  
         }
 
         if (Input.GetKeyDown(KeyCode.H))
