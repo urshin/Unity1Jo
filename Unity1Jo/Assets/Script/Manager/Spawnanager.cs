@@ -156,6 +156,9 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         public List<int> Obstacle; //Àå¾Ö¹°
     }
 
-
+    public void ResetPatternNum()
+    {
+        patternNum = 0;
+    }
 
 }
