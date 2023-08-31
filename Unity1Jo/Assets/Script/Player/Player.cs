@@ -207,7 +207,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("적!!!!!!!!!!!!!!!!!!!"); //code by. 준 적 충돌 확인용
+           
             Damage();
         }
 
@@ -227,6 +227,8 @@ public class Player : MonoBehaviour
     // code by. 하은
     public void Damage()
     {
+        hp -= 10;
+        Debug.Log("적과 충돌했습니다");
        // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }
 
