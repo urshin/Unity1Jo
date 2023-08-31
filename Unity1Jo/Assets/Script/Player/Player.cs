@@ -55,6 +55,9 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckDistance;
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] Transform wallCheck; // code by. 대석
+    [SerializeField] float wallCheckDistance; // code by. 대석
+    [SerializeField] LayerMask whatIsWall; // code by. 대석
 
     public float jellyScore; // code by. 대석 (임시)
     public float coinScore ; // code by. 대석 (임시)
@@ -208,7 +211,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("적!!!!!!!!!!!!!!!!!!!"); //code by. 준 적 충돌 확인용
+           
             Damage();
         }
 
@@ -228,6 +231,8 @@ public class Player : MonoBehaviour
     // code by. 하은
     public void Damage()
     {
+        hp -= 10;
+        Debug.Log("적과 충돌했습니다");
        // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }
 
@@ -236,10 +241,15 @@ public class Player : MonoBehaviour
         => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
 
     // code by. 대석
+    public bool IsWallDetected()
+        => Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance, whatIsWall);
+
+    // code by. 대석
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
     }
     // code by. 동호
     public void SetVelocity(float _xVelocity, float _yVelocity)
@@ -262,7 +272,7 @@ public class Player : MonoBehaviour
     {
         return hp;
     }
-    public float HealHP(float howmuchheal)
+    public float AddHP(float howmuchheal)
     {
         hp += howmuchheal;
         return hp;

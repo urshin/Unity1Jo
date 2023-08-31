@@ -1101,6 +1101,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1358064933}
     - target: {fileID: 6330530250706939072, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+      propertyPath: MagnetTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330530250706939072, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+      propertyPath: MagnetSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330530250706939072, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
       propertyPath: BonusTimeDuration
       value: 10
       objectReference: {fileID: 0}
@@ -2244,7 +2252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.257874, y: -49.385284}
+  m_AnchoredPosition: {x: 39.257812, y: -49.385254}
   m_SizeDelta: {x: 464.5248, y: 69.22937}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2694224908701861994

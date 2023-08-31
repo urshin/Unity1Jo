@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345120945376195032}
   - component: {fileID: 5115382397208489105}
+  - component: {fileID: 6644416574811254965}
   m_Layer: 0
   m_Name: imgTxt_ingameBlastBig
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6644416574811254965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888546525352068266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf0d506636b0b24ca8932edcffd4286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3449217268410964595
 GameObject:
   m_ObjectHideFlags: 0

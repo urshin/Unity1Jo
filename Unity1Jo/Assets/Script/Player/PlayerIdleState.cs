@@ -62,7 +62,11 @@ public class PlayerIdleState : PlayerState
         if(player.GetHP() <= 0)
         {
             player.stateMachine.ChangeState(player.deathState);
-           
+        }
+
+        if (player.IsWallDetected())
+        {
+            player.stateMachine.ChangeState(player.hitState);
         }
     }
    

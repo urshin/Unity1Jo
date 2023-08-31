@@ -17,8 +17,8 @@ public class Magnet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            p.isMagnet = true;
             p.MagnetDuration = p.MagnetTime;
+            p.isMagnet = true;
             isTriggerEneter = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
             

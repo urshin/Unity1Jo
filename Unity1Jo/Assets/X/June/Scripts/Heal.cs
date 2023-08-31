@@ -17,7 +17,7 @@ public class Heal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            p.HealHP(HowMuchHeal);
+            p.AddHP(HowMuchHeal);
             Destroy(gameObject); //삭제시키기
 
         }

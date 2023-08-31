@@ -181,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4663115478336362882}
   - component: {fileID: 8459970150439096280}
+  - component: {fileID: 2434447377114617175}
   m_Layer: 0
   m_Name: imgTxt_ingameGiantBig
   m_TagString: Untagged
@@ -255,3 +256,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2434447377114617175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722499748055047685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf0d506636b0b24ca8932edcffd4286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
