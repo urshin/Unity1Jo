@@ -833,7 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.11320752, g: 0.040049832, b: 0.040049832, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -918,6 +918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668a8d08e7508f344a8c469d8c702279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JellyPoint: 0
-  Coin: 0
+  currentJellyPoint: 0
+  bestJellyPoint: 0
+  currentCoin: 0
+  totalCoin: 0
   BonusTimeJelly: []
