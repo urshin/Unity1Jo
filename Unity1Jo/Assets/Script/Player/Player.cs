@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 //using static UnityEditor.Progress;
 using static Item;
@@ -56,7 +57,8 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask whatIsGround;
 
     public float jellyScore; // code by. 대석 (임시)
-    public float coinScore; // code by. 대석 (임시)
+    public float coinScore ; // code by. 대석 (임시)
+    public float totalCoinScore; //code by. 하은
 
     #region Components 
     public Animator anim { get; private set; }
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
     public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
 
     public BoxCollider2D collider1 { get; private set; } // code by. 대석
+    public InGameUIManager gameUIManager { get; private set; } // code by. 대석
     
 
     #endregion
@@ -116,7 +119,7 @@ public class Player : MonoBehaviour
         isMapChange = false;
         OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
         DashDuration = DashTime; //삭제해도 무방
-
+        GameManager.Instance.IngameCoin = 0; //현재 게임 coin점수 초기화
         OriginalSize = transform.localScale; //원래 플레이어의 사이즈 저장
         GiganticDuration = GiganticTime; //삭제해도 무방
 
@@ -126,6 +129,7 @@ public class Player : MonoBehaviour
         collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
         SetActiveShinyEffect(false);  // code by.동호      
 
+        gameUIManager = GameObject.Find("InGameUI").GetComponent<InGameUIManager>(); // code by. 대석
 
         stateMachine.Initialize(idleState); //처음에는 idle상태로      
     }
@@ -134,7 +138,9 @@ public class Player : MonoBehaviour
         DashDuration -= Time.deltaTime; //시간에 따라서 값 감소
         GiganticDuration -= Time.deltaTime;//시간에 따라서 값 감소
         MagnetDuration -= Time.deltaTime; ; //시간에 따라서 값 감소
-        
+
+        hp = gameUIManager.GetHpValue(); // code by 대석
+
         //보너스 타임 UI스크롤
         gValue -= Time.deltaTime/ BonusTimeDuration;
         if (gValue <= 0)
@@ -185,6 +191,7 @@ public class Player : MonoBehaviour
     public void Update()
     {
         stateMachine.currentState.Update();
+      
         
     }
 
@@ -204,15 +211,12 @@ public class Player : MonoBehaviour
             Damage();
         }
 
-        if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
-        {
-           
-            if (GameManager.Instance == null) return;
-            jellyScore += GameManager.Instance.JellyPoint; //itemds.value;
-            coinScore += GameManager.Instance.Coin;
-            //Destroy(collision.gameObject);
-            
-        }
+        //if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
+        //{
+        //    if (GameManager.Instance == null) return;
+        //    //Destroy(collision.gameObject);
+        //}
+
         if(collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>().item.itemName == "HealBig")
         {
             mapcount++;
@@ -256,13 +260,29 @@ public class Player : MonoBehaviour
     public float GetHP()
     {
         return hp;
-
     }
     public float HealHP(float howmuchheal)
     {
         hp += howmuchheal;
         return hp;
         
+    }
+
+    public float GetTotalCoin() //code by.하은
+    {
+        return totalCoinScore;
+    }
+
+    public void CallResultWindow() // code by. 대석
+    {
+        StartCoroutine("WaitGameover");
+    }
+
+    IEnumerator WaitGameover() // code by. 대석
+    {
+        GroundScrollSpeed = 0;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("ResultScene");
     }
 }
 

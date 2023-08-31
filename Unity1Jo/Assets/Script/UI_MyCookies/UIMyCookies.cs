@@ -17,7 +17,7 @@ public class UIMyCookies : MonoBehaviour //code by. гою╨
 
     public void Update()
     {
-        coinTxt.text = string.Format("{0:n0}", GameManager.Instance.Coin);
+        coinTxt.text = string.Format("{0:n0}", GameManager.Instance.TotalCoin);
     }
 
 }

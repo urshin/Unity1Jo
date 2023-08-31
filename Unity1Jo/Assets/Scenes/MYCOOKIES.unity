@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.0189, y: -0.0001}
-  m_SizeDelta: {x: 212.0418, y: 55.417}
+  m_AnchoredPosition: {x: 26.801003, y: 0.75025}
+  m_SizeDelta: {x: 331.6039, y: 118.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281850737
 MonoBehaviour:
@@ -259,11 +259,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1c53fb994eff86d49ad9b3a596c22abd, type: 3}
-    m_FontSize: 35
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 44
+    m_MaxSize: 48
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -528,8 +528,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -138, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -199, y: 0}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895461515
 MonoBehaviour:
@@ -856,7 +856,6 @@ GameObject:
   - component: {fileID: 1777018894}
   - component: {fileID: 1777018896}
   - component: {fileID: 1777018895}
-  - component: {fileID: 1777018897}
   m_Layer: 5
   m_Name: CoinBox
   m_TagString: Untagged
@@ -883,8 +882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 786.7257, y: 472.4338}
-  m_SizeDelta: {x: 275.0955, y: 77.1322}
+  m_AnchoredPosition: {x: 676, y: 452}
+  m_SizeDelta: {x: 450, y: 117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1777018895
 MonoBehaviour:
@@ -924,21 +923,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777018893}
   m_CullTransparentMesh: 1
---- !u!114 &1777018897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777018893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 668a8d08e7508f344a8c469d8c702279, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JellyPoint: 0
-  Coin: 0
-  BonusTimeJelly: []
 --- !u!1 &1876064677
 GameObject:
   m_ObjectHideFlags: 0

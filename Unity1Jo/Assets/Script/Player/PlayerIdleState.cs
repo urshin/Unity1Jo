@@ -59,7 +59,11 @@ public class PlayerIdleState : PlayerState
             player.stateMachine.ChangeState(player.dashState);
         }
 
-
+        if(player.GetHP() <= 0)
+        {
+            player.stateMachine.ChangeState(player.deathState);
+           
+        }
     }
    
     public override void Exit()
