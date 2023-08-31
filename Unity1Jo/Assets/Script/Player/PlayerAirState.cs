@@ -22,12 +22,16 @@ public class PlayerAirState : PlayerState
             player.stateMachine.ChangeState(player.slideState);
 
         }
-
         else if (player.IsGroundDetected())// 수정 동시 작동하면 에러남
         {
             stateMachine.ChangeState(player.idleState);
         }
-        
+
+        if (player.IsWallDetected())
+        {
+            player.stateMachine.ChangeState(player.hitState);
+        }
+
     }
 
     public override void Exit()

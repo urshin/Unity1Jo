@@ -34,6 +34,11 @@ public class PlayerJumpState : PlayerState
         {
             stateMachine.ChangeState(player.slideState);
         }
+
+        if (player.IsWallDetected())
+        {
+            player.stateMachine.ChangeState(player.hitState);
+        }
         //if (Input.GetKey(KeyCode.S) && player.IsGroundDetected())
         //{
         //    stateMachine.ChangeState(player.slideState);

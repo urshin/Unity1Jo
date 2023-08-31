@@ -11,15 +11,23 @@ public class PlayerHitState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.GroundScrollSpeed = 0;
+    }
+    public override void Update()
+    {
+        base.Update();
+
+        if (player.IsGroundDetected())
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.GroundScrollSpeed = player.OriginalGroundScrollSpeed;
     }
 
-    public override void Update()
-    {
-        base.Update();
-    }
+   
 }

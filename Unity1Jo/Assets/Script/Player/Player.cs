@@ -55,6 +55,9 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckDistance;
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] Transform wallCheck; // code by. 대석
+    [SerializeField] float wallCheckDistance; // code by. 대석
+    [SerializeField] LayerMask whatIsWall; // code by. 대석
 
     public float jellyScore; // code by. 대석 (임시)
     public float coinScore ; // code by. 대석 (임시)
@@ -237,10 +240,15 @@ public class Player : MonoBehaviour
         => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
 
     // code by. 대석
+    public bool IsWallDetected()
+        => Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance, whatIsWall);
+
+    // code by. 대석
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
     }
     // code by. 동호
     public void SetVelocity(float _xVelocity, float _yVelocity)
@@ -263,7 +271,7 @@ public class Player : MonoBehaviour
     {
         return hp;
     }
-    public float HealHP(float howmuchheal)
+    public float AddHP(float howmuchheal)
     {
         hp += howmuchheal;
         return hp;
