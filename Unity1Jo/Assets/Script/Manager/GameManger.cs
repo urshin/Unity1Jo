@@ -15,10 +15,17 @@ public class GameManager : SingletonBehaviour<GameManager>
     }
 
     [Header("플레이어 아이템 변수")]
-    [SerializeField] public float JellyPoint; //젤리 점수
-    [SerializeField] public float IngameCoin; //InGame 코인 점수
-    [SerializeField] public float TotalCoin; // 누적 코인 점수
+    [SerializeField] public float currentJellyPoint; //현재 게임에서 얻은 젤리 점수
+    [SerializeField] public float bestJellyPoint; //최고 젤리 점수
+    [SerializeField] public float currentCoin; //현재 게임에서 얻은 코인 점수
+    [SerializeField] public float totalCoin; // 누적 코인 점수
 
     //bonusTime젤리는 어찌 처리할지 고민이라 일단 게임 오브젝트로 만들어 두었습니다.
     [SerializeField] public GameObject[] BonusTimeJelly; //보너스타임젤리 가져오기
+
+    private void Update()
+    {
+        if(currentJellyPoint >= bestJellyPoint)
+            bestJellyPoint = currentJellyPoint;
+    }
 }

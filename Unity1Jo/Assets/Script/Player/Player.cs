@@ -119,7 +119,8 @@ public class Player : MonoBehaviour
         isMapChange = false;
         OriginalGroundScrollSpeed = GroundScrollSpeed; //원래 속도값 넣어주기
         DashDuration = DashTime; //삭제해도 무방
-        GameManager.Instance.IngameCoin = 0; //현재 게임 coin점수 초기화
+        GameManager.Instance.currentJellyPoint = 0; //현재 게임 jellyPoint점수 초기화 //code by. 하은
+        GameManager.Instance.currentCoin = 0; //현재 게임 coin점수 초기화 //code by. 하은
         OriginalSize = transform.localScale; //원래 플레이어의 사이즈 저장
         GiganticDuration = GiganticTime; //삭제해도 무방
 

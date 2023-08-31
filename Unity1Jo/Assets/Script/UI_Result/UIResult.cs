@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class UIResult : MonoBehaviour
 {
-    public Text totalCoinText; 
+    public Text scoreTxt;
+    public Text coinTxt; 
     void Start()
     {
         
@@ -14,6 +15,7 @@ public class UIResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalCoinText.text = string.Format("{0:#,0}", GameManager.Instance.IngameCoin); //세자릿수마다 ,출력
+        scoreTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentJellyPoint);
+        coinTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentCoin); //세자릿수마다 ,출력
     }
 }

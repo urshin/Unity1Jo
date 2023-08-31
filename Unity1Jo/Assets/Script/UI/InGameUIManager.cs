@@ -71,8 +71,8 @@ public class InGameUIManager : MonoBehaviour
         }
 
       
-        JellyText.text = string.Format("{0:n0}", GameManager.Instance.JellyPoint);
-        CoinText.text = string.Format("{0:n0}", GameManager.Instance.TotalCoin); // 정규표현식 참고
+        JellyText.text = string.Format("{0:n0}", GameManager.Instance.currentJellyPoint); //원래 JellyPoint로 되어있던 것 currentCoin으로 수정했습니다. -하은
+        CoinText.text = string.Format("{0:n0}", GameManager.Instance.currentCoin); // 정규표현식 참고 //원래 TotalCoin으로 되어있던 것 currentCoin으로 수정했습니다. -하은
         
         
     }

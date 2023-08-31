@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LOBBY_Main : MonoBehaviour
 {
     [SerializeField] SpriteRenderer LobbyCookieImg;
+    [SerializeField] Text bestPointTxt;
     [SerializeField] Text coinTxt;
     void Start()
     {
@@ -30,6 +31,7 @@ public class LOBBY_Main : MonoBehaviour
     {
         if (coinTxt == null)
             return;
-        coinTxt.text = string.Format("{0:n0}", GameManager.Instance.TotalCoin);
+        coinTxt.text = string.Format("{0:#,0}", GameManager.Instance.totalCoin);
+        bestPointTxt.text = string.Format("{0:#,0}", GameManager.Instance.bestJellyPoint);
     }
 }
