@@ -45,12 +45,14 @@ public class Dash : MonoBehaviour
     {
 
 
-       
+
         if (isTriggerEneter)  //문구 보여주기
         {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
-            StartCoroutine(ShowText());
+           
+                transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
 
+                StartCoroutine(ShowText());
+            
         }
         if (p.DashDuration <= 0)
         {
@@ -61,16 +63,24 @@ public class Dash : MonoBehaviour
 
 
     }
+    private void OnBecameInvisible()
+    {
+        isTriggerEneter=false;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0); //자식객체로 있는 문구 설정
+    }
 
-    void DestroySelf() 
+    void DestroySelf()
     {
         Destroy(gameObject); //삭제시키기
     }
 
     IEnumerator ShowText()
     {
+
         transform.GetChild(0).transform.position += new Vector3(Time.deltaTime, 0, 0);
         yield return new WaitForSeconds(0.2f);
+
+
     }
 
 }

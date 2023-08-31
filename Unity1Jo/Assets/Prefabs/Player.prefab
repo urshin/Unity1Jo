@@ -554,8 +554,8 @@ MonoBehaviour:
   GiganticTime: 3
   isMagnet: 0
   MagnetDuration: 0
-  MagnetTime: 0
-  MagnetSpeed: 0
+  MagnetTime: 3
+  MagnetSpeed: 1
   mapcount: 0
   isMapChange: 0
   BonusTimeDuration: 10

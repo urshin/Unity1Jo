@@ -20,7 +20,7 @@ public class InGameUIManager : MonoBehaviour
 
     public RectTransform HpdownEffect; // HP 하얀 이펙트
     public Image HpGage; // HP 실린더
-    float HpValue; // 변화하는 값
+    public float HpValue; // 변화하는 값
     float MaxHpValue; // 고정 값
 
     bool HpDown = true;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3280857895087194632}
   - component: {fileID: 3971844215353296725}
   - component: {fileID: 5085120824500023109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006137641056140881}
   - component: {fileID: 2302448233182870789}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SlideEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

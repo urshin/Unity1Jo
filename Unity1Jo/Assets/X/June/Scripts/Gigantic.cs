@@ -78,7 +78,11 @@ public class Gigantic : MonoBehaviour
     }
 
 
-
+    private void OnBecameInvisible()
+    {
+        isTriggerEneter = false;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0); //자식객체로 있는 문구 설정
+    }
     void DestroySelf() //원래대로 돌아가는 함수
     {
         Destroy(gameObject);//게임 오브젝트 삭제

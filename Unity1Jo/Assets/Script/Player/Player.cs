@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
         SetActiveShinyEffect(false);  // code by.동호      
 
         gameUIManager = GameObject.Find("InGameUI").GetComponent<InGameUIManager>(); // code by. 대석
+        
 
         stateMachine.Initialize(idleState); //처음에는 idle상태로      
     }
@@ -231,7 +232,7 @@ public class Player : MonoBehaviour
     // code by. 하은
     public void Damage()
     {
-        hp -= 10;
+        gameUIManager.HpValue -= 5;
         Debug.Log("적과 충돌했습니다");
        // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }

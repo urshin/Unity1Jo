@@ -29,6 +29,8 @@ public class PlayerDashState : PlayerState
     public override void Update()
     {
         base.Update();
+        
+       
         if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected()) // ¼öÁ¤
             player.stateMachine.ChangeState(player.jumpState);
 
