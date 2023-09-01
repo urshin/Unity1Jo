@@ -23,7 +23,8 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
 
 
     public Transform[] SpawnPos; //스폰 포지션 //yPos
-
+    public GameObject SpawnObject;
+    public GameObject Spawn10Pos;
 
     public GameObject[] whatjelly; //젤리 타입
     public GameObject[] whatobstacle; //장애물 타입
@@ -51,6 +52,12 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         patternNum = 0; //indexnumber
+        Spawn10Pos = Instantiate(SpawnObject, gameObject.transform.position, Quaternion.identity);
+        Spawn10Pos.transform.parent = gameObject.transform;
+        for(int i = 0; i < transform.GetChild(0).transform.childCount; i++)
+        {
+            SpawnPos[i] = transform.GetChild(0).transform.GetChild(i);
+        }
 
     }
 
