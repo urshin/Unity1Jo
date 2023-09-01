@@ -17,7 +17,5 @@ public class UILightRotate : MonoBehaviour //code by. гою╨
         Lights?.GetComponent<RectTransform>().DORotate(new Vector3(0, 0, 360), lightSpeed, RotateMode.FastBeyond360)
                         .SetEase(Ease.Linear)
                         .SetLoops(-1);          
-
-
     }
 }

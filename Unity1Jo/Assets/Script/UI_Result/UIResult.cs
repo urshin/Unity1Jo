@@ -15,7 +15,7 @@ public class UIResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentJellyPoint);
-        coinTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentCoin); //세자릿수마다 ,출력      
+        //scoreTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentJellyPoint);
+        //coinTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentCoin); //세자릿수마다 ,출력      
     }
 }
