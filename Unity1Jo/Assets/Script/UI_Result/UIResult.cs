@@ -16,6 +16,6 @@ public class UIResult : MonoBehaviour
     void Update()
     {
         scoreTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentJellyPoint);
-        coinTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentCoin); //세자릿수마다 ,출력
+        coinTxt.text = string.Format("{0:#,0}", GameManager.Instance.currentCoin); //세자릿수마다 ,출력      
     }
 }
