@@ -10,10 +10,12 @@ public class UIScrollViewCookiesSelect : MonoBehaviour //code by. 하은
     public Button selectBtn;
     //public Image selectBtncookieIcon;
     //public Text selectTxt;
+    [SerializeField] GameObject SelectPanel;
+    [SerializeField] GameObject BuyPanel;
     public Button buyBtn;
     public Text priceTxt;
-    public int id;
-    //public Image lockIcon;
+    [SerializeField] int id;   
+    [SerializeField] GameObject lockIcon;
     [SerializeField] GameObject checkIcon;
 
     public void Initialize(MycookiesData data)
@@ -23,30 +25,84 @@ public class UIScrollViewCookiesSelect : MonoBehaviour //code by. 하은
         var atlas = AtlasManager.Instance.GetAtlasByName("MyCookies");
         cookieImg.sprite = atlas.GetSprite(data.sprite_name);
         cookieImg.SetNativeSize();
-        priceTxt.text = string.Format("{0}",data.price);  
-        // user data manager 가지고 있는지 체크 -> 잠금해제 
+        priceTxt.text = string.Format("{0}",data.price);
 
-        if(UserDataManager.Instance.GetSelectCookieID() == id)
-        {
-            SetCheck(true);
-        }
-        else
-        {
-            SetCheck(false);  
-        }
+
+        SetActivePanel();
+        RefreshCheck();
 
     }
 
-    //public void SetLock(bool flag)
-    //{
-    //    lockIcon.SetActive(flag);
-    //}
-    public void SetCheck(bool flag)
-    {
-        checkIcon.SetActive(flag);
-    }
     public int GetID()
     {
         return id;
     }
+    public void SetActivePanel()
+    {
+        if (id == 100)
+        {
+            SelectPanel.SetActive(true);
+            BuyPanel.SetActive(false);
+
+        }
+        else
+        {
+            if(UserDataManager.Instance.GetHasCookie(id) == 1)
+            {
+                SelectPanel.SetActive(true);
+                BuyPanel.SetActive(false);
+            }
+            else
+            {
+                SelectPanel.SetActive(false);
+                BuyPanel.SetActive(true);  
+            } 
+        }
+    }
+    public void SetLock(bool flag)
+    {
+        lockIcon.SetActive(flag);
+    }
+    public void RefreshLock()
+    {
+        if (UserDataManager.Instance.GetHasCookie(id) == 0) // 쿠키 안가지고 있음 
+        {
+            SetLock(true);
+        }
+        else
+        {
+            SetLock(false);
+        }
+
+    }
+    public void SetCheck(bool flag)
+    {
+        checkIcon.SetActive(flag);
+    }
+    public bool GetCheck()
+    {
+        return checkIcon.activeSelf;
+    }
+    public void RefreshCheck()
+    {
+        if (UserDataManager.Instance.GetHasCookie(id) == 1)
+        {
+            if (UserDataManager.Instance.GetSelectCookieID() == id)
+            {
+                SetCheck(true);
+            }
+            else
+            {
+                SetCheck(false);
+            }
+        }
+        else // 쿠키 안가지고 있다.
+        {
+            SetCheck(false);
+        }
+    }
+
+
+
+ 
 }

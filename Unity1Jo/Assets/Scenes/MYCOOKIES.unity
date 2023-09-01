@@ -954,6 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiMyCookies: {fileID: 1907528568}
   myCookiesContent: {fileID: 1046528938}
+  cookieScrollView: {fileID: 1961149454}
 --- !u!4 &1876064679
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,6 +1242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentTrans: {fileID: 1046528939}
   cookiePrefab: {fileID: 4850841123281624841, guid: b6ceb0ddfe8b1874992569f10c5c78e0, type: 3}
+  CookieComponentList: []
 --- !u!1 &2041327129
 GameObject:
   m_ObjectHideFlags: 0
