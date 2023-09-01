@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     #endregion
 
     public bool isBusy { get; private set; }
+    public bool ishitted = false;
 
     /// /////////////////////////////////////////////////////////////////////////// code by. 
 
@@ -207,12 +208,19 @@ public class Player : MonoBehaviour
         isBusy = false;
     }
 
+    public IEnumerator isHitted(float _second)
+    {
+        ishitted = true;
+        yield return new WaitForSeconds(_second);
+        ishitted = false;
+    }
+
     //code by. 하은
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy") && !isDashing && !isGigantic && !ishitted)
         {
-           
+            StartCoroutine(isHitted(1)); // 한 번 부딪쳤을때 잠시 무적
             Damage();
         }
 

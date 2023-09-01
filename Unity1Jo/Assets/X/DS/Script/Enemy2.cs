@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     Animator anim;
     Player p;
@@ -20,11 +20,11 @@ public class Enemy : MonoBehaviour
 
         if (p.mapcount == 1 && p.isMapChange)
         {
-            anim.Play("B_Short_Enemy");
+            anim.Play("B_Slide_Enemy");
         }
         else if (p.mapcount == 2 && p.isMapChange)
         {
-            anim.Play("y_Short_Enemy");
+            anim.Play("y_Slide_Enemy");
         }
         else if (p.mapcount == 3 && p.isMapChange)
         {
@@ -32,8 +32,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
-   
+
+
 
     private void OnBecameInvisible()
     {
