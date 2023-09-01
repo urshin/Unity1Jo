@@ -40,36 +40,36 @@ public class PanCake : MonoBehaviour
 
             for (int j = 0; j < 5; j++)
             {
-                dotoriSpawnPos[j] = Spawnanager.Instance.SpawnPos[j*2];
+                dotoriSpawnPos[j] = Spawnanager.Instance.SpawnPos[j * 2];
 
             }
             setmap = false;
-        }
-        if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
-        {
-            LastSpawnTime = Time.time;
-            i += 1 * m;
-                Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
-
-            if (i <= 0)
-            {
-                
-                m *= -1;
-            }
-            if (i >= 4)
-            {
-                Instantiate(SunflowerJelly, dotoriSpawnPos[i].position, Quaternion.identity);
-                m *= -1;
-
-            }
-
-
         }
 
         //쿠키 스킬 쓰는곳
         if (!isSkillon)
         {
             SkillBar.fillAmount = DotoriJellyCount / 20;
+            if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
+            {
+                LastSpawnTime = Time.time;
+                i += 1 * m;
+                Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+
+                if (i <= 0)
+                {
+
+                    m *= -1;
+                }
+                if (i >= 4)
+                {
+                    Instantiate(SunflowerJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+                    m *= -1;
+
+                }
+
+
+            }
         }
         if (DotoriJellyCount >= 20)
         {
@@ -90,11 +90,11 @@ public class PanCake : MonoBehaviour
         if (collision.gameObject == DotoriJelly)
         {
             DotoriJellyCount++;
-            Destroy(collision.gameObject);
+            
         }
         if (collision.gameObject == SunflowerJelly)
         {
-            Destroy(collision.gameObject);
+            Jelly++;
         }
     }
 }
