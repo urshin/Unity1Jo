@@ -928,8 +928,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668a8d08e7508f344a8c469d8c702279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JellyPoint: 0
-  Coin: 0
+  currentJellyPoint: 0
+  bestJellyPoint: 0
+  currentCoin: 0
+  totalCoin: 0
   BonusTimeJelly: []
 --- !u!1 &1431289115
 GameObject:
@@ -3530,6 +3532,7 @@ MonoBehaviour:
   restartGame: {fileID: 3879336355842382418}
   HpdownEffect: {fileID: 162276667576734026}
   HpGage: {fileID: 1722806834620603312}
+  HpValue: 0
   CoinText: {fileID: 5063456300809172989}
   JellyText: {fileID: 7989306079109247521}
   Bonus: {fileID: 4859881190105628869}

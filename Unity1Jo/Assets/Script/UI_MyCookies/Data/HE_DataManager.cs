@@ -40,5 +40,5 @@ public class HE_DataManager //혹시 DataManager를 쓴 사람이 있을까봐 충돌방지로 H
     public Dictionary<int, MycookiesData> GetMyCookiesData()
     {
         return dicMycookiesData;
-    }
+    }  
 }

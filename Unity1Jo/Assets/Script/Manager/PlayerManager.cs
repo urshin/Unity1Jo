@@ -34,16 +34,16 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     {
         if (player.transform.localScale.y > p.OriginalSize.y)
         {
-            player.transform.position = OriginPlayerPos.position+new Vector3(0,4,0);
+            player.transform.position = OriginPlayerPos.position+new Vector3(0,4,0);  
             player.GetComponent<Player>().rb.velocity = Vector2.zero;
         }
         else
         player.transform.position = OriginPlayerPos.position;
-        player.GetComponent<Player>().rb.velocity = Vector2.zero;
+        player.GetComponent<Player>().rb.velocity = Vector2.zero;  
 
         //OriginPlayerPos.position = new Vector3(0,0,0);
     }
 
-    
+
 
 }

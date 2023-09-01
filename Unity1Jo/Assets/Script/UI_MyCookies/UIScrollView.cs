@@ -6,6 +6,7 @@ public class UIScrollView : MonoBehaviour //code by. 하은
 {
     [SerializeField] Transform contentTrans;
     [SerializeField] GameObject cookiePrefab;
+    [SerializeField] List<UIScrollViewCookiesSelect> CookieComponentList = new List<UIScrollViewCookiesSelect>();
 
     public void Initialize()
     {
@@ -28,13 +29,28 @@ public class UIScrollView : MonoBehaviour //code by. 하은
 
         cookies.Initialize(data);
         // 장금처리 
+        if(UserDataManager.Instance.GetHasCookie(data.id) == 0) // 쿠키 안가지고 있음 
+        {
+            cookies.SetLock(true);
+        }
+        else
+        {
+            cookies.SetLock(false);  
+        }
+
 
         //각 버튼을 누르면 해당 cookies의 id를 EventManager에게 전달
         cookies.selectBtn.onClick.AddListener(() => {
-            EventManager.instance.onSelectBtnClick(cookies.id);
+            EventManager.instance.onSelectBtnClick(cookies.GetID());
         });
         cookies.buyBtn.onClick.AddListener(() => {
-            EventManager.instance.onBuyBtnClick(cookies.id);
+            EventManager.instance.onBuyBtnClick(cookies.GetID());
         });
+
+        CookieComponentList.Add(cookies);  
+    }
+    public List<UIScrollViewCookiesSelect> GetCookieComponentList()
+    {
+        return CookieComponentList;
     }
 }
