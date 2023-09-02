@@ -11,4 +11,10 @@ public class Define : MonoBehaviour
         PointerDown,
         PointerUp,
     }
+    public enum SceneType
+    {
+        Bonus,
+        InGame,
+        None,
+    }
 }

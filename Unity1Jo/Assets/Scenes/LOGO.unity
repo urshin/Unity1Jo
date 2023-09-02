@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrAtlas:
-  - {fileID: 100100200, guid: 4a4903fbe150ce2499dac2a51de4816f, type: 3}
+  - {fileID: 100100200, guid: bd58c88d62634474cad653410308ad54, type: 3}
 --- !u!4 &690656117
 Transform:
   m_ObjectHideFlags: 0
@@ -765,6 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a08319845079047add392d1a232131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectCookieID: 100
 --- !u!4 &1671802048
 Transform:
   m_ObjectHideFlags: 0

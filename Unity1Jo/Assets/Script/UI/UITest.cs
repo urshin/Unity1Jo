@@ -16,6 +16,8 @@ public class UITest : UI_Base
     [SerializeField] Button KeepGame;
     [SerializeField] Button ReStart;
     [SerializeField] Button GiveUp;
+    [SerializeField] Button BonusJumpBtn;
+    [SerializeField] Button BonusSlideBtn;  
     bool _buttonPush; // button push flag
     bool isjumping = false; // 점프 유무 플래그
     Player player;
@@ -35,6 +37,15 @@ public class UITest : UI_Base
 
         Slide.gameObject.AddUIEvent(SlideButton, type: Define.UIEvent.PointerDown);
         Slide.gameObject.AddUIEvent(SlideButtonUp, type: Define.UIEvent.PointerUp);
+
+        BonusJumpBtn.gameObject.AddUIEvent(OnButtonDown, type: Define.UIEvent.PointerDown); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
+        BonusJumpBtn.gameObject.AddUIEvent(OnButtonUp, type: Define.UIEvent.PointerUp); // 버튼 업 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
+
+        BonusSlideBtn.gameObject.AddUIEvent(OnButtonDown, type: Define.UIEvent.PointerDown); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
+        BonusSlideBtn.gameObject.AddUIEvent(OnButtonUp, type: Define.UIEvent.PointerUp); // 버튼 업 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
+
+        BonusJumpBtn.gameObject.SetActive(false);
+        BonusSlideBtn.gameObject.SetActive(false);  
 
         //GameObject playerObj = PlayerManager.Instance.GetPlayer(); // PlayManager라는 싱글톤 클래스에서 플레이어 게임 오브젝트 얻어옴.
         //if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
