@@ -922,5 +922,5 @@ MonoBehaviour:
   currentJellyPoint: 0
   bestJellyPoint: 0
   currentCoin: 0
-  totalCoin: 0
+  totalCoin: 100
   BonusTimeJelly: []

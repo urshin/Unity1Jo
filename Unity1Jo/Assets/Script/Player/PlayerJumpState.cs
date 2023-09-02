@@ -35,7 +35,7 @@ public class PlayerJumpState : PlayerState
             stateMachine.ChangeState(player.slideState);
         }
 
-        if (player.IsWallDetected())
+        if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
             player.stateMachine.ChangeState(player.hitState);
         }
