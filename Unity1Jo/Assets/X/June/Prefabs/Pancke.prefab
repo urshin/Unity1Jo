@@ -198,7 +198,7 @@ Transform:
   - {fileID: 3754459689095910676}
   - {fileID: 5638084618512589106}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7748538289467606215
 Rigidbody2D:
@@ -291,9 +291,9 @@ MonoBehaviour:
   giganticSize: 0
   jumpPower: 16
   topTime: 0.8
-  topPos: {fileID: 0}
+  topPos: {fileID: 6246924043882406242, guid: 8703e8fe0f3fe4343b3fc0e9baccd6d0, type: 3}
   downTime: 0.6
-  middlePos: {fileID: 0}
+  middlePos: {fileID: 431071662401119691, guid: 91d117d96a3d00e4bba69638aa105a85, type: 3}
   bonusJumpPower: 3
   shinyEffect: {fileID: 4408742862747212445}
   groundCheck: {fileID: 3785568584800303380}
@@ -309,6 +309,7 @@ MonoBehaviour:
   jellyScore: 0
   coinScore: 0
   totalCoinScore: 0
+  ishitted: 0
   isDashing: 0
   DashDuration: 0
   GroundScrollSpeed: 5
