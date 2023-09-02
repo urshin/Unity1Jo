@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
     public bool isMapChange;
 
     [Header("보너스 타임 관련")]
+    
     public float BonusTimeDuration;
     public bool isBonusTime;
     public int BonusJellyCount;

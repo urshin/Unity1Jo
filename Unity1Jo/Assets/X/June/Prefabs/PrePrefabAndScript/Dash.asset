@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   itemName: Dash
-  BonusTimeAlp: 11
+  ItemType: 11
   itemImage: {fileID: 21300000, guid: 685f8d72af0aa2346b2fe364e94418c8, type: 3}
   itemPrefab: {fileID: 2040493670243917846, guid: 2f0a9387d6509204e89e813c721a6899, type: 3}

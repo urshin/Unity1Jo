@@ -5,11 +5,14 @@ using UnityEngine;
 public class Jelly : MonoBehaviour
 {
     [SerializeField] private float JellyPoint;
+    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.Instance.currentJellyPoint += JellyPoint; //GameManager에 있는 젤리 점수 증가
+            //SoundManager.Instance.PlaySound("jelly");
             Destroy(gameObject); //삭제시키기
 
         }
@@ -18,6 +21,7 @@ public class Jelly : MonoBehaviour
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player>();
+       
     }
 
     void Update()

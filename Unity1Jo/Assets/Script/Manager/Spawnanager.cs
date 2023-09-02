@@ -48,8 +48,11 @@ public class Spawnanager : MonoBehaviour
     public string map2 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map3 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map4 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
+    public string Bonusmap = "Assets/Resources/BonusMap.json"; // 맵 데이터 추가 예정
     public string CurrentMap;
 
+    public string lastMap;
+    public int lastPatternum;
 
 
     //public Material[] mat_map; // 맵 이미지로 사용할 머테리얼                          
@@ -58,43 +61,94 @@ public class Spawnanager : MonoBehaviour
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         patternNum = 0; //indexnumber
-        Spawn10Pos = Instantiate(SpawnObject, gameObject.transform.position-new Vector3(0,0.75f,0), Quaternion.identity);
+        Spawn10Pos = Instantiate(SpawnObject, gameObject.transform.position - new Vector3(0, 0.75f, 0), Quaternion.identity);
         Spawn10Pos.transform.parent = gameObject.transform;
-        for(int i = 0; i < transform.GetChild(0).transform.childCount; i++)
+        p.isMapChange = false;
+        for (int i = 0; i < transform.GetChild(0).transform.childCount; i++)
         {
             SpawnPos[i] = transform.GetChild(0).transform.GetChild(i);
         }
+        CurrentMap = map1;
 
-        
 
     }
 
 
     void FixedUpdate()
     {
-        //나중에 특정 값으로 map구분 하게 만듦
-        if (p.mapcount == 0)
+
+        //if (p.isMapChange && !p.isBonusTime && p.mapcount == 0)
+        //{
+        //    CurrentMap = map1;
+        //    patternNum = 0;
+        //    p.isMapChange = false;
+        //}
+        //else if (p.isMapChange && !p.isBonusTime && p.mapcount == 1)
+        //{
+        //    CurrentMap = map2;
+        //    patternNum = 0;
+        //    p.isMapChange = false;
+        //}
+        //else if (p.isMapChange && !p.isBonusTime && p.mapcount == 2)
+        //{
+        //    CurrentMap = map3;
+        //    patternNum = 0;
+        //    p.isMapChange = false;
+        //}
+        //else if (p.isMapChange && !p.isBonusTime && p.mapcount == 3)
+        //{
+        //    CurrentMap = map4;
+        //    patternNum = 0;
+        //    p.isMapChange = false;
+        //}
+
+
+        if (p.isMapChange && !p.isBonusTime)
         {
-            CurrentMap = map1; //게임 시작 시 현재 맵 == map1
+
+            switch (p.mapcount)
+            {
+                case 0:
+                    CurrentMap = map1;
+                    patternNum = 0;
+                    p.isMapChange = false;
+                    break;
+                case 1:
+                    CurrentMap = map2;
+                    patternNum = 0;
+                    p.isMapChange = false;
+                    break;
+                case 2:
+                    CurrentMap = map3;
+                    patternNum = 0;
+                    p.isMapChange = false;
+                    break;
+                case 3:
+                    CurrentMap = map4;
+                    patternNum = 0;
+                    p.isMapChange = false;
+                    break;
+
+            }
         }
-        else if (p.mapcount == 1 && p.isMapChange)
+
+
+        else if (CurrentMap != Bonusmap && p.isBonusTime)
         {
-            CurrentMap = map2;
+            lastPatternum = patternNum;
+            lastMap = CurrentMap;
+
+            CurrentMap = Bonusmap;
             patternNum = 0;
+
+        }
+        else if (CurrentMap == Bonusmap && !p.isBonusTime)
+        {
+            patternNum = lastPatternum;
+            CurrentMap = lastMap;
             p.isMapChange = false;
         }
-        else if (p.mapcount == 2 && p.isMapChange)
-        {
-            CurrentMap = map3;
-            patternNum = 0;
-            p.isMapChange = false;
-        }
-        else if (p.mapcount == 3 && p.isMapChange)
-        {
-            CurrentMap = map4;
-            patternNum = 0;
-            p.isMapChange = false;
-        }
+
 
         string jsonFilePath = CurrentMap; //리소스 파일 안에 있는 data읽기
 
@@ -130,8 +184,8 @@ public class Spawnanager : MonoBehaviour
 
     }
 
-    
-   
+
+
     IEnumerator spawn() //생성 코루틴
     {
 
@@ -139,7 +193,8 @@ public class Spawnanager : MonoBehaviour
         //젤리 생성
         for (int i = 0; i < jellyAmount; i++)
         {
-            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos+jellyAmount-1]);
+            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos + i]);
+
             // yield return new WaitForSeconds(1 / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
         }
 
@@ -148,13 +203,13 @@ public class Spawnanager : MonoBehaviour
         //몬스터 생성. json파일 내의 값이 0일경우 생성 x
         if (obstacleType >= 1)
         {
-            
-                Instantiate(whatobstacle[obstacleType - 1], SpawnPos[obstacle]);
-           
+
+            Instantiate(whatobstacle[obstacleType - 1], SpawnPos[obstacle]);
+
         }
         yield return null;
     }
-    
+
 
     [System.Serializable]
     public class JsonData //data파일 읽은 정보 넣기

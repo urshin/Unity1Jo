@@ -16,7 +16,7 @@ public class PlayerBonusTimeCount : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>())
+        if (collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>() && !p.isBonusTime)
         {
 
             var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.ItemType;
@@ -78,7 +78,11 @@ public class PlayerBonusTimeCount : MonoBehaviour
                         p.BonusJellyCount++;
                         break;
                     }
-
+                 
+                    default:
+                    {
+                        break;
+                    }
 
             }
 

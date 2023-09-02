@@ -21,7 +21,7 @@ public class Magnet : MonoBehaviour
             p.isMagnet = true;
             isTriggerEneter = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
-            
+
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 
 
 
@@ -31,7 +31,7 @@ public class Magnet : MonoBehaviour
     }
     void Update()
     {
-       
+
         if (p.MagnetDuration < 0)
         {
             p.isMagnet = false;
@@ -49,12 +49,20 @@ public class Magnet : MonoBehaviour
 
     private void SelfDestroy()
     {
-      
+
         Destroy(gameObject); //삭제시키기
     }
     IEnumerator ShowText() //자식 객체로 있는 문구 보여주기
     {
-        transform.GetChild(0).transform.position -= new Vector3(Time.deltaTime, 0, 0);
+        if (p.isMagnet)
+        {
+            transform.GetChild(0).transform.position += new Vector3(-Time.deltaTime, 0, 0);
+        }
+        else
+        {
+
+            transform.GetChild(0).transform.position -= new Vector3(Time.deltaTime, 0, 0);
+        }
         yield return new WaitForSeconds(0.2f);
     }
 }

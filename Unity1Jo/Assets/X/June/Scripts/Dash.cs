@@ -76,8 +76,15 @@ public class Dash : MonoBehaviour
 
     IEnumerator ShowText()
     {
+        if (p.isMagnet)
+        {
+            transform.GetChild(0).transform.position += new Vector3(-Time.deltaTime, 0, 0);
+        }
+        else
+        {
 
         transform.GetChild(0).transform.position += new Vector3(Time.deltaTime, 0, 0);
+        }
         yield return new WaitForSeconds(0.2f);
 
 

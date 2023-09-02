@@ -99,7 +99,15 @@ public class Gigantic : MonoBehaviour
 
     IEnumerator ShowText() //자식 객체로 있는 문구 보여주기
     {
+        if (p.isMagnet)
+        {
+            transform.GetChild(0).transform.position += new Vector3(-Time.deltaTime, 0, 0);
+        }
+        else
+        {
+
         transform.GetChild(0).transform.position += new Vector3(Time.deltaTime, 0, 0); 
+        }
         yield return new WaitForSeconds(0.2f);
     }
 }
