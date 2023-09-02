@@ -8,12 +8,11 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
 {
     [SerializeField] UIMyCookies uiMyCookies;
     [SerializeField] UIScrollView cookieScrollView;
-    [SerializeField] UIPopupScale Popup; //code by. 하은
     [SerializeField] GameObject myCookiesContent;
     [Space]
 
 
-    [Header("Popup Data")]
+    [Header("Popup Data")] //code by. 동호
     [SerializeField] GameObject UI_BuyPopup;
     [SerializeField] GameObject ui_CheckPopupBox;
     [SerializeField] GameObject ui_CautionPopupBox;
@@ -60,8 +59,6 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
             float totCoin = GameManager.Instance.totalCoin; // total coin 가져옴 
             Debug.Log($"totCoin : {totCoin}");
 
-            //Debug.Log($"구매하기 버튼 누르기 전 Popup.isBuy: {Popup.isBuy}");
-
             if (totCoin >= data.price)
             {
                 UI_BuyPopup.gameObject.SetActive(true);
@@ -99,30 +96,6 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
 
                 Debug.Log("코인이 부족합니다.");
             }
-
-            /* 기존 코드 */
-            //if (totCoin >= data.price && Popup != null)
-            //{
-            //    Popup.ShowCheckPopup(); //code by. 하은
-            //    Debug.Log($"구매하기 버튼 누른 다음 Popup.isBuy: {Popup.isBuy}");
-            //    if (Popup.isBuy == true)
-            //    {
-            //        //Popup.HideCheckPopup();
-            //        GameManager.Instance.totalCoin -= data.price;
-            //        UserDataManager.Instance.SetHasCookie(data.id, true); // 유저 정보 업데이트 
-            //        UIScrollViewCookiesSelect cookie = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id); // 구매한 쿠키의 Component 가져옴 
-            //        if (cookie != null)
-            //        {
-            //            cookie.SetActivePanel(); // 선택 패널로 바꿔줌 
-            //            cookie.RefreshLock(); //  lock 풀어줌
-            //        }
-            //    }
-            //}
-            //else if(totCoin < data.price && Popup != null)
-            //{
-            //    Popup.ShowCautionPopup(); //code by. 하은
-            //    //Debug.Log("코인이 부족합니다.");
-            //}
         };
 
         //UIMyCookies 초기화

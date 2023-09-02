@@ -48,6 +48,7 @@ public class Spawnanager : MonoBehaviour
     public string map2 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map3 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map4 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
+    public string map5 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string Bonusmap = "Assets/Resources/BonusMap.json"; // 맵 데이터 추가 예정
     public string CurrentMap;
 
@@ -125,6 +126,11 @@ public class Spawnanager : MonoBehaviour
                     break;
                 case 3:
                     CurrentMap = map4;
+                    patternNum = 0;
+                    p.isMapChange = false;
+                    break;
+                case 4:
+                    CurrentMap = map5;
                     patternNum = 0;
                     p.isMapChange = false;
                     break;

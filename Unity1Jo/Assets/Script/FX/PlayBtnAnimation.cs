@@ -1,58 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayBtnAnimation : MonoBehaviour //code by. 하은
 {
-    public float maxScaleMultiplier = 1.2f;
-    public float animationDuration = 1.0f;
+    [SerializeField] Vector3 targetScale = new Vector3(1.1f, 1.1f, 1.1f); // 확대할 스케일 값
+    [SerializeField] Vector3 originScale = new Vector3(1, 1, 1); 
+    [SerializeField] float animationDuration = 0.4f;
+    float delayTime = 0.5f;
     float repeatingTime = 2f;
-
-    private Vector3 originalScale;
-    private bool isAnimating = false;
 
     private void Start()
     {
-        originalScale = transform.localScale;
-        InvokeRepeating("StartScaleAnimation", 1.0f, repeatingTime);
+        InvokeRepeating("StartScaleAnimation", delayTime, repeatingTime);
     }
 
     private void StartScaleAnimation()
     {
-        if (!isAnimating)
-        {
-            isAnimating = true;
-            StartCoroutine(ScaleAnimation());
-        }
-    }
-
-    private IEnumerator ScaleAnimation()
-    {
-        //originalScale에서 targetScale로 서서히 확대
-        float timer = 0.0f;
-        Vector3 targetScale = originalScale * maxScaleMultiplier;
-
-        while (timer < animationDuration)
-        {
-            float t = timer / animationDuration;
-            transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        //targetScale에서 originalScale로 서서히 축소
-        timer = 0.0f;
-        while (timer < animationDuration)
-        {
-            float t = timer / animationDuration;
-            transform.localScale = Vector3.Lerp(targetScale, originalScale, t);
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.localScale = originalScale;
-        isAnimating = false;
+        GetComponent<RectTransform>().DOScale(targetScale, animationDuration).OnComplete(() => {
+            GetComponent<RectTransform>().DOScale(originScale, animationDuration);
+        });
     }
 }
