@@ -16,13 +16,13 @@ public class LOBBY_Main : MonoBehaviour
         string cookieName = string.Empty;
         if(data != null)
         {
-            var atlas = AtlasManager.Instance.GetAtlasByName("MyCookies");
+            var atlas = AtlasManager.Instance.GetAtlasByName("Cookies");
             cookieName = data.sprite_name;
             if (!string.IsNullOrEmpty(cookieName))
             {
                 //MYCOOKIES에서 선택한 쿠키의 spirte를 LOBBY에 출력
                 LobbyCookieImg.sprite = atlas.GetSprite(cookieName);
-                LobbyCookieImg.gameObject.transform.localScale = new Vector2(1.2f, 1.2f);  
+                LobbyCookieImg.gameObject.transform.localScale = new Vector2(2f, 2f);  
             }
         }
     }

@@ -8,8 +8,6 @@ public class UIScrollViewCookiesSelect : MonoBehaviour //code by. 하은
     public Text cookieName;
     public Image cookieImg;
     public Button selectBtn;
-    //public Image selectBtncookieIcon;
-    //public Text selectTxt;
     [SerializeField] GameObject SelectPanel;
     [SerializeField] GameObject BuyPanel;
     public Button buyBtn;
@@ -22,11 +20,11 @@ public class UIScrollViewCookiesSelect : MonoBehaviour //code by. 하은
     {
         id = data.id;
         cookieName.text = data.name;
-        var atlas = AtlasManager.Instance.GetAtlasByName("MyCookies");
+        var atlas = AtlasManager.Instance.GetAtlasByName("Cookies");
         cookieImg.sprite = atlas.GetSprite(data.sprite_name);
         cookieImg.SetNativeSize();
+        cookieImg.GetComponent<RectTransform>().sizeDelta = new Vector2(390, 390); //Sprite 사이즈 고정
         priceTxt.text = string.Format("{0}",data.price);
-
 
         SetActivePanel();
         RefreshCheck();

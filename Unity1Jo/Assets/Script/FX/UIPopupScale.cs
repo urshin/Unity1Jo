@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIPopupScale : MonoBehaviour //code by. 하은
 {
+    [SerializeField] GameObject backPanel;
     [SerializeField] GameObject checkPopup;
     [SerializeField] GameObject cautionPopup;
     [SerializeField] public Button buyBtn;
@@ -23,16 +24,23 @@ public class UIPopupScale : MonoBehaviour //code by. 하은
     private void Update()
     {
         //닫기 버튼을 누르면 Hide() 메소드 실행
-        closeBtnCheck.onClick.AddListener(() => { checkPopup?.SetActive(false); });
+        closeBtnCheck.onClick.AddListener(() => {
+            backPanel?.SetActive(false);
+            checkPopup?.SetActive(false); 
+        });
 
         //닫기 버튼을 누르면 Hide() 메소드 실행
-        closeBtnCaution.onClick.AddListener(() => { cautionPopup?.SetActive(false); });
+        closeBtnCaution.onClick.AddListener(() => {
+            backPanel?.SetActive(false);
+            cautionPopup?.SetActive(false); 
+        });
 
         //구매하기 버튼을 눌렀을 경우
         buyBtn.onClick.AddListener(() => { isBuy = true; });
     }
     public void ShowCheckPopup()
     {
+        backPanel.SetActive(true);
         checkPopup.SetActive(true);
         if (checkPopup != null)
         {
@@ -44,6 +52,7 @@ public class UIPopupScale : MonoBehaviour //code by. 하은
 
     public void ShowCautionPopup()
     {
+        backPanel.SetActive(true);
         cautionPopup.SetActive(true);
         if (cautionPopup != null)
         {
