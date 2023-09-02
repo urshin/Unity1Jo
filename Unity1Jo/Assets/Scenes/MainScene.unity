@@ -683,8 +683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookie_100: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
-  cookie_101: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
-  cookie_102: {fileID: 2199266213153090824, guid: 5e318f81df4e963468e60c32147fa928, type: 3}
+  cookie_101: {fileID: 2112759768532662027, guid: c22ba96d037a6c84fbb3b3a528aac1f5, type: 3}
+  cookie_102: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
   cookie_103: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
   cookie_104: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
   OriginPlayerPos: {fileID: 1693181603}
@@ -3575,7 +3575,10 @@ MonoBehaviour:
   map2: Assets/Resources/Map2.json
   map3: Assets/Resources/Map1.json
   map4: Assets/Resources/Map1.json
+  Bonusmap: Assets/Resources/BonusMap.json
   CurrentMap: 
+  lastMap: 
+  lastPatternum: 0
 --- !u!1 &5638508443063681918
 GameObject:
   m_ObjectHideFlags: 0
