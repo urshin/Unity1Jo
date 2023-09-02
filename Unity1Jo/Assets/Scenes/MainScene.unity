@@ -1192,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1503,6 +1503,10 @@ PrefabInstance:
     - target: {fileID: 2112759768532662027, guid: c22ba96d037a6c84fbb3b3a528aac1f5, type: 3}
       propertyPath: m_Name
       value: Pancke
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112759768532662027, guid: c22ba96d037a6c84fbb3b3a528aac1f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -36,18 +36,18 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
             var data = HE_DataManager.instance.GetData(id);
             Debug.LogFormat("{0},{1},{2}", data.id, data.name, data.price);
 
-            // TODO : 구매 버튼 구현 
             float totCoin = GameManager.Instance.totalCoin; // total coin 가져옴 
             Debug.Log($"totCoin : {totCoin}");
 
-            Debug.Log($"Popup.isBuy: {Popup.isBuy}");
+            Debug.Log($"구매하기 버튼 누르기 전 Popup.isBuy: {Popup.isBuy}");
 
             if (totCoin >= data.price && Popup != null)
             {
                 Popup.ShowCheckPopup(); //code by. 하은
+                Debug.Log($"구매하기 버튼 누른 다음 Popup.isBuy: {Popup.isBuy}");
                 if (Popup.isBuy == true)
                 {
-                    Popup.HideCheckPopup();
+                    //Popup.HideCheckPopup();
                     GameManager.Instance.totalCoin -= data.price;
                     UserDataManager.Instance.SetHasCookie(data.id, true); // 유저 정보 업데이트 
                     UIScrollViewCookiesSelect cookie = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id); // 구매한 쿠키의 Component 가져옴 
@@ -61,7 +61,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
             else if(totCoin < data.price && Popup != null)
             {
                 Popup.ShowCautionPopup(); //code by. 하은
-                Debug.Log("코인이 부족합니다.");
+                //Debug.Log("코인이 부족합니다.");
             }
         };
 

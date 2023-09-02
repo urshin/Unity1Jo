@@ -469,8 +469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0011901855, y: 15.000305}
-  m_SizeDelta: {x: 162.6872, y: 151.0785}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 89.1988, y: 82.834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7619739986531359236
 CanvasRenderer:
@@ -493,14 +493,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34117648}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69534d5f4820452468e4e4d3f4ef4c56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6496047e6f3b9ac4b99b6d2b94506057, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -765,6 +765,7 @@ MonoBehaviour:
   BuyPanel: {fileID: 1385506571500204597}
   buyBtn: {fileID: 6874998606445286520}
   priceTxt: {fileID: 9140633280929531013}
+  id: 0
   lockIcon: {fileID: 8354687080307269751}
   checkIcon: {fileID: 411137172682619289}
 --- !u!1 &5993336829842100147
@@ -1080,8 +1081,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9297943, y: 12.481293}
-  m_SizeDelta: {x: 405.67, y: 457.2327}
+  m_AnchoredPosition: {x: 0.000076293945, y: 9.001312}
+  m_SizeDelta: {x: 362.03, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5782036185346385966
 CanvasRenderer:
@@ -1111,7 +1112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 81d1b6bb1e6adeb48af71f7742b85035, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

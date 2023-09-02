@@ -23,10 +23,10 @@ public class UIPopupScale : MonoBehaviour //code by. 하은
     private void Update()
     {
         //닫기 버튼을 누르면 Hide() 메소드 실행
-        closeBtnCheck.onClick.AddListener(() => { HideCheckPopup(); });
+        closeBtnCheck.onClick.AddListener(() => { checkPopup?.SetActive(false); });
 
         //닫기 버튼을 누르면 Hide() 메소드 실행
-        closeBtnCaution.onClick.AddListener(() => { HideCautionPopup(); });
+        closeBtnCaution.onClick.AddListener(() => { cautionPopup?.SetActive(false); });
 
         //구매하기 버튼을 눌렀을 경우
         buyBtn.onClick.AddListener(() => { isBuy = true; });
@@ -53,32 +53,33 @@ public class UIPopupScale : MonoBehaviour //code by. 하은
         }
     }
 
-    public void HideCheckPopup()
-    {
-        if (checkPopup != null)
-        {
-            //바꿀 스케일 
-            Vector3 changeScale = new Vector3(0.1f, 0.1f, 1f);
-            checkPopup.GetComponent<RectTransform>().DOScale(changeScale, animationDuration)
-            .OnComplete(() =>
-            {
-                // 애니메이션 완료 후 팝업 닫기
-                checkPopup.SetActive(false);
-            });
-        }
-    }
+    //public void HideCheckPopup()
+    //{
+    //    if (checkPopup != null)
+    //    {
+    //        //바꿀 스케일 
+    //        Vector3 changeScale = new Vector3(0.1f, 0.1f, 1f);
+    //        checkPopup.GetComponent<RectTransform>().DOScale(changeScale, animationDuration)
+    //        .OnComplete(() =>
+    //        {
+    //            // 애니메이션 완료 후 팝업 닫기
+    //            checkPopup.SetActive(false);
+    //        });
+    //    }
+    //}
 
-    public void HideCautionPopup()
-    {
-        if (cautionPopup != null)
-        {
-            Vector3 changeScale = new Vector3(0.1f, 0.1f, 1f);
-            cautionPopup.GetComponent<RectTransform>().DOScale(changeScale, animationDuration)
-            .OnComplete(() =>
-            {
-                // 애니메이션 완료 후 팝업 닫기
-                cautionPopup.SetActive(false);
-            });
-        }
-    }
+    //public void HideCautionPopup()
+    //{
+    //    if (cautionPopup != null)
+    //    {
+    //        cautionPopup.SetActive(false);
+    //        //Vector3 changeScale = new Vector3(0.1f, 0.1f, 1f);
+    //        //cautionPopup.GetComponent<RectTransform>().DOScale(changeScale, animationDuration)
+    //        //.OnComplete(() =>
+    //        //{
+    //        //    // 애니메이션 완료 후 팝업 닫기
+    //        //    cautionPopup.SetActive(false);
+    //        //});
+    //    }
+    //}
 }
