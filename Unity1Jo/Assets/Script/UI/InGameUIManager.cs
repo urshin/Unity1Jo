@@ -36,11 +36,11 @@ public class InGameUIManager : MonoBehaviour
    
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();  
         pausePanel.SetActive(false);
     }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         if (HpDown)
         {

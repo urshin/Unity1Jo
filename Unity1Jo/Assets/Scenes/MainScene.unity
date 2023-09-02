@@ -294,6 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61c2e168c85db642ab4657304e2f391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cookie_100: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+  Cookie_101: {fileID: 2199266213153090824, guid: 5e318f81df4e963468e60c32147fa928, type: 3}
+  Cookie_102: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+  Cookie_103: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+  Cookie_104: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
   player: {fileID: 158513156}
   OriginPlayerPos: {fileID: 1693181603}
 --- !u!1 &872013226 stripped

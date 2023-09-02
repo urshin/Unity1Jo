@@ -13,7 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine.Experimental.GlobalIllumination;
 using Random = UnityEngine.Random;//랜덤함수 처리
 
-public class Spawnanager : SingletonBehaviour<Spawnanager>
+public class Spawnanager : SingletonBehaviour<Spawnanager>  
 {
 
     void Awake()
