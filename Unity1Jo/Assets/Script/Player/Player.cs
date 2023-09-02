@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
 
     public bool isBusy { get; private set; }
     public bool ishitted = false;
+   
 
     /// /////////////////////////////////////////////////////////////////////////// code by. 
 
@@ -198,8 +199,6 @@ public class Player : MonoBehaviour
     public void Update()
     {
         stateMachine.currentState.Update();
-      
-        
     }
 
     public IEnumerator BusyFor(float _second)
@@ -222,16 +221,18 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy") && !isDashing && !isGigantic && !ishitted)
         {
             StartCoroutine(isHitted(1)); // 한 번 부딪쳤을때 잠시 무적
-            Damage();
+            Damage(5);
         }
 
-        //if (collision.gameObject.CompareTag("Item")) // code by. 대석 (임시)
-        //{
-        //    if (GameManager.Instance == null) return;
-        //    //Destroy(collision.gameObject);
-        //}
+        if (collision.gameObject.CompareTag("Air"))
+        {
+            Transform oriPos = GameObject.Find("OriginPos").GetComponent<Transform>();
+            transform.position = oriPos.position;
+            Damage(20);
+            StartCoroutine(isHitted(3));
+        }
 
-        if(collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>().item.itemName == "HealBig")
+        if (collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>().item.itemName == "HealBig")
         {
             mapcount++;
             isMapChange = true;
@@ -239,9 +240,9 @@ public class Player : MonoBehaviour
     }
 
     // code by. 하은
-    public void Damage()
+    public void Damage(int damage)
     {
-        gameUIManager.HpValue -= 5;
+        gameUIManager.HpValue -= damage;
         Debug.Log("적과 충돌했습니다");
        // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }

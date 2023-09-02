@@ -22,25 +22,25 @@ public class MapController : MonoBehaviour
     {
         if (p.mapcount == 0)
         {
-            CurrentMap = Spawnanager.Instance.map1; //게임 시작 시 현재 맵 == map1
+            //CurrentMap = Spawnanager.Instance.map1; //게임 시작 시 현재 맵 == map1
 
         }
         else if (p.mapcount == 1 && p.isMapChange)
         {
-            CurrentMap = Spawnanager.Instance.map2;
+           // CurrentMap = Spawnanager.Instance.map2;
             ChangeMaterial(mat_map);
-            p.isMapChange = false;
+           // p.isMapChange = false;
         }
         else if (p.mapcount == 2 && p.isMapChange)
         {
-            CurrentMap = Spawnanager.Instance.map3;
+            //CurrentMap = Spawnanager.Instance.map3;
             ChangeMaterial(mat_map1);
-            p.isMapChange = false;
+            //p.isMapChange = false;
         }
         else if (p.mapcount == 3 && p.isMapChange)
         {
-            CurrentMap = Spawnanager.Instance.map4;
-            p.isMapChange = false;
+            //CurrentMap = Spawnanager.Instance.map4;
+           // p.isMapChange = false;
         }
     }
     void ChangeMaterial(Material[] mat_map)

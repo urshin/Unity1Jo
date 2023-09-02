@@ -66,7 +66,7 @@ public class PlayerIdleState : PlayerState
             player.stateMachine.ChangeState(player.deathState);
         }
 
-        if (player.IsWallDetected())
+        if (player.IsWallDetected()&& !player.isDashing && !player.isGigantic)
         {
             player.stateMachine.ChangeState(player.hitState);
         }
