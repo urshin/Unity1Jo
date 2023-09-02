@@ -11,7 +11,6 @@ public class PlayerHitState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.GroundScrollSpeed = 0;
     }
     public override void Update()
     {
@@ -27,7 +26,6 @@ public class PlayerHitState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        player.GroundScrollSpeed = player.OriginalGroundScrollSpeed;
     }
 
    
