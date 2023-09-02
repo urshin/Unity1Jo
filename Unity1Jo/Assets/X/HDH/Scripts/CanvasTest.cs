@@ -17,7 +17,10 @@ public class CanvasTest : UI_Base
         //BonusJump.gameObject.AddUIEvent(ButtonClicked, type : Define.UIEvent.PointerDown);  
         BonusJump.gameObject.AddUIEvent(OnButtonDown, type : Define.UIEvent.PointerDown); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
         BonusJump.gameObject.AddUIEvent(OnButtonUp, type: Define.UIEvent.PointerUp); // 버튼 업 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
-        GameObject playerObj = PlayerManager.Instance.GetPlayer(); // PlayManager라는 싱글톤 클래스에서 플레이어 게임 오브젝트 얻어옴.
+        //GameObject playerObj = PlayerManager.Instance.GetPlayer(); // PlayManager라는 싱글톤 클래스에서 플레이어 게임 오브젝트 얻어옴.
+        //if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
+        //    return;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
         if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
             return;
         player = playerObj.GetComponent<Player>(); // 플레이어 컴포넌트 가져옴 

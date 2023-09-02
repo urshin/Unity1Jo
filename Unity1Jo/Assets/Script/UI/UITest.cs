@@ -36,7 +36,10 @@ public class UITest : UI_Base
         Slide.gameObject.AddUIEvent(SlideButton, type: Define.UIEvent.PointerDown);
         Slide.gameObject.AddUIEvent(SlideButtonUp, type: Define.UIEvent.PointerUp);
 
-        GameObject playerObj = PlayerManager.Instance.GetPlayer(); // PlayManager라는 싱글톤 클래스에서 플레이어 게임 오브젝트 얻어옴.
+        //GameObject playerObj = PlayerManager.Instance.GetPlayer(); // PlayManager라는 싱글톤 클래스에서 플레이어 게임 오브젝트 얻어옴.
+        //if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
+        //    return;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
         if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
             return;
         player = playerObj.GetComponent<Player>(); // 플레이어 컴포넌트 가져옴 

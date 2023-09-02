@@ -15,7 +15,7 @@ using Random = UnityEngine.Random;//랜덤함수 처리
 using UnityEngine.UIElements;
 using JetBrains.Annotations;
 
-public class Spawnanager : SingletonBehaviour<Spawnanager>
+public class Spawnanager : SingletonBehaviour<Spawnanager>  
 {
 
     void Awake()

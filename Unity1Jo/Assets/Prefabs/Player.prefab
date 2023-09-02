@@ -431,7 +431,7 @@ Transform:
   - {fileID: 239752718495118448}
   - {fileID: 4100748294655838418}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5002697066825682851
 Rigidbody2D:
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db56bb6aa65ad774cbedb3d748bc67c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 1000
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}

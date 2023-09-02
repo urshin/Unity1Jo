@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
 {
-    public UIMyCookies uiMyCookies;
-    public GameObject myCookiesContent;
+    [SerializeField] UIMyCookies uiMyCookies;
     [SerializeField] UIScrollView cookieScrollView;
+    [SerializeField] UIPopupScale Popup; //code by. 하은
+    [SerializeField] GameObject myCookiesContent;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
 
             UserDataManager.Instance.SetSelectCookieID(id);
             UIScrollViewCookiesSelect beforeCheckcookieComponent = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetCheck() == true); // 현재 체크되어있는 쿠키 컴포넌트 가져옴 
-            UIScrollViewCookiesSelect afterCheckcookieComponent = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id);  // 선택된 쿠기 컴포넌트 가져옴 
+            UIScrollViewCookiesSelect afterCheckcookieComponent = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id);  // 선택된 쿠키 컴포넌트 가져옴 
             beforeCheckcookieComponent?.RefreshCheck(); // 선택 refresh 
             afterCheckcookieComponent?.RefreshCheck();  // 선택 refresh 
 
@@ -38,24 +39,30 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
             // TODO : 구매 버튼 구현 
             float totCoin = GameManager.Instance.totalCoin; // total coin 가져옴 
             Debug.Log($"totCoin : {totCoin}");
-            if (totCoin >= data.price)
+
+            Debug.Log($"Popup.isBuy: {Popup.isBuy}");
+
+            if (totCoin >= data.price && Popup != null)
             {
-                GameManager.Instance.totalCoin -= data.price; 
-                UserDataManager.Instance.SetHasCookie(data.id, true); // 유저 정보 업데이트 
-                UIScrollViewCookiesSelect cookie = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id); // 구매한 쿠키의 Component 가져옴 
-                if (cookie != null)
+                Popup.ShowCheckPopup(); //code by. 하은
+                if (Popup.isBuy == true)
                 {
-                    cookie.SetActivePanel(); // 선택 패널로 바꿔줌 
-                    cookie.RefreshLock();   //  lock 풀어줌   
+                    Popup.HideCheckPopup();
+                    GameManager.Instance.totalCoin -= data.price;
+                    UserDataManager.Instance.SetHasCookie(data.id, true); // 유저 정보 업데이트 
+                    UIScrollViewCookiesSelect cookie = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id); // 구매한 쿠키의 Component 가져옴 
+                    if (cookie != null)
+                    {
+                        cookie.SetActivePanel(); // 선택 패널로 바꿔줌 
+                        cookie.RefreshLock(); //  lock 풀어줌
+                    }
                 }
             }
-            else
+            else if(totCoin < data.price && Popup != null)
             {
+                Popup.ShowCautionPopup(); //code by. 하은
                 Debug.Log("코인이 부족합니다.");
             }
-
-
-
         };
 
         //UIMyCookies 초기화

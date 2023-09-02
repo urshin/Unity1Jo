@@ -16,10 +16,10 @@ public class ChangScenetoMainGame : MonoBehaviour
     public void GotoMainScene()
     {
         SceneManager.LoadScene("MainScene");  
-        //SceneManager.LoadScene("DH_MainScene");  
+        //SceneManager.LoadScene("DH_MainScene2");      
 
         if(FindObjectOfType<Spawnanager>() != null)
-            Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = true;          
+            Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = true;              
 
 
     }
