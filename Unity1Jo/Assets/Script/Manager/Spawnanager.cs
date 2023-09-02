@@ -15,14 +15,14 @@ using Random = UnityEngine.Random;//랜덤함수 처리
 using UnityEngine.UIElements;
 using JetBrains.Annotations;
 
-public class Spawnanager : SingletonBehaviour<Spawnanager>  
+public class Spawnanager : MonoBehaviour
 {
 
-    void Awake()
+    public static Spawnanager Instance;
+    private void Awake()
     {
-        base.Awake();
+        Instance = this;
     }
-
 
     public Transform[] SpawnPos; //스폰 포지션 //yPos
     public GameObject SpawnObject;
@@ -49,6 +49,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     public string map3 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map4 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string CurrentMap;
+
 
 
     //public Material[] mat_map; // 맵 이미지로 사용할 머테리얼                          
@@ -130,7 +131,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     }
 
     
-
+   
     IEnumerator spawn() //생성 코루틴
     {
 
