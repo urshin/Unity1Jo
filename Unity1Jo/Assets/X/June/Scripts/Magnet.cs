@@ -24,6 +24,7 @@ public class Magnet : MonoBehaviour
 
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 
 
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
             Invoke("SelfDestroy", 10); //5초뒤 본인 삭제
 

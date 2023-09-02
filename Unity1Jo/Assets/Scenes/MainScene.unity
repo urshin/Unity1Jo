@@ -3583,6 +3583,7 @@ MonoBehaviour:
   map2: Assets/Resources/Map2.json
   map3: Assets/Resources/Map1.json
   map4: Assets/Resources/Map1.json
+  map5: Assets/Resources/data.json
   Bonusmap: Assets/Resources/BonusMap.json
   CurrentMap: 
   lastMap: 

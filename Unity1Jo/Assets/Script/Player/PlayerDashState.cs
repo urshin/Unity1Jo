@@ -24,16 +24,17 @@ public class PlayerDashState : PlayerState
     public override void Exit()
     {
         base.Exit();
-       
 
+        
         //GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(-3 * Time.deltaTime, 0, 0);
     }
 
     public override void Update()
     {
         base.Update();
-        
-       
+
+
+
         if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected()) // ¼öÁ¤
             player.stateMachine.ChangeState(player.jumpState);
 
@@ -52,11 +53,12 @@ public class PlayerDashState : PlayerState
         if (Input.GetKeyDown(KeyCode.D))
             player.stateMachine.ChangeState(player.deathState);
 
-        if(player.isBonusTime)
+        if (player.isBonusTime)
         {
+
             player.stateMachine.ChangeState(player.highState);
             player.SetActiveShinyEffect(true);
-            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();  
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -69,9 +71,15 @@ public class PlayerDashState : PlayerState
         if (Input.GetKeyDown(KeyCode.F))
             player.stateMachine.ChangeState(player.fallingState);
 
-        if (player.OriginalGroundScrollSpeed == player.GroundScrollSpeed)
+
+        if (player.GetHP() <= 0)
         {
-            player.stateMachine.ChangeState(player.idleState);
+            player.stateMachine.ChangeState(player.deathState);
+        }
+
+        if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
+        {
+            player.stateMachine.ChangeState(player.hitState);
         }
 
     }
