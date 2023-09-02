@@ -28,6 +28,15 @@ public class Spawnanager : MonoBehaviour
     public GameObject SpawnObject;
     public GameObject Spawn10Pos;
 
+    [SerializeField] Sprite image1; // 바뀌는 젤리 이미지
+    [SerializeField] Sprite image2;
+    [SerializeField] RuntimeAnimatorController Short1;
+    [SerializeField] RuntimeAnimatorController Short2;
+    [SerializeField] RuntimeAnimatorController Long1;
+    [SerializeField] RuntimeAnimatorController Long2;
+    [SerializeField] RuntimeAnimatorController Slide1;
+    [SerializeField] RuntimeAnimatorController Slide2;
+
     public GameObject[] whatjelly; //젤리 타입
     public GameObject[] whatobstacle; //장애물 타입
 
@@ -74,7 +83,6 @@ public class Spawnanager : MonoBehaviour
 
     }
 
-
     void FixedUpdate()
     {
 
@@ -116,11 +124,19 @@ public class Spawnanager : MonoBehaviour
                     break;
                 case 1:
                     CurrentMap = map2;
+                    ChangeJellyPrefab(whatjelly[jellytype], image1);
+                    ChangeEnemy(whatobstacle[0], Short1);
+                    ChangeEnemy(whatobstacle[1], Long1);
+                    ChangeEnemy(whatobstacle[2], Slide1);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
                 case 2:
                     CurrentMap = map3;
+                    ChangeJellyPrefab(whatjelly[jellytype], image2);
+                    ChangeEnemy(whatobstacle[0], Short2);
+                    ChangeEnemy(whatobstacle[1], Long2);
+                    ChangeEnemy(whatobstacle[2], Slide2);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -190,7 +206,25 @@ public class Spawnanager : MonoBehaviour
 
     }
 
+    void ChangeJellyPrefab(GameObject prefab, Sprite newsprite) // code by. 대석
+    {
+        SpriteRenderer sp = prefab.GetComponent<SpriteRenderer>();
 
+        if(sp.sprite != null)
+        {
+            sp.sprite = newsprite;
+        }
+    }
+
+    void ChangeEnemy(GameObject prefab, RuntimeAnimatorController Ct)
+    {
+        Animator anim = prefab.GetComponentInChildren<Animator>();
+
+        if(Ct != null)
+        {
+            anim.runtimeAnimatorController = Ct;
+        }
+    }
 
     IEnumerator spawn() //생성 코루틴
     {

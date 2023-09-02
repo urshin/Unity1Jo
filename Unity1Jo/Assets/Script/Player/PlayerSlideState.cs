@@ -32,7 +32,7 @@ public class PlayerSlideState : PlayerState
             stateMachine.ChangeState(player.idleState);
         }
 
-        if (player.IsWallDetected())
+        if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
             stateMachine.ChangeState(player.hitState);
         }
