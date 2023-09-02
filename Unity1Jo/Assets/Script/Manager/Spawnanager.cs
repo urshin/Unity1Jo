@@ -210,7 +210,7 @@ public class Spawnanager : MonoBehaviour
     {
         SpriteRenderer sp = prefab.GetComponent<SpriteRenderer>();
 
-        if(sp.sprite != null)
+        if (sp.sprite != null)
         {
             sp.sprite = newsprite;
         }
@@ -220,7 +220,7 @@ public class Spawnanager : MonoBehaviour
     {
         Animator anim = prefab.GetComponentInChildren<Animator>();
 
-        if(Ct != null)
+        if (Ct != null)
         {
             anim.runtimeAnimatorController = Ct;
         }
@@ -233,13 +233,22 @@ public class Spawnanager : MonoBehaviour
         //젤리 생성
         for (int i = 0; i < jellyAmount; i++)
         {
-            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos + i]);
+            int j = 0;
 
+            if (obstacleType == 1 ) //1단 점프로 넘어지는 적이면 젤리 생성 위치를 3 올림
+            {
+                j = 3;
+                
+            }
+            if (obstacleType == 2)//2단 점프로 넘어지는 적이면 젤리 생성 위치를 7 올림
+            {
+                j = 7;
+            }
+            if (jellyYpos >= j)
+            { j = 0; }
+            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos + i + j]);
             // yield return new WaitForSeconds(1 / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
         }
-
-
-
         //몬스터 생성. json파일 내의 값이 0일경우 생성 x
         if (obstacleType >= 1)
         {
@@ -247,6 +256,9 @@ public class Spawnanager : MonoBehaviour
             Instantiate(whatobstacle[obstacleType - 1], SpawnPos[obstacle]);
 
         }
+
+
+
         yield return null;
     }
 

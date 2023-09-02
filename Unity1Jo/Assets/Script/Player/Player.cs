@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        mainCamera = Camera.main;
         cameraPos = mainCamera.transform.localPosition;
         BonusTimeGage = GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(9).GetComponent<Image>();
         gValue = 0;

@@ -3573,10 +3573,12 @@ MonoBehaviour:
   - {fileID: 8586875530463204270, guid: bb09c05a7780a1140a66d52bdf1fe983, type: 3}
   - {fileID: 55350238313747612, guid: ea21433354ae79341bcf217d1efd3473, type: 3}
   - {fileID: 6533384656835497482, guid: 143848b0c62d5a64fb73a07789661315, type: 3}
+  - {fileID: 4837089824551142452, guid: 7c7702daae08ca84490167ef0de240e0, type: 3}
   whatobstacle:
   - {fileID: 5150530280914796807, guid: 4ae8d0c2f4f8ce744b61b4fa704b03b3, type: 3}
   - {fileID: 99687125147664735, guid: 6cc2f5b0104fd734899a5f2b0d4b30c9, type: 3}
   - {fileID: 7702727402662706052, guid: 0fe56e7ca6a8bd64aa9a6752b311bf1a, type: 3}
+  - {fileID: 99687125147664735, guid: 7e2dfe0ac02bf6f4ab4db1b8ee6a1d23, type: 3}
   patternNum: 0
   SpawnSpeed: 1
   map1: Assets/Resources/Map1.json
