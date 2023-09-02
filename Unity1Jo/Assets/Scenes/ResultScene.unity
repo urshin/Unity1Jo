@@ -447,7 +447,7 @@ RectTransform:
   m_GameObject: {fileID: 432310630}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1752939361}
@@ -525,7 +525,7 @@ RectTransform:
   m_GameObject: {fileID: 574801957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1479237560}
@@ -646,7 +646,7 @@ RectTransform:
   m_GameObject: {fileID: 611900109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1909999799}
@@ -710,7 +710,6 @@ GameObject:
   - component: {fileID: 764074955}
   - component: {fileID: 764074954}
   - component: {fileID: 764074953}
-  - component: {fileID: 764074956}
   m_Layer: 5
   m_Name: TitleTxt
   m_TagString: Untagged
@@ -795,20 +794,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764074951}
   m_CullTransparentMesh: 1
---- !u!114 &764074956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764074951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee6bec89e94f41e4a954ce6fcc2ea933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TitleTxt: {fileID: 764074951}
-  animationDuration: 0.1
 --- !u!1 &897873668
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,7 +913,7 @@ RectTransform:
   m_GameObject: {fileID: 933933604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 406790746}
@@ -1271,6 +1256,7 @@ GameObject:
   - component: {fileID: 1566016516}
   - component: {fileID: 1566016517}
   - component: {fileID: 1566016518}
+  - component: {fileID: 1566016519}
   m_Layer: 5
   m_Name: UIResult
   m_TagString: Untagged
@@ -1355,10 +1341,10 @@ RectTransform:
   m_Children:
   - {fileID: 1810350438}
   - {fileID: 764074952}
-  - {fileID: 574801958}
   - {fileID: 933933605}
   - {fileID: 611900110}
   - {fileID: 432310631}
+  - {fileID: 574801958}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1407,7 +1393,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lights: {fileID: 1810350437}
-  lightSpeed: 1.5
+  lightSpeed: 2
+--- !u!114 &1566016519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566016511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6bec89e94f41e4a954ce6fcc2ea933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TitleTxt: {fileID: 764074951}
+  Point: {fileID: 933933604}
+  Coin: {fileID: 611900109}
+  Dialogue: {fileID: 432310630}
+  OkBtn: {fileID: 574801957}
+  animationDuration: 0.1
+  delay: 0.2
 --- !u!1 &1752939360
 GameObject:
   m_ObjectHideFlags: 0
