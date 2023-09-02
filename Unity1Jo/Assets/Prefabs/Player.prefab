@@ -524,9 +524,9 @@ MonoBehaviour:
   giganticSize: 0
   jumpPower: 16
   topTime: 0.8
-  topPos: {fileID: 0}
+  topPos: {fileID: 6246924043882406242, guid: 8703e8fe0f3fe4343b3fc0e9baccd6d0, type: 3}
   downTime: 0.6
-  middlePos: {fileID: 0}
+  middlePos: {fileID: 431071662401119691, guid: 91d117d96a3d00e4bba69638aa105a85, type: 3}
   bonusJumpPower: 3
   shinyEffect: {fileID: 3802064936371787870}
   groundCheck: {fileID: 5292868342731456067}
@@ -542,6 +542,7 @@ MonoBehaviour:
   jellyScore: 0
   coinScore: 0
   totalCoinScore: 0
+  ishitted: 0
   isDashing: 0
   DashDuration: 0
   GroundScrollSpeed: 5

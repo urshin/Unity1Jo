@@ -58,7 +58,7 @@ public class Spawnanager : MonoBehaviour
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         patternNum = 0; //indexnumber
-        Spawn10Pos = Instantiate(SpawnObject, gameObject.transform.position, Quaternion.identity);
+        Spawn10Pos = Instantiate(SpawnObject, gameObject.transform.position-new Vector3(0,0.75f,0), Quaternion.identity);
         Spawn10Pos.transform.parent = gameObject.transform;
         for(int i = 0; i < transform.GetChild(0).transform.childCount; i++)
         {
@@ -139,7 +139,7 @@ public class Spawnanager : MonoBehaviour
         //젤리 생성
         for (int i = 0; i < jellyAmount; i++)
         {
-            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos]);
+            Instantiate(whatjelly[jellytype], SpawnPos[jellyYpos+jellyAmount-1]);
             // yield return new WaitForSeconds(1 / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
         }
 
@@ -148,12 +148,9 @@ public class Spawnanager : MonoBehaviour
         //몬스터 생성. json파일 내의 값이 0일경우 생성 x
         if (obstacleType >= 1)
         {
-            for (int i = 0; i < obstacle; i++)
-            {
-                Instantiate(whatobstacle[obstacleType - 1], SpawnPos[0]);
-                // yield return new WaitForSeconds(1 / p.GroundScrollSpeed); //맵 스크롤 스피드에 맞춰서 생성.
-
-            }
+            
+                Instantiate(whatobstacle[obstacleType - 1], SpawnPos[obstacle]);
+           
         }
         yield return null;
     }
