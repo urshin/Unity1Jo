@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine.Experimental.GlobalIllumination;
 using Random = UnityEngine.Random;//랜덤함수 처리
+using UnityEngine.UIElements;
+using JetBrains.Annotations;
 
 public class Spawnanager : SingletonBehaviour<Spawnanager>  
 {
@@ -31,7 +33,6 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
 
     Player p;
 
-
     [SerializeField] int patternNum; //패턴 번호
     [SerializeField] float SpawnSpeed;
     float LastSpawnTime;
@@ -48,6 +49,10 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
     public string map3 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string map4 = "Assets/Resources/data.json"; // 맵 데이터 추가 예정
     public string CurrentMap;
+
+
+    //public Material[] mat_map; // 맵 이미지로 사용할 머테리얼                          
+
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -59,6 +64,8 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
             SpawnPos[i] = transform.GetChild(0).transform.GetChild(i);
         }
 
+        
+
     }
 
 
@@ -68,7 +75,6 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         if (p.mapcount == 0)
         {
             CurrentMap = map1; //게임 시작 시 현재 맵 == map1
-            
         }
         else if (p.mapcount == 1 && p.isMapChange)
         {
@@ -88,10 +94,8 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
             patternNum = 0;
             p.isMapChange = false;
         }
+
         string jsonFilePath = CurrentMap; //리소스 파일 안에 있는 data읽기
-
-
-
 
         if (File.Exists(jsonFilePath)) //파일이 존재할 시
         {
@@ -124,6 +128,9 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         }
 
     }
+
+    
+
     IEnumerator spawn() //생성 코루틴
     {
 
@@ -149,8 +156,7 @@ public class Spawnanager : SingletonBehaviour<Spawnanager>
         }
         yield return null;
     }
-
-
+    
 
     [System.Serializable]
     public class JsonData //data파일 읽은 정보 넣기

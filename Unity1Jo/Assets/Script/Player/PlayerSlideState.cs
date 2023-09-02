@@ -31,6 +31,11 @@ public class PlayerSlideState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+
+        if (player.IsWallDetected())
+        {
+            stateMachine.ChangeState(player.hitState);
+        }
     }
 
     public override void Exit()
