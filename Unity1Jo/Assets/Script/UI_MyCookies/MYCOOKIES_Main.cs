@@ -71,16 +71,16 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
                 checkPopupBox.GetComponent<RectTransform>().localPosition = Vector2.zero;   // position 설정 
                 checkPopupBox.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); // scale 설정 
 
-                // popup animation 
-                checkPopupBox.GetComponent<RectTransform>().DOScale(targetScale, animationDuration).OnComplete(() => {
-                    checkPopupBox.GetComponent<RectTransform>().DOScale(originScale, animationDuration);   
-                });  
-
                 // ID, price, view 설정해줌   
                 UI_CheckPopupBox checkComponent = checkPopupBox.GetComponent<UI_CheckPopupBox>();
                 checkComponent.SetCookieID(data.id);
                 checkComponent.SetCookiePrice(data.price);
                 checkComponent.SetCookieScrollView(cookieScrollView);
+
+                // popup animation 
+                checkPopupBox.GetComponent<RectTransform>().DOScale(targetScale, animationDuration).OnComplete(() => {
+                    checkPopupBox.GetComponent<RectTransform>().DOScale(originScale, animationDuration);
+                });
 
             }
             else 
