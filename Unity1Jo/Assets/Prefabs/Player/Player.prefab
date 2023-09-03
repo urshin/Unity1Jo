@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  hp: 100
+  hp: 20
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}

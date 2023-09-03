@@ -13,8 +13,9 @@ public class PlayerFallingState : PlayerState
     {
         base.Enter(); // 부모의 Enter 함수 실행 
         rb.gravityScale = 5; // 중력을 1으로 반듬  //중력값 바뀐 중력값인 5로 만들었습니다.
-        
-        
+
+        player.isBonusStart = false;  
+
     }
 
     public override void Exit()

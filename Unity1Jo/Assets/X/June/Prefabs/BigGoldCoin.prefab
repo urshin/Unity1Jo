@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ace9643010055e4f96577e1d58933e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinPoint: 10
+  CoinPoint: 100
 --- !u!95 &1487642917394723256
 Animator:
   serializedVersion: 5

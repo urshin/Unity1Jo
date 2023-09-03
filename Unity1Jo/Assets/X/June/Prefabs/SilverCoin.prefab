@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4978741656630347725
 SpriteRenderer:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ace9643010055e4f96577e1d58933e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinPoint: 1
+  CoinPoint: 10
 --- !u!95 &8269487412380635343
 Animator:
   serializedVersion: 5

@@ -60,7 +60,7 @@ public class UITest : UI_Base
     void GiveUP(PointerEventData data)
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("LOBBY");
+        SceneManager.LoadScene("ResultScene");
         Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = false;  
 
     }
