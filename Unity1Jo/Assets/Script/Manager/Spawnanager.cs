@@ -99,12 +99,32 @@ public class Spawnanager : MonoBehaviour
         }
         CurrentMap = map1;
 
+        selectedCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
     }
+    Camera selectedCamera;
+    public bool isEnemyInsideCamera;
+    public void CheckEnemy(GameObject _Enemy)//카메라 뷰 안에 적이 있는지 없는지
+    {
+        if (GameObject.FindGameObjectWithTag("Enemy") != null)
+        {
+            Vector3 viewPos = selectedCamera.WorldToViewportPoint(_Enemy.transform.position);
+            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+            {
 
+                isEnemyInsideCamera = true;
+            }
+            else
+                isEnemyInsideCamera = false;
+        }
+        if (isEnemyInsideCamera)
+            Debug.Log("적이 카메라 안에 있음");
+            
+
+    }
     void FixedUpdate()
     {
-
+        CheckEnemy(GameObject.FindGameObjectWithTag("Enemy")); //카메라 안에 적이 있는지 확인하는거
         //if (p.isMapChange && !p.isBonusTime && p.mapcount == 0)
         //{
         //    CurrentMap = map1;
@@ -144,7 +164,7 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[2], Slide0);
                     ChangeEnemy(whatobstacle[3], LongSlide0);
 
-                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_ovenIn);    
+                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_ovenIn);
 
                     patternNum = 0;
                     p.isMapChange = false;
@@ -202,17 +222,26 @@ public class Spawnanager : MonoBehaviour
         }
 
 
-        else if (CurrentMap != Bonusmap && p.isBonusTime)
+        if (CurrentMap != Bonusmap && p.isBonusTime)
         {
             lastPatternum = patternNum;
             lastMap = CurrentMap;
+
+          
 
             CurrentMap = Bonusmap;
             patternNum = 0;
 
         }
-        else if (CurrentMap == Bonusmap && !p.isBonusTime)
+        if (CurrentMap == Bonusmap && !p.isBonusTime)
         {
+            StartCoroutine(WaitingTime(2));
+        }
+
+
+        IEnumerator WaitingTime(float time)
+        {
+            yield return new WaitForSeconds(time);
             patternNum = lastPatternum;
             CurrentMap = lastMap;
             p.isMapChange = false;
@@ -286,10 +315,10 @@ public class Spawnanager : MonoBehaviour
         {
             int j = 0;
 
-            if (obstacleType == 1 ) //1단 점프로 넘어지는 적이면 젤리 생성 위치를 3 올림
+            if (obstacleType == 1) //1단 점프로 넘어지는 적이면 젤리 생성 위치를 3 올림
             {
                 j = 3;
-                
+
             }
             if (obstacleType == 2)//2단 점프로 넘어지는 적이면 젤리 생성 위치를 7 올림
             {

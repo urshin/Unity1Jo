@@ -30,7 +30,7 @@ public class PlayerHighState : PlayerState
                     stateMachine.ChangeState(player.downState);
                 });
 
-        Spawnanager.Instance.GetComponent<Spawnanager>().enabled = false;  
+       // Spawnanager.Instance.GetComponent<Spawnanager>().enabled = false;  
     }
     // code by µ¿È£
     public override void Exit()

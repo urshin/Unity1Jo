@@ -132,5 +132,6 @@ public class PlayerBonusTimeCount : MonoBehaviour
         {
             GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 0.2f);       
         }
+        p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
     }
 }
