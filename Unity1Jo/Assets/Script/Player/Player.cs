@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
     #region Components 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
-    public PlayerFX fx { get; private set; } //code by. 하은_Damage()에 사용
 
     public BoxCollider2D collider1 { get; private set; } // code by. 대석
     public InGameUIManager gameUIManager { get; private set; } // code by. 대석
@@ -140,7 +139,6 @@ public class Player : MonoBehaviour
 
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
-        fx = GetComponent<PlayerFX>();
         collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
         SetActiveShinyEffect(false);  // code by.동호      
 
@@ -247,12 +245,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    // code by. 하은
     public void Damage(int damage)
     {
         gameUIManager.HpValue -= damage;
         Debug.Log("적과 충돌했습니다");
-       // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }
     public void vibrate()  //Code by.준 //지진효과
     {
