@@ -19,8 +19,9 @@ public class PlayerBonusTimeCount : MonoBehaviour
         if (collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>() && !p.isBonusTime)
         {
 
-            var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.ItemType;
-            Sprite sprite = collision.gameObject.GetComponent<GetItem>().item.itemImage;
+            var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.ItemType;  
+            Sprite sprite = collision.gameObject.GetComponent<GetItem>().item.itemImage;  
+
 
             switch (WhatAlpa)
             {
@@ -81,14 +82,14 @@ public class PlayerBonusTimeCount : MonoBehaviour
                  
                     default:
                     {
-                        break;
+                        return;  
                     }
 
             }
 
 
             GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(BonusJelly).GetComponent<Image>().color = new Color(1, 1, 1, 1);
-            GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(BonusJelly).GetComponent<Image>().sprite = sprite;
+            GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(BonusJelly).GetComponent<Image>().sprite = sprite;  
 
 
             if (p.BonusJellyCount >= 9)
@@ -103,19 +104,33 @@ public class PlayerBonusTimeCount : MonoBehaviour
                 WhatAlpa == BonusTimeType.M ||
                 WhatAlpa == BonusTimeType.E)
                 {
+                    StartCoroutine(COWaitForAlphaBet(p.topTime + p.downTime));                
+                    StartCoroutine(COWaitForBonusTime(p.topTime + p.downTime));  
+                    p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
 
-                    for (int i = 0; i < 9; i++)
-                    {
-                        GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 0.2f);
-                    }
-                    p.gValue = 1;
-                    p.isBonusTime = true;
-                    p.BonusJellyCount = 0;
                 }
             }
 
 
         }
 
+    }
+    IEnumerator COWaitForBonusTime(float time )
+    {
+        yield return new WaitForSeconds(time);
+        p.gValue = 1;
+        p.BonusJellyCount = 0;
+        p.isBonusStart = true;
+
+    }
+    IEnumerator COWaitForAlphaBet(float time)
+    {
+
+        yield return new WaitForSeconds(time);       
+
+        for (int i = 0; i < 9; i++)
+        {
+            GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 0.2f);       
+        }
     }
 }

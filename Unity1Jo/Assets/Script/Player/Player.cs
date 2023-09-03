@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
     
     public float BonusTimeDuration;
     public bool isBonusTime;
+    public bool isBonusStart ;
     public int BonusJellyCount;
     public Image BonusTimeGage; //보너스타임 게이지
     public Image BonusTimeGage_Prefab;
@@ -150,13 +151,17 @@ public class Player : MonoBehaviour
         hp = gameUIManager.GetHpValue(); // code by 대석
 
         //보너스 타임 UI스크롤
-        gValue -= Time.deltaTime/ BonusTimeDuration;
+
+        gValue -= Time.deltaTime / BonusTimeDuration;
         if (gValue <= 0)
         {
             //gValue = 0;
             isBonusTime = false;
         }
-        BonusTimeGage.fillAmount = gValue;
+        BonusTimeGage.fillAmount = gValue;  
+
+
+
 
     }
 
