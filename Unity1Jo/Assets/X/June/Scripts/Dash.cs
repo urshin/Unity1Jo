@@ -27,6 +27,7 @@ public class Dash : MonoBehaviour
 
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
 
+
             p.isDashing = true;
             if (p.DashDuration > 0) //대쉬 지속시간이 남아있다면.
             {
@@ -37,6 +38,7 @@ public class Dash : MonoBehaviour
 
             isTriggerEneter = true;
 
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
             Invoke("DestroySelf", 5); //5초뒤 본인 삭제
         }

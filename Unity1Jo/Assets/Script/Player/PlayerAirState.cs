@@ -37,6 +37,7 @@ public class PlayerAirState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        player.vibrate();
     }
 
     

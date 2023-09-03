@@ -41,6 +41,7 @@ public class Gigantic : MonoBehaviour
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 거대화 문구 값 설정
 
             isTriggerEneter = true; 
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Invoke("DestroySelf", 6); //5초 뒤 본인 삭제
         }
     }

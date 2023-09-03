@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    public Camera mainCamera;
+    Vector3 cameraPos;
+   
+
+
     [Header("player")]
     [SerializeField] float hp;
     [SerializeField] float originSpeed;
@@ -41,6 +46,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform originSize;
     [SerializeField] float giganticSize;
     [SerializeField] public float jumpPower; // code by. 대석
+    
 
     [Header("Bonus Map Info")]      // code by. 동호
     public float topTime;           // 최대로 올라갈 떄의 시간  
@@ -118,6 +124,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        mainCamera = Camera.main;
+        cameraPos = mainCamera.transform.localPosition;
         BonusTimeGage = GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(9).GetComponent<Image>();
         gValue = 0;
         BonusJellyCount = 0;
@@ -246,7 +254,27 @@ public class Player : MonoBehaviour
         Debug.Log("적과 충돌했습니다");
        // fx.StartCoroutine("FlashFX"); //오류나서 일단 주석처리했습니다 .준
     }
+    public void vibrate()  //Code by.준 //지진효과
+    {
+        if(IsGroundDetected() && isGigantic)
+        {
+            StartCoroutine(Shake(0.1f, 0.2f));
+        }
+    }
 
+    public IEnumerator Shake(float _amount, float _duration)
+    {
+        float timer = 0;
+        while (timer <= _duration)
+        {
+            mainCamera.transform.localPosition = (Vector3)Random.insideUnitCircle * _amount + cameraPos;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        mainCamera.transform.localPosition = cameraPos;
+
+    }
     // code by. 대석
     public bool IsGroundDetected()
         => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
