@@ -72,7 +72,7 @@ public class PlayerIdleState : PlayerState
         {
             player.stateMachine.ChangeState(player.hitState);
         }
-        else return;
+
     }
    
     public override void Exit()

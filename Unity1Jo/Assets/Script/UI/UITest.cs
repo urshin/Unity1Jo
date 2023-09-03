@@ -69,8 +69,10 @@ public class UITest : UI_Base
     {
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
-        GameObject Mbonus = GameObject.Find("BonusMap").GetComponent<GameObject>();
-        Mbonus.SetActive(false);
+        player.mapcount = 0;
+        player.isMapChange = true;
+        //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
+        //Mbonus.SetActive(false);     
     }
 
     void PauseGame(PointerEventData data)

@@ -34,7 +34,14 @@ public class PlayerDoubleJumpState : PlayerState
         {
             player.stateMachine.ChangeState(player.hitState);
         }
-        else return;
+
+        if (player.isBonusTime)
+        {
+
+            player.stateMachine.ChangeState(player.highState);
+            player.SetActiveShinyEffect(true);
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();
+        }
     }
 
     public override void Exit()

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
+    public static MapController Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // ø¿∫Ï æ» (Ω√¿€ ∏ )
+    public Material[] mat_ovenIn;  
     public Material[] mat_map; // ø¿∫Ï π€
     public Material[] mat_map1;  // Ω≈¡ÿææ ∏ 
     public Material[] mat_map2; // æ∆π´∞≈≥™ ≥÷¿Ω
@@ -18,51 +25,55 @@ public class MapController : MonoBehaviour
     void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
+        Mbonus?.SetActive(false);  
     }
 
    
     void Update()
     {
-        if (p.mapcount == 0)
-        {
-            //CurrentMap = Spawnanager.Instance.map1; //∞‘¿” Ω√¿€ Ω√ «ˆ¿Á ∏  == map1
+        //if (p.mapcount == 0)
+        //{
+        //    //CurrentMap = Spawnanager.Instance.map1; //∞‘¿” Ω√¿€ Ω√ «ˆ¿Á ∏  == map1
 
-        }
-        else if (p.mapcount == 1 && p.isMapChange && !p.isBonusTime)
-        {
-           // CurrentMap = Spawnanager.Instance.map2;
-            ChangeMaterial(mat_map);
-           // p.isMapChange = false;
-        }
-        else if (p.mapcount == 2 && p.isMapChange && !p.isBonusTime)
-        {
-            //CurrentMap = Spawnanager.Instance.map3;
-            ChangeMaterial(mat_map1);
-            //p.isMapChange = false;
-        }
-        else if (p.mapcount == 3 && p.isMapChange && !p.isBonusTime)
-        {
-            ChangeMaterial(mat_map2);
-            //CurrentMap = Spawnanager.Instance.map4;
-            // p.isMapChange = false;
-        }
-        else if (p.mapcount == 4 && p.isMapChange && !p.isBonusTime)
-        {
-            ChangeMaterial(mat_map3);
-            //CurrentMap = Spawnanager.Instance.map4;
-            // p.isMapChange = false;
-        }
-        else if (p.mapcount == 5 && p.isMapChange && !p.isBonusTime)
-        {
-            //ChangeMaterial(mat_map4);
-            //CurrentMap = Spawnanager.Instance.map4;
-            // p.isMapChange = false;
-        }
+        //}
+        //else if (p.mapcount == 1 && p.isMapChange && !p.isBonusTime)
+        //{
+        //   // CurrentMap = Spawnanager.Instance.map2;
+        //    ChangeMaterial(mat_map);
+        //   // p.isMapChange = false;
+        //}
+        //else if (p.mapcount == 2 && p.isMapChange && !p.isBonusTime)
+        //{
+        //    //CurrentMap = Spawnanager.Instance.map3;
+        //    ChangeMaterial(mat_map1);
+        //    //p.isMapChange = false;
+        //}
+        //else if (p.mapcount == 3 && p.isMapChange && !p.isBonusTime)
+        //{
+        //    ChangeMaterial(mat_map2);
+        //    //CurrentMap = Spawnanager.Instance.map4;
+        //    // p.isMapChange = false;
+        //}
+        //else if (p.mapcount == 4 && p.isMapChange && !p.isBonusTime)  
+        //{
+        //    ChangeMaterial(mat_map3);
+        //    //CurrentMap = Spawnanager.Instance.map4;
+        //    // p.isMapChange = false;
+        //}
+        //else if (p.mapcount == 5 && p.isMapChange && !p.isBonusTime)
+        //{
+        //    //ChangeMaterial(mat_map4);
+        //    //CurrentMap = Spawnanager.Instance.map4;
+        //    // p.isMapChange = false;
+        //}
     }
-    void ChangeMaterial(Material[] mat_map)
+    public void ChangeMaterial(Material[] mat_map)
     {
-        Transform[] children = transform.GetComponentsInChildren<Transform>();
-
+        //Transform[] children = transform.GetComponentsInChildren<Transform>();
+        Transform[] children = GameObject.Find("Map").transform.GetComponentsInChildren<Transform>();
+    
         foreach (Transform child in children)
         {
             if (child.gameObject.name == "BackGround1")

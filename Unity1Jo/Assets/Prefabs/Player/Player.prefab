@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  hp: 20
+  hp: 10000
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}
@@ -562,6 +562,7 @@ MonoBehaviour:
   isMapChange: 0
   BonusTimeDuration: 10
   isBonusTime: 0
+  isBonusStart: 0
   BonusJellyCount: 0
   BonusTimeGage: {fileID: 0}
   BonusTimeGage_Prefab: {fileID: 0}

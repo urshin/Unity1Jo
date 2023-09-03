@@ -21,6 +21,14 @@ public class PlayerHitState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+
+        if (player.isBonusTime)
+        {
+
+            player.stateMachine.ChangeState(player.highState);
+            player.SetActiveShinyEffect(true);
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();
+        }
     }
 
     public override void Exit()

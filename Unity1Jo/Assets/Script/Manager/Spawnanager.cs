@@ -143,6 +143,9 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[1], Long0);
                     ChangeEnemy(whatobstacle[2], Slide0);
                     ChangeEnemy(whatobstacle[3], LongSlide0);
+
+                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_ovenIn);    
+
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -153,6 +156,8 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[1], Long1);
                     ChangeEnemy(whatobstacle[2], Slide1);
                     ChangeEnemy(whatobstacle[3], LongSlide1);
+                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_map);
+
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -163,6 +168,8 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[1], Long2);
                     ChangeEnemy(whatobstacle[2], Slide2);
                     ChangeEnemy(whatobstacle[3], LongSlide2);
+                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_map1);
+
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -173,6 +180,8 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[1], Long3);
                     ChangeEnemy(whatobstacle[2], Slide3);
                     ChangeEnemy(whatobstacle[3], LongSlide3);
+                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_map2);
+
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -183,6 +192,8 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[1], Long4);
                     ChangeEnemy(whatobstacle[2], Slide4);
                     ChangeEnemy(whatobstacle[3], LongSlide4);
+                    MapController.Instance.ChangeMaterial(MapController.Instance.mat_map3);
+
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -242,7 +253,11 @@ public class Spawnanager : MonoBehaviour
 
     }
 
-    void ChangeJellyPrefab(GameObject prefab, Sprite newsprite) // code by. 대석
+    public Sprite GetSpriteOrigin()
+    {
+        return image0;
+    }
+    public void ChangeJellyPrefab(GameObject prefab, Sprite newsprite) // code by. 대석
     {
         SpriteRenderer sp = prefab.GetComponent<SpriteRenderer>();
 

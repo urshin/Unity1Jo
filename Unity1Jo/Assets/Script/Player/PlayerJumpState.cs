@@ -38,9 +38,16 @@ public class PlayerJumpState : PlayerState
 
         if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
-            player.stateMachine.ChangeState(player.hitState);
+            player.stateMachine.ChangeState(player.hitState);  
         }
-        else return;
+
+        if (player.isBonusTime)
+        {
+
+            player.stateMachine.ChangeState(player.highState);
+            player.SetActiveShinyEffect(true);
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();
+        }
         //if (Input.GetKey(KeyCode.S) && player.IsGroundDetected())
         //{
         //    stateMachine.ChangeState(player.slideState);

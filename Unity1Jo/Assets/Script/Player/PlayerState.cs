@@ -50,7 +50,7 @@ public class PlayerState
         player.anim.SetBool(animBoolName, false);
     }
 
-    public virtual void AnimationFinishTrigger()
+    public virtual void AnimationFinishTrigger()      
     {
         triggerCalled = true;
     }
