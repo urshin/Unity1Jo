@@ -67,9 +67,10 @@ public class UITest : UI_Base
 
     void ReStartDown(PointerEventData data)
     {
-        
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
+        GameObject Mbonus = GameObject.Find("BonusMap").GetComponent<GameObject>();
+        Mbonus.SetActive(false);
     }
 
     void PauseGame(PointerEventData data)

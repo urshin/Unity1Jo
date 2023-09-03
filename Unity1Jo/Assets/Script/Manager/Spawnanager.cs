@@ -28,14 +28,33 @@ public class Spawnanager : MonoBehaviour
     public GameObject SpawnObject;
     public GameObject Spawn10Pos;
 
+    #region ChangeImage
+    [SerializeField] Sprite image0;
     [SerializeField] Sprite image1; // 바뀌는 젤리 이미지
     [SerializeField] Sprite image2;
+    [SerializeField] Sprite image3;
+    [SerializeField] Sprite image4;
+    [SerializeField] RuntimeAnimatorController Short0;
     [SerializeField] RuntimeAnimatorController Short1;
     [SerializeField] RuntimeAnimatorController Short2;
+    [SerializeField] RuntimeAnimatorController Short3;
+    [SerializeField] RuntimeAnimatorController Short4;
+    [SerializeField] RuntimeAnimatorController Long0;
     [SerializeField] RuntimeAnimatorController Long1;
     [SerializeField] RuntimeAnimatorController Long2;
+    [SerializeField] RuntimeAnimatorController Long3;
+    [SerializeField] RuntimeAnimatorController Long4;
+    [SerializeField] RuntimeAnimatorController Slide0;
     [SerializeField] RuntimeAnimatorController Slide1;
     [SerializeField] RuntimeAnimatorController Slide2;
+    [SerializeField] RuntimeAnimatorController Slide3;
+    [SerializeField] RuntimeAnimatorController Slide4;
+    [SerializeField] RuntimeAnimatorController LongSlide0;
+    [SerializeField] RuntimeAnimatorController LongSlide1;
+    [SerializeField] RuntimeAnimatorController LongSlide2;
+    [SerializeField] RuntimeAnimatorController LongSlide3;
+    [SerializeField] RuntimeAnimatorController LongSlide4;
+    #endregion
 
     public GameObject[] whatjelly; //젤리 타입
     public GameObject[] whatobstacle; //장애물 타입
@@ -119,6 +138,11 @@ public class Spawnanager : MonoBehaviour
             {
                 case 0:
                     CurrentMap = map1;
+                    ChangeJellyPrefab(whatjelly[jellytype], image0);
+                    ChangeEnemy(whatobstacle[0], Short0);
+                    ChangeEnemy(whatobstacle[1], Long0);
+                    ChangeEnemy(whatobstacle[2], Slide0);
+                    ChangeEnemy(whatobstacle[3], LongSlide0);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -128,6 +152,7 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[0], Short1);
                     ChangeEnemy(whatobstacle[1], Long1);
                     ChangeEnemy(whatobstacle[2], Slide1);
+                    ChangeEnemy(whatobstacle[3], LongSlide1);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
@@ -137,16 +162,27 @@ public class Spawnanager : MonoBehaviour
                     ChangeEnemy(whatobstacle[0], Short2);
                     ChangeEnemy(whatobstacle[1], Long2);
                     ChangeEnemy(whatobstacle[2], Slide2);
+                    ChangeEnemy(whatobstacle[3], LongSlide2);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
                 case 3:
                     CurrentMap = map4;
+                    ChangeJellyPrefab(whatjelly[jellytype], image3);
+                    ChangeEnemy(whatobstacle[0], Short3);
+                    ChangeEnemy(whatobstacle[1], Long3);
+                    ChangeEnemy(whatobstacle[2], Slide3);
+                    ChangeEnemy(whatobstacle[3], LongSlide3);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;
                 case 4:
                     CurrentMap = map5;
+                    ChangeJellyPrefab(whatjelly[jellytype], image4);
+                    ChangeEnemy(whatobstacle[0], Short4);
+                    ChangeEnemy(whatobstacle[1], Long4);
+                    ChangeEnemy(whatobstacle[2], Slide4);
+                    ChangeEnemy(whatobstacle[3], LongSlide4);
                     patternNum = 0;
                     p.isMapChange = false;
                     break;

@@ -31,11 +31,13 @@ public class PlayerSlideState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+        
 
         if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
             stateMachine.ChangeState(player.hitState);
         }
+        else return;
     }
 
     public override void Exit()

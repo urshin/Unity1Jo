@@ -16,8 +16,8 @@ public class PlayerGiganticState : PlayerState
     public override void Enter()
     {
         base.Enter();
-      //  GameObject.FindGameObjectWithTag("Player").transform.localScale =new Vector3(3, 3, 0);
-       
+        //  GameObject.FindGameObjectWithTag("Player").transform.localScale =new Vector3(3, 3, 0);
+
     }
 
     public override void Exit()

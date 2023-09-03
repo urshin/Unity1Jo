@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006163148885961932}
-  - component: {fileID: 3735979158997689994}
+  - component: {fileID: 9155551911765009847}
   m_Layer: 7
   m_Name: EnemyLong
   m_TagString: Enemy
@@ -31,9 +31,9 @@ Transform:
   m_Children:
   - {fileID: 9179121644837887340}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3735979158997689994
+--- !u!114 &9155551911765009847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 99687125147664735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d642b5d020aa83b4d9f571497747f494, type: 3}
+  m_Script: {fileID: 11500000, guid: 037f9b7d23758cd4189f2c9730d629a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4516851354296491681
@@ -141,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 4516851354296491681}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b02896e5d106147458ddc8a0e15bd1c7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8bb88520c434860499847c47c0cf0e10, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -30,15 +30,17 @@ public class PlayerJumpState : PlayerState
             stateMachine.ChangeState(player.idleState);
         }
 
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             stateMachine.ChangeState(player.slideState);
         }
+        
 
         if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
             player.stateMachine.ChangeState(player.hitState);
         }
+        else return;
         //if (Input.GetKey(KeyCode.S) && player.IsGroundDetected())
         //{
         //    stateMachine.ChangeState(player.slideState);

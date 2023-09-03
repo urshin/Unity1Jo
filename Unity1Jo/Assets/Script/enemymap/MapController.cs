@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-
-    public Material[] mat_map; // 두번째 맵 머테리얼
-    public Material[] mat_map1; // 세번째 맵 머테리얼
+    // 오븐 안 (시작 맵)
+    public Material[] mat_map; // 오븐 밖
+    public Material[] mat_map1;  // 신준씨 맵
+    public Material[] mat_map2; // 아무거나 넣음
+    public Material[] mat_map3; // 아무거나 넣음
+    //public Material[] mat_map4; // 얼음맵?
                                
     Player p;
 
@@ -25,22 +28,35 @@ public class MapController : MonoBehaviour
             //CurrentMap = Spawnanager.Instance.map1; //게임 시작 시 현재 맵 == map1
 
         }
-        else if (p.mapcount == 1 && p.isMapChange)
+        else if (p.mapcount == 1 && p.isMapChange && !p.isBonusTime)
         {
            // CurrentMap = Spawnanager.Instance.map2;
             ChangeMaterial(mat_map);
            // p.isMapChange = false;
         }
-        else if (p.mapcount == 2 && p.isMapChange)
+        else if (p.mapcount == 2 && p.isMapChange && !p.isBonusTime)
         {
             //CurrentMap = Spawnanager.Instance.map3;
             ChangeMaterial(mat_map1);
             //p.isMapChange = false;
         }
-        else if (p.mapcount == 3 && p.isMapChange)
+        else if (p.mapcount == 3 && p.isMapChange && !p.isBonusTime)
         {
+            ChangeMaterial(mat_map2);
             //CurrentMap = Spawnanager.Instance.map4;
-           // p.isMapChange = false;
+            // p.isMapChange = false;
+        }
+        else if (p.mapcount == 4 && p.isMapChange && !p.isBonusTime)
+        {
+            ChangeMaterial(mat_map3);
+            //CurrentMap = Spawnanager.Instance.map4;
+            // p.isMapChange = false;
+        }
+        else if (p.mapcount == 5 && p.isMapChange && !p.isBonusTime)
+        {
+            //ChangeMaterial(mat_map4);
+            //CurrentMap = Spawnanager.Instance.map4;
+            // p.isMapChange = false;
         }
     }
     void ChangeMaterial(Material[] mat_map)

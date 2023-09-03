@@ -12,12 +12,18 @@ public class PlayerDeathState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.GroundScrollSpeed = 0;
         player.CallResultWindow();
+
+
     }
 
     public override void Update()
     {
-        base.Update(); 
+        base.Update();
+
+        if (Input.GetKeyDown(KeyCode.Space)) return;
+        else { return; }
     }
 
     public override void Exit()

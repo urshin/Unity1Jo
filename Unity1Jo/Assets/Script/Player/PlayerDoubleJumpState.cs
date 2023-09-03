@@ -29,10 +29,12 @@ public class PlayerDoubleJumpState : PlayerState
         {
             stateMachine.ChangeState(player.slideState);
         }
+       
         if (player.IsWallDetected())
         {
             player.stateMachine.ChangeState(player.hitState);
         }
+        else return;
     }
 
     public override void Exit()

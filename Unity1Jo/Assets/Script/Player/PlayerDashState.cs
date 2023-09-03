@@ -16,7 +16,7 @@ public class PlayerDashState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        
+        //player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
        
         //GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(3 * Time.deltaTime, 0, 0);
     }
@@ -24,6 +24,7 @@ public class PlayerDashState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        //player.GroundScrollSpeed = player.OriginalGroundScrollSpeed;
 
         
         //GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(-3 * Time.deltaTime, 0, 0);

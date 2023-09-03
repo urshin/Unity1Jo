@@ -330,8 +330,9 @@ public class Player : MonoBehaviour
 
     IEnumerator WaitGameover() // code by. ´ë¼®
     {
-        GroundScrollSpeed = 0;
+        
         yield return new WaitForSeconds(3);
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("ResultScene");
     }
 }

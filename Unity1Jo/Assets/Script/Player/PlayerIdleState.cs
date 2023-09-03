@@ -12,6 +12,7 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.GroundScrollSpeed = player.OriginalGroundScrollSpeed;
     }
 
     public override void Update()
@@ -34,8 +35,8 @@ public class PlayerIdleState : PlayerState
         //if (Input.GetKeyDown(KeyCode.G))
         //    player.stateMachine.ChangeState(player.giganticState);
 
-        if (Input.GetKeyDown(KeyCode.D))
-            player.stateMachine.ChangeState(player.deathState);
+        //if (Input.GetKeyDown(KeyCode.D))
+        //    player.stateMachine.ChangeState(player.deathState);
 
         if(player.isBonusTime)
         {
@@ -54,6 +55,7 @@ public class PlayerIdleState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.F))
             player.stateMachine.ChangeState(player.fallingState);
+        
 
         
         if(player.OriginalGroundScrollSpeed < player.GroundScrollSpeed)
@@ -66,10 +68,11 @@ public class PlayerIdleState : PlayerState
             player.stateMachine.ChangeState(player.deathState);
         }
 
-        if (player.IsWallDetected()&& !player.isDashing && !player.isGigantic)
+        if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
             player.stateMachine.ChangeState(player.hitState);
         }
+        else return;
     }
    
     public override void Exit()

@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 768363410272805456}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97b6e8f721cc81c47a75c5533647cfdb, type: 2}
+  m_Controller: {fileID: 9100000, guid: ea64830d6e114dc4d82b681c24f16676, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006137641056140881}
-  - component: {fileID: 2704545384609052909}
+  - component: {fileID: -1163753505811044964}
   m_Layer: 7
   m_Name: SlideEnemy
   m_TagString: Enemy
@@ -183,9 +183,9 @@ Transform:
   m_Children:
   - {fileID: 447220148855925493}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2704545384609052909
+--- !u!114 &-1163753505811044964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,6 +194,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7702727402662706052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa78328738cd246817e16c7f464a24, type: 3}
+  m_Script: {fileID: 11500000, guid: 037f9b7d23758cd4189f2c9730d629a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
