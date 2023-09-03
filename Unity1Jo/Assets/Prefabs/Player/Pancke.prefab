@@ -285,16 +285,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db56bb6aa65ad774cbedb3d748bc67c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  mainCamera: {fileID: 0}
+  hp: 2
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}
   giganticSize: 0
   jumpPower: 16
   topTime: 0.8
-  topPos: {fileID: 6246924043882406242, guid: 8703e8fe0f3fe4343b3fc0e9baccd6d0, type: 3}
+  topPos: {fileID: 0}
   downTime: 0.6
-  middlePos: {fileID: 431071662401119691, guid: 91d117d96a3d00e4bba69638aa105a85, type: 3}
+  middlePos: {fileID: 0}
   bonusJumpPower: 3
   shinyEffect: {fileID: 8827438049978455247}
   groundCheck: {fileID: 8383715386014088198}
@@ -352,7 +353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112759768532662027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f277e5cc2353234ab22440048a8e225, type: 3}
   m_Name: 

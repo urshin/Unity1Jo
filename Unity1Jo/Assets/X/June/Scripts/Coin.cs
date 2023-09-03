@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-
     Player p;
+    [SerializeField] private float CoinPoint;
+
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
-
-
-
-    [SerializeField] private float CoinPoint;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

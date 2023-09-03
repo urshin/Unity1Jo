@@ -1380,6 +1380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 406790748}
   coinTxt: {fileID: 1909999801}
+  dialogueTxt: {fileID: 1752939363}
+  duration: 2
 --- !u!114 &1566016518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,7 +1416,6 @@ MonoBehaviour:
   Player: {fileID: 1999801919}
   animationDuration: 0.1
   delay: 0.2
-  anim: {fileID: 0}
   targetScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1752939360
 GameObject:
@@ -1452,8 +1453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50.0869, y: 1}
-  m_SizeDelta: {x: 445.4951, y: 132.6781}
+  m_AnchoredPosition: {x: 52.65, y: 0.36}
+  m_SizeDelta: {x: 440.36, y: 195.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752939362
 MonoBehaviour:
@@ -1492,7 +1493,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2636eddd0a79cf943b0bc7060ed8af8f, type: 3}
-    m_FontSize: 58
+    m_FontSize: 46
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1503,7 +1504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC57C\uD638~! \uD574\uB0C8\uC5B4!"
+  m_Text: "\uC6B0\uC6D4\uC5BD.. \uAC08\uAC70\uB2E4, \uC9D1\uC5D0..."
 --- !u!222 &1752939364
 CanvasRenderer:
   m_ObjectHideFlags: 0
