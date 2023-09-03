@@ -367,6 +367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 984271938304146294, guid: e6fe4129ebd76464396d544fa16e0d45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1254469227429883802, guid: e6fe4129ebd76464396d544fa16e0d45, type: 3}
       propertyPath: m_Name
       value: BackGround1
@@ -3554,6 +3558,14 @@ MonoBehaviour:
   - {fileID: 0}
   SpawnObject: {fileID: 8833987347793507268, guid: e9e57d5f761865f4284bcb51429c520a, type: 3}
   Spawn10Pos: {fileID: 0}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  Short1: {fileID: 0}
+  Short2: {fileID: 0}
+  Long1: {fileID: 0}
+  Long2: {fileID: 0}
+  Slide1: {fileID: 0}
+  Slide2: {fileID: 0}
   whatjelly:
   - {fileID: 4224232679521921525, guid: 3ec3ca3fd07a95b4da2719524ddde33e, type: 3}
   - {fileID: 8438134985049935363, guid: 000db78f9b8007e47a0f12c1911ba8d3, type: 3}
@@ -3583,6 +3595,7 @@ MonoBehaviour:
   map2: Assets/Resources/Map2.json
   map3: Assets/Resources/Map1.json
   map4: Assets/Resources/Map1.json
+  map5: Assets/Resources/data.json
   Bonusmap: Assets/Resources/BonusMap.json
   CurrentMap: 
   lastMap: 
