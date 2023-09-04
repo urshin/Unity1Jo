@@ -28,8 +28,9 @@ public class UITest : UI_Base
     {
         //BonusJump.gameObject.AddUIEvent(ButtonClicked, type : Define.UIEvent.PointerDown);  
         Jump.gameObject.AddUIEvent(JumpButton, type: Define.UIEvent.PointerDown); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
+        Jump.gameObject.AddUIEvent(JumpButtonUp, type: Define.UIEvent.PointerUp); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
         Jump.gameObject.AddUIEvent(DoubleJump, type: Define.UIEvent.PointerDown);
-        Jump.gameObject.AddUIEvent(DoubleJumpUP, type: Define.UIEvent.PointerUp);
+        Jump.gameObject.AddUIEvent(DoubleJumpUP, type: Define.UIEvent.PointerUp);  
         Pause.gameObject.AddUIEvent(PauseGame);
         KeepGame.gameObject.AddUIEvent(PauseCancle);
         ReStart.gameObject.AddUIEvent(ReStartDown);
@@ -96,63 +97,149 @@ public class UITest : UI_Base
 
     void JumpButton(PointerEventData data)
     {
-        _buttonPush = true;
-        
-        if(player == null) return;
+        if (player.stateMachine.currentState == player.fallingState)
+            return;
 
-        if (player.IsGroundDetected())
+        if(player.isBonusStart == true)
         {
-            isjumping = true;
-            player.stateMachine.ChangeState(player.jumpState);
+            if (player.gValue <= 0)
+                return;
+            BonusTimeButtonDown();
         }
+        else
+        {
+            _buttonPush = true;
+
+            if (player == null) return;
+
+            if (player.IsGroundDetected())
+            {
+                isjumping = true;
+                player.stateMachine.ChangeState(player.jumpState);
+            }
+        }
+
     }
 
     void JumpButtonUp(PointerEventData data)
     {
-        _buttonPush = false;
-       
+        if (player.stateMachine.currentState == player.fallingState)
+            return;
+
+        if (player.isBonusStart == true)
+        {
+            if (player.gValue <= 0)
+                return;
+            BonusTImeButtonUp();
+        }
+        else
+        {
+            _buttonPush = false;
+
+        }
+
     }
 
     void DoubleJump(PointerEventData data)
     {
-        _buttonPush = true;
-       
-        if(player == null) return;
-        if (!player.IsGroundDetected() && isjumping)
+        if (player.stateMachine.currentState == player.fallingState)
+            return;
+
+        if (player.isBonusStart == false)
         {
-            isjumping = false;
-            player.stateMachine.ChangeState(player.doubleJumpState);
-        }
-        
+            _buttonPush = true;
+
+            if (player == null) return;
+            if (!player.IsGroundDetected() && isjumping)
+            {
+                isjumping = false;
+                player.stateMachine.ChangeState(player.doubleJumpState);  
+            }
+        }    
     }
 
     void DoubleJumpUP(PointerEventData data)
     {
-        _buttonPush = false;
+        if (player.stateMachine.currentState == player.fallingState)
+            return;
+
+        if (player.isBonusStart == false)
+        {
+            _buttonPush = false;
+        }
     }
 
     void SlideButton(PointerEventData data)
     {
-        _buttonPush = true;
-        
-        if(player == null) return;
-        if (!player.IsGroundDetected())
-            player.stateMachine.ChangeState(player.slideState);
+        if (player.stateMachine.currentState == player.fallingState)
+            return;
+
+        if (player.isBonusStart == true)
+        {
+            if (player.gValue <= 0)
+                return;
+
+            BonusTimeButtonDown();
+        }
         else
-            player.stateMachine.ChangeState(player.slideState);
+        {
+            _buttonPush = true;
+
+            if (player == null) return;
+            if (!player.IsGroundDetected())
+                player.stateMachine.ChangeState(player.slideState);
+            else
+                player.stateMachine.ChangeState(player.slideState);
+        }
+
     }
 
     void SlideButtonUp(PointerEventData data)
     {
-        _buttonPush = false;
-        
-        player.anim.SetBool("Idle", true); 
-        player.stateMachine.ChangeState(player.idleState);
+        if (player.stateMachine.currentState == player.fallingState)
+            return;
+
+        if (player.isBonusStart == true)
+        {
+            if (player.gValue <= 0)  
+                return;  
+            BonusTImeButtonUp();
+        }
+        else
+        {
+            _buttonPush = false;
+
+            player.anim.SetBool("Idle", true);
+            player.stateMachine.ChangeState(player.idleState);    
+        }
+
     }
 
 
 
     // code by 동호
+    void BonusTimeButtonDown()
+    {
+        _buttonPush = true; // 버튼 푸시 플래스 활성화
+        if (player == null)  // 플레이어 컴포넌트 없으면 리턴 
+            return;
+
+        if (player.isBonusStart == false) // 보너스 타임이 끝났으면 리턴 
+            return;
+        player.stateMachine.ChangeState(player.bonusUpState); // 보너스 상태에서의 점프 상태가 됨.
+        StartCoroutine(JumpBonusTime());  // 점프 코루틴 실행 
+    }
+    void BonusTImeButtonUp()
+    {
+        _buttonPush = false; // 버튼 푸시 플래스 비활성화
+        if (player == null) // 플레이어 컴포넌트 없으면 리턴 
+            return;
+
+        if (player.isBonusStart == false) // 보너스 타임이 끝났으면 리턴 
+            return;
+
+        player.stateMachine.ChangeState(player.bonusDownState); // 보너스 상태에서의 다운 상태가 됨. 
+    }
     void OnButtonDown(PointerEventData data) // 보너스 타임에서의 플레이어 점프 버튼 클릭시 
     {
         Debug.Log("OnButtonDown");
