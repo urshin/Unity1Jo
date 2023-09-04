@@ -8,6 +8,7 @@ public class UIResult : MonoBehaviour
     [SerializeField] Text scoreTxt;
     [SerializeField] Text coinTxt;
     [SerializeField] Text dialogueTxt;
+    [SerializeField] string effectAudioClipPath = "E_Result";
 
     float targetScore;
     float currentScore;
@@ -20,6 +21,13 @@ public class UIResult : MonoBehaviour
     {
         //데이터 로드
         HE_DataManager.instance.LoadData();
+
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+        {
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+        }
 
         currentScore = 0;
         targetScore = GameManager.Instance.currentJellyPoint;

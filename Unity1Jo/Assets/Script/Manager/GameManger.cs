@@ -25,7 +25,24 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     private void Update()
     {
-        if(currentJellyPoint >= bestJellyPoint)
+        if (currentJellyPoint >= bestJellyPoint)
             bestJellyPoint = currentJellyPoint;
+    }
+
+    public AudioClip LoadAudioClip(string path) //SoundManager에 리소스를 로딩하기 위한 메소드
+    {
+        if (!path.StartsWith("Sounds/"))
+        {
+            path = "Sounds/" + path;
+        }
+
+        AudioClip audioClip = Resources.Load<AudioClip>(path); // Resources 폴더에서 AudioClip을 로드합니다.
+
+        if (audioClip == null) //오류 출력
+        {
+            Debug.LogError($"AudioClip not found at path: {path}");
+        }
+
+        return audioClip;
     }
 }
