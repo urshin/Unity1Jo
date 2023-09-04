@@ -23,4 +23,9 @@ public class Define : MonoBehaviour
         Effect,
         MaxCount, //Sound enumÀÇ °¹¼ö
     }
+
+    public enum Transition
+    {
+        Fade,  
+    }
 }
