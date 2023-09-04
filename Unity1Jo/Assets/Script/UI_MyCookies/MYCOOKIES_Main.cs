@@ -9,6 +9,8 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
     [SerializeField] UIMyCookies uiMyCookies;
     [SerializeField] UIScrollView cookieScrollView;
     [SerializeField] GameObject myCookiesContent;
+    [SerializeField] string bgmAudioClipPath = "BGM_UiShop";
+    [SerializeField] string effectAudioClipPath = "E_BuyCookie";
     [Space]
 
 
@@ -22,18 +24,23 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
 
     private void Awake()
     {
-
         foreach (Transform child in UI_BuyPopup.transform)
             GameObject.Destroy(child.gameObject);
 
         UI_BuyPopup.gameObject.SetActive(false);  
-
     }
 
     void Start()
     {
         //데이터 로드
         HE_DataManager.instance.LoadData();
+
+        //BGM재생
+        AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
+        if (bgmAudioClip != null)
+        {
+            SoundManager.Instance.Play(bgmAudioClip, Define.Sound.Bgm);
+        }
 
         //버튼클릭 정보(id)를 받아서 해당 Event 발생시킴
         EventManager.instance.onSelectBtnClick = (id) => {

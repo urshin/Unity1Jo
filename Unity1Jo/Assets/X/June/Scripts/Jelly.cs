@@ -13,7 +13,7 @@ public class Jelly : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.Instance.currentJellyPoint += JellyPoint; //GameManager에 있는 젤리 점수 증가
-            SoundManager.Instance.PlaySound("jelly");
+            //SoundManager.Instance.PlaySound("jelly");
             Destroy(gameObject); //삭제시키기
 
         }

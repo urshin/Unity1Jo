@@ -7,6 +7,7 @@ public class UIScrollView : MonoBehaviour //code by. 하은
     [SerializeField] Transform contentTrans;
     [SerializeField] GameObject cookiePrefab;
     [SerializeField] List<UIScrollViewCookiesSelect> CookieComponentList = new List<UIScrollViewCookiesSelect>();
+    [SerializeField] string effectAudioClipPath = "E_ClickBtn";
 
     public void Initialize()
     {
@@ -42,9 +43,24 @@ public class UIScrollView : MonoBehaviour //code by. 하은
         //각 버튼을 누르면 해당 cookies의 id를 EventManager에게 전달
         cookies.selectBtn.onClick.AddListener(() => {
             EventManager.instance.onSelectBtnClick(cookies.GetID());
+
+            //Effect재생
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+            {
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+            }
+
         });
         cookies.buyBtn.onClick.AddListener(() => {
             EventManager.instance.onBuyBtnClick(cookies.GetID());
+
+            //Effect재생
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+            {
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+            }
         });
 
         CookieComponentList.Add(cookies);  

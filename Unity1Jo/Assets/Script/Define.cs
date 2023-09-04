@@ -17,4 +17,10 @@ public class Define : MonoBehaviour
         InGame,
         None,
     }
+    public enum Sound //code by. 하은
+    {
+        Bgm,
+        Effect,
+        MaxCount, //Sound enum의 갯수
+    }
 }
