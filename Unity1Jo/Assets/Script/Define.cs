@@ -17,4 +17,9 @@ public class Define : MonoBehaviour
         InGame,
         None,
     }
+
+    public enum Transition
+    {
+        Fade,
+    }
 }

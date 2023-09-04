@@ -5,19 +5,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = UnityEngine.SceneManagement.Scene;
 
-public class EnvironmentManager : SingletonBehaviour<EnvironmentManager>
+public class EnvironmentManager : MonoBehaviour
 {
+    public static EnvironmentManager Instance;
+
     [SerializeField] GameObject InGame_EnvironmentObjs;
     [SerializeField] GameObject BonusTime_EnvironmentObjs;  
 
     // code by 동호
     void Awake()
     {
-        base.Awake(); // 부모의 awake 호출 
+        Instance = this;
+
+        SetActiveInGameEnvironment(true);
+        SetActiveBonusTimeEnvironment(false);
     }
     private void Start()
     {
-        SetActiveBonusTimeEnvironment(false);  
+
     }
     // code by 동호
     public void SetActiveInGameEnvironment(bool flag)
@@ -30,6 +35,14 @@ public class EnvironmentManager : SingletonBehaviour<EnvironmentManager>
         BonusTime_EnvironmentObjs.SetActive(flag);  
     }
 
+    public GameObject GetInGameMap()
+    {
+        return InGame_EnvironmentObjs;
+    }
+    public GameObject GetBonusMap()
+    {
+        return BonusTime_EnvironmentObjs;
+    }
     // code by 대석
     // 씬이 넘어갈때 BonusMap false 상태로 전환
     //public void BonusMapLoad(Scene scene, LoadSceneMode mode)

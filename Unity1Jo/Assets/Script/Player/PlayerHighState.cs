@@ -19,7 +19,10 @@ public class PlayerHighState : PlayerState
     public override void Enter()
     {
         base.Enter(); // 부모의 Enter 함수 실행 
-        float time = player.topTime;  
+        ingameuiManager.HpDown = false;  
+
+        float time = player.topTime; 
+
         if (player.topPos != null)
             player.transform.DOMoveY(player.topPos.transform.position.y, time).OnComplete(
                 () => {

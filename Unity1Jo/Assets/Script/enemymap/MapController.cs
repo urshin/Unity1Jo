@@ -26,8 +26,8 @@ public class MapController : MonoBehaviour
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
-        Mbonus?.SetActive(false);
+        //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
+        //Mbonus?.SetActive(false);  
 
         Spawnanager.Instance.ChangeJellyPrefab(Spawnanager.Instance.whatjelly[0], Spawnanager.Instance.image0);
         Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[0], Spawnanager.Instance.Short0);

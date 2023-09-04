@@ -54,7 +54,8 @@ public class Player : MonoBehaviour
     public float downTime;          // 중앙 위치로 갈 때의 시간 
     public GameObject middlePos;    // 쿠키가 최대로 올라간 후 중앙 위치로 가는 위치 
     public float bonusJumpPower = 1; // 쿠키가 점프버튼 클릭 시 올라갈 속도 파워 설정    
-    [SerializeField] GameObject shinyEffect;  
+    [SerializeField] GameObject shinyEffect;
+    public GameObject screenOutTopPos;  
 
 
     [Header("Collision Info")]
@@ -335,6 +336,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("ResultScene");
+    }
+    IEnumerator CoSetPlayerScreenOutTopPos()
+    {
+        yield return new WaitForSeconds(1f);    
+        transform.localPosition = new Vector2(transform.position.x, screenOutTopPos.transform.position.y);      
+        rb.velocity = Vector2.zero;  
+        rb.gravityScale = 1;  
     }
 }
 

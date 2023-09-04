@@ -530,6 +530,7 @@ MonoBehaviour:
   middlePos: {fileID: 431071662401119691, guid: 91d117d96a3d00e4bba69638aa105a85, type: 3}
   bonusJumpPower: 3
   shinyEffect: {fileID: 3802064936371787870}
+  screenOutTopPos: {fileID: 8877794583717187119, guid: 474b0b6470b92e448b7537eda7b16e29, type: 3}
   groundCheck: {fileID: 5292868342731456067}
   groundCheckDistance: 0.5
   whatIsGround:
@@ -562,6 +563,7 @@ MonoBehaviour:
   isMapChange: 0
   BonusTimeDuration: 10
   isBonusTime: 0
+  isBonusStart: 0
   BonusJellyCount: 0
   BonusTimeGage: {fileID: 0}
   BonusTimeGage_Prefab: {fileID: 0}

@@ -13,6 +13,8 @@ public class PlayerIdleState : PlayerState
     {
         base.Enter();
         player.GroundScrollSpeed = player.OriginalGroundScrollSpeed;
+        ingameuiManager.HpDown = true;
+
     }
 
     public override void Update()

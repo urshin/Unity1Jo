@@ -97,7 +97,9 @@ public class UITest : UI_Base
 
     void JumpButton(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState)
+        if (player.stateMachine.currentState == player.fallingState 
+            || player.stateMachine.currentState == player.highState 
+            || player.stateMachine.currentState == player.downState)
             return;
 
         if(player.isBonusStart == true)
@@ -123,7 +125,9 @@ public class UITest : UI_Base
 
     void JumpButtonUp(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState)
+        if (player.stateMachine.currentState == player.fallingState
+            || player.stateMachine.currentState == player.highState
+            || player.stateMachine.currentState == player.downState)
             return;
 
         if (player.isBonusStart == true)
@@ -142,7 +146,9 @@ public class UITest : UI_Base
 
     void DoubleJump(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState)
+        if (player.stateMachine.currentState == player.fallingState
+            || player.stateMachine.currentState == player.highState
+            || player.stateMachine.currentState == player.downState)
             return;
 
         if (player.isBonusStart == false)
@@ -160,7 +166,9 @@ public class UITest : UI_Base
 
     void DoubleJumpUP(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState)
+        if (player.stateMachine.currentState == player.fallingState
+            || player.stateMachine.currentState == player.highState
+            || player.stateMachine.currentState == player.downState)
             return;
 
         if (player.isBonusStart == false)
@@ -171,7 +179,9 @@ public class UITest : UI_Base
 
     void SlideButton(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState)
+        if (player.stateMachine.currentState == player.fallingState
+            || player.stateMachine.currentState == player.highState
+            || player.stateMachine.currentState == player.downState)
             return;
 
         if (player.isBonusStart == true)
@@ -196,7 +206,9 @@ public class UITest : UI_Base
 
     void SlideButtonUp(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState)
+        if (player.stateMachine.currentState == player.fallingState
+            || player.stateMachine.currentState == player.highState
+            || player.stateMachine.currentState == player.downState)
             return;
 
         if (player.isBonusStart == true)
@@ -210,7 +222,7 @@ public class UITest : UI_Base
             _buttonPush = false;
 
             player.anim.SetBool("Idle", true);
-            player.stateMachine.ChangeState(player.idleState);    
+            player.stateMachine.ChangeState(player.idleState);      
         }
 
     }

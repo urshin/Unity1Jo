@@ -23,7 +23,7 @@ public class InGameUIManager : MonoBehaviour
     public float HpValue; // 변화하는 값
     float MaxHpValue; // 고정 값
 
-    bool HpDown = true;
+    public bool HpDown = true;
 
     public Text CoinText;
     public Text JellyText;
