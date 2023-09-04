@@ -31,6 +31,11 @@ public class PanCake : MonoBehaviour
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         setmap = true;
         m = 1;
+        
+        for(int i = 0; i< Spawnanager.Instance.SpawnPos.Length/2; i++)
+        {
+            dotoriSpawnPos[i] = Spawnanager.Instance.SpawnPos[i*2];
+        }
     }
 
     void FixedUpdate()
