@@ -159,7 +159,7 @@ public class Spawnanager : MonoBehaviour
                 case 0:
                     CurrentMap = map1;
                     // GetSpriteOrigin();
-                    //ChangeJellyPrefab(whatjelly[0], image0);
+                    ChangeJellyPrefab(whatjelly[0], image0);
                     ChangeEnemy(whatobstacle[0], Short0);
                     ChangeEnemy(whatobstacle[1], Long0);
                     ChangeEnemy(whatobstacle[2], Slide0);

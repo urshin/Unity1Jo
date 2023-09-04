@@ -7,7 +7,7 @@ public class Gigantic : MonoBehaviour
     GameObject player;
     public float Size;
 
-    private bool isTriggerEneter;
+    private bool isTriggerEnter;
 
     Player p;
     private void Start()
@@ -40,7 +40,7 @@ public class Gigantic : MonoBehaviour
             p.isGigantic = true;
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 거대화 문구 값 설정
 
-            isTriggerEneter = true; 
+            isTriggerEnter = true; 
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Invoke("DestroySelf", 6); //5초 뒤 본인 삭제
         }
@@ -52,7 +52,7 @@ public class Gigantic : MonoBehaviour
 
 
 
-        if (isTriggerEneter) //충돌 된다면 자식객체로 있는 거대화 문구 출력하게 하기
+        if (isTriggerEnter) //충돌 된다면 자식객체로 있는 거대화 문구 출력하게 하기
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
             StartCoroutine(ShowText());
@@ -81,7 +81,7 @@ public class Gigantic : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        isTriggerEneter = false;
+        isTriggerEnter = false;
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0); //자식객체로 있는 문구 설정
     }
     void DestroySelf() //원래대로 돌아가는 함수

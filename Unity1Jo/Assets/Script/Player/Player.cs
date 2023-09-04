@@ -249,12 +249,47 @@ public class Player : MonoBehaviour
             mapcount++;
             isMapChange = true;
         }
+
+        if ((collision.gameObject.CompareTag("Enemy") && (isGigantic || isDashing)))
+        {
+            StartCoroutine(FlyObstacle(collision.gameObject.transform.root));
+            //Transform enemy = collision.gameObject.transform;
+            //string name = enemy.transform.root.name ;
+        }
+    }
+
+    IEnumerator FlyObstacle(Transform _enemy)
+    {
+        string name = _enemy.name;
+        while (true)
+        {
+            switch (name)
+            {
+                case "EnemyShort(Clone)":
+                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
+                    _enemy.Rotate(Vector3.forward*180f*Time.deltaTime);
+                    break;
+                case "EnemyLong(Clone)":
+                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
+                    _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    break;
+                case "EnemyLongUp(Clone)":
+                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
+                    _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    break;
+                case "SlideEnemy(Clone)":
+                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
+                    _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    break;
+            }
+            yield return null;
+        }
     }
 
     public void Damage(int damage)
     {
         gameUIManager.HpValue -= damage;
-        Debug.Log("적과 충돌했습니다");
+        //Debug.Log("적과 충돌했습니다");
     }
     public void vibrate()  //Code by.준 //지진효과
     {
