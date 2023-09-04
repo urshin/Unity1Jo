@@ -29,27 +29,27 @@ public class Spawnanager : MonoBehaviour
     public GameObject Spawn10Pos;
 
     #region ChangeImage
-    [SerializeField] Sprite image0;
+    [SerializeField] public Sprite image0;
     [SerializeField] Sprite image1; // ¹Ù²î´Â Á©¸® ÀÌ¹ÌÁö
     [SerializeField] Sprite image2;
     [SerializeField] Sprite image3;
     [SerializeField] Sprite image4;
-    [SerializeField] RuntimeAnimatorController Short0;
+    [SerializeField] public RuntimeAnimatorController Short0;
     [SerializeField] RuntimeAnimatorController Short1;
     [SerializeField] RuntimeAnimatorController Short2;
     [SerializeField] RuntimeAnimatorController Short3;
     [SerializeField] RuntimeAnimatorController Short4;
-    [SerializeField] RuntimeAnimatorController Long0;
+    [SerializeField] public RuntimeAnimatorController Long0;
     [SerializeField] RuntimeAnimatorController Long1;
     [SerializeField] RuntimeAnimatorController Long2;
     [SerializeField] RuntimeAnimatorController Long3;
     [SerializeField] RuntimeAnimatorController Long4;
-    [SerializeField] RuntimeAnimatorController Slide0;
+    [SerializeField] public RuntimeAnimatorController Slide0;
     [SerializeField] RuntimeAnimatorController Slide1;
     [SerializeField] RuntimeAnimatorController Slide2;
     [SerializeField] RuntimeAnimatorController Slide3;
     [SerializeField] RuntimeAnimatorController Slide4;
-    [SerializeField] RuntimeAnimatorController LongSlide0;
+    [SerializeField] public RuntimeAnimatorController LongSlide0;
     [SerializeField] RuntimeAnimatorController LongSlide1;
     [SerializeField] RuntimeAnimatorController LongSlide2;
     [SerializeField] RuntimeAnimatorController LongSlide3;
@@ -158,12 +158,12 @@ public class Spawnanager : MonoBehaviour
             {
                 case 0:
                     CurrentMap = map1;
-                    ChangeJellyPrefab(whatjelly[jellytype], image0);
+                    // GetSpriteOrigin();
+                    //ChangeJellyPrefab(whatjelly[0], image0);
                     ChangeEnemy(whatobstacle[0], Short0);
                     ChangeEnemy(whatobstacle[1], Long0);
                     ChangeEnemy(whatobstacle[2], Slide0);
                     ChangeEnemy(whatobstacle[3], LongSlide0);
-
                     MapController.Instance.ChangeMaterial(MapController.Instance.mat_ovenIn);
 
                     patternNum = 0;
@@ -171,7 +171,7 @@ public class Spawnanager : MonoBehaviour
                     break;
                 case 1:
                     CurrentMap = map2;
-                    ChangeJellyPrefab(whatjelly[jellytype], image1);
+                    ChangeJellyPrefab(whatjelly[0], image1);
                     ChangeEnemy(whatobstacle[0], Short1);
                     ChangeEnemy(whatobstacle[1], Long1);
                     ChangeEnemy(whatobstacle[2], Slide1);
@@ -183,7 +183,7 @@ public class Spawnanager : MonoBehaviour
                     break;
                 case 2:
                     CurrentMap = map3;
-                    ChangeJellyPrefab(whatjelly[jellytype], image2);
+                    ChangeJellyPrefab(whatjelly[0], image2);
                     ChangeEnemy(whatobstacle[0], Short2);
                     ChangeEnemy(whatobstacle[1], Long2);
                     ChangeEnemy(whatobstacle[2], Slide2);
@@ -195,7 +195,7 @@ public class Spawnanager : MonoBehaviour
                     break;
                 case 3:
                     CurrentMap = map4;
-                    ChangeJellyPrefab(whatjelly[jellytype], image3);
+                    ChangeJellyPrefab(whatjelly[0], image3);
                     ChangeEnemy(whatobstacle[0], Short3);
                     ChangeEnemy(whatobstacle[1], Long3);
                     ChangeEnemy(whatobstacle[2], Slide3);
@@ -207,7 +207,7 @@ public class Spawnanager : MonoBehaviour
                     break;
                 case 4:
                     CurrentMap = map5;
-                    ChangeJellyPrefab(whatjelly[jellytype], image4);
+                    ChangeJellyPrefab(whatjelly[0], image4);
                     ChangeEnemy(whatobstacle[0], Short4);
                     ChangeEnemy(whatobstacle[1], Long4);
                     ChangeEnemy(whatobstacle[2], Slide4);
@@ -282,10 +282,6 @@ public class Spawnanager : MonoBehaviour
 
     }
 
-    public Sprite GetSpriteOrigin()
-    {
-        return image0;
-    }
     public void ChangeJellyPrefab(GameObject prefab, Sprite newsprite) // code by. ´ë¼®
     {
         SpriteRenderer sp = prefab.GetComponent<SpriteRenderer>();
@@ -296,7 +292,7 @@ public class Spawnanager : MonoBehaviour
         }
     }
 
-    void ChangeEnemy(GameObject prefab, RuntimeAnimatorController Ct)
+    public void ChangeEnemy(GameObject prefab, RuntimeAnimatorController Ct)
     {
         Animator anim = prefab.GetComponentInChildren<Animator>();
 

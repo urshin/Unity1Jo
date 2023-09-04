@@ -72,6 +72,11 @@ public class UITest : UI_Base
         Time.timeScale = 1;
         player.mapcount = 0;
         player.isMapChange = true;
+        Spawnanager.Instance.ChangeJellyPrefab(Spawnanager.Instance.whatjelly[0], Spawnanager.Instance.image0);
+        Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[0], Spawnanager.Instance.Short0);
+        Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[1], Spawnanager.Instance.Long0);
+        Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[2], Spawnanager.Instance.Slide0);
+        Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[3], Spawnanager.Instance.LongSlide0);
         //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
         //Mbonus.SetActive(false);     
     }
