@@ -22,7 +22,7 @@ public class PanCake : MonoBehaviour
     public int i;
     int m;
 
-
+    GameObject dotori;
     bool setmap;
     void Start()
     {
@@ -31,10 +31,10 @@ public class PanCake : MonoBehaviour
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         setmap = true;
         m = 1;
-        
-        for(int i = 0; i< Spawnanager.Instance.SpawnPos.Length/2; i++)
+
+        for (int i = 0; i < Spawnanager.Instance.SpawnPos.Length / 2; i++)
         {
-            dotoriSpawnPos[i] = Spawnanager.Instance.SpawnPos[i*2];
+            dotoriSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];
         }
     }
 
@@ -50,7 +50,19 @@ public class PanCake : MonoBehaviour
             }
             setmap = false;
         }
-
+        if (DotoriJellyCount >= 20)
+        {
+            isSkillon = true;
+        }
+        if (isSkillon)
+        {
+            SkillBar.fillAmount -= 1/2*Time.deltaTime;
+            if (SkillBar.fillAmount <= 0)
+            {
+                DotoriJellyCount = 0;
+                isSkillon = false;
+            }
+        }
         //쿠키 스킬 쓰는곳
         if (!isSkillon)
         {
@@ -59,7 +71,7 @@ public class PanCake : MonoBehaviour
             {
                 LastSpawnTime = Time.time;
                 i += 1 * m;
-                Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+                 dotori =Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
 
                 if (i <= 0)
                 {
@@ -76,26 +88,14 @@ public class PanCake : MonoBehaviour
 
             }
         }
-        if (DotoriJellyCount >= 20)
-        {
-            isSkillon = true;
-        }
-        if (isSkillon)
-        {
-            SkillBar.fillAmount -= Time.deltaTime;
-            if (SkillBar.fillAmount <= 0)
-            {
-                DotoriJellyCount = 0;
-                isSkillon = false;
-            }
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == DotoriJelly)
         {
             DotoriJellyCount++;
-            
+
         }
         if (collision.gameObject == SunflowerJelly)
         {

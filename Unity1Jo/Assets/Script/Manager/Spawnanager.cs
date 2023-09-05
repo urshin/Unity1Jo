@@ -270,9 +270,9 @@ public class Spawnanager : MonoBehaviour
 
         IEnumerator WaitingTime(float time)
         {
-            yield return new WaitForSeconds(time);
             patternNum = lastPatternum;
             CurrentMap = lastMap;
+            yield return new WaitForSeconds(time);
             p.isMapChange = false;
         }
 
