@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4410725128947157075}
   - component: {fileID: 3006201330350762457}
   - component: {fileID: 4765898393337179960}
-  - component: {fileID: 2604278894667610019}
+  - component: {fileID: 3662978857952105001}
   m_Layer: 0
   m_Name: BasicJelly
   m_TagString: Jelly
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 0582347dc9aaeaa4ca8c7013a9ca172c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9863212288f92cd43a49289b3745acac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e6c4b141992624385d9362ccf40059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JellyPoint: 10
+  JellyPoint: 93537
 --- !u!58 &3006201330350762457
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: b424794c3ee13494499ffb9a02021b0e, type: 2}
---- !u!82 &2604278894667610019
+--- !u!82 &3662978857952105001
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 047708cbcdae5f744afaa2b9fe6d30a3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.357
   m_Pitch: 1
   Loop: 0
   Mute: 0
