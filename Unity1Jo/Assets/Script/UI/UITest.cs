@@ -296,6 +296,6 @@ public class UITest : UI_Base
     // code by 동호
     void PlayerBonusJump() // 점프 구현 
     {
-        player.SetVelocity(0, player.bonusJumpPower);  // 플레이어의 리지드 바디의 속도를 설정해줌.
+        player.SetVelocity(0, player.bonusJumpPower);  // 플레이어의 리지드 바디의 속도를 설정해줌.  
     }
 }

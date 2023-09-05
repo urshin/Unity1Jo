@@ -257,9 +257,11 @@ public class Player : MonoBehaviour
             isMapChange = true;
         }
 
-        if ((collision.gameObject.CompareTag("Enemy") && (isGigantic || isDashing)))
+        if ((collision.gameObject.CompareTag("Enemy") && (isGigantic || isDashing)) && !isBonusTime)
         {
-            StartCoroutine(FlyObstacle(collision.gameObject.transform.parent));
+            if (collision.gameObject.transform.parent != null) 
+                StartCoroutine(FlyObstacle(collision.gameObject.transform.parent));
+            
             //Transform enemy = collision.gameObject.transform;
             //string name = enemy.transform.root.name ; (Clone)
         }
@@ -267,7 +269,10 @@ public class Player : MonoBehaviour
 
     IEnumerator FlyObstacle(Transform _enemy)
     {
+
+
         string name = _enemy.name;
+        if(_enemy.name !=null)
         while (true)
         {
             switch (name)
@@ -386,11 +391,12 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         EnvironmentManager.Instance.SetActiveInGameEnvironment(true);
-        EnvironmentManager.Instance.SetActiveBonusTimeEnvironment(false);  
+        EnvironmentManager.Instance.SetActiveBonusTimeEnvironment(false);
 
-        transform.localPosition = new Vector2(transform.position.x, screenOutTopPos.transform.position.y);      
-        rb.velocity = Vector2.zero;
-        rb.gravityScale = 10;      
+
+        transform.localPosition = new Vector2(transform.position.x, screenOutTopPos.transform.position.y);        
+        //rb.velocity = Vector2.zero;    
+        rb.gravityScale = 30;            
     }
 }
 
