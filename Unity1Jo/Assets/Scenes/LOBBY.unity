@@ -5953,7 +5953,6 @@ GameObject:
   - component: {fileID: 1530106860}
   - component: {fileID: 1530106859}
   - component: {fileID: 1530106858}
-  - component: {fileID: 1530106861}
   - component: {fileID: 1530106862}
   m_Layer: 5
   m_Name: PlayBtn
@@ -6065,18 +6064,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530106856}
   m_CullTransparentMesh: 1
---- !u!114 &1530106861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530106856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e061940c7e36e74eaf2e1825e3b7357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1530106862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6563,6 +6550,7 @@ MonoBehaviour:
   LobbyCookieImg: {fileID: 1211561504}
   bestPointTxt: {fileID: 1456039890}
   coinTxt: {fileID: 1697323645}
+  bgmAudioClipPath: BGM_Lobby
 --- !u!4 &1724467379
 Transform:
   m_ObjectHideFlags: 0
@@ -6715,6 +6703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCookiesBtn: {fileID: 1702432765}
+  effectAudioClipPath: E_ClickBtn
 --- !u!114 &2135600676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6728,3 +6717,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playBtn: {fileID: 1530106856}
+  effectAudioClipPath: E_PlayBtn

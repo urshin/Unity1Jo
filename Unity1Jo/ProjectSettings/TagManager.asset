@@ -10,6 +10,7 @@ TagManager:
   - Air
   - Jelly
   - Coin
+  - DotoriJelly
   layers:
   - Default
   - TransparentFX

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e6c4b141992624385d9362ccf40059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JellyPoint: 50
+  JellyPoint: 324872
 --- !u!58 &5021514472714587565
 CircleCollider2D:
   m_ObjectHideFlags: 0

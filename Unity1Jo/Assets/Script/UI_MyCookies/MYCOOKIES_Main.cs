@@ -10,7 +10,6 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. гою╨
     [SerializeField] UIScrollView cookieScrollView;
     [SerializeField] GameObject myCookiesContent;
     [SerializeField] string bgmAudioClipPath = "BGM_UiShop";
-    [SerializeField] string effectAudioClipPath = "E_BuyCookie";
     [Space]
 
 
