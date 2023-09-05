@@ -77,8 +77,6 @@ public class Gigantic : MonoBehaviour
                     SoundManager.Instance.SetVolume(effectAudioClip2, 0.1f); // 사운드의 볼륨을 0.7로 설정
                 }
             }
-
-
         }
         if (isTriggerEneter)
         {
