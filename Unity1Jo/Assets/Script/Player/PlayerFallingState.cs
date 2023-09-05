@@ -35,17 +35,22 @@ public class PlayerFallingState : PlayerState
         
         EnvironmentManager.Instance.GetBonusMap().GetComponent<BonusMap>().SetBonusWallColliderEnabled(true);
         rb.gravityScale = 5; // 중력을 1으로 반듬  //중력값 바뀐 중력값인 5로 만들었습니다.
+        PlayerManager.Instance.SetOriginPlayerPositi2on();
+        //player.isBonusStart = false;
 
     }
-    
+
     public override void Update()
     {
         base.Update();// 부모의 Update 함수 실행 
 
-        if (player.IsGroundDetected() )  
-            player.stateMachine.ChangeState(player.idleState);      
+        if (player.IsGroundDetected())
+        {
+            player.stateMachine.ChangeState(player.idleState);
+            GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);   
+        }
 
-        player.rb.velocity = Vector2.down * Time.deltaTime ;          
+        player.rb.velocity = Vector2.down * Time.deltaTime * 3f;            
 
         if (!player.isBonusTime)
             return;

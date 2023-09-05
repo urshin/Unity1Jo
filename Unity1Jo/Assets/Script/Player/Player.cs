@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -273,47 +273,69 @@ public class Player : MonoBehaviour
 
         if ((collision.gameObject.CompareTag("Enemy") && (isGigantic || isDashing)) && !isBonusTime)
         {
-            if (collision.gameObject.transform.parent != null) 
+            if (collision.gameObject.transform.parent != null)
                 StartCoroutine(FlyObstacle(collision.gameObject.transform.parent));
+            //else
+            //{
+            //    StopCoroutine(FlyObstacle(collision.gameObject.transform.parent));
+            //}
+
+            
             
             //Transform enemy = collision.gameObject.transform;
-            //string name = enemy.transform.root.name ; (Clone)
+            //string name = enemy.transform.root.name ;
         }
     }
+     
 
-    
     IEnumerator FlyObstacle(Transform _enemy)
     {
 
 
         string name = _enemy.name;
 
-        GameObject[] Enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        if(Enemy.Length == 0)
-        {
-            yield break;
-        }
+        //GameObject[] Enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        //if(Enemy.Length == 0)
+        //{
+        //    yield break;
+        //}
          
        
         while (true)
         {
+            Debug.Log("FlyObstacle");
+            if (_enemy == null)
+                yield break ;    
+
             switch (name)
             {
                 case "EnemyShort(Clone)":
-                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
-                    _enemy.Rotate(Vector3.forward*180f*Time.deltaTime);
+                    if(name != null && !isBonusTime)
+                    {
+                       _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
+                       _enemy.Rotate(Vector3.forward*180f*Time.deltaTime);
+                    }
                     break;
                 case "EnemyLong(Clone)":
-                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
-                    _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    if (name != null && !isBonusTime)
+                    {
+                        _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
+                        _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    }
                     break;
                 case "EnemyLongUp(Clone)":
-                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
-                    _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    if (name != null && !isBonusTime)
+                    {
+                        _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
+                        _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    }
                     break;
                 case "SlideEnemy(Clone)":
-                    _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
-                    _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    if (name != null && !isBonusTime)
+                    {
+                        _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
+                        _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                    }
                     break;
             }
             yield return null;

@@ -98,7 +98,10 @@ public class UITest : UI_Base
         //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
         //Mbonus.SetActive(false);     
     }
-
+    public void SetButtonPush(bool flag)
+    {
+        _buttonPush = flag;
+    }
     void PauseGame(PointerEventData data)
     {
         _buttonPush = true;
@@ -110,7 +113,7 @@ public class UITest : UI_Base
         //Effect재생
         AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
         if (effectAudioClip != null)
-            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);  
     }
 
     void PauseCancle(PointerEventData data)
@@ -228,15 +231,19 @@ public class UITest : UI_Base
 
             BonusTimeButtonDown();
         }
-        else
+        else // falling state가 끝나면 
         {
-            _buttonPush = true;
-
             if (player == null) return;
-            if (!player.IsGroundDetected())
-                player.stateMachine.ChangeState(player.slideState);
-            else
-                player.stateMachine.ChangeState(player.slideState);
+
+            if (player.IsGroundDetected())
+            {
+                player.stateMachine.ChangeState(player.slideState);  
+            }
+
+            _buttonPush = true;  
+
+            Debug.Log("끝났어!!!!!!!!!!!");  
+
         }
 
     }
@@ -246,7 +253,7 @@ public class UITest : UI_Base
         if (player.stateMachine.currentState == player.fallingState
             || player.stateMachine.currentState == player.highState
             || player.stateMachine.currentState == player.downState
-            || player.stateMachine.currentState == player.deathState)
+            || player.stateMachine.currentState == player.deathState)  
             return;
 
         if (player.isBonusStart == true)
@@ -260,7 +267,7 @@ public class UITest : UI_Base
             _buttonPush = false;
 
             player.anim.SetBool("Idle", true);
-            player.stateMachine.ChangeState(player.idleState);      
+            player.stateMachine.ChangeState(player.idleState);
         }
 
     }
@@ -270,12 +277,14 @@ public class UITest : UI_Base
     // code by 동호
     void BonusTimeButtonDown()
     {
-        _buttonPush = true; // 버튼 푸시 플래스 활성화
         if (player == null)  // 플레이어 컴포넌트 없으면 리턴 
             return;
 
-        if (player.isBonusStart == false) // 보너스 타임이 끝났으면 리턴 
-            return;
+        if (player.isBonusStart == false && player.isBonusTime == false) // 보너스 타임이 끝났으면 리턴     
+            return;    
+
+        _buttonPush = true; // 버튼 푸시 플래스 활성화
+
         player.stateMachine.ChangeState(player.bonusUpState); // 보너스 상태에서의 점프 상태가 됨.
         StartCoroutine(JumpBonusTime());  // 점프 코루틴 실행 
     }
