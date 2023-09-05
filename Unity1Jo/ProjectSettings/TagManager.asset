@@ -8,6 +8,8 @@ TagManager:
   - Item
   - Hole
   - Air
+  - Jelly
+  - Coin
   layers:
   - Default
   - TransparentFX

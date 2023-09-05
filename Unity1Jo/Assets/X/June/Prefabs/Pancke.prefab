@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db56bb6aa65ad774cbedb3d748bc67c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
   hp: 50
   originSpeed: 0
   dashSpeed: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   middlePos: {fileID: 431071662401119691, guid: 91d117d96a3d00e4bba69638aa105a85, type: 3}
   bonusJumpPower: 3
   shinyEffect: {fileID: 4408742862747212445}
+  screenOutTopPos: {fileID: 0}
   groundCheck: {fileID: 3785568584800303380}
   groundCheckDistance: 0.5
   whatIsGround:
@@ -328,6 +330,7 @@ MonoBehaviour:
   isMapChange: 0
   BonusTimeDuration: 10
   isBonusTime: 0
+  isBonusStart: 0
   BonusJellyCount: 0
   BonusTimeGage: {fileID: 0}
   BonusTimeGage_Prefab: {fileID: 0}

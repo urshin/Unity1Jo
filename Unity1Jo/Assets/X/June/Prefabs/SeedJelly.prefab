@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7295966119842821039}
   m_Layer: 0
   m_Name: SeedJelly
-  m_TagString: Untagged
+  m_TagString: Jelly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

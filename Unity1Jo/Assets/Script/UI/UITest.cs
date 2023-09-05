@@ -17,7 +17,7 @@ public class UITest : UI_Base
     [SerializeField] Button ReStart;
     [SerializeField] Button GiveUp;
     [SerializeField] Button BonusJumpBtn;
-    [SerializeField] Button BonusSlideBtn;  
+    [SerializeField] Button BonusSlideBtn;
     bool _buttonPush; // button push flag
     bool isjumping = false; // 점프 유무 플래그
     Player player;
@@ -30,7 +30,7 @@ public class UITest : UI_Base
         Jump.gameObject.AddUIEvent(JumpButton, type: Define.UIEvent.PointerDown); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
         Jump.gameObject.AddUIEvent(JumpButtonUp, type: Define.UIEvent.PointerUp); // 버튼 다운 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
         Jump.gameObject.AddUIEvent(DoubleJump, type: Define.UIEvent.PointerDown);
-        Jump.gameObject.AddUIEvent(DoubleJumpUP, type: Define.UIEvent.PointerUp);  
+        Jump.gameObject.AddUIEvent(DoubleJumpUP, type: Define.UIEvent.PointerUp);
         Pause.gameObject.AddUIEvent(PauseGame);
         KeepGame.gameObject.AddUIEvent(PauseCancle);
         ReStart.gameObject.AddUIEvent(ReStartDown);
@@ -46,7 +46,7 @@ public class UITest : UI_Base
         BonusSlideBtn.gameObject.AddUIEvent(OnButtonUp, type: Define.UIEvent.PointerUp); // 버튼 업 했을 떄 이벤트 등록 (타입의 기본값 : Define.UIEvent.Click)
 
         BonusJumpBtn.gameObject.SetActive(false);
-        BonusSlideBtn.gameObject.SetActive(false);  
+        BonusSlideBtn.gameObject.SetActive(false);
 
         //GameObject playerObj = PlayerManager.Instance.GetPlayer(); // PlayManager라는 싱글톤 클래스에서 플레이어 게임 오브젝트 얻어옴.
         //if (playerObj == null) // 플레이어 오브젝트가 없으면 리턴 
@@ -62,7 +62,7 @@ public class UITest : UI_Base
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("ResultScene");
-        Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = false;  
+        Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = false;
 
     }
 
@@ -97,9 +97,10 @@ public class UITest : UI_Base
 
     void JumpButton(PointerEventData data)
     {
-        if (player.stateMachine.currentState == player.fallingState 
-            || player.stateMachine.currentState == player.highState 
-            || player.stateMachine.currentState == player.downState)
+        if (player.stateMachine.currentState == player.fallingState
+            || player.stateMachine.currentState == player.highState
+            || player.stateMachine.currentState == player.downState
+            || player.stateMachine.currentState == player.deathState)  
             return;
 
         if(player.isBonusStart == true)
@@ -127,7 +128,8 @@ public class UITest : UI_Base
     {
         if (player.stateMachine.currentState == player.fallingState
             || player.stateMachine.currentState == player.highState
-            || player.stateMachine.currentState == player.downState)
+            || player.stateMachine.currentState == player.downState
+            || player.stateMachine.currentState == player.deathState)
             return;
 
         if (player.isBonusStart == true)
@@ -148,7 +150,8 @@ public class UITest : UI_Base
     {
         if (player.stateMachine.currentState == player.fallingState
             || player.stateMachine.currentState == player.highState
-            || player.stateMachine.currentState == player.downState)
+            || player.stateMachine.currentState == player.downState
+            || player.stateMachine.currentState == player.deathState)
             return;
 
         if (player.isBonusStart == false)
@@ -168,7 +171,8 @@ public class UITest : UI_Base
     {
         if (player.stateMachine.currentState == player.fallingState
             || player.stateMachine.currentState == player.highState
-            || player.stateMachine.currentState == player.downState)
+            || player.stateMachine.currentState == player.downState
+            || player.stateMachine.currentState == player.deathState)
             return;
 
         if (player.isBonusStart == false)
@@ -181,7 +185,8 @@ public class UITest : UI_Base
     {
         if (player.stateMachine.currentState == player.fallingState
             || player.stateMachine.currentState == player.highState
-            || player.stateMachine.currentState == player.downState)
+            || player.stateMachine.currentState == player.downState
+            || player.stateMachine.currentState == player.deathState)
             return;
 
         if (player.isBonusStart == true)
@@ -208,7 +213,8 @@ public class UITest : UI_Base
     {
         if (player.stateMachine.currentState == player.fallingState
             || player.stateMachine.currentState == player.highState
-            || player.stateMachine.currentState == player.downState)
+            || player.stateMachine.currentState == player.downState
+            || player.stateMachine.currentState == player.deathState)
             return;
 
         if (player.isBonusStart == true)

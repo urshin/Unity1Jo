@@ -227,7 +227,36 @@ public class Spawnanager : MonoBehaviour
             lastPatternum = patternNum;
             lastMap = CurrentMap;
 
-          
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
+            GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
+            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+
+            foreach (GameObject item in Items)
+            {
+                Destroy(item);
+
+
+            }
+
+            foreach (GameObject jelly in jellys)
+            {
+                Destroy(jelly);
+
+
+            }
+            foreach (GameObject coin in coins)
+            {
+                Destroy(coin);
+
+
+            }
+            foreach (GameObject enemy in enemys)
+            {
+                Destroy(enemy);
+               
+
+            }  
 
             CurrentMap = Bonusmap;
             patternNum = 0;
@@ -277,7 +306,7 @@ public class Spawnanager : MonoBehaviour
 
         else //오류 출력
         {
-            Debug.LogError("JSON file not found at path: " + jsonFilePath);
+            //Debug.LogError("JSON file not found at path: " + jsonFilePath);
         }
 
     }

@@ -82,7 +82,7 @@ public class MapController : MonoBehaviour
     public void ChangeMaterial(Material[] mat_map)
     {
         //Transform[] children = transform.GetComponentsInChildren<Transform>();
-        Transform[] children = GameObject.Find("Map").transform.GetComponentsInChildren<Transform>();
+        Transform[] children = GameObject.Find("DS_Map").transform.GetComponentsInChildren<Transform>();
     
         foreach (Transform child in children)
         {
