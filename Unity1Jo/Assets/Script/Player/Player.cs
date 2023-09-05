@@ -288,6 +288,10 @@ public class Player : MonoBehaviour
        
         while (true)
         {
+            Debug.Log("FlyObstacle");
+            if (_enemy == null)
+                yield break ;    
+
             switch (name)
             {
                 case "EnemyShort(Clone)":

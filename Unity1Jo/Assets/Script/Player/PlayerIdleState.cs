@@ -45,7 +45,7 @@ public class PlayerIdleState : PlayerState
             
             player.stateMachine.ChangeState(player.highState);
             player.SetActiveShinyEffect(true);
-            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();  
+            player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();
         }
 
         if (Input.GetKeyDown(KeyCode.H))
