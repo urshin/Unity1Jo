@@ -528,7 +528,7 @@ MonoBehaviour:
   topPos: {fileID: 6246924043882406242, guid: 8703e8fe0f3fe4343b3fc0e9baccd6d0, type: 3}
   downTime: 0.6
   middlePos: {fileID: 431071662401119691, guid: 91d117d96a3d00e4bba69638aa105a85, type: 3}
-  bonusJumpPower: 3
+  bonusJumpPower: 5
   shinyEffect: {fileID: 3802064936371787870}
   screenOutTopPos: {fileID: 8877794583717187119, guid: 474b0b6470b92e448b7537eda7b16e29, type: 3}
   groundCheck: {fileID: 5292868342731456067}

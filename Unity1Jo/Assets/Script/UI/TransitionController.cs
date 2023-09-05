@@ -37,12 +37,12 @@ public class TransitionController : MonoBehaviour
             {
                 BlackBack.enabled = true;
             })
-            .Append(BlackBack.DOFade(1.0f, 0.5f).OnComplete(() => {
+            .Append(BlackBack.DOFade(1.0f, 1).OnComplete(() => {
 
 
 
             })) // 어두워짐. 알파 값 조정.  
-            .Append(BlackBack.DOFade(0.0f, Time)) // 밝아짐. 알파 값 조정.          
+            .Append(BlackBack.DOFade(0.0f, 1)) // 밝아짐. 알파 값 조정.                  
             .OnComplete(() => // 실행 후.
             {
                 BlackBack.enabled = false;  

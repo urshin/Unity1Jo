@@ -37,7 +37,7 @@ public class Jelly : MonoBehaviour
             //{
             //    audioSource.Play();
             //}
-            Destroy(gameObject, 0.2f); //삭제시키기
+            Destroy(gameObject); //삭제시키기  
 
         }
     }
