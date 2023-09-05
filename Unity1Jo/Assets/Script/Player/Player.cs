@@ -267,6 +267,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    
     IEnumerator FlyObstacle(Transform _enemy)
     {
 
