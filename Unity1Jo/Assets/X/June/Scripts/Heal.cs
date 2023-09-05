@@ -6,6 +6,7 @@ public class Heal : MonoBehaviour
 {
 
     [SerializeField] float HowMuchHeal;
+    [SerializeField] string effectAudioClipPath = "SoundEff_Small_Energy";
 
     Player p;
     private void Start()
@@ -17,6 +18,10 @@ public class Heal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
             p.AddHP(HowMuchHeal);
             Destroy(gameObject); //삭제시키기
 

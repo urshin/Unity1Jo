@@ -8,13 +8,20 @@ public class PlayerDeathState : PlayerState
     public PlayerDeathState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
-    
+
+    [SerializeField] string effectAudioClipPath = "SoundEff_GameEnd";
+
     public override void Enter()
     {
         base.Enter();
         player.GroundScrollSpeed = 0;
         player.CallResultWindow();
 
+        SoundManager.Instance.Clear();
+
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
 
     }
 
@@ -30,7 +37,5 @@ public class PlayerDeathState : PlayerState
     {
         base.Exit();
     }
-   
-    
-   
+
 }

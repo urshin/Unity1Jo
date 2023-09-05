@@ -9,6 +9,7 @@ public class Magnet : MonoBehaviour
 
     private bool isTriggerEneter;
     public GameObject txt;
+    [SerializeField] string effectAudioClipPath = "SoundEff_GetItemJelly";
 
     private void Start()
     {
@@ -18,11 +19,14 @@ public class Magnet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
             p.MagnetDuration = p.MagnetTime;
             p.isMagnet = true;
             isTriggerEneter = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
-
 
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
@@ -30,6 +34,7 @@ public class Magnet : MonoBehaviour
 
         }
     }
+
     void Update()
     {
         if(isTriggerEneter)

@@ -82,7 +82,10 @@ public class Player : MonoBehaviour
 
     public bool isBusy { get; private set; }
     public bool ishitted = false;
-   
+
+    [SerializeField] string bgmAudioClipPath = "BGM_Map2";
+    [SerializeField] string effectAudioClipPath = "SoundEff_Large_Energy";
+
 
     /// /////////////////////////////////////////////////////////////////////////// code by. 
 
@@ -252,8 +255,20 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>().item.itemName == "HealBig")
         {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
             mapcount++;
             isMapChange = true;
+            
+            if (mapcount == 1)
+            {
+                //Map2 BGM으로 변경
+                AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
+                if (bgmAudioClip != null)
+                    SoundManager.Instance.Play(bgmAudioClip, Define.Sound.Bgm);
+            }
         }
 
         if ((collision.gameObject.CompareTag("Enemy") && (isGigantic || isDashing)) && !isBonusTime)

@@ -12,11 +12,6 @@ public class Jelly : MonoBehaviour
     {
         p = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player>();
 
-        //Effect재생
-        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
-        if (effectAudioClip != null)
-            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
-
         //if (gameObject.GetComponent<AudioSource>() != null)
         //{
 
@@ -32,6 +27,11 @@ public class Jelly : MonoBehaviour
         {
             GameManager.Instance.currentJellyPoint += JellyPoint; //GameManager에 있는 젤리 점수 증가
                                                                   //SoundManager.Instance.PlaySound("jelly");
+
+            //Effect재생
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
 
             //if (gameObject.GetComponent<AudioSource>() != null)
             //{

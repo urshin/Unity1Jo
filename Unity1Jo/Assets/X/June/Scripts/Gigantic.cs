@@ -10,6 +10,10 @@ public class Gigantic : MonoBehaviour
     private bool isTriggerEneter;
 
     Player p;
+
+    [SerializeField] string effectAudioClipPath = "SoundEff_GetItemJelly";
+    [SerializeField] string effectAudioClipPath1 = "E_Gigantic";
+    [SerializeField] string effectAudioClipPath2 = "E_BacktoOriginScale";
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -24,6 +28,10 @@ public class Gigantic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) //플레이어의 태그가 있을 때
         {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
             player = GameObject.FindGameObjectWithTag("Player"); //게임오브젝트에 닿은 상대 게임오브젝트 대입
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //플레이어의 이미지 끄기
             p.GiganticDuration = p.GiganticTime; //아이템 지속 시간 초기화
@@ -34,6 +42,10 @@ public class Gigantic : MonoBehaviour
                 for (int i = 0; i < Size; i++) //정한 사이즈 만큼 커짐
                 {
                     StartCoroutine(SizeUp()); //사이즈 업 하기
+
+                    AudioClip effectAudioClip1 = GameManager.Instance.LoadAudioClip(effectAudioClipPath1);
+                    if (effectAudioClip1 != null)
+                        SoundManager.Instance.Play(effectAudioClip1, Define.Sound.Effect);
                 }
 
             }
@@ -55,6 +67,9 @@ public class Gigantic : MonoBehaviour
             {
                 StartCoroutine(SizeDown());
 
+                AudioClip effectAudioClip2 = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);
+                if (effectAudioClip2 != null)
+                    SoundManager.Instance.Play(effectAudioClip2, Define.Sound.Effect);
             }
 
 
