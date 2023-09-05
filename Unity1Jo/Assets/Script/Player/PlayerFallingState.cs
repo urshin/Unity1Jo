@@ -22,8 +22,9 @@ public class PlayerFallingState : PlayerState
         
         //EnvironmentManager.Instance.GetInGameMap().transform.position = new Vector2(-25, 0);          
         //EnvironmentManager.Instance.GetBonusMap().transform.position = new Vector2(-20, 0);          
-        player.StartCoroutine("CoSetPlayerScreenOutTopPos");    
+        player.StartCoroutine("CoSetPlayerScreenOutTopPos");
         //player.transform.GetComponent<Rigidbody2D>().gravityScale = 5;
+        GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);  
 
 
     }
@@ -47,8 +48,8 @@ public class PlayerFallingState : PlayerState
         if (player.IsGroundDetected())
         {
             player.stateMachine.ChangeState(player.idleState);
-            GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);   
         }
+
 
         player.rb.velocity = Vector2.down * Time.deltaTime * 3f;            
 
