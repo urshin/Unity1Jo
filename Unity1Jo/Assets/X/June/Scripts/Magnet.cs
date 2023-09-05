@@ -42,10 +42,14 @@ public class Magnet : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
             StartCoroutine(ShowText());
+            
 
         }
     }
-
+    void DestroyChild()
+    {
+        Destroy(transform.GetChild(0));
+    }
 
 
     private void SelfDestroy()

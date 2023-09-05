@@ -56,7 +56,7 @@ public class Gigantic : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
             StartCoroutine(ShowText());
-
+           
         }
         if (p.GiganticDuration <= 0) //거대화 지속시간이 끝난다면
         {
@@ -70,7 +70,10 @@ public class Gigantic : MonoBehaviour
 
         }
     }
-
+    void DestroyChild()
+    {
+        Destroy(transform.GetChild(0));
+    }
     IEnumerator SizeDown()
     {
         GameObject.FindGameObjectWithTag("Player").transform.localScale -= new Vector3(0.1f, 0.1f, 0); //플레이어의 로컬스케일값 감소

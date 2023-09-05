@@ -55,10 +55,7 @@ public class Dash : MonoBehaviour
 
             StartCoroutine(ShowText());
 
-            if (transform.GetChild(0) != null)
-            {
-                Destroy(transform.GetChild(0));
-            }
+        
 
         }
         if (p.DashDuration <= 0)
@@ -76,6 +73,10 @@ public class Dash : MonoBehaviour
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0); //자식객체로 있는 문구 설정
     }
 
+   void DestroyChild()
+    {
+        Destroy(transform.GetChild(0));
+    }
     void DestroySelf()
     {
         Destroy(gameObject); //삭제시키기
