@@ -94,4 +94,19 @@ public class SoundManager : SingletonBehaviour<SoundManager>
         AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
         audioSource.Play();
     }
+
+    public void SetVolume(AudioClip audioClip, float volumeDown)
+    {
+        if (audioClip == null)
+            return;
+
+        foreach (AudioSource audioSource in _audioSources)
+        {
+            if (audioSource.clip == audioClip)
+            {
+                audioSource.volume *= volumeDown; // ÇöÀç º¼·ý¿¡ volumeDown °ªÀ» °öÇÔ
+                return;
+            }
+        }
+    }
 }

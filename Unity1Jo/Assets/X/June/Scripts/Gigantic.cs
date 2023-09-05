@@ -45,7 +45,10 @@ public class Gigantic : MonoBehaviour
 
                     AudioClip effectAudioClip1 = GameManager.Instance.LoadAudioClip(effectAudioClipPath1);
                     if (effectAudioClip1 != null)
+                    {
                         SoundManager.Instance.Play(effectAudioClip1, Define.Sound.Effect);
+                        SoundManager.Instance.SetVolume(effectAudioClip1, 0.1f); // 사운드의 볼륨을 0.7로 설정
+                    }
                 }
 
             }
@@ -69,7 +72,10 @@ public class Gigantic : MonoBehaviour
 
                 AudioClip effectAudioClip2 = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);
                 if (effectAudioClip2 != null)
+                {
                     SoundManager.Instance.Play(effectAudioClip2, Define.Sound.Effect);
+                    SoundManager.Instance.SetVolume(effectAudioClip2, 0.1f); // 사운드의 볼륨을 0.7로 설정
+                }
             }
 
 
