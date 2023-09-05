@@ -155,6 +155,13 @@ public class Player : MonoBehaviour
         GiganticDuration -= Time.deltaTime;//시간에 따라서 값 감소
         MagnetDuration -= Time.deltaTime; ; //시간에 따라서 값 감소
 
+        if(DashDuration<0)
+            isDashing = false;
+        if(GiganticDuration< 0)
+            isGigantic = false;
+        if(MagnetDuration< 0)
+            isMagnet = false;
+
         hp = gameUIManager.GetHpValue(); // code by 대석
 
         //보너스 타임 UI스크롤
@@ -348,9 +355,12 @@ public class Player : MonoBehaviour
     {
         return hp;
     }
+
+   
     public float AddHP(float howmuchheal)
     {
-        hp += howmuchheal;
+        gameUIManager.HpValue += howmuchheal;
+        //hp += howmuchheal;
         return hp;
         
     }

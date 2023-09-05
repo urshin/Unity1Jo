@@ -8,6 +8,7 @@ public class Magnet : MonoBehaviour
     Player p;
 
     private bool isTriggerEneter;
+    public GameObject txt;
 
     private void Start()
     {
@@ -22,7 +23,6 @@ public class Magnet : MonoBehaviour
             isTriggerEneter = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기
 
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 
 
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
@@ -32,19 +32,12 @@ public class Magnet : MonoBehaviour
     }
     void Update()
     {
-
-        if (p.MagnetDuration < 0)
+        if(isTriggerEneter)
         {
-            p.isMagnet = false;
+            Instantiate(txt, p.transform.position + new Vector3(0,1,0), Quaternion.identity);
+            isTriggerEneter = false;
         }
-
-        if (isTriggerEneter) //충돌 된다면 자식객체로 있는 자석 문구 출력하게 하기
-        {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
-            StartCoroutine(ShowText());
-            
-
-        }
+        
     }
     void DestroyChild()
     {
@@ -57,17 +50,5 @@ public class Magnet : MonoBehaviour
 
         Destroy(gameObject); //삭제시키기
     }
-    IEnumerator ShowText() //자식 객체로 있는 문구 보여주기
-    {
-        if (p.isMagnet)
-        {
-            transform.GetChild(0).transform.position += new Vector3(-Time.deltaTime, 0, 0);
-        }
-        else
-        {
-
-            transform.GetChild(0).transform.position -= new Vector3(Time.deltaTime, 0, 0);
-        }
-        yield return new WaitForSeconds(0.2f);
-    }
+    
 }

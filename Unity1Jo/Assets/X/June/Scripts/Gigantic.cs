@@ -6,8 +6,8 @@ public class Gigantic : MonoBehaviour
 {
     GameObject player;
     public float Size;
-
-    private bool isTriggerEnter;
+    public GameObject txt;
+    private bool isTriggerEneter;
 
     Player p;
     private void Start()
@@ -38,9 +38,8 @@ public class Gigantic : MonoBehaviour
 
             }
             p.isGigantic = true;
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);//자식으로 있는 거대화 문구 값 설정
 
-            isTriggerEnter = true; 
+            isTriggerEneter = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Invoke("DestroySelf", 6); //5초 뒤 본인 삭제
         }
@@ -48,16 +47,7 @@ public class Gigantic : MonoBehaviour
 
     void FixedUpdate()
     {
-       
 
-
-
-        if (isTriggerEnter) //충돌 된다면 자식객체로 있는 거대화 문구 출력하게 하기
-        {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3f * Time.deltaTime);
-            StartCoroutine(ShowText());
-           
-        }
         if (p.GiganticDuration <= 0) //거대화 지속시간이 끝난다면
         {
             p.isGigantic = false;
@@ -68,6 +58,11 @@ public class Gigantic : MonoBehaviour
             }
 
 
+        }
+        if (isTriggerEneter)
+        {
+            Instantiate(txt, p.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            isTriggerEneter = false;
         }
     }
     void DestroyChild()
@@ -84,8 +79,7 @@ public class Gigantic : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        isTriggerEnter = false;
-        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0); //자식객체로 있는 문구 설정
+        isTriggerEneter = false;
     }
     void DestroySelf() //원래대로 돌아가는 함수
     {
@@ -101,17 +95,5 @@ public class Gigantic : MonoBehaviour
     }
 
 
-    IEnumerator ShowText() //자식 객체로 있는 문구 보여주기
-    {
-        if (p.isMagnet)
-        {
-            transform.GetChild(0).transform.position += new Vector3(-Time.deltaTime, 0, 0);
-        }
-        else
-        {
-
-        transform.GetChild(0).transform.position += new Vector3(Time.deltaTime, 0, 0); 
-        }
-        yield return new WaitForSeconds(0.2f);
-    }
+ 
 }
