@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class UI_CautionPopupBox : MonoBehaviour
 {
     [SerializeField] GameObject CloseBtn;
-
+    [SerializeField] string effectAudioClipPath = "E_ClickBtn";
 
     private void Awake()
     {
@@ -15,7 +15,12 @@ public class UI_CautionPopupBox : MonoBehaviour
 
     void OnCloseBtnClicked(PointerEventData data)
     {
-        Debug.Log("OnCloseBtnClicked");  
+        Debug.Log("OnCloseBtnClicked");
+
+        //EffectÀç»ý
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
 
         gameObject.transform.parent.gameObject.SetActive(false);  
         Destroy(gameObject);

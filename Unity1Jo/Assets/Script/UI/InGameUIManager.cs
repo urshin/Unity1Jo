@@ -30,10 +30,12 @@ public class InGameUIManager : MonoBehaviour
     
     public static int totalScore;
 
-    [SerializeField] GameObject Bonus;  
+    [SerializeField] GameObject Bonus;
+
+    [SerializeField] string bgmAudioClipPath = "BGM_Map1";
 
     //public GameObject inputUI; // 추후 모바일 빌딩하기 전에 할 것
-   
+
     private void Awake()
     {
         pausePanel.SetActive(false);
@@ -41,6 +43,11 @@ public class InGameUIManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        //BGM재생
+        AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
+        if (bgmAudioClip != null)
+            SoundManager.Instance.Play(bgmAudioClip, Define.Sound.Bgm);
 
         if (HpDown)
         {

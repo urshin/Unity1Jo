@@ -13,6 +13,9 @@ public class UI_CheckPopupBox : MonoBehaviour
     [SerializeField] GameObject oKBtn;
     [SerializeField] GameObject closeBtn;
 
+    [SerializeField] string effectAudioClipPath = "E_BuyCookie";
+    [SerializeField] string effectAudioClipPath2 = "E_ClickBtn";
+
     private void Awake()
     {
         oKBtn.AddUIEvent(OnOkBtnClicked);
@@ -39,6 +42,11 @@ public class UI_CheckPopupBox : MonoBehaviour
     {
         Debug.Log($"ID : {cookieID} 구매 완료 ~!! ");
 
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
         GameManager.Instance.totalCoin -= cookiePrice;
         UserDataManager.Instance.SetHasCookie(cookieID, true); // 유저 정보 업데이트 
         if (cookieScrollView == null)
@@ -57,6 +65,11 @@ public class UI_CheckPopupBox : MonoBehaviour
     /* 닫기 버튼 기능 구현 */
     void OnCloseBtnClicked(PointerEventData data)
     {
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
         ClosePopup();
     }
 

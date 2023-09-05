@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ChangScenetoMainGame : MonoBehaviour
+public class ChangeScenetoMainGame : MonoBehaviour //code by.하은
 {
     [SerializeField] GameObject playBtn;
+    [SerializeField] string effectAudioClipPath = "E_PlayBtn";
 
     public void Awake()
     {
@@ -15,7 +16,14 @@ public class ChangScenetoMainGame : MonoBehaviour
 
     public void GotoMainScene()
     {
+        SoundManager.Instance.Clear();
         SceneManager.LoadScene("MainScene");
+
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
         if (Spawnanager.Instance == null)
             return;  
         //Spawnanager.Instance.ChangeJellyPrefab(Spawnanager.Instance.whatjelly[0], Spawnanager.Instance.image0);
