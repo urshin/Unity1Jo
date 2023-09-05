@@ -19,8 +19,7 @@ public class PlayerFallingState : PlayerState
         EnvironmentManager.Instance.GetBonusMap().GetComponent<BonusMap>().SetBonusWallColliderEnabled(false);  // 보너스 맵의 밑의 collider enabled false
         TransitionController.Play(Define.Transition.Fade);    //fade in out 
 
-        EnvironmentManager.Instance.SetActiveInGameEnvironment(true);
-        EnvironmentManager.Instance.SetActiveBonusTimeEnvironment(false);
+
 
         player.StartCoroutine("CoSetPlayerScreenOutTopPos");    
         //player.transform.GetComponent<Rigidbody2D>().gravityScale = 5;
@@ -43,7 +42,12 @@ public class PlayerFallingState : PlayerState
         base.Update();// 부모의 Update 함수 실행 
 
         if (player.IsGroundDetected() == true)
-            player.stateMachine.ChangeState(player.idleState);  
+            player.stateMachine.ChangeState(player.idleState);
+
+        //player.rb.velocity = Vector2.down * Time.deltaTime ;      
+
+        if (!player.isBonusTime)
+            return;
 
     }
 }

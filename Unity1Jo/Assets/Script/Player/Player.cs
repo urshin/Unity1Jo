@@ -384,10 +384,13 @@ public class Player : MonoBehaviour
     }
     IEnumerator CoSetPlayerScreenOutTopPos()
     {
-        yield return new WaitForSeconds(1f);    
+        yield return new WaitForSeconds(1f);
+        EnvironmentManager.Instance.SetActiveInGameEnvironment(true);
+        EnvironmentManager.Instance.SetActiveBonusTimeEnvironment(false);  
+
         transform.localPosition = new Vector2(transform.position.x, screenOutTopPos.transform.position.y);      
-        rb.velocity = Vector2.zero;  
-        rb.gravityScale = 1;  
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 10;      
     }
 }
 

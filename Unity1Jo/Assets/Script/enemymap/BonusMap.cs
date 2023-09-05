@@ -5,6 +5,7 @@ using UnityEngine;
 public class BonusMap : MonoBehaviour
 {
     [SerializeField] Transform BonusWallBottom;
+    [SerializeField] Transform BonusWallTop;
 
     void Start()
     {
@@ -18,7 +19,8 @@ public class BonusMap : MonoBehaviour
 
     public void SetBonusWallColliderEnabled(bool flag)
     {
-        BonusWallBottom.GetComponent<BoxCollider2D>().enabled = flag;    
+        BonusWallBottom.GetComponent<BoxCollider2D>().enabled = flag;
+        //BonusWallTop.GetComponent<BoxCollider2D>().enabled = flag;          
     }
 
 }

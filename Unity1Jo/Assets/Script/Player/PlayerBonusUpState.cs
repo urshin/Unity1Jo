@@ -25,11 +25,12 @@ public class PlayerBonusUpState : PlayerState
     public override void Update()
     {
         base.Update(); // 부모의 Update 함수 실행 
-        //if (!player.isBonusTime)
-        //{
-        //    stateMachine.ChangeState(player.fallingState);  
-        //}
-        if(player.gValue <= 0 && player.isBonusTime == false && player.isBonusStart)
+        if (!player.isBonusTime)
+        {
+            stateMachine.ChangeState(player.fallingState);
+        }  
+
+        if (player.gValue <= 0 && player.isBonusTime == false && player.isBonusStart)
         {
             stateMachine.ChangeState(player.fallingState);
 
