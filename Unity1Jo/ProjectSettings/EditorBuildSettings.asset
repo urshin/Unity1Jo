@@ -20,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ResultScene.unity
     guid: 36211ea3c00e14b40b6c7813f4785e13
-  - enabled: 1
-    path: Assets/X/HDH/Scene/DH_MainScene2.unity
-    guid: 05c4e3816b9d6aa46bbbcb4fc7482330
   m_configObjects: {}
