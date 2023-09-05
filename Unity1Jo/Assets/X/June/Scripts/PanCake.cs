@@ -56,7 +56,7 @@ public class PanCake : MonoBehaviour
         }
         if (isSkillon)
         {
-            SkillBar.fillAmount -= 1/2*Time.deltaTime;
+            SkillBar.fillAmount -= 0.002f;
             if (SkillBar.fillAmount <= 0)
             {
                 DotoriJellyCount = 0;
@@ -92,7 +92,7 @@ public class PanCake : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == DotoriJelly)
+        if (collision.gameObject.CompareTag("DotoriJelly"))
         {
             DotoriJellyCount++;
 
