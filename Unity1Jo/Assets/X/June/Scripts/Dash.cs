@@ -15,6 +15,8 @@ public class Dash : MonoBehaviour
     public GameObject txt;
 
     Player p;
+
+    [SerializeField] string effectAudioClipPath = "SoundEff_GetItemJelly";
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -24,6 +26,10 @@ public class Dash : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) //플레이어라면
         {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
             p.DashDuration = p.DashTime;//대쉬 지속시간 초기화
 
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //아이템 이미지 끄기

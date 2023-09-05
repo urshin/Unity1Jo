@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     Player p;
     [SerializeField] private float CoinPoint;
+    [SerializeField] string effectAudioClipPath = "SoundEff_GetCoinJelly";
 
     private void Start()
     {
@@ -15,6 +16,10 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //Effect재생
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
 
             GameManager.Instance.totalCoin += CoinPoint; //GameManager의 coin변수에 각 코인 값 만큼 증가
             GameManager.Instance.currentCoin += CoinPoint; //InGame에서 쌓이는 coin점수
