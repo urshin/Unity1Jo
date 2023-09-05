@@ -273,7 +273,14 @@ public class Player : MonoBehaviour
 
 
         string name = _enemy.name;
-        if(_enemy.name !=null)
+
+        GameObject[] Enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        if(Enemy.Length == 0)
+        {
+            yield break;
+        }
+         
+       
         while (true)
         {
             switch (name)
