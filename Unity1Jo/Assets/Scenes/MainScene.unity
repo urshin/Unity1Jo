@@ -1590,6 +1590,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 991257048957810833, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1357613238469061403, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4111,6 +4115,7 @@ MonoBehaviour:
   CoinText: {fileID: 5063456300809172989}
   JellyText: {fileID: 7989306079109247521}
   Bonus: {fileID: 4859881190105628869}
+  bgmAudioClipPath: BGM_Map1
 --- !u!224 &5693290037342270903
 RectTransform:
   m_ObjectHideFlags: 0
