@@ -9,6 +9,7 @@ public class PanCake : MonoBehaviour
     public float Jelly;
     public bool isSkillon;
 
+
     [SerializeField] Image SkillBar;
 
 
@@ -22,10 +23,18 @@ public class PanCake : MonoBehaviour
     public int i;
     int m;
 
+    public float OriginalGravity;
+
+    public Animator anim { get; private set; }
+    public Rigidbody2D rb { get; private set; }
+
     GameObject dotori;
     bool setmap;
     void Start()
     {
+        anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
+        rb = GetComponent<Rigidbody2D>();
+        OriginalGravity = rb.gravityScale;
         DotoriJellyCount = 0;
         isSkillon = false;
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -40,6 +49,8 @@ public class PanCake : MonoBehaviour
 
     void FixedUpdate()
     {
+
+
         if (setmap)
         {
 
@@ -50,28 +61,42 @@ public class PanCake : MonoBehaviour
             }
             setmap = false;
         }
-        if (DotoriJellyCount >= 20)
+        if (DotoriJellyCount >= 20 && transform.position.y >= 2.5f)
+           
         {
             isSkillon = true;
+            rb.gravityScale = 0.3f;
         }
         if (isSkillon)
         {
+
+
             SkillBar.fillAmount -= 0.002f;
+            anim.SetBool("Fly", true);
+            anim.SetFloat("PanCakeyVelocity", SkillBar.fillAmount * 2);
+            p.isDashing = true;
+        
+
+            
             if (SkillBar.fillAmount <= 0)
             {
                 DotoriJellyCount = 0;
+                rb.gravityScale = OriginalGravity;
                 isSkillon = false;
             }
+
         }
         //쿠키 스킬 쓰는곳
         if (!isSkillon)
         {
+            anim.SetBool("Fly", false);
+            
             SkillBar.fillAmount = DotoriJellyCount / 20;
             if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
             {
                 LastSpawnTime = Time.time;
                 i += 1 * m;
-                 dotori =Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+                dotori = Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
 
                 if (i <= 0)
                 {
