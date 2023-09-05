@@ -252,9 +252,9 @@ public class Player : MonoBehaviour
 
         if ((collision.gameObject.CompareTag("Enemy") && (isGigantic || isDashing)))
         {
-            StartCoroutine(FlyObstacle(collision.gameObject.transform.root));
+            StartCoroutine(FlyObstacle(collision.gameObject.transform.parent));
             //Transform enemy = collision.gameObject.transform;
-            //string name = enemy.transform.root.name ;
+            //string name = enemy.transform.root.name ; (Clone)
         }
     }
 
