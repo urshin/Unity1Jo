@@ -44,6 +44,6 @@ public class PlayerHighState : PlayerState
     public override void Update()
     {
         base.Update(); // 부모의 Update 함수 실행 
-        
+        player.DestrtoyObject();
     }
 }

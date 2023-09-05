@@ -124,7 +124,7 @@ public class PlayerBonusTimeCount : MonoBehaviour
     }
     IEnumerator COWaitForAlphaBet(float time)
     {
-
+        
         yield return new WaitForSeconds(time);       
 
         for (int i = 0; i < 9; i++)

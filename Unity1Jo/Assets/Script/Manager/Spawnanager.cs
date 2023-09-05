@@ -17,7 +17,7 @@ using JetBrains.Annotations;
 
 public class Spawnanager : MonoBehaviour
 {
-
+   
     public static Spawnanager Instance;
     private void Awake()
     {
@@ -86,7 +86,7 @@ public class Spawnanager : MonoBehaviour
 
     //public Material[] mat_map; // 맵 이미지로 사용할 머테리얼                          
 
-    private void Start()
+    public void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         patternNum = 0; //indexnumber
@@ -99,32 +99,43 @@ public class Spawnanager : MonoBehaviour
         }
         CurrentMap = map1;
 
-        selectedCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+        
+
+        mainCamera = Camera.main;
 
     }
-    Camera selectedCamera;
-    public bool isEnemyInsideCamera;
-    public void CheckEnemy(GameObject _Enemy)//카메라 뷰 안에 적이 있는지 없는지
+    private Camera mainCamera;
+
+
+    
+
+    private void DestroyObjectInCamera(string TagName) //카메라 안에 있는거 Destroy
     {
-        if (GameObject.FindGameObjectWithTag("Enemy") != null)
+        Vector3 cameraPosition = mainCamera.transform.position;
+        float maxDistance = mainCamera.orthographicSize * 2; // 시야 범위를 화면 크기에 맞게 조절
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(cameraPosition, maxDistance);
+
+        foreach (Collider2D collider in hitColliders)
         {
-            Vector3 viewPos = selectedCamera.WorldToViewportPoint(_Enemy.transform.position);
-            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+            GameObject obj = collider.gameObject;
+            if (obj.CompareTag(TagName))
             {
+                Destroy(obj);
 
-                isEnemyInsideCamera = true;
             }
-            else
-                isEnemyInsideCamera = false;
         }
-        if (isEnemyInsideCamera)
-            Debug.Log("적이 카메라 안에 있음");
-            
-
     }
+
+
     void FixedUpdate()
     {
-        CheckEnemy(GameObject.FindGameObjectWithTag("Enemy")); //카메라 안에 적이 있는지 확인하는거
+        
+
+
+
+
+        // CheckEnemy(GameObject.FindGameObjectWithTag("Enemy")); //카메라 안에 적이 있는지 확인하는거
         //if (p.isMapChange && !p.isBonusTime && p.mapcount == 0)
         //{
         //    CurrentMap = map1;
@@ -221,42 +232,42 @@ public class Spawnanager : MonoBehaviour
             }
         }
 
-
+        
         if (CurrentMap != Bonusmap && p.isBonusTime)
         {
             lastPatternum = patternNum;
             lastMap = CurrentMap;
 
-            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
-            GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
-            GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
-            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+            //GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            //GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
+            //GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
+            //GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
 
-            foreach (GameObject item in Items)
-            {
-                Destroy(item);
-
-
-            }
-
-            foreach (GameObject jelly in jellys)
-            {
-                Destroy(jelly);
+            //foreach (GameObject item in Items)
+            //{
+            //    Destroy(item);
 
 
-            }
-            foreach (GameObject coin in coins)
-            {
-                Destroy(coin);
+            //}
+
+            //foreach (GameObject jelly in jellys)
+            //{
+            //    Destroy(jelly);
 
 
-            }
-            foreach (GameObject enemy in enemys)
-            {
-                Destroy(enemy);
-               
+            //}
+            //foreach (GameObject coin in coins)
+            //{
+            //    Destroy(coin);
 
-            }  
+
+            //}
+            //foreach (GameObject enemy in enemys)
+            //{
+            //    Destroy(enemy);
+
+
+            //}
 
             CurrentMap = Bonusmap;
             patternNum = 0;
@@ -310,6 +321,8 @@ public class Spawnanager : MonoBehaviour
         }
 
     }
+
+    
 
     public void ChangeJellyPrefab(GameObject prefab, Sprite newsprite) // code by. 대석
     {

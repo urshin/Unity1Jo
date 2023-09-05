@@ -286,7 +286,39 @@ public class Player : MonoBehaviour
             //string name = enemy.transform.root.name ;
         }
     }
-     
+     public void DestrtoyObject()
+    {
+        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
+        GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
+        GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+
+        foreach (GameObject item in Items)
+        {
+            Destroy(item);
+
+
+        }
+
+        foreach (GameObject jelly in jellys)
+        {
+            Destroy(jelly);
+
+
+        }
+        foreach (GameObject coin in coins)
+        {
+            Destroy(coin);
+
+
+        }
+        foreach (GameObject enemy in enemys)
+        {
+            Destroy(enemy);
+
+
+        }
+    }
 
     IEnumerator FlyObstacle(Transform _enemy)
     {
@@ -303,7 +335,7 @@ public class Player : MonoBehaviour
        
         while (true)
         {
-            Debug.Log("FlyObstacle");
+            //Debug.Log("FlyObstacle");
             if (_enemy == null)
                 yield break ;    
 
