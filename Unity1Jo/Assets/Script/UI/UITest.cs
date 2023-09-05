@@ -24,6 +24,8 @@ public class UITest : UI_Base
     InGameUIManager gameUIManager;
 
     public bool bonusTimeFinish = false; // 보너스 시간 끝났을 때 체크 (이거는 UIManager에서 보너스타임이 끝났는 지 알아야 할 플래그 변수 )
+
+    [SerializeField] string effectAudioClipPath = "E_ClickBtn";
     private void Start()
     {
         //BonusJump.gameObject.AddUIEvent(ButtonClicked, type : Define.UIEvent.PointerDown);  
@@ -61,7 +63,14 @@ public class UITest : UI_Base
     void GiveUP(PointerEventData data)
     {
         Time.timeScale = 1;
+
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
         SceneManager.LoadScene("ResultScene");
+        SoundManager.Instance.Clear();
         Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = false;
 
     }
@@ -77,6 +86,15 @@ public class UITest : UI_Base
         Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[1], Spawnanager.Instance.Long0);
         Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[2], Spawnanager.Instance.Slide0);
         Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[3], Spawnanager.Instance.LongSlide0);
+
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
+        // BGM을 다시 재생
+        SoundManager.Instance.PlayBGM();
+
         //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
         //Mbonus.SetActive(false);     
     }
@@ -86,6 +104,13 @@ public class UITest : UI_Base
         _buttonPush = true;
         PausePanel.SetActive(true);
         Time.timeScale = 0;
+
+        SoundManager.Instance.PauseBGM();
+
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
     }
 
     void PauseCancle(PointerEventData data)
@@ -93,6 +118,13 @@ public class UITest : UI_Base
         _buttonPush = false;
         PausePanel.SetActive(false);
         Time.timeScale = 1;
+
+        //Effect재생
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
+        SoundManager.Instance.ResumeBGM();
     }
 
     void JumpButton(PointerEventData data)

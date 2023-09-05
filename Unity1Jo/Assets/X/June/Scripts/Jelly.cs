@@ -6,11 +6,17 @@ using UnityEngine.UI;
 public class Jelly : MonoBehaviour
 {
     [SerializeField] private float JellyPoint;
-
-    private AudioSource audioSource;
+    [SerializeField] string effectAudioClipPath = "SoundEff_GetJelly";
+    //private AudioSource audioSource;
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player>();
+
+        //EffectÀç»ý
+        AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+        if (effectAudioClip != null)
+            SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+
         //if (gameObject.GetComponent<AudioSource>() != null)
         //{
 

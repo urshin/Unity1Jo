@@ -37,9 +37,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
         //BGM재생
         AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
         if (bgmAudioClip != null)
-        {
             SoundManager.Instance.Play(bgmAudioClip, Define.Sound.Bgm);
-        }
 
         //버튼클릭 정보(id)를 받아서 해당 Event 발생시킴
         EventManager.instance.onSelectBtnClick = (id) => {

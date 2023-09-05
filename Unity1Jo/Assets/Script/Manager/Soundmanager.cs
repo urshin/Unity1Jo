@@ -75,4 +75,23 @@ public class SoundManager : SingletonBehaviour<SoundManager>
         }
         return audioClip;
     }
+
+    public void PauseBGM() //BGM일시정지
+    {
+        AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+        if (audioSource.isPlaying)
+            audioSource.Pause();
+    }
+
+    public void ResumeBGM() //BGM일시정지 해제
+    {
+        AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+        audioSource.UnPause();
+    }
+
+    public void PlayBGM() //BGM 처음부터 재생
+    {
+        AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+        audioSource.Play();
+    }
 }

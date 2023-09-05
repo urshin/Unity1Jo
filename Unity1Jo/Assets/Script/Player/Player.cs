@@ -234,7 +234,6 @@ public class Player : MonoBehaviour
         ishitted = false;
     }
 
-    //code by. гою╨
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy") && !isDashing && !isGigantic && !ishitted)
@@ -381,6 +380,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("ResultScene");
+        SoundManager.Instance.Clear();
     }
     IEnumerator CoSetPlayerScreenOutTopPos()
     {

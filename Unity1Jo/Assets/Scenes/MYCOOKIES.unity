@@ -1030,8 +1030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiMyCookies: {fileID: 1907528568}
   cookieScrollView: {fileID: 1961149454}
-  Popup: {fileID: 0}
   myCookiesContent: {fileID: 1046528938}
+  bgmAudioClipPath: BGM_UiShop
   UI_BuyPopup: {fileID: 1515198458}
   ui_CheckPopupBox: {fileID: 4169420889150501050, guid: dafcad05c6aef154698bab9b1736456d, type: 3}
   ui_CautionPopupBox: {fileID: 6807270282550783483, guid: 6d7fda5ca00d23f4490af25b8b72534d, type: 3}
@@ -1189,6 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gobackBtn: {fileID: 820441190}
+  effectAudioClipPath: E_ClickBtn
 --- !u!1 &1961149448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   contentTrans: {fileID: 1046528939}
   cookiePrefab: {fileID: 4850841123281624841, guid: b6ceb0ddfe8b1874992569f10c5c78e0, type: 3}
   CookieComponentList: []
+  effectAudioClipPath: E_ClickBtn
 --- !u!1 &2041327129
 GameObject:
   m_ObjectHideFlags: 0
