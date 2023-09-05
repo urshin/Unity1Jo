@@ -241,7 +241,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy") && !isDashing && !isGigantic && !ishitted)
         {
-            StartCoroutine(isHitted(1)); // 한 번 부딪쳤을때 잠시 무적
+            StartCoroutine(isHitted(2)); // 한 번 부딪쳤을때 잠시 무적
             Damage(5);
         }
 
@@ -344,29 +344,29 @@ public class Player : MonoBehaviour
                 case "EnemyShort(Clone)":
                     if(name != null && !isBonusTime)
                     {
-                       _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
-                       _enemy.Rotate(Vector3.forward*180f*Time.deltaTime);
+                       _enemy.position += new Vector3(40 * Time.deltaTime, -40 * Time.deltaTime, 0);
+                       _enemy.Rotate(Vector3.forward*270f*Time.deltaTime);
                     }
                     break;
                 case "EnemyLong(Clone)":
                     if (name != null && !isBonusTime)
                     {
-                        _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, -GroundScrollSpeed * Time.deltaTime, 0);
-                        _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                        _enemy.position += new Vector3(40 * Time.deltaTime, -40 * Time.deltaTime, 0);
+                        _enemy.Rotate(Vector3.forward * 270f * Time.deltaTime);
                     }
                     break;
                 case "EnemyLongUp(Clone)":
                     if (name != null && !isBonusTime)
                     {
-                        _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
-                        _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                        _enemy.position += new Vector3(40 * Time.deltaTime, 40 * Time.deltaTime, 0);
+                        _enemy.Rotate(Vector3.forward * 270f * Time.deltaTime);
                     }
                     break;
                 case "SlideEnemy(Clone)":
                     if (name != null && !isBonusTime)
                     {
-                        _enemy.position += new Vector3(GroundScrollSpeed * Time.deltaTime, GroundScrollSpeed * Time.deltaTime, 0);
-                        _enemy.Rotate(Vector3.forward * 180f * Time.deltaTime);
+                        _enemy.position += new Vector3(40 * Time.deltaTime, 40 * Time.deltaTime, 0);
+                        _enemy.Rotate(Vector3.forward * 270f * Time.deltaTime);
                     }
                     break;
             }

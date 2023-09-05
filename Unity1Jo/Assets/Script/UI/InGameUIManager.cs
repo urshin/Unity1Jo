@@ -75,6 +75,11 @@ public class InGameUIManager : MonoBehaviour
             {
                 HpValue = 0;
             }
+
+            if(HpValue >= MaxHpValue)
+            {
+                HpValue = MaxHpValue;
+            }
         }
 
       

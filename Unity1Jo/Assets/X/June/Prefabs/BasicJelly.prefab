@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 0582347dc9aaeaa4ca8c7013a9ca172c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9863212288f92cd43a49289b3745acac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JellyPoint: 93537
+  effectAudioClipPath: SoundEff_GetJelly
 --- !u!58 &3006201330350762457
 CircleCollider2D:
   m_ObjectHideFlags: 0
