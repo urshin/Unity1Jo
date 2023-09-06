@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Spawnanager;
 
 public class PanCake : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PanCake : MonoBehaviour
 
     public GameObject DotoriJelly;
     public GameObject SunflowerJelly;
+    public GameObject SunflowerSeedJelly;
 
     public Transform[] dotoriSpawnPos;
     public float SpawnSpeed;
@@ -61,36 +63,40 @@ public class PanCake : MonoBehaviour
             }
             setmap = false;
         }
-        if (DotoriJellyCount >= 20 && transform.position.y >= 2.5f)
-           
+        if (DotoriJellyCount >= 20)
+
         {
             isSkillon = true;
-            rb.gravityScale = 0.3f;
+            
         }
-        if (isSkillon)
+        if (isSkillon && !p.isBonusTime)
         {
 
-
-            SkillBar.fillAmount -= 0.002f;
-            anim.SetBool("Fly", true);
-            anim.SetFloat("PanCakeyVelocity", SkillBar.fillAmount * 2);
-            p.isDashing = true;
-        
-
-            
             if (SkillBar.fillAmount <= 0)
             {
                 DotoriJellyCount = 0;
-                rb.gravityScale = OriginalGravity;
+                
                 isSkillon = false;
             }
 
+            SkillBar.fillAmount -= 0.002f;
+
+
+            if (anim.GetBool("Slide"))
+            {
+                if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
+                {
+                    LastSpawnTime = Time.time;
+                    Instantiate(SunflowerSeedJelly, p.transform.position + new Vector3(2,2,0), Quaternion.identity);
+                }
+            }
+
+
         }
         //쿠키 스킬 쓰는곳
-        if (!isSkillon)
+        if (!isSkillon && !p.isBonusTime)
         {
-            anim.SetBool("Fly", false);
-            
+
             SkillBar.fillAmount = DotoriJellyCount / 20;
             if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
             {

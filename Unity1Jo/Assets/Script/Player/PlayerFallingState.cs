@@ -72,7 +72,7 @@ public class PlayerFallingState : PlayerState
     {
         base.Update();// 부모의 Update 함수 실행 
 
-        player.DestrtoyObject(); 
+        //player.DestrtoyObject(); 
 
         if (player.IsGroundDetected())
         {

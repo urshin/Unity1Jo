@@ -313,6 +313,7 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
+  effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
   GroundScrollSpeed: 5
@@ -348,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efaaae5f313e7b43973071f1c2c8f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BonusAlphaBetCount: 000000000000000000
 --- !u!114 &2130540372930379331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +368,7 @@ MonoBehaviour:
   SkillBar: {fileID: 2503858143917196819}
   DotoriJelly: {fileID: 3251381516546134189, guid: 8ab11d7f4e0d3e445b6844a24704450d, type: 3}
   SunflowerJelly: {fileID: 2710490880476194778, guid: 8c41f87c755dbf549a03f4f2e4b36f13, type: 3}
+  SunflowerSeedJelly: {fileID: 3547964104144300455, guid: cac158ae8085c554da7e6b486e7dfa65, type: 3}
   dotoriSpawnPos:
   - {fileID: 0}
   - {fileID: 0}
@@ -374,6 +377,7 @@ MonoBehaviour:
   - {fileID: 0}
   SpawnSpeed: 1
   i: 0
+  OriginalGravity: 0
 --- !u!1 &2240222899599973373
 GameObject:
   m_ObjectHideFlags: 0
