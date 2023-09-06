@@ -12,7 +12,7 @@ public class PlayerDownState : PlayerState
     // code by 동호
     public override void Enter()
     {
-        base.Enter(); // 부모의 Enter 함수 실행 
+        base.Enter(); // 부모의 Enter 함수 실행   
 
         float time = player.downTime;
 
@@ -32,5 +32,7 @@ public class PlayerDownState : PlayerState
     public override void Update()
     {
         base.Update();  // 부모의 Update 함수 실행 
+        player.DestrtoyObject();  
+
     }
 }

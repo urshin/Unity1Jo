@@ -67,11 +67,13 @@ public class PlayerFallingState : PlayerState
     {
         base.Update();// 부모의 Update 함수 실행 
 
+        player.DestrtoyObject(); 
+
         if (player.IsGroundDetected())
         {
             player.stateMachine.ChangeState(player.idleState);
         }
-
+        
 
         player.rb.velocity = Vector2.down * Time.deltaTime * 3f;            
 

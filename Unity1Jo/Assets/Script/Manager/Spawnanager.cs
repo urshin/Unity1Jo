@@ -58,6 +58,7 @@ public class Spawnanager : MonoBehaviour
 
     public GameObject[] whatjelly; //젤리 타입
     public GameObject[] whatobstacle; //장애물 타입
+    public GameObject Ground;
 
     Player p;
 
@@ -70,6 +71,7 @@ public class Spawnanager : MonoBehaviour
     int jellyAmount;
     int obstacleType;
     int obstacle;
+    int ground;
     int mapindex;
 
     public string map1 = "Assets/Resources/data.json";
@@ -275,7 +277,7 @@ public class Spawnanager : MonoBehaviour
         }
         if (CurrentMap == Bonusmap && !p.isBonusTime)
         {
-            StartCoroutine(WaitingTime(2));
+            StartCoroutine(WaitingTime(3));
         }
 
 
@@ -309,6 +311,7 @@ public class Spawnanager : MonoBehaviour
                 obstacleType = jsonData.ObstacleType[patternNum];   //데이터 가져오기 코루틴으로 쓰기 위해 대입해줌
                 jellyAmount = jsonData.JellyAmount[patternNum];     //데이터 가져오기 코루틴으로 쓰기 위해 대입해줌
                 obstacle = jsonData.Obstacle[patternNum];           //데이터 가져오기 코루틴으로 쓰기 위해 대입해줌
+                ground = jsonData.Ground[patternNum];
                 patternNum++; //index값과 같음.
 
             }
@@ -374,6 +377,10 @@ public class Spawnanager : MonoBehaviour
             Instantiate(whatobstacle[obstacleType - 1], SpawnPos[obstacle]);
 
         }
+        if(ground >= 1)
+        {
+            Instantiate(Ground, SpawnPos[ground]);
+        }
 
 
 
@@ -390,6 +397,8 @@ public class Spawnanager : MonoBehaviour
         public List<int> JellyAmount; //젤리 수
         public List<int> ObstacleType; //장애물 타입
         public List<int> Obstacle; //장애물
+        public List<int> Ground; //장애물
+        
     }
 
     public void ResetPatternNum()

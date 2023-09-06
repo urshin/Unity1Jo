@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerDoubleJumpState : PlayerState
 {
+    [SerializeField] string effectAudioClipPath = "Basic_DJump";
+    [SerializeField] string effectAudioClipPath1 = "PanCake_DoubleJump";
+    [SerializeField] string effectAudioClipPath2 = "Moonlight_DJump";
+
     public PlayerDoubleJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -12,7 +16,31 @@ public class PlayerDoubleJumpState : PlayerState
     {
         base.Enter();
 
-            rb.velocity = Vector2.zero;
+        //데이터 로드
+        HE_DataManager.instance.LoadData();
+        MycookiesData data = HE_DataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
+
+        //Effect재생
+        if (data.id == 100)
+        {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+        }
+        else if (data.id == 101)
+        {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath1);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+        }
+        else if (data.id == 102)
+        {
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);
+            if (effectAudioClip != null)
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+        }
+
+        rb.velocity = Vector2.zero;
 
             rb.AddForce(new Vector2(rb.velocity.x, player.GetJumpPower()), ForceMode2D.Impulse);
     } 

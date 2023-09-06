@@ -19,6 +19,8 @@ public class PlayerHighState : PlayerState
     public override void Enter()
     {
         base.Enter(); // 부모의 Enter 함수 실행 
+        player.DestrtoyObject();  
+
         ingameuiManager.HpDown = false;  
 
         float time = player.topTime; 
@@ -44,6 +46,6 @@ public class PlayerHighState : PlayerState
     public override void Update()
     {
         base.Update(); // 부모의 Update 함수 실행 
-        player.DestrtoyObject();
+        player.DestrtoyObject();  
     }
 }

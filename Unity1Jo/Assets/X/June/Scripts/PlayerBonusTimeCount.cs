@@ -15,13 +15,20 @@ public class PlayerBonusTimeCount : MonoBehaviour
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
+    public void ClearBonusAlphaBetCount()
+    {
+        for(int i=0;i< BonusAlphaBetCount.Length; i++)
+        {
+            BonusAlphaBetCount[i] = false;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Item") && collision.gameObject.GetComponent<GetItem>() && !p.isBonusTime)
         {
 
-            var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.ItemType;  
-            Sprite sprite = collision.gameObject.GetComponent<GetItem>().item.itemImage;  
+            var WhatAlpa = collision.gameObject.GetComponent<GetItem>().item.ItemType;
+            Sprite sprite = collision.gameObject.GetComponent<GetItem>().item.itemImage;
 
 
             switch (WhatAlpa)
@@ -80,41 +87,57 @@ public class PlayerBonusTimeCount : MonoBehaviour
                         p.BonusJellyCount++;
                         break;
                     }
-                 
-                    default:
+
+                default:
                     {
-                        return;  
+                        return;
                     }
 
             }
 
+            BonusAlphaBetCount[BonusJelly] = true;    
 
             GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(BonusJelly).GetComponent<Image>().color = new Color(1, 1, 1, 1);
-            GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(BonusJelly).GetComponent<Image>().sprite = sprite;  
+            GameObject.Find("InGameUI").transform.GetChild(2).transform.GetChild(BonusJelly).GetComponent<Image>().sprite = sprite;
 
-
-            if (p.BonusJellyCount >= 9)
+            int resultBonusCount = 0;
+            for(int i=0;i< BonusAlphaBetCount.Length; i++)
             {
-                if (WhatAlpa == BonusTimeType.B ||
-                WhatAlpa == BonusTimeType.O ||
-                WhatAlpa == BonusTimeType.N ||
-                WhatAlpa == BonusTimeType.U ||
-                WhatAlpa == BonusTimeType.S ||
-                WhatAlpa == BonusTimeType.T ||
-                WhatAlpa == BonusTimeType.I ||
-                WhatAlpa == BonusTimeType.M ||
-                WhatAlpa == BonusTimeType.E)
-                {
-                    //// 몬스터 삭제 
-                    GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
-                    foreach (GameObject enemy in Enemys)
-                    {
-                        Destroy(enemy);
-                    }
+                if (BonusAlphaBetCount[i] == true)
+                    resultBonusCount += 1;
+            }
+
+            if(resultBonusCount == 9)
+            {
+                p.DestrtoyObject();  
+
+                StartCoroutine(COWaitForAlphaBet(p.topTime + p.downTime));
+                StartCoroutine(COWaitForBonusTime(p.topTime + p.downTime));        
+                p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
+            }
+
+            //if (p.BonusJellyCount >= 9)
+            //{
+            //    if (WhatAlpa == BonusTimeType.B ||
+            //    WhatAlpa == BonusTimeType.O ||
+            //    WhatAlpa == BonusTimeType.N ||
+            //    WhatAlpa == BonusTimeType.U ||
+            //    WhatAlpa == BonusTimeType.S ||
+            //    WhatAlpa == BonusTimeType.T ||
+            //    WhatAlpa == BonusTimeType.I ||
+            //    WhatAlpa == BonusTimeType.M ||
+            //    WhatAlpa == BonusTimeType.E)
+            //    {
+            //        //// 몬스터 삭제 
+            //        GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            //        foreach (GameObject enemy in Enemys)
+            //        {
+            //            Destroy(enemy);
+            //        }
                       
-                    StartCoroutine(COWaitForAlphaBet(p.topTime + p.downTime));                
-                    StartCoroutine(COWaitForBonusTime(p.topTime + p.downTime));  
-                    p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
+            //        StartCoroutine(COWaitForAlphaBet(p.topTime + p.downTime));                
+            //        StartCoroutine(COWaitForBonusTime(p.topTime + p.downTime));  
+            //        p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
 
                     //BGM재생
                     AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
