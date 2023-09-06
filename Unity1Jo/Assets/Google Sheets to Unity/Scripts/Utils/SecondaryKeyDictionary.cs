@@ -14,8 +14,18 @@ namespace GreenerGames
     [Serializable]
     public class SecondaryKeyDictionary<T1, T2, V>
     {
-        public Dictionary<T1, V> primaryDictionary = new Dictionary<T1, V>();
-        public Dictionary<T2, T1> secondaryKeyLink = new Dictionary<T2, T1>();
+
+        // primaryDictionary와 secondaryKeyLink를 초기화하는 생성자 추가
+        public SecondaryKeyDictionary()
+        {
+            primaryDictionary = new Dictionary<T1, V>();
+            secondaryKeyLink = new Dictionary<T2, T1>();
+        }
+        public Dictionary<T1, V> primaryDictionary;
+        public Dictionary<T2, T1> secondaryKeyLink;
+
+        //public Dictionary<T1, V> primaryDictionary = new Dictionary<T1, V>();
+        //public Dictionary<T2, T1> secondaryKeyLink = new Dictionary<T2, T1>();
 
         public V this[T1 primary]
         {
@@ -160,6 +170,7 @@ namespace GreenerGames
         {
             return ContainsSecondaryKey(secondaryKey);
         }
+
     }
 
     /// <summary>
@@ -170,8 +181,17 @@ namespace GreenerGames
     [Serializable]
     public class SecondaryKeyDictionary<T, V>
     {
-        public Dictionary<T, V> primaryDictionary = new Dictionary<T, V>();
-        public Dictionary<T, T> secondaryKeyLink = new Dictionary<T, T>();
+        public SecondaryKeyDictionary()
+        {
+            primaryDictionary = new Dictionary<T, V>();
+            secondaryKeyLink = new Dictionary<T, T>();
+        }
+
+        public Dictionary<T, V> primaryDictionary;
+        public Dictionary<T, T> secondaryKeyLink;
+
+        //public Dictionary<T, V> primaryDictionary = new Dictionary<T, V>();
+        //public Dictionary<T, T> secondaryKeyLink = new Dictionary<T, T>();
 
         /// <summary>
         ///     This is used to attempt to grab from primary first, if not match will attempt to find from secondary keys

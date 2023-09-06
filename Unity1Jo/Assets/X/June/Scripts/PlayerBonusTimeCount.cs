@@ -105,6 +105,13 @@ public class PlayerBonusTimeCount : MonoBehaviour
                 WhatAlpa == BonusTimeType.M ||
                 WhatAlpa == BonusTimeType.E)
                 {
+                    //// 몬스터 삭제 
+                    GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in Enemys)
+                    {
+                        Destroy(enemy);
+                    }
+                      
                     StartCoroutine(COWaitForAlphaBet(p.topTime + p.downTime));                
                     StartCoroutine(COWaitForBonusTime(p.topTime + p.downTime));  
                     p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
