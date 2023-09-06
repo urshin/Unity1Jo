@@ -34,6 +34,9 @@ public class PlayerFallingState : PlayerState
         //player.transform.GetComponent<Rigidbody2D>().gravityScale = 5;
         GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);
 
+        // bonus 알파벳 초기화 
+        player.GetComponent<PlayerBonusTimeCount>().ClearBonusAlphaBetCount();  
+
         //BGM재생
         if (p.mapcount == 0)
         {
@@ -49,6 +52,8 @@ public class PlayerFallingState : PlayerState
             if (bgmAudioClip2 != null)
                 SoundManager.Instance.Play(bgmAudioClip2, Define.Sound.Bgm);
         }
+
+
     }
 
 
