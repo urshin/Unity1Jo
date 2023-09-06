@@ -157,6 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb0ad447932b6941bed8ceb48f140b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfObjects: 10
+  radius: 5
+  delay: 0.5
+  Seed: {fileID: 3547964104144300455, guid: cac158ae8085c554da7e6b486e7dfa65, type: 3}
 --- !u!114 &3302479512787181772
 MonoBehaviour:
   m_ObjectHideFlags: 0
