@@ -22,6 +22,8 @@ public class MapController : MonoBehaviour
 
     public string CurrentMap;
 
+    string bgmAudioClipPath = "BGM_Map2";
+
     void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -100,6 +102,11 @@ public class MapController : MonoBehaviour
                 if (meshRenderer != null && mat_map != null && mat_map.Length > 0)
                 {
                     meshRenderer.sharedMaterials = new Material[] { mat_map[1] };
+
+                    //BGMÀç»ý
+                    AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
+                    if (bgmAudioClip != null)
+                        SoundManager.Instance.Play(bgmAudioClip, Define.Sound.Bgm);
                 }
             }
             if (child.gameObject.name == "BackGround3")

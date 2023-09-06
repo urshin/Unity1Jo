@@ -21,7 +21,7 @@ public class Magnet : MonoBehaviour
         {
             AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
             if (effectAudioClip != null)
-                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.IngameEffect);
 
             p.MagnetDuration = p.MagnetTime;
             p.isMagnet = true;

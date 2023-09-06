@@ -7,18 +7,10 @@ public class Jelly : MonoBehaviour
 {
     [SerializeField] private float JellyPoint;
     [SerializeField] string effectAudioClipPath = "SoundEff_GetJelly";
-    //private AudioSource audioSource;
+
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player>();
-
-        //if (gameObject.GetComponent<AudioSource>() != null)
-        //{
-
-        //    audioSource = GetComponent<AudioSource>();
-        //}
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,12 +23,8 @@ public class Jelly : MonoBehaviour
             //Effect재생
             AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
             if (effectAudioClip != null)
-                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.IngameEffect);
 
-            //if (gameObject.GetComponent<AudioSource>() != null)
-            //{
-            //    audioSource.Play();
-            //}
             Destroy(gameObject); //삭제시키기  
 
         }

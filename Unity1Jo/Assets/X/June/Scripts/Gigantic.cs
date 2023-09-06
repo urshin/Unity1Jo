@@ -11,6 +11,7 @@ public class Gigantic : MonoBehaviour
 
     Player p;
 
+    //사운드
     [SerializeField] string effectAudioClipPath = "SoundEff_GetItemJelly";
     [SerializeField] string effectAudioClipPath1 = "E_Gigantic";
     [SerializeField] string effectAudioClipPath2 = "E_BacktoOriginScale";
@@ -30,7 +31,7 @@ public class Gigantic : MonoBehaviour
         {
             AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
             if (effectAudioClip != null)
-                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.IngameEffect);
 
             player = GameObject.FindGameObjectWithTag("Player"); //게임오브젝트에 닿은 상대 게임오브젝트 대입
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //플레이어의 이미지 끄기
@@ -46,8 +47,8 @@ public class Gigantic : MonoBehaviour
                     AudioClip effectAudioClip1 = GameManager.Instance.LoadAudioClip(effectAudioClipPath1);
                     if (effectAudioClip1 != null)
                     {
-                        SoundManager.Instance.Play(effectAudioClip1, Define.Sound.Effect);
-                        SoundManager.Instance.SetVolume(effectAudioClip1, 0.5f); // 사운드의 볼륨을 0.7로 설정
+                        Debug.Log("커지는 사운드");
+                        SoundManager.Instance.Play(effectAudioClip1, Define.Sound.GiganticEffect);
                     }
                 }
 
@@ -70,11 +71,11 @@ public class Gigantic : MonoBehaviour
             {
                 StartCoroutine(SizeDown());
 
-                AudioClip effectAudioClip2 = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);
-                if (effectAudioClip2 != null)
+                AudioClip effectAudioClip1 = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);
+                if (effectAudioClip1 != null)
                 {
-                    SoundManager.Instance.Play(effectAudioClip2, Define.Sound.Effect);
-                    SoundManager.Instance.SetVolume(effectAudioClip2, 0.5f); // 사운드의 볼륨을 0.7로 설정
+                    Debug.Log("작아지는 사운드");
+                    SoundManager.Instance.Play(effectAudioClip1, Define.Sound.GiganticEffect);
                 }
             }
         }
@@ -112,7 +113,4 @@ public class Gigantic : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
     }
-
-
- 
 }

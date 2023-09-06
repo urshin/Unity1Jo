@@ -28,7 +28,7 @@ public class Dash : MonoBehaviour
         {
             AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
             if (effectAudioClip != null)
-                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.IngameEffect);
 
             p.DashDuration = p.DashTime;//대쉬 지속시간 초기화
 
