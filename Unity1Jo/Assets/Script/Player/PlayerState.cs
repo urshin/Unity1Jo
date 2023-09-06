@@ -12,6 +12,7 @@ public class PlayerState
     protected Rigidbody2D rb;
 
     public BoxCollider2D collider; // code by. 대석
+
     
     private string animBoolName;
 
@@ -36,6 +37,8 @@ public class PlayerState
         collider = player.collider1; // code by. 대석
         triggerCalled = false;
         ingameuiManager = GameObject.Find("InGameUI").GetComponent<InGameUIManager>();// code by. 대석
+       
+       
     }
 
     public virtual void Update()
