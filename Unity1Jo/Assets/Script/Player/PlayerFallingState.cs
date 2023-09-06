@@ -24,9 +24,10 @@ public class PlayerFallingState : PlayerState
         //EnvironmentManager.Instance.GetBonusMap().transform.position = new Vector2(-20, 0);          
         player.StartCoroutine("CoSetPlayerScreenOutTopPos");
         //player.transform.GetComponent<Rigidbody2D>().gravityScale = 5;
-        GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);  
+        GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);
 
-
+        player.GetComponent<PlayerBonusTimeCount>().ClearBonusAlphaBetCount(); // 보너스 알파벳 초기화   
+        
     }
 
 
@@ -45,11 +46,13 @@ public class PlayerFallingState : PlayerState
     {
         base.Update();// 부모의 Update 함수 실행 
 
+        player.DestrtoyObject(); 
+
         if (player.IsGroundDetected())
         {
             player.stateMachine.ChangeState(player.idleState);
         }
-
+        
 
         player.rb.velocity = Vector2.down * Time.deltaTime * 3f;            
 
