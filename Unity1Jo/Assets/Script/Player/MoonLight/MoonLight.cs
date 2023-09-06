@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanCake : MonoBehaviour
+public class MoonLight : MonoBehaviour
 {
-    public float DotoriJellyCount;
+    public float StarJellyCount;
     public float Jelly;
     public bool isSkillon;
 
@@ -13,10 +13,10 @@ public class PanCake : MonoBehaviour
     [SerializeField] Image SkillBar;
 
 
-    public GameObject DotoriJelly;
+    public GameObject StarJelly;
     public GameObject SunflowerJelly;
 
-    public Transform[] dotoriSpawnPos;
+    public Transform[] StarSpawnPos;  
     public float SpawnSpeed;
     float LastSpawnTime;
     Player p;
@@ -30,12 +30,14 @@ public class PanCake : MonoBehaviour
 
     GameObject dotori;
     bool setmap;
+
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
         OriginalGravity = rb.gravityScale;
-        DotoriJellyCount = 0;
+        StarJellyCount = 0;
         isSkillon = false;
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         setmap = true;
@@ -43,7 +45,7 @@ public class PanCake : MonoBehaviour
 
         for (int i = 0; i < Spawnanager.Instance.SpawnPos.Length / 2; i++)
         {
-            dotoriSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];  
+            StarSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];
         }
     }
 
@@ -56,32 +58,30 @@ public class PanCake : MonoBehaviour
 
             for (int j = 0; j < 5; j++)
             {
-                dotoriSpawnPos[j] = Spawnanager.Instance.SpawnPos[j * 2];
+                StarSpawnPos[j] = Spawnanager.Instance.SpawnPos[j * 2];
 
             }
             setmap = false;
         }
-        if (DotoriJellyCount >= 20 && transform.position.y >= 2.5f)
-           
+        if (StarJellyCount >= 20 && transform.position.y >= 2.5f)
+
         {
             isSkillon = true;
-            rb.gravityScale = 0.3f;
         }
-        if (isSkillon&&!p.isBonusTime)
+        if (isSkillon && !p.isBonusTime)  
         {
 
 
             SkillBar.fillAmount -= 0.002f;
-            anim.SetBool("Fly", true);
-            anim.SetFloat("PanCakeyVelocity", SkillBar.fillAmount * 2);
-            p.isDashing = true;
-        
+            //anim.SetBool("Fly", true);
+            //anim.SetFloat("PanCakeyVelocity", SkillBar.fillAmount * 2);  
+            //p.isDashing = true;
 
-            
+
+
             if (SkillBar.fillAmount <= 0)
             {
-                DotoriJellyCount = 0;
-                rb.gravityScale = OriginalGravity;
+                StarJellyCount = 0;
                 isSkillon = false;
             }
 
@@ -89,14 +89,16 @@ public class PanCake : MonoBehaviour
         //쿠키 스킬 쓰는곳
         if (!isSkillon && !p.isBonusTime)
         {
-            anim.SetBool("Fly", false);
-            
-            SkillBar.fillAmount = DotoriJellyCount / 20;
-            if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
+            //anim.SetBool("Fly", false);
+
+            SkillBar.fillAmount = StarJellyCount / 20;
+            if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)  
             {
                 LastSpawnTime = Time.time;
                 i += 1 * m;
-                dotori = Instantiate(DotoriJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+                
+                dotori = Instantiate(StarJelly, StarSpawnPos[i].position, Quaternion.identity);
+                Debug.Log($"{dotori.gameObject.name} 생성 ");
 
                 if (i <= 0)
                 {
@@ -105,7 +107,9 @@ public class PanCake : MonoBehaviour
                 }
                 if (i >= 4)
                 {
-                    Instantiate(SunflowerJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+                    Instantiate(SunflowerJelly, StarSpawnPos[i].position, Quaternion.identity);
+                    Debug.Log($"{dotori.gameObject.name} 생성 ");  
+
                     m *= -1;
 
                 }
@@ -117,14 +121,16 @@ public class PanCake : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("DotoriJelly"))
+        if (collision.gameObject.CompareTag("StarJelly"))  
         {
-            DotoriJellyCount++;
+            StarJellyCount++;
 
         }
         if (collision.gameObject == SunflowerJelly)
         {
-            Jelly++;  
+            Jelly++;
         }
     }
+
+
 }
