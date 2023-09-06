@@ -21,6 +21,10 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
     [SerializeField] private Vector3 originScale = new Vector3(1, 1, 1); // 확대할 스케일 값
     [SerializeField] private float animationDuration = 0.2f; // 애니메이션 지속 시간  
 
+    [Header("Audio Sound ")]
+    [SerializeField] string effectAudioClipPath = "E_ClickBtn";
+
+
     private void Awake()
     {
         foreach (Transform child in UI_BuyPopup.transform)
@@ -52,6 +56,14 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
             UIScrollViewCookiesSelect afterCheckcookieComponent = cookieScrollView.GetCookieComponentList()?.Find(item => item.GetID() == data.id);  // 선택된 쿠키 컴포넌트 가져옴 
             beforeCheckcookieComponent?.RefreshCheck(); // 선택 refresh 
             afterCheckcookieComponent?.RefreshCheck();  // 선택 refresh 
+
+
+            //Effect재생
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+            {
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
+            }
 
             Debug.LogFormat("{0},{1} 캐릭터가 선택되었습니다", data.id, data.name);
         };
@@ -94,11 +106,18 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
                 cautionPopupBox.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); // scale 설정 
 
                 // popup animation 
-                cautionPopupBox.GetComponent<RectTransform>().DOScale(targetScale, animationDuration).OnComplete(() => {
+                cautionPopupBox.GetComponent<RectTransform>().DOScale(targetScale, animationDuration).OnComplete(() => {  
                     cautionPopupBox.GetComponent<RectTransform>().DOScale(originScale, animationDuration);  
                 });
 
                 Debug.Log("코인이 부족합니다.");
+            }
+
+            //Effect재생
+            AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
+            if (effectAudioClip != null)
+            {
+                SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
             }
         };
 
