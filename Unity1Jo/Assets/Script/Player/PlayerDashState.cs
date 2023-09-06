@@ -25,8 +25,11 @@ public class PlayerDashState : PlayerState
     {
         base.Exit();
         //player.GroundScrollSpeed = player.OriginalGroundScrollSpeed;
+        if (player.isDashing || (player.isDashing && player.isGigantic))
+        {
+            player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
+        }
 
-        
         //GameObject.FindGameObjectWithTag("Player").transform.position += new Vector3(-3 * Time.deltaTime, 0, 0);
     }
 
@@ -81,6 +84,11 @@ public class PlayerDashState : PlayerState
         if (player.IsWallDetected() && !player.isDashing && !player.isGigantic)
         {
             player.stateMachine.ChangeState(player.hitState);
+        }
+
+        if (player.isDashing || (player.isDashing && player.isGigantic))
+        {
+            player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
         }
 
     }

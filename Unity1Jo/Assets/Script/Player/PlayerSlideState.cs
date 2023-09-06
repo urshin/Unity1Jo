@@ -46,6 +46,14 @@ public class PlayerSlideState : PlayerState
             player.GetShinyEffect()?.GetComponent<ShinyEffect>().StartRotateLightsEffect();
         }
 
+        if (player.isDashing || (player.isDashing && player.isGigantic))
+        {
+            player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
+        }
+        if (player.isGigantic || (player.isGigantic && player.isDashing))
+        {
+            player.transform.localScale = player.OriginalSize * 3;
+        }
     }
 
     public override void Exit()
@@ -55,6 +63,8 @@ public class PlayerSlideState : PlayerState
         collider.size = new Vector2(collider.size.x / 1.15f, collider.size.y * 2.16f);
         collider.offset = new Vector2(collider.offset.x, collider.offset.y + 0.4f);
         // collider.offset += new Vector2(0, 0.4f);
+
+        
     }
 
     
