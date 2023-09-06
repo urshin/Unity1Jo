@@ -28,6 +28,7 @@ public class UIResult_ChangePlayer : MonoBehaviour
                     break;
                 case 102:
                     anim.SetInteger("ID", 102);
+                    gameObject.transform.position = new Vector3(1, 1.76f, 0);
                     break;
                 case 103:
                     anim.SetInteger("ID", 103);
