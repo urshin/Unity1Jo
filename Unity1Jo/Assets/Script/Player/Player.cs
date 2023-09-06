@@ -76,12 +76,15 @@ public class Player : MonoBehaviour
 
     public BoxCollider2D collider1 { get; private set; } // code by. 대석
     public InGameUIManager gameUIManager { get; private set; } // code by. 대석
+
+   
     
 
     #endregion
 
     public bool isBusy { get; private set; }
     public bool ishitted = false;
+    public bool isBlinking = false;
 
     //[SerializeField] string bgmAudioClipPath = "BGM_Map2";
     [SerializeField] string effectAudioClipPath = "SoundEff_Large_Energy";
@@ -145,6 +148,9 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animator>(); //자식의 <Animator>()가져옴
         rb = GetComponent<Rigidbody2D>();
         collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
+
+       
+
         SetActiveShinyEffect(false);  // code by.동호      
 
         gameUIManager = GameObject.Find("InGameUI").GetComponent<InGameUIManager>(); // code by. 대석
@@ -213,15 +219,19 @@ public class Player : MonoBehaviour
     //    fx = GetComponent<PlayerFX>();
     //    collider1 = GetComponent<BoxCollider2D>(); // code by. 대석
     //    SetActiveShinyEffect(false);  // code by.동호      
-        
-        
+
+
     //    stateMachine.Initialize(idleState); //처음에는 idle상태로      
     //}
 
     public void Update()
     {
         stateMachine.currentState.Update();
+
+       
     }
+
+   
 
     public IEnumerator BusyFor(float _second)
     {
@@ -450,7 +460,7 @@ public class Player : MonoBehaviour
 
     IEnumerator WaitGameover() // code by. 대석
     {
-        
+        GroundScrollSpeed = 0;
         yield return new WaitForSeconds(3);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("ResultScene");

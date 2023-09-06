@@ -28,6 +28,15 @@ public class Jelly : MonoBehaviour
             Destroy(gameObject); //삭제시키기  
 
         }
+
+        if (collision.gameObject.CompareTag("Jelly") || collision.gameObject.CompareTag("Item") 
+            || collision.gameObject.CompareTag("SpawnGround") || collision.gameObject.CompareTag("Enemy")
+            || collision.gameObject.CompareTag("Coin"))
+        {
+            Destroy(gameObject); //삭제시키기      
+
+
+        }
     }
     Player p;
 

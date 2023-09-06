@@ -12,6 +12,7 @@ TagManager:
   - Coin
   - DotoriJelly
   - SpawnGround
+  - StarJelly
   layers:
   - Default
   - TransparentFX

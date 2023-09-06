@@ -16,17 +16,21 @@ public class MapController : MonoBehaviour
     public Material[] mat_map1;  // 신준씨 맵
     public Material[] mat_map2; // 아무거나 넣음
     public Material[] mat_map3; // 아무거나 넣음
-    //public Material[] mat_map4; // 얼음맵?
-                               
+                                //public Material[] mat_map4; // 얼음맵?
+
+   
     Player p;
 
     public string CurrentMap;
 
     string bgmAudioClipPath = "BGM_Map2";
 
+
     void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+      
+
 
         //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
         //Mbonus?.SetActive(false);  
@@ -42,9 +46,10 @@ public class MapController : MonoBehaviour
             Spawnanager.Instance.gameObject.GetComponent<Spawnanager>().enabled = true;  
     }
 
-   
     void Update()
     {
+
+       
         //if (p.mapcount == 0)
         //{
         //    //CurrentMap = Spawnanager.Instance.map1; //게임 시작 시 현재 맵 == map1

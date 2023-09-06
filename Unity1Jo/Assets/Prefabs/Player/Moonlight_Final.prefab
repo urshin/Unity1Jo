@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7863135770413137688
 RectTransform:
   m_ObjectHideFlags: 0
@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 3576788638216882647}
   - component: {fileID: 7557730079041875860}
   - component: {fileID: 688605536479586773}
+  - component: {fileID: 2082493997035749918}
   m_Layer: 0
   m_Name: Moonlight_Final
   m_TagString: Player
@@ -387,8 +388,9 @@ Transform:
   - {fileID: 6127873441575034538}
   - {fileID: 3418028595640585266}
   - {fileID: 8956539156092856105}
+  - {fileID: 5764823066554577824}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7172567531764401363
 Rigidbody2D:
@@ -539,6 +541,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BonusAlphaBetCount: 000000000000000000
+--- !u!114 &2082493997035749918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739928629916004691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dba9886b163b7c4abf7f1cc767b5112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StarJellyCount: 0
+  Jelly: 0
+  isSkillon: 0
+  SkillBar: {fileID: 4861673998932768480}
+  moonLightStars: {fileID: 7664119505536141394, guid: 89be3c030c4ae9449b2e9255dced94d8, type: 3}
+  moonlightStarPos: {fileID: 5764823066554577824}
+  StarJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
+  SunflowerJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
+  StarSpawnPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpawnSpeed: 1
+  i: 3
+  OriginalGravity: 5
+--- !u!1 &3924234135152734051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5764823066554577824}
+  m_Layer: 0
+  m_Name: moonlightStarPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5764823066554577824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924234135152734051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.65, y: -0.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4323970314554785291}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7196917400947205322
 GameObject:
   m_ObjectHideFlags: 0

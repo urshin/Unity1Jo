@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &239752718495118448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 991257048957810833}
   - component: {fileID: 6330530250706939072}
   - component: {fileID: 3838423952106224188}
+  - component: {fileID: 5832764515910882107}
   m_Layer: 0
   m_Name: Moonlight
   m_TagString: Player
@@ -581,6 +582,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efaaae5f313e7b43973071f1c2c8f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BonusAlphaBetCount: 000000000000000000
+--- !u!114 &5832764515910882107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635871222859886402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dba9886b163b7c4abf7f1cc767b5112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StarJellyCount: 0
+  Jelly: 0
+  isSkillon: 0
+  SkillBar: {fileID: 6994702340895711741}
+  StarJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
+  SunflowerJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
+  StarSpawnPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpawnSpeed: 1
+  i: 0
+  OriginalGravity: 0
 --- !u!1 &8227907743624214355
 GameObject:
   m_ObjectHideFlags: 0

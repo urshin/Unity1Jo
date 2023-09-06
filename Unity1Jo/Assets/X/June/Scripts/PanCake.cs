@@ -45,7 +45,7 @@ public class PanCake : MonoBehaviour
 
         for (int i = 0; i < Spawnanager.Instance.SpawnPos.Length / 2; i++)
         {
-            dotoriSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];
+            dotoriSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];  
         }
     }
 
@@ -82,14 +82,14 @@ public class PanCake : MonoBehaviour
             SkillBar.fillAmount -= 0.002f;
 
 
-            if (anim.GetBool("Slide"))
-            {
+            
                 if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
                 {
                     LastSpawnTime = Time.time;
-                    Instantiate(SunflowerSeedJelly, p.transform.position + new Vector3(2,2,0), Quaternion.identity);
+                    int j = Random.Range(0, 10);
+                    Instantiate(SunflowerJelly, p.transform.position + new Vector3(10, j/2 , 0), Quaternion.identity);
                 }
-            }
+            
 
 
         }
@@ -111,7 +111,7 @@ public class PanCake : MonoBehaviour
                 }
                 if (i >= 4)
                 {
-                    Instantiate(SunflowerJelly, dotoriSpawnPos[i].position, Quaternion.identity);
+                    //Instantiate(SunflowerJelly, dotoriSpawnPos[i].position, Quaternion.identity);
                     m *= -1;
 
                 }
@@ -130,7 +130,7 @@ public class PanCake : MonoBehaviour
         }
         if (collision.gameObject == SunflowerJelly)
         {
-            Jelly++;
+            Jelly++;  
         }
     }
 }
