@@ -67,7 +67,7 @@ public class PanCake : MonoBehaviour
             isSkillon = true;
             rb.gravityScale = 0.3f;
         }
-        if (isSkillon)
+        if (isSkillon&&!p.isBonusTime)
         {
 
 
@@ -87,7 +87,7 @@ public class PanCake : MonoBehaviour
 
         }
         //쿠키 스킬 쓰는곳
-        if (!isSkillon)
+        if (!isSkillon && !p.isBonusTime)
         {
             anim.SetBool("Fly", false);
             

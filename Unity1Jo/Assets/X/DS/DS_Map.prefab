@@ -1958,7 +1958,7 @@ Transform:
   - {fileID: 1790429042972123503}
   - {fileID: 6543800088328355880}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2441676317626925293
 MonoBehaviour:
@@ -1972,6 +1972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c062253a71604ee41a23812b7fa476a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat_ovenIn: []
   mat_map:
   - {fileID: 2100000, guid: a6c763d65594e6f4eb64c44e21f4a2ae, type: 2}
   - {fileID: 2100000, guid: f86e3e649b1c9f448ba0c23eaac3591d, type: 2}
@@ -3232,10 +3233,10 @@ GameObject:
   - component: {fileID: 5078492986333080237}
   - component: {fileID: 7559268290740711267}
   - component: {fileID: 5746876379055439740}
-  - component: {fileID: 2036776668360685452}
+  - component: {fileID: 6013931207138989269}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: SpawnGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3319,7 +3320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScrollSpeed: 5
   posValue: 0
---- !u!61 &2036776668360685452
+--- !u!61 &6013931207138989269
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

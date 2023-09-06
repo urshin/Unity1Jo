@@ -287,31 +287,28 @@ public class Player : MonoBehaviour
         GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
         GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
         GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+        GameObject[] SpawnGrounds = GameObject.FindGameObjectsWithTag("SpawnGround");
 
         foreach (GameObject item in Items)
         {
             Destroy(item);
-
-
         }
 
         foreach (GameObject jelly in jellys)
         {
             Destroy(jelly);
-
-
         }
         foreach (GameObject coin in coins)
         {
             Destroy(coin);
-
-
         }
         foreach (GameObject enemy in enemys)
         {
             Destroy(enemy);
-
-
+        }
+        foreach (GameObject SpawnGround in SpawnGrounds)
+        {
+            Destroy(SpawnGround);
         }
     }
 

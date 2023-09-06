@@ -11,6 +11,7 @@ TagManager:
   - Jelly
   - Coin
   - DotoriJelly
+  - SpawnGround
   layers:
   - Default
   - TransparentFX
