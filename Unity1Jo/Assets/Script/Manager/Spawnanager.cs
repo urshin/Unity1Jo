@@ -240,7 +240,37 @@ public class Spawnanager : MonoBehaviour
             lastPatternum = patternNum;
             lastMap = CurrentMap;
 
-       
+            //GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            //GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
+            //GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
+            //GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+
+            //foreach (GameObject item in Items)
+            //{
+            //    Destroy(item);
+
+
+            //}
+
+            //foreach (GameObject jelly in jellys)
+            //{
+            //    Destroy(jelly);
+
+
+            //}
+            //foreach (GameObject coin in coins)
+            //{
+            //    Destroy(coin);
+
+
+            //}
+            //foreach (GameObject enemy in enemys)
+            //{
+            //    Destroy(enemy);
+
+
+            //}
+
             CurrentMap = Bonusmap;
             patternNum = 0;
 
@@ -281,7 +311,7 @@ public class Spawnanager : MonoBehaviour
                 obstacleType = jsonData.ObstacleType[patternNum];   //데이터 가져오기 코루틴으로 쓰기 위해 대입해줌
                 jellyAmount = jsonData.JellyAmount[patternNum];     //데이터 가져오기 코루틴으로 쓰기 위해 대입해줌
                 obstacle = jsonData.Obstacle[patternNum];           //데이터 가져오기 코루틴으로 쓰기 위해 대입해줌
-                ground = jsonData.Ground[patternNum];
+                ground = jsonData.Ground[patternNum]; 
                 patternNum++; //index값과 같음.
 
             }
@@ -328,12 +358,12 @@ public class Spawnanager : MonoBehaviour
 
             if (obstacleType == 1) //1단 점프로 넘어지는 적이면 젤리 생성 위치를 3 올림
             {
-                j = 3+ground;
+                j = 3;
 
             }
             if (obstacleType == 2)//2단 점프로 넘어지는 적이면 젤리 생성 위치를 7 올림
             {
-                j = 7 +ground;
+                j = 7;
             }
             if (jellyYpos >= j)
             { j = 0; }
@@ -347,9 +377,8 @@ public class Spawnanager : MonoBehaviour
             Instantiate(whatobstacle[obstacleType - 1], SpawnPos[obstacle]);
 
         }
-        if (ground >= 1)
+        if(ground >= 1)
         {
-            
             Instantiate(Ground, SpawnPos[ground]);
         }
 
