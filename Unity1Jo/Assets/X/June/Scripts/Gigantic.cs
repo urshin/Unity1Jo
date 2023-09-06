@@ -47,7 +47,7 @@ public class Gigantic : MonoBehaviour
                     if (effectAudioClip1 != null)
                     {
                         SoundManager.Instance.Play(effectAudioClip1, Define.Sound.Effect);
-                        SoundManager.Instance.SetVolume(effectAudioClip1, 0.1f); // 사운드의 볼륨을 0.7로 설정
+                        SoundManager.Instance.SetVolume(effectAudioClip1, 0.5f); // 사운드의 볼륨을 0.7로 설정
                     }
                 }
 
@@ -74,7 +74,7 @@ public class Gigantic : MonoBehaviour
                 if (effectAudioClip2 != null)
                 {
                     SoundManager.Instance.Play(effectAudioClip2, Define.Sound.Effect);
-                    SoundManager.Instance.SetVolume(effectAudioClip2, 0.1f); // 사운드의 볼륨을 0.7로 설정
+                    SoundManager.Instance.SetVolume(effectAudioClip2, 0.5f); // 사운드의 볼륨을 0.7로 설정
                 }
             }
         }
