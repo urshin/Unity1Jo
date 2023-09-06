@@ -29,7 +29,7 @@ public class PlayerBonusDownState : PlayerState
 
         if (player.gValue <= 0 && player.isBonusTime == false && player.isBonusStart)
         {
-            stateMachine.ChangeState(player.fallingState);    
+            stateMachine.ChangeState(player.fallingState);      
         }
     }
 }

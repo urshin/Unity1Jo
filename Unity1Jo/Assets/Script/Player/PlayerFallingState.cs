@@ -34,6 +34,9 @@ public class PlayerFallingState : PlayerState
         //player.transform.GetComponent<Rigidbody2D>().gravityScale = 5;
         GameObject.Find("InGameUI").GetComponent<UITest>().SetButtonPush(false);
 
+        // bonus 알파벳 초기화 
+        player.GetComponent<PlayerBonusTimeCount>().ClearBonusAlphaBetCount();  
+
         //BGM재생
         if (p.mapcount == 0)
         {
@@ -49,6 +52,8 @@ public class PlayerFallingState : PlayerState
             if (bgmAudioClip2 != null)
                 SoundManager.Instance.Play(bgmAudioClip2, Define.Sound.Bgm);
         }
+
+
     }
 
 
@@ -67,11 +72,13 @@ public class PlayerFallingState : PlayerState
     {
         base.Update();// 부모의 Update 함수 실행 
 
+        player.DestrtoyObject(); 
+
         if (player.IsGroundDetected())
         {
             player.stateMachine.ChangeState(player.idleState);
         }
-
+        
 
         player.rb.velocity = Vector2.down * Time.deltaTime * 3f;            
 

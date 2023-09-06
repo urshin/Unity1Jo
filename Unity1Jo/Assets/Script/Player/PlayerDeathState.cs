@@ -28,6 +28,7 @@ public class PlayerDeathState : PlayerState
     public override void Update()
     {
         base.Update();
+        player.GroundScrollSpeed = 0;  
 
         if (Input.GetKeyDown(KeyCode.Space)) return;
         else { return; }
@@ -36,6 +37,7 @@ public class PlayerDeathState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
     }
 
 }
