@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 756163877694416386}
   - component: {fileID: 1254750202602108388}
   - component: {fileID: 3056724295862138587}
+  - component: {fileID: 5539699367355714680}
   m_Layer: 0
   m_Name: StarJelly_small
   m_TagString: StarJelly
@@ -181,3 +182,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: b424794c3ee13494499ffb9a02021b0e, type: 2}
+--- !u!50 &5539699367355714680
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776288055369384946}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

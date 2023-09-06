@@ -11,6 +11,8 @@ public class MoonLight : MonoBehaviour
 
 
     [SerializeField] Image SkillBar;
+    [SerializeField] GameObject moonLightStars;
+    [SerializeField] Transform moonlightStarPos;
 
 
     public GameObject StarJelly;
@@ -31,6 +33,7 @@ public class MoonLight : MonoBehaviour
     GameObject dotori;
     bool setmap;
 
+    bool isStarSkill = false;
 
     void Start()
     {
@@ -43,9 +46,14 @@ public class MoonLight : MonoBehaviour
         setmap = true;
         m = 1;
 
-        for (int i = 0; i < Spawnanager.Instance.SpawnPos.Length / 2; i++)
+        //for (int i = 0; i < Spawnanager.Instance.SpawnPos.Length / 2; i++)
+        //{
+        //    StarSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];
+        //}
+
+        for (int i = 0; i < StarSpawnPos.Length; i++)
         {
-            StarSpawnPos[i] = Spawnanager.Instance.SpawnPos[i * 2];
+            StarSpawnPos[i] = Spawnanager.Instance.SpawnPos[i];  
         }
     }
 
@@ -61,9 +69,13 @@ public class MoonLight : MonoBehaviour
                 StarSpawnPos[j] = Spawnanager.Instance.SpawnPos[j * 2];
 
             }
+
             setmap = false;
         }
-        if (StarJellyCount >= 20 && transform.position.y >= 2.5f)
+
+
+
+        if (StarJellyCount >= 20 )
 
         {
             isSkillon = true;
@@ -77,15 +89,33 @@ public class MoonLight : MonoBehaviour
             //anim.SetFloat("PanCakeyVelocity", SkillBar.fillAmount * 2);  
             //p.isDashing = true;
 
+            if (isStarSkill == false && !p.isBonusTime && !p.isBonusStart)      
+            {
+                if(p.stateMachine.currentState == p.highState 
+                    || p.stateMachine.currentState == p.downState
+                    || p.stateMachine.currentState == p.bonusDownState
+                    || p.stateMachine.currentState == p.bonusUpState
+                    || p.stateMachine.currentState == p.fallingState)  
+                {
+                    return;  
+                }
+               StarSkillActivate();
 
+                isStarSkill = true;    
+            }
 
             if (SkillBar.fillAmount <= 0)
             {
                 StarJellyCount = 0;
                 isSkillon = false;
+                isStarSkill = false;    
+
             }
 
         }
+
+
+
         //쿠키 스킬 쓰는곳
         if (!isSkillon && !p.isBonusTime)
         {
@@ -95,9 +125,13 @@ public class MoonLight : MonoBehaviour
             if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)  
             {
                 LastSpawnTime = Time.time;
+
+
+
                 i += 1 * m;
-                
-                dotori = Instantiate(StarJelly, StarSpawnPos[i].position, Quaternion.identity);
+
+
+                dotori = Instantiate(StarJelly, StarSpawnPos[i].position + new Vector3(0, -1f, 0), Quaternion.identity);       
                 Debug.Log($"{dotori.gameObject.name} 생성 ");
 
                 if (i <= 0)
@@ -105,12 +139,12 @@ public class MoonLight : MonoBehaviour
 
                     m *= -1;
                 }
-                if (i >= 4)
+                if (i >= 3)     
                 {
-                    Instantiate(SunflowerJelly, StarSpawnPos[i].position, Quaternion.identity);
+                    Instantiate(SunflowerJelly, StarSpawnPos[i].position + new Vector3(0, -3f, 0), Quaternion.identity);      
                     Debug.Log($"{dotori.gameObject.name} 생성 ");  
 
-                    m *= -1;
+                    m *= -1;  
 
                 }
 
@@ -130,7 +164,41 @@ public class MoonLight : MonoBehaviour
         {
             Jelly++;
         }
+
+
     }
+    void StarSkillActivate()
+    {
+        CreateMonLightStars();
+        //StartCoroutine(CreateMonLightStars());
 
+    }
+    //IEnumerator CreateMonLightStars()
+    //{
+    //    WaitForSeconds seconds = new WaitForSeconds(1);    
+    //    for(int i = 0; i < 2; i++)
+    //    {
+    //        GameObject go = Instantiate(moonLightStars, moonlightStarPos.position, Quaternion.identity);  
+    //        GenerateStar component = go.GetComponent<GenerateStar>();
+    //        component.SetParentPosX(transform.position.x);
+    //        if (i == 1)
+    //            component.pathType = PathType.Cos;
 
+    //        //Debug.Log($"x : {transform.position.x}");    
+    //        yield return seconds;
+    //    }
+    //}  
+    void CreateMonLightStars()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject go = Instantiate(moonLightStars, moonlightStarPos.position, Quaternion.identity);
+            GenerateStar component = go.GetComponent<GenerateStar>();
+            component.SetParentPosX(transform.position.x);
+            if (i == 1)
+                component.pathType = PathType.Cos;
+
+            //Debug.Log($"x : {transform.position.x}");    
+        }
+    }
 }

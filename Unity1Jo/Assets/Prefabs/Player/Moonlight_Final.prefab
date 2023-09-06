@@ -388,6 +388,7 @@ Transform:
   - {fileID: 6127873441575034538}
   - {fileID: 3418028595640585266}
   - {fileID: 8956539156092856105}
+  - {fileID: 5764823066554577824}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -556,6 +557,8 @@ MonoBehaviour:
   Jelly: 0
   isSkillon: 0
   SkillBar: {fileID: 4861673998932768480}
+  moonLightStars: {fileID: 7664119505536141394, guid: 89be3c030c4ae9449b2e9255dced94d8, type: 3}
+  moonlightStarPos: {fileID: 5764823066554577824}
   StarJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
   SunflowerJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
   StarSpawnPos:
@@ -567,6 +570,37 @@ MonoBehaviour:
   SpawnSpeed: 1
   i: 3
   OriginalGravity: 5
+--- !u!1 &3924234135152734051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5764823066554577824}
+  m_Layer: 0
+  m_Name: moonlightStarPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5764823066554577824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924234135152734051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.65, y: -0.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4323970314554785291}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7196917400947205322
 GameObject:
   m_ObjectHideFlags: 0

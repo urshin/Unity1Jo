@@ -1524,6 +1524,31 @@ MonoBehaviour:
   - {fileID: 7602548399663647933}
   SpawnObject: {fileID: 0}
   Spawn10Pos: {fileID: 0}
+  image0: {fileID: 0}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  image3: {fileID: 0}
+  image4: {fileID: 0}
+  Short0: {fileID: 0}
+  Short1: {fileID: 0}
+  Short2: {fileID: 0}
+  Short3: {fileID: 0}
+  Short4: {fileID: 0}
+  Long0: {fileID: 0}
+  Long1: {fileID: 0}
+  Long2: {fileID: 0}
+  Long3: {fileID: 0}
+  Long4: {fileID: 0}
+  Slide0: {fileID: 0}
+  Slide1: {fileID: 0}
+  Slide2: {fileID: 0}
+  Slide3: {fileID: 0}
+  Slide4: {fileID: 0}
+  LongSlide0: {fileID: 0}
+  LongSlide1: {fileID: 0}
+  LongSlide2: {fileID: 0}
+  LongSlide3: {fileID: 0}
+  LongSlide4: {fileID: 0}
   whatjelly:
   - {fileID: 4224232679521921525, guid: 3ec3ca3fd07a95b4da2719524ddde33e, type: 3}
   - {fileID: 8438134985049935363, guid: 000db78f9b8007e47a0f12c1911ba8d3, type: 3}
@@ -1547,13 +1572,18 @@ MonoBehaviour:
   - {fileID: 5150530280914796807, guid: 4ae8d0c2f4f8ce744b61b4fa704b03b3, type: 3}
   - {fileID: 99687125147664735, guid: 6cc2f5b0104fd734899a5f2b0d4b30c9, type: 3}
   - {fileID: 7702727402662706052, guid: 0fe56e7ca6a8bd64aa9a6752b311bf1a, type: 3}
+  Ground: {fileID: 0}
   patternNum: 0
   SpawnSpeed: 1
   map1: Assets/Resources/Map1.json
   map2: Assets/Resources/Map2.json
   map3: Assets/Resources/Map1.json
   map4: Assets/Resources/Map1.json
+  map5: Assets/Resources/data.json
+  Bonusmap: Assets/Resources/BonusMap.json
   CurrentMap: 
+  lastMap: 
+  lastPatternum: 0
 --- !u!222 &659164195506879446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2349,7 +2379,10 @@ MonoBehaviour:
   KeepGame: {fileID: 4029701112723612128}
   ReStart: {fileID: 3879336355842382418}
   GiveUp: {fileID: 6341374370194315884}
+  BonusJumpBtn: {fileID: 0}
+  BonusSlideBtn: {fileID: 0}
   bonusTimeFinish: 0
+  effectAudioClipPath: E_ClickBtn
 --- !u!224 &2971882778257931156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3495,9 +3528,11 @@ MonoBehaviour:
   HpdownEffect: {fileID: 162276667576734026}
   HpGage: {fileID: 1722806834620603312}
   HpValue: 0
+  HpDown: 1
   CoinText: {fileID: 5063456300809172989}
   JellyText: {fileID: 7989306079109247521}
   Bonus: {fileID: 4859881190105628869}
+  bgmAudioClipPath: BGM_Map1
 --- !u!224 &5693290037342270903
 RectTransform:
   m_ObjectHideFlags: 0
