@@ -68,13 +68,13 @@ public class UIResult : MonoBehaviour
                     dialogueTxt.text = "놀아줘~ 같이 날자~";
                     break;
                 case 102:
-                    dialogueTxt.text = "자~ 자~ 축배를 들자구!";
+                    dialogueTxt.text = "꿈을 꾸는 기분이에요";
                     break;
                 case 103:
                     dialogueTxt.text = "우월얽.. 갈거다, 집에...";
                     break;
                 case 104:
-                    dialogueTxt.text = "꿈을 꾸는 기분이에요";
+                    dialogueTxt.text = "자~ 자~ 축배를 들자구";
                     break;
             }
         }

@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  hp: 2
+  hp: 70
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}
@@ -545,6 +545,7 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
+  effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
   GroundScrollSpeed: 5
