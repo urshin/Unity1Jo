@@ -14,7 +14,7 @@ public class PlayerDeathState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.GroundScrollSpeed = 0;
+       
         player.CallResultWindow();
 
         SoundManager.Instance.Clear();
@@ -28,7 +28,7 @@ public class PlayerDeathState : PlayerState
     public override void Update()
     {
         base.Update();
-        player.GroundScrollSpeed = 0;  
+       // player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 0;
 
         if (Input.GetKeyDown(KeyCode.Space)) return;
         else { return; }
