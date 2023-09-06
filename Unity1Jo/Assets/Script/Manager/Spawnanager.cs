@@ -83,7 +83,6 @@ public class Spawnanager : MonoBehaviour
     public string lastMap;
     public int lastPatternum;
 
-
     //public Material[] mat_map; // 맵 이미지로 사용할 머테리얼                          
 
     public void Start()
@@ -191,6 +190,7 @@ public class Spawnanager : MonoBehaviour
 
                     patternNum = 0;
                     p.isMapChange = false;
+
                     break;
                 case 2:
                     CurrentMap = map3;

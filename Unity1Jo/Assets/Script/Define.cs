@@ -21,6 +21,8 @@ public class Define : MonoBehaviour
     {
         Bgm,
         Effect,
+        IngameEffect,
+        GiganticEffect,
         MaxCount, //Sound enumÀÇ °¹¼ö
     }
 

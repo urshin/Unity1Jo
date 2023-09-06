@@ -11,6 +11,10 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     {
         base.Awake();
 
+        //_audioSources[(int)Define.Sound.Bgm] = gameObject.AddComponent<AudioSource>();
+        //_audioSources[(int)Define.Sound.Effect] = gameObject.AddComponent<AudioSource>();
+        //_audioSources[(int)Define.Sound.IngameEffect] = gameObject.AddComponent<AudioSource>();
+        //_audioSources[(int)Define.Sound.GiganticEffect] = gameObject.AddComponent<AudioSource>();
     }
 
     private void Start()
@@ -43,11 +47,23 @@ public class SoundManager : SingletonBehaviour<SoundManager>
             audioSource.clip = audioClip;
             audioSource.Play();
         }
-        else //Effect 효과음 재생
+        else if(type == Define.Sound.Effect) //Ingame외 효과음
         {
             AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
             audioSource.pitch = pitch;
-            audioSource.PlayOneShot(audioClip); //한번만 재상
+            audioSource.PlayOneShot(audioClip); //한번만 재생
+        }
+        else if (type == Define.Sound.IngameEffect) //게임 내 아이템 획득 효과음
+        {
+            AudioSource audioSource = _audioSources[(int)Define.Sound.IngameEffect];
+            audioSource.pitch = pitch;
+            audioSource.PlayOneShot(audioClip); 
+        }
+        else if (type == Define.Sound.GiganticEffect) //Gigantic관련 효과음의 음량이 너무 커서 별도 컨트롤
+        {
+            AudioSource audioSource = _audioSources[(int)Define.Sound.GiganticEffect];
+            audioSource.pitch = pitch;
+            audioSource.PlayOneShot(audioClip);
         }
     }
 
@@ -93,20 +109,5 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     {
         AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
         audioSource.Play();
-    }
-
-    public void SetVolume(AudioClip audioClip, float volumeDown)
-    {
-        if (audioClip == null)
-            return;
-
-        foreach (AudioSource audioSource in _audioSources)
-        {
-            if (audioSource.clip == audioClip)
-            {
-                audioSource.volume *= volumeDown; // 현재 볼륨에 volumeDown 값을 곱함
-                return;
-            }
-        }
     }
 }

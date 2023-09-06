@@ -8,6 +8,8 @@ public class PlayerBonusTimeCount : MonoBehaviour
 {
     int BonusJelly;
     Player p;
+
+    string bgmAudioClipPath = "BGM_Bonustime";
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -106,6 +108,11 @@ public class PlayerBonusTimeCount : MonoBehaviour
                     StartCoroutine(COWaitForAlphaBet(p.topTime + p.downTime));                
                     StartCoroutine(COWaitForBonusTime(p.topTime + p.downTime));  
                     p.isBonusTime = true; // 바로 플레이어 애니메이션 실행  
+
+                    //BGM재생
+                    AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
+                    if (bgmAudioClip != null)
+                        SoundManager.Instance.Play(bgmAudioClip, Define.Sound.Bgm);
 
                 }
             }
