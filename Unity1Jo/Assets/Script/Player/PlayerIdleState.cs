@@ -75,10 +75,21 @@ public class PlayerIdleState : PlayerState
             player.stateMachine.ChangeState(player.hitState);
         }
 
+        if (player.isDashing || (player.isDashing && player.isGigantic))
+        {
+            player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
+        }
+
+        if(player.isGigantic || (player.isGigantic && player.isDashing))
+        {
+            player.transform.localScale = player.OriginalSize * 3;
+        }
+
     }
    
     public override void Exit()
     {
         base.Exit();
+        
     }
 }
