@@ -63,10 +63,10 @@ public class Gigantic : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (p.GiganticDuration <= 0) //거대화 지속시간이 끝난다면
+        if (!p.isGigantic) //거대화 지속시간이 끝난다면
         {
-            p.isGigantic = false;
-            if (GameObject.FindGameObjectWithTag("Player").transform.localScale.y >= p.OriginalSize.y) //원래의 크기와 현재 크기가 일치 하지 않는다면
+           
+            if (GameObject.FindGameObjectWithTag("Player").transform.localScale.y > p.OriginalSize.y) //원래의 크기와 현재 크기가 일치 하지 않는다면
             {
                 StartCoroutine(SizeDown());
 

@@ -545,6 +545,8 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
+  bgmAudioClipPath: BGM_Map2
+  effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
   GroundScrollSpeed: 5
