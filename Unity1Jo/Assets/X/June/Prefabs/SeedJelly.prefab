@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e6c4b141992624385d9362ccf40059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JellyPoint: 1
+  JellyPoint: 82394
+  effectAudioClipPath: SoundEff_GetJelly
 --- !u!114 &7295966119842821039
 MonoBehaviour:
   m_ObjectHideFlags: 0

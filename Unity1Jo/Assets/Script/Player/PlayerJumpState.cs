@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class PlayerJumpState : PlayerState
     [SerializeField] string effectAudioClipPath = "Basic_Jump";
     [SerializeField] string effectAudioClipPath1 = "PanCake_Jump";
     [SerializeField] string effectAudioClipPath2 = "Moonlight_Jump";
+
     public PlayerJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -28,6 +30,7 @@ public class PlayerJumpState : PlayerState
         }
         else if(data.id == 101)
         {
+            //»ç¿îµå
             AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath1);
             if (effectAudioClip != null)
                 SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
@@ -42,6 +45,11 @@ public class PlayerJumpState : PlayerState
 
         Vector2 jumpVec = new Vector2(rb.velocity.x, player.GetJumpPower());
         rb.AddForce(jumpVec, ForceMode2D.Impulse);
+    }
+
+    private GameObject Instantiate(GameObject jumpLighting, Vector3 position, Quaternion identity)
+    {
+        throw new NotImplementedException();
     }
 
     public override void Update()
