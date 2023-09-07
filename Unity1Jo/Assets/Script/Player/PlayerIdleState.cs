@@ -82,7 +82,7 @@ public class PlayerIdleState : PlayerState
 
         if(player.isGigantic || (player.isGigantic && player.isDashing))
         {
-            player.transform.localScale = player.OriginalSize * 3;
+            player.transform.localScale = player.OriginalSize * 2.1f;
         }
 
     }

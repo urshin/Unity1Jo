@@ -545,7 +545,7 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
-  bgmAudioClipPath: BGM_Map2
+  isBlinking: 0
   effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efaaae5f313e7b43973071f1c2c8f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BonusAlphaBetCount: 000000000000000000
 --- !u!1 &8227907743624214355
 GameObject:
   m_ObjectHideFlags: 0

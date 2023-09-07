@@ -84,7 +84,7 @@ public class MoonLight : MonoBehaviour
         {
 
 
-            SkillBar.fillAmount -= 0.002f;
+            SkillBar.fillAmount -= 0.008f;
             //anim.SetBool("Fly", true);
             //anim.SetFloat("PanCakeyVelocity", SkillBar.fillAmount * 2);  
             //p.isDashing = true;

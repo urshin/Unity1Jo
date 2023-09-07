@@ -26,7 +26,7 @@ public class PlayerGiganticState : PlayerState
         //GameObject.FindGameObjectWithTag("Player").transform.localScale = new Vector3(1, 1, 0);
         if (player.isGigantic || (player.isGigantic && player.isDashing))
         {
-            player.transform.localScale = player.OriginalSize * 3;
+            player.transform.localScale = player.OriginalSize * 2.1f;
         }
     }
 
