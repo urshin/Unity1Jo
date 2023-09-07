@@ -60,7 +60,7 @@ public class SkillTest : MonoBehaviour
         }
         else
         {
-            transform.localPosition = pos + transform.up * Mathf.Cos(Time.time * frequency) * waveHeight;
+            transform.localPosition = pos + transform.up * Mathf.Sin(-Time.time * frequency) * waveHeight;
 
         }
     }
@@ -73,7 +73,7 @@ public class SkillTest : MonoBehaviour
         }
         else
         {
-            transform.localPosition = pos + transform.up * Mathf.Cos(Time.time * frequency) * waveHeight;
+            transform.localPosition = pos + transform.up * Mathf.Sin(-Time.time * frequency) * waveHeight;  
 
         }
     } 

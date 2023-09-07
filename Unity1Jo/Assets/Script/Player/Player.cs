@@ -297,7 +297,8 @@ public class Player : MonoBehaviour
         GameObject[] Items = GameObject.FindGameObjectsWithTag("Item");
         GameObject[] jellys = GameObject.FindGameObjectsWithTag("Jelly");
         GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
-        GameObject[] SpawnGrounds = GameObject.FindGameObjectsWithTag("SpawnGround");
+        GameObject[] SpawnGrounds = GameObject.FindGameObjectsWithTag("SpawnGround");  
+        // GameObject[] StarJellys = GameObject.FindGameObjectsWithTag("StarJelly");
 
         foreach (GameObject item in Items)
         {
@@ -320,6 +321,10 @@ public class Player : MonoBehaviour
         {
             Destroy(SpawnGround);
         }
+        //foreach (GameObject starJelly in StarJellys)
+        //{
+        //    Destroy(starJelly);  
+        //}  
     }
 
     IEnumerator FlyObstacle(Transform _enemy)

@@ -13,7 +13,7 @@ public class MoonLight : MonoBehaviour
     [SerializeField] Image SkillBar;
     [SerializeField] GameObject moonLightStars;
     [SerializeField] Transform moonlightStarPos;
-
+    [SerializeField] GameObject RotateStars;  
 
     public GameObject StarJelly;
     public GameObject SunflowerJelly;
@@ -75,7 +75,7 @@ public class MoonLight : MonoBehaviour
 
 
 
-        if (StarJellyCount >= 20 )
+        if (StarJellyCount > 20 )  
 
         {
             isSkillon = true;
@@ -106,10 +106,10 @@ public class MoonLight : MonoBehaviour
 
             if (SkillBar.fillAmount <= 0)
             {
+
                 StarJellyCount = 0;
                 isSkillon = false;
-                isStarSkill = false;    
-
+                isStarSkill = false;
             }
 
         }
@@ -169,9 +169,14 @@ public class MoonLight : MonoBehaviour
     }
     void StarSkillActivate()
     {
+        RotateStars.SetActive(false);
         CreateMonLightStars();
         //StartCoroutine(CreateMonLightStars());
 
+    }
+    public void SetActiveRotateStars(bool flag)
+    {
+        RotateStars.SetActive(flag);
     }
     //IEnumerator CreateMonLightStars()
     //{
@@ -190,13 +195,35 @@ public class MoonLight : MonoBehaviour
     //}  
     void CreateMonLightStars()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject go = Instantiate(moonLightStars, moonlightStarPos.position, Quaternion.identity);
             GenerateStar component = go.GetComponent<GenerateStar>();
             component.SetParentPosX(transform.position.x);
-            if (i == 1)
+            if (i == 0)
+            {
                 component.pathType = PathType.Cos;
+                component.SetHeight(1);
+                component.MaxFrequency(5);  
+            }
+            else if (i == 1)
+            {
+                component.pathType = PathType.Sin;
+                component.SetHeight(1);
+                component.MaxFrequency(5);
+            }
+            else if (i == 2)
+            {
+                component.pathType = PathType.Cos;
+                component.SetHeight(2);
+                component.MaxFrequency(10);
+            }
+            else if (i == 3)
+            {
+                component.pathType = PathType.Sin;
+                component.SetHeight(2);
+                component.MaxFrequency(10);          
+            } 
 
             //Debug.Log($"x : {transform.position.x}");    
         }

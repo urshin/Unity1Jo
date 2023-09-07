@@ -87,7 +87,7 @@ MonoBehaviour:
   - {fileID: 356807287447657271, guid: 12eca4745e3cb52469d9187e4ecbf349, type: 3}
   - {fileID: 356807287447657271, guid: 12eca4745e3cb52469d9187e4ecbf349, type: 3}
   maxLength: 10
-  maxFrequency: 15
-  maxSpeed: 10
+  maxFrequency: 10
+  maxSpeed: 8
   parentPosX: 0
   pathType: 1

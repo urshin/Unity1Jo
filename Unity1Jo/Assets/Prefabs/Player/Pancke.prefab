@@ -313,6 +313,7 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
+  isBlinking: 0
   effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
@@ -375,7 +376,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpawnSpeed: 1
+  SpawnSpeed: 2
   i: 0
   OriginalGravity: 0
 --- !u!1 &2240222899599973373
