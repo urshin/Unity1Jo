@@ -44,6 +44,7 @@ public class Jelly : MonoBehaviour
     {
 
     }
+    
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
