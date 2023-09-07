@@ -86,7 +86,7 @@ public class PanCake : MonoBehaviour
                 if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)
                 {
                     LastSpawnTime = Time.time;
-                    int j = Random.Range(-2, 5);
+                    int j = Random.Range(-4, 3);
                     Instantiate(SunflowerJelly, p.transform.position + new Vector3(15, j/2 , 0), Quaternion.identity);
                 }
             
