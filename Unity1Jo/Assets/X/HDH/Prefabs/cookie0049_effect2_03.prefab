@@ -98,6 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dist: 7
-  speed: 2
+  speed: 1
   frequency: 10
   waveHeight: 1

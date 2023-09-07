@@ -504,6 +504,7 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
+  isBlinking: 0
   effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
   SkillBar: {fileID: 4861673998932768480}
   moonLightStars: {fileID: 7664119505536141394, guid: 89be3c030c4ae9449b2e9255dced94d8, type: 3}
   moonlightStarPos: {fileID: 5764823066554577824}
+  RotateStars: {fileID: 2693380687782654584}
   StarJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
   SunflowerJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
   StarSpawnPos:
@@ -594,7 +596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3924234135152734051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.65, y: -0.32, z: 0}
+  m_LocalPosition: {x: 2.44, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -789,7 +791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1186110766694423069, guid: 4d9abe38de448324bb1b609af9d9e887, type: 3}
       propertyPath: m_Name
-      value: Moonlight_Stars
+      value: RotateStars
       objectReference: {fileID: 0}
     - target: {fileID: 1907943939922469975, guid: 4d9abe38de448324bb1b609af9d9e887, type: 3}
       propertyPath: m_RootOrder
@@ -840,6 +842,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d9abe38de448324bb1b609af9d9e887, type: 3}
+--- !u!1 &2693380687782654584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1186110766694423069, guid: 4d9abe38de448324bb1b609af9d9e887, type: 3}
+  m_PrefabInstance: {fileID: 3825005250251122789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3418028595640585266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1907943939922469975, guid: 4d9abe38de448324bb1b609af9d9e887, type: 3}
