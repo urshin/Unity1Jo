@@ -253,7 +253,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy") && !isDashing && !isGigantic && !ishitted)
         {
-            StartCoroutine(isHitted(2)); // 한 번 부딪쳤을때 잠시 무적
+            StartCoroutine(isHitted(1f)); // 한 번 부딪쳤을때 잠시 무적
             Damage(5);
         }
 

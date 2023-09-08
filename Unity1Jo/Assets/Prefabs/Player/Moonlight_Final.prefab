@@ -449,9 +449,7 @@ MonoBehaviour:
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}
-  giganticSize: 0
   jumpPower: 16
-  giganticMaxSize: 0
   topTime: 0.8
   topPos: {fileID: 6246924043882406242, guid: 8703e8fe0f3fe4343b3fc0e9baccd6d0, type: 3}
   downTime: 0.6
@@ -465,7 +463,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   wallCheck: {fileID: 6127873441575034538}
-  wallCheckDistance: 1.61
+  wallCheckDistance: 1.35
   whatIsWall:
     serializedVersion: 2
     m_Bits: 128
@@ -482,6 +480,7 @@ MonoBehaviour:
   DashTime: 3
   isGigantic: 0
   GiganticSize: 10
+  giganticMaxSize: 1.4
   OriginalSize: {x: 0, y: 0, z: 0}
   GiganticDuration: 0
   GiganticTime: 3

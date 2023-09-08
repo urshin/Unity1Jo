@@ -80,9 +80,9 @@ public class PlayerIdleState : PlayerState
             player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
         }
 
-        if(player.isGigantic || (player.isGigantic && player.isDashing))
+        if (player.isGigantic || (player.isGigantic && player.isDashing))
         {
-            player.transform.localScale = player.OriginalSize * 2.1f;
+            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();
         }
 
     }

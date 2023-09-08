@@ -46,6 +46,8 @@ public class PlayerState
         stateTimer -= Time.deltaTime;//Dash timer 등의 기능
 
         player.anim.SetFloat("yVelocity", rb.velocity.y); //JumpFall애니메이션의 블렌딩값 적용
+
+
     }
 
     public virtual void Exit()

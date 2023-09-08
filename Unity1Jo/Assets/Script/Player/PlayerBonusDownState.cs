@@ -26,6 +26,11 @@ public class PlayerBonusDownState : PlayerState
     public override void Update()
     {
         base.Update();  // 부모의 Update 함수 실행 
+        if (player.isGigantic || (player.isGigantic && player.isDashing))
+        {
+            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();
+        }
+
 
         if (player.gValue <= 0 && player.isBonusTime == false && player.isBonusStart)
         {

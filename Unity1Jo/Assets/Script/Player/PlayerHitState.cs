@@ -17,7 +17,7 @@ public class PlayerHitState : PlayerState
         base.Update();
 
 
-        if (player.IsGroundDetected())
+        if (player.IsGroundDetected() && !player.ishitted)
         {
             stateMachine.ChangeState(player.idleState);
         }

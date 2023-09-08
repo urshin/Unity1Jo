@@ -1404,7 +1404,7 @@ MonoBehaviour:
   currentJellyPoint: 0
   bestJellyPoint: 0
   currentCoin: 0
-  totalCoin: 100
+  totalCoin: 0
   BonusTimeJelly: []
 --- !u!1 &2067767437
 GameObject:

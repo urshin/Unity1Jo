@@ -74,10 +74,7 @@ public class PlayerSlideState : PlayerState
         {
             player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
         }
-        if (player.isGigantic || (player.isGigantic && player.isDashing))
-        {
-            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();
-        }
+
     }
 
     public override void Exit()

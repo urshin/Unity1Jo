@@ -86,10 +86,14 @@ public class PlayerDashState : PlayerState
             player.stateMachine.ChangeState(player.hitState);
         }
 
-        if (player.isDashing || (player.isDashing && player.isGigantic))
+        if (player.isGigantic || (player.isGigantic && player.isDashing))
         {
-            player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 3;
+            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();
         }
 
+        if (!player.isDashing)
+        {
+            player.stateMachine.ChangeState(player.idleState);
+        }
     }
 }

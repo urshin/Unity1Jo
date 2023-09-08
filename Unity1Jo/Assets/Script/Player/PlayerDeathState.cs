@@ -18,6 +18,7 @@ public class PlayerDeathState : PlayerState
         player.CallResultWindow();
 
         SoundManager.Instance.Clear();
+       
 
         AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
         if (effectAudioClip != null)
@@ -28,7 +29,7 @@ public class PlayerDeathState : PlayerState
     public override void Update()
     {
         base.Update();
-       // player.GroundScrollSpeed = player.OriginalGroundScrollSpeed * 0;
+        player.GroundScrollSpeed = 0;
 
         if (Input.GetKeyDown(KeyCode.Space)) return;
         else { return; }
