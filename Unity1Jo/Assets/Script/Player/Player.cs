@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     [SerializeField] float originSpeed;
     [SerializeField] float dashSpeed;
     [SerializeField] Transform originSize;
-    [SerializeField] float giganticSize;
+    //[SerializeField] float giganticSize;
     [SerializeField] public float jumpPower; // code by. 대석
     
 
@@ -104,9 +104,11 @@ public class Player : MonoBehaviour
     [Header("거대화 관련")]
     [SerializeField] public bool isGigantic;
     [SerializeField] public float GiganticSize; //얼마나 커질지
+    [SerializeField] float giganticMaxSize; //jump,slide 시에 거대 크기 유지
     [SerializeField] public Vector3 OriginalSize; //원래의 크기
     [SerializeField] public float GiganticDuration; //거대화 남아있는 시간
     public float GiganticTime; //거대화 지속 시간
+
 
     [Header("자석 관련")]
     [SerializeField] public bool isMagnet;
@@ -430,6 +432,11 @@ public class Player : MonoBehaviour
     public float GetJumpPower()
     {
         return jumpPower;
+    }
+
+    public float GetGiganticMaxSize()
+    {
+        return giganticMaxSize;
     }
     public void SetActiveShinyEffect(bool flag)
     {

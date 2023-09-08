@@ -94,7 +94,8 @@ public class PlayerJumpState : PlayerState
         }
         if (player.isGigantic || (player.isGigantic && player.isDashing))
         {
-            player.transform.localScale = player.OriginalSize * 2.1f;
+            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();
+            //player.transform.localScale = new Vector3(player.GiganticSize, player.GiganticSize, 1);
         }
     }
 
