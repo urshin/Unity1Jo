@@ -77,6 +77,8 @@ public class UITest : UI_Base
 
     void ReStartDown(PointerEventData data)
     {
+        GameManager.Instance.totalCoin -= GameManager.Instance.currentCoin;
+        GameManager.Instance.currentCoin = 0;
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
         player.mapcount = 0;
