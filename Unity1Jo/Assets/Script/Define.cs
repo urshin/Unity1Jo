@@ -28,6 +28,6 @@ public class Define : MonoBehaviour
 
     public enum Transition
     {
-        Fade,  
+        Fade,
     }
 }

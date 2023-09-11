@@ -53,7 +53,7 @@ public class MoonLight : MonoBehaviour
 
         for (int i = 0; i < StarSpawnPos.Length; i++)
         {
-            StarSpawnPos[i] = Spawnanager.Instance.SpawnPos[i];  
+            StarSpawnPos[i] = SpawnManager.Instance.SpawnPos[i];  
         }
     }
 
@@ -66,7 +66,7 @@ public class MoonLight : MonoBehaviour
 
             for (int j = 0; j < 5; j++)
             {
-                StarSpawnPos[j] = Spawnanager.Instance.SpawnPos[j * 2];
+                StarSpawnPos[j] = SpawnManager.Instance.SpawnPos[j * 2];
 
             }
 

@@ -19,9 +19,9 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
     }
     public void CookieDicInit()
     {
-        HE_DataManager.instance.LoadData();
+        CookiesDataManager.instance.LoadData();
         HasCookieDic.Clear();
-        foreach (var data in HE_DataManager.instance.GetMycookiesDatas())
+        foreach (var data in CookiesDataManager.instance.GetMycookiesDatas())
         {
             if(data.id == 100)
             {

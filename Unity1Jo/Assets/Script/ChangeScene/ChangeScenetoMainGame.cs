@@ -24,7 +24,7 @@ public class ChangeScenetoMainGame : MonoBehaviour //code by.гою╨
         if (effectAudioClip != null)
             SoundManager.Instance.Play(effectAudioClip, Define.Sound.Effect);
 
-        if (Spawnanager.Instance == null)
+        if (SpawnManager.Instance == null)
             return;  
         //Spawnanager.Instance.ChangeJellyPrefab(Spawnanager.Instance.whatjelly[0], Spawnanager.Instance.image0);
         //Spawnanager.Instance.ChangeEnemy(Spawnanager.Instance.whatobstacle[0], Spawnanager.Instance.Short0);
