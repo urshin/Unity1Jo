@@ -41,6 +41,13 @@ public class PlayerJumpState : PlayerState
 
         Vector2 jumpVec = new Vector2(rb.velocity.x, player.GetJumpPower());
         rb.AddForce(jumpVec, ForceMode2D.Impulse);
+
+        // Æê À§Ä¡ ¼³Á¤ 
+        GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+        if (pet == null)
+            return;
+
+        pet.GetComponent<PetController>().target = player.GetPetJumpPos();
     }
 
     private GameObject Instantiate(GameObject jumpLighting, Vector3 position, Quaternion identity)
@@ -90,7 +97,7 @@ public class PlayerJumpState : PlayerState
         }
         if (player.isGigantic || (player.isGigantic && player.isDashing))
         {
-            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();
+            player.transform.localScale = player.OriginalSize * player.GetGiganticMaxSize();  
             //player.transform.localScale = new Vector3(player.GiganticSize, player.GiganticSize, 1);
         }
     }
@@ -99,7 +106,14 @@ public class PlayerJumpState : PlayerState
     {
         base.Exit();
         player.vibrate();
-        
+
+        // Æê À§Ä¡ ¼³Á¤ 
+        GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+        if (pet == null)
+            return;
+
+        pet.GetComponent<PetController>().target = player.GetPetMiddlePos();    
+
     }
 
 }

@@ -46,8 +46,12 @@ public class Player : MonoBehaviour
     [SerializeField] Transform originSize;
     //[SerializeField] float giganticSize;
     [SerializeField] public float jumpPower; // code by. 대석
-    
 
+    [Header("Pet")]
+    [SerializeField] Transform PetMiddlePos;
+    [SerializeField] Transform PetSlidePos;
+    [SerializeField] Transform PetJumpPos;
+    
     [Header("Bonus Map Info")]      // code by. 동호
     public float topTime;           // 최대로 올라갈 떄의 시간  
     public GameObject topPos;       // 쿠키가 보너스 타임으로 갈 때 최대로 올라 갈 수 있는 위치
@@ -488,6 +492,20 @@ public class Player : MonoBehaviour
         transform.localPosition = new Vector2(transform.position.x, screenOutTopPos.transform.position.y);        
         //rb.velocity = Vector2.zero;    
         rb.gravityScale = 30;            
+    }
+
+    /* pet */
+    public Transform GetPetMiddlePos() //code by.동호
+    {
+        return PetMiddlePos;
+    }
+    public Transform GetPetSlidePos() //code by.동호
+    {
+        return PetSlidePos;
+    }
+    public Transform GetPetJumpPos() // code by.동호 
+    {
+        return PetJumpPos;
     }
 }
 

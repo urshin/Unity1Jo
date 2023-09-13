@@ -17,6 +17,9 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     [SerializeField] GameObject cookie_103;
     [SerializeField] GameObject cookie_104;
 
+    [Space]
+    [SerializeField] GameObject pet_100;  
+
     void Awake()
     {
         base.Awake();
@@ -28,7 +31,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         PlayerGameObjectDict.Add(104, cookie_104);
 
         CreatePlayer();
-
+        CreatePet();  
     }
 
     private void Start()
@@ -57,17 +60,51 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
 
     }
 
-    public void CreatePlayer()
+    void CreatePlayer()
     {
 
         int id = UserDataManager.Instance.GetSelectCookieID();
-        Debug.Log($"id : {id}");
 
         if (PlayerGameObjectDict.ContainsKey(id))
         {
             Instantiate(PlayerGameObjectDict[id]);  
             SetOriginPlayerPositi2on();  
         }
+    }
+
+    void CreatePet()
+    {
+        int id = UserDataManager.Instance.GetSelectPetID();
+        Debug.Log($"id : {id}");
+        GameObject pet = Instantiate(pet_100);
+        
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if(playerObj != null)
+        {
+            Transform petPos = playerObj.GetComponent<Player>().GetPetMiddlePos();
+            if (petPos != null)
+            {
+                pet.transform.localPosition = petPos.position;
+                pet.transform.localScale = new Vector3(1, 1, 1);
+                pet.GetComponent<PetController>().target = petPos;    
+            }
+
+
+        }
+
+        //if (playerObj != null)
+        //{
+        //    Transform petPos = playerObj.GetComponent<Player>().GetPetPos();
+        //    if (petPos != null)
+        //    {
+        //        pet.transform.SetParent(petPos);
+        //        pet.transform.localPosition = Vector3.zero;
+        //        pet.transform.localScale = new Vector3(1, 1, 1);
+        //    }
+
+        //}
+
     }
 
     public void DestroyPlayer()

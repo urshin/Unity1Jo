@@ -6,7 +6,10 @@ using UnityEngine;
 public class UserDataManager : SingletonBehaviour<UserDataManager>
 {
     [SerializeField] private int selectCookieID =100;  // 선택한 쿠키의 ID 값 
-    private Dictionary<int, int> HasCookieDic = new Dictionary<int, int>(); 
+    [SerializeField] private int selectPetID = 100;
+
+    private Dictionary<int, int> HasCookieDic = new Dictionary<int, int>();
+    private Dictionary<int, int> HasPetDic = new Dictionary<int, int>();
     private void Awake()
     {
         base.Awake();
@@ -17,7 +20,7 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
     {
   
     }
-    public void CookieDicInit()
+    public void CookieDicInit() // 쿠키 데이터 로드 및 cookie dictionary init 
     {
         CookiesDataManager.instance.LoadData();
         HasCookieDic.Clear();
@@ -34,8 +37,14 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
             }
         }
     }
+    public void PetDicInit() // 펫 데이터 로드 및 pet dictionary init 
+    {
+        HasPetDic.Clear();
+        HasPetDic.Add(100, 1);
+    }
 
-    public void SetHasCookie(int key, bool hasCookie)
+    /* Cookie Dic */
+    public void SetHasCookie(int key, bool hasCookie) // 해당 쿠키가 있는지 체크 
     {
         if (HasCookieDic.ContainsKey(key))
         {
@@ -53,6 +62,25 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
         return 0; //기본 값은 0
     }
 
+    /* Pet Dic */
+    public void SetHasPet(int key, bool hasPet)
+    {
+        if (HasPetDic.ContainsKey(key))
+        {
+            HasPetDic[key] = hasPet ? 1 : 0;
+        }
+        return;
+    }
+    public int GetHasPet(int key)
+    {
+        if (HasPetDic.ContainsKey(key))
+        {
+            return HasPetDic[key];
+        }
+        return 0;
+    }
+
+    /* Setter & Getter cookie ID*/
     public void SetSelectCookieID(int id)
     {
         selectCookieID = id;  
@@ -60,5 +88,15 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
     public int GetSelectCookieID()
     {
         return selectCookieID;
+    }
+
+    /* Setter & Getter Pet ID */
+    public void SetSelectPetID(int id)
+    {
+        selectPetID = id;
+    }
+    public int GetSelectPetID()
+    {
+        return selectPetID;
     }
 }

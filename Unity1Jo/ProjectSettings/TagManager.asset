@@ -13,6 +13,7 @@ TagManager:
   - DotoriJelly
   - SpawnGround
   - StarJelly
+  - Pet
   layers:
   - Default
   - TransparentFX
