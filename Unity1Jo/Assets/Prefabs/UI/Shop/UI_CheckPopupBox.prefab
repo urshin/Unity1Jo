@@ -390,6 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331f4a096a319c242bbaaf41fd5f232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  message: {fileID: 8170736228816659282}
+  popupType: 0
   oKBtn: {fileID: 419054895875408358}
   closeBtn: {fileID: 9216448555986299547}
   effectAudioClipPath: E_BuyCookie
