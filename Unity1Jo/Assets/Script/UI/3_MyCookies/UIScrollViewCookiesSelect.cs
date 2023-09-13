@@ -100,7 +100,4 @@ public class UIScrollViewCookiesSelect : MonoBehaviour //code by. гою╨
         }
     }
 
-
-
- 
 }

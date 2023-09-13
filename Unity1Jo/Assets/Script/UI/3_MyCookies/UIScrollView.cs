@@ -11,7 +11,7 @@ public class UIScrollView : MonoBehaviour //code by. 하은
     public void Initialize()
     {
         //MycookiesData가 들어가있는 List를 전달받아서 Cookie를 생성
-        List<MycookiesData> list = CookiesDataManager.instance.GetMycookiesDatas();
+        List<MycookiesData> list = UI_DataManager.instance.GetMycookiesDatas();
 
         foreach (MycookiesData data in list)
         {
@@ -28,6 +28,7 @@ public class UIScrollView : MonoBehaviour //code by. 하은
         UIScrollViewCookiesSelect cookies = go.GetComponent<UIScrollViewCookiesSelect>();
 
         cookies.Initialize(data);
+
         // 장금처리 
         if(UserDataManager.Instance.GetHasCookie(data.id) == 0) // 쿠키 안가지고 있음 
         {
@@ -42,14 +43,9 @@ public class UIScrollView : MonoBehaviour //code by. 하은
         //각 버튼을 누르면 해당 cookies의 id를 EventManager에게 전달
         cookies.selectBtn.onClick.AddListener(() => {
             EventManager.instance.onSelectBtnClick(cookies.GetID());
-
-
-
         });
         cookies.buyBtn.onClick.AddListener(() => {
             EventManager.instance.onBuyBtnClick(cookies.GetID());
-
-
         });
 
         CookieComponentList.Add(cookies);  

@@ -625,6 +625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrAtlas:
   - {fileID: 100100200, guid: bd58c88d62634474cad653410308ad54, type: 3}
+  - {fileID: 100100200, guid: 3b94f8079fa0239449c2bb99c728977e, type: 3}
 --- !u!4 &690656117
 Transform:
   m_ObjectHideFlags: 0
@@ -1036,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e377fe2514356146af73c5cb6f4b028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBtn: {fileID: 491116169}
+  backBtn: {fileID: 491116169}
 --- !u!1 &1451280682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectCookieID: 100
+  selectPetID: 100
 --- !u!4 &1671802048
 Transform:
   m_ObjectHideFlags: 0
@@ -1404,7 +1406,7 @@ MonoBehaviour:
   currentJellyPoint: 0
   bestJellyPoint: 0
   currentCoin: 0
-  totalCoin: 0
+  totalCoin: 100
   BonusTimeJelly: []
 --- !u!1 &2067767437
 GameObject:

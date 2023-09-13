@@ -30,4 +30,11 @@ public class Define : MonoBehaviour
     {
         Fade,
     }
+
+    public enum PopupType
+    {
+        Cookie,
+        Pet,
+
+    }
 }
