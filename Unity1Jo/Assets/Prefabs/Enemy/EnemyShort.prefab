@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 5633330673197524543}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8330617031710884593
 MonoBehaviour:
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4276194606230320742}
   - component: {fileID: 3145058618467297607}
   - component: {fileID: 4604338329233421986}
+  - component: {fileID: 8241464334543054770}
   m_Layer: 7
   m_Name: GameObject
   m_TagString: Enemy
@@ -197,3 +198,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2045911, y: 0.8481508}
   m_EdgeRadius: 0
+--- !u!114 &8241464334543054770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929513661819252500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff3be2164f479a48a5962053206b708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name:
+  - ShortEnemy0
+  - ShortEnemy1

@@ -52,6 +52,7 @@ public class MapController : MonoBehaviour
        
         //if (p.mapcount == 0)
         //{
+        //{
         //    //CurrentMap = Spawnanager.Instance.map1; //게임 시작 시 현재 맵 == map1
 
         //}
