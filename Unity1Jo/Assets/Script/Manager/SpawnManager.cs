@@ -320,7 +320,7 @@ public class SpawnManager : MonoBehaviour
 
         else //오류 출력
         {
-            //Debug.LogError("JSON file not found at path: " + jsonFilePath);
+            Debug.LogError("JSON file not found at path: " + jsonFilePath);
         }
 
     }
