@@ -40,6 +40,10 @@ public class Gigantic : MonoBehaviour
             if (!p.isGigantic) //거대화 상태가 아닐 때
             {
                 player.transform.position += new Vector3(0, Size / 10, 0);// 포지션 값 움직이기
+                Player p = player.GetComponent<Player>();
+                Debug.Log("parent pos : " + p.GetPetParentPos().position);    
+                p.SetPetParentPos(new Vector3(p.GetPetGigantic_X_length(), 0, 0));              
+
                 for (int i = 0; i < Size; i++) //정한 사이즈 만큼 커짐
                 {
                     StartCoroutine(SizeUp()); //사이즈 업 하기
@@ -66,9 +70,11 @@ public class Gigantic : MonoBehaviour
 
         if (!p.isGigantic) //거대화 지속시간이 끝난다면
         {
-           
+
             if (GameObject.FindGameObjectWithTag("Player").transform.localScale.y > p.OriginalSize.y) //원래의 크기와 현재 크기가 일치 하지 않는다면
             {
+                p.SetPetParentPos(Vector3.zero);    
+
                 StartCoroutine(SizeDown());
 
                 AudioClip effectAudioClip1 = GameManager.Instance.LoadAudioClip(effectAudioClipPath2);

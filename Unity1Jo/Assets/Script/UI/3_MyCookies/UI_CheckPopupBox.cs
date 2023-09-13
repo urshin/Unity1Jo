@@ -8,6 +8,7 @@ public class UI_CheckPopupBox : MonoBehaviour
 {
     int cookieID;
     int cookiePrice;
+    [SerializeField] Text message;
     UIScrollView cookieScrollView;
 
     int petID;
@@ -26,6 +27,19 @@ public class UI_CheckPopupBox : MonoBehaviour
     {
         oKBtn.AddUIEvent(OnOkBtnClicked);
         closeBtn.AddUIEvent(OnCloseBtnClicked);  
+    }
+
+    private void Start()
+    {
+        switch (popupType)
+        {
+            case Define.PopupType.Cookie:
+                message.text = "캐릭터를 구매하시겠습니까?";
+                break;
+            case Define.PopupType.Pet:
+                message.text = "펫을 구매하시겠습니까?";
+                break;
+        }
     }
 
     #region Cookies Setter
@@ -85,13 +99,8 @@ public class UI_CheckPopupBox : MonoBehaviour
                 BuyPet();
                 break;
         }
-
-
-
         ClosePopup();  
     }
-    #endregion
-
 
     void BuyCookie()
     {
@@ -110,6 +119,7 @@ public class UI_CheckPopupBox : MonoBehaviour
             cookie.RefreshLock(); //  lock 풀어줌    
         }
     }
+
     void BuyPet()
     {
         //코인사용
@@ -130,6 +140,8 @@ public class UI_CheckPopupBox : MonoBehaviour
             pet.RefreshLock(); //  lock 풀어줌       
         }
     }
+    #endregion
+
     #region 팝업창닫기버튼 기능구현
     void OnCloseBtnClicked(PointerEventData data)
     {

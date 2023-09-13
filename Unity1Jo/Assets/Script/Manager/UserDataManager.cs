@@ -40,7 +40,8 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
         }
     }
 
-    public void SetHasCookie(int key, bool hasCookie)
+    /* Cookie Dic */
+    public void SetHasCookie(int key, bool hasCookie) // 해당 쿠키가 있는지 체크 
     {
         if (HasCookieDic.ContainsKey(key))
         {
@@ -58,6 +59,25 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
         return 0; //기본 값은 0
     }
 
+    /* Pet Dic */
+    public void SetHasPet(int key, bool hasPet)
+    {
+        if (HasPetDic.ContainsKey(key))
+        {
+            HasPetDic[key] = hasPet ? 1 : 0;
+        }
+        return;
+    }
+    public int GetHasPet(int key)
+    {
+        if (HasPetDic.ContainsKey(key))
+        {
+            return HasPetDic[key];
+        }
+        return 0;
+    }
+
+    /* Setter & Getter cookie ID*/
     public void SetSelectCookieID(int id)
     {
         selectCookieID = id;  
@@ -87,31 +107,15 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
         }
     }
 
-    public void SetHasPet(int key, bool hasPet)
-    {
-        if (HasPetDic.ContainsKey(key))
-        {
-            HasPetDic[key] = hasPet ? 1 : 0;
-        }
-        return;
-    }
-
-    public int GetHasPet(int key)
-    {
-        if (HasPetDic.ContainsKey(key))
-        {
-            return HasPetDic[key];
-        }
-        return 0; //기본 값은 0
-    }
-
     public void SetSelectPetID(int id)
     {
         selectPetID = id;
     }
     public int GetSelectPetID()
     {
-        return selectPetID;
+        return selectPetID;  
     }
 #endregion
+
+
 }

@@ -39,7 +39,14 @@ public class PlayerDoubleJumpState : PlayerState
 
         rb.velocity = Vector2.zero;
 
-            rb.AddForce(new Vector2(rb.velocity.x, player.GetJumpPower()), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(rb.velocity.x, player.GetJumpPower()), ForceMode2D.Impulse);
+
+        // Æê À§Ä¡ ¼³Á¤ 
+        GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+        if (pet == null)
+            return;
+
+        pet.GetComponent<PetController>().target = player.GetPetJumpPos();
     } 
 
     public override void Update()
@@ -82,8 +89,13 @@ public class PlayerDoubleJumpState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        
 
+        // Æê À§Ä¡ ¼³Á¤ 
+        GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+        if (pet == null)
+            return;
+
+        pet.GetComponent<PetController>().target = player.GetPetMiddlePos();
     }
 
 }

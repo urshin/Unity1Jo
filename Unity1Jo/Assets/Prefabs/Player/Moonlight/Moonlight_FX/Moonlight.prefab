@@ -318,6 +318,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7311790016363582766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3530389835357653233}
+  m_Layer: 0
+  m_Name: PetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3530389835357653233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311790016363582766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.782, y: -1.143, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 253233463655107264}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7541098442909178693
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +462,7 @@ Transform:
   - {fileID: 5292868342731456067}
   - {fileID: 239752718495118448}
   - {fileID: 4100748294655838418}
+  - {fileID: 3530389835357653233}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,8 +555,8 @@ MonoBehaviour:
   originSpeed: 0
   dashSpeed: 0
   originSize: {fileID: 0}
-  giganticSize: 0
   jumpPower: 16
+  PetPos: {fileID: 3530389835357653233}
   topTime: 0.8
   topPos: {fileID: 6246924043882406242, guid: 8703e8fe0f3fe4343b3fc0e9baccd6d0, type: 3}
   downTime: 0.6
@@ -546,6 +578,7 @@ MonoBehaviour:
   coinScore: 0
   totalCoinScore: 0
   ishitted: 0
+  isBlinking: 0
   effectAudioClipPath: SoundEff_Large_Energy
   isDashing: 0
   DashDuration: 0
@@ -554,6 +587,7 @@ MonoBehaviour:
   DashTime: 3
   isGigantic: 0
   GiganticSize: 20
+  giganticMaxSize: 0
   OriginalSize: {x: 0, y: 0, z: 0}
   GiganticDuration: 0
   GiganticTime: 3
@@ -599,6 +633,9 @@ MonoBehaviour:
   Jelly: 0
   isSkillon: 0
   SkillBar: {fileID: 6994702340895711741}
+  moonLightStars: {fileID: 0}
+  moonlightStarPos: {fileID: 0}
+  RotateStars: {fileID: 0}
   StarJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
   SunflowerJelly: {fileID: 5776288055369384946, guid: 64d0d698786decc428e156b189384952, type: 3}
   StarSpawnPos:

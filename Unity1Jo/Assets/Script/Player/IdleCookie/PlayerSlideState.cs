@@ -42,6 +42,16 @@ public class PlayerSlideState : PlayerState
         //collider.size = new Vector2(1.5f, 0.6f);
         collider.offset = new Vector2(collider.offset.x, collider.offset.y - 0.4f);
         //collider.offset -= new Vector2(0, 0.4f);
+
+        // Æê À§Ä¡ ¼³Á¤ 
+        GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+        if (pet == null)
+            return;
+
+        PetController petController = pet.GetComponent<PetController>();
+        petController.target = player.GetPetSlidePos();
+        petController.SetSpeed(20);        
+
     }
 
     public override void Update()
@@ -82,8 +92,16 @@ public class PlayerSlideState : PlayerState
         collider.offset = new Vector2(collider.offset.x, collider.offset.y + 0.4f);
         // collider.offset += new Vector2(0, 0.4f);
 
-        
+        // Æê À§Ä¡ ¼³Á¤ 
+        GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+        if (pet == null)
+            return;
+
+        PetController petController = pet.GetComponent<PetController>();
+        petController.target = player.GetPetMiddlePos();
+        petController.SetSpeed(9);    
+
     }
 
-    
+
 }
