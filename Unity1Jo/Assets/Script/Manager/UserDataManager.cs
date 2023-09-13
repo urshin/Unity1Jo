@@ -107,41 +107,15 @@ public class UserDataManager : SingletonBehaviour<UserDataManager>
         }
     }
 
-    public void SetHasPet(int key, bool hasPet)
-    {
-        if (HasPetDic.ContainsKey(key))
-        {
-            HasPetDic[key] = hasPet ? 1 : 0;
-        }
-        return;
-    }
-
-    public int GetHasPet(int key)
-    {
-        if (HasPetDic.ContainsKey(key))
-        {
-            return HasPetDic[key];
-        }
-        return 0; //기본 값은 0
-    }
-
     public void SetSelectPetID(int id)
     {
         selectPetID = id;
     }
     public int GetSelectPetID()
     {
-        return selectPetID;
+        return selectPetID;  
     }
 #endregion
 
-    /* Setter & Getter Pet ID */
-    public void SetSelectPetID(int id)
-    {
-        selectPetID = id;
-    }
-    public int GetSelectPetID()
-    {
-        return selectPetID;
-    }
+
 }

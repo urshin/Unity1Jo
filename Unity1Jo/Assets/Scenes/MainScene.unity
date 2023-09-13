@@ -374,6 +374,7 @@ MonoBehaviour:
   cookie_102: {fileID: 2739928629916004691, guid: dbb8bd1a63d513b4ca5da8f5fb90aad8, type: 3}
   cookie_103: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
   cookie_104: {fileID: 7635871222859886402, guid: 0ecf8da5cb7f7f44e9df747c92baf1a0, type: 3}
+  pet_100: {fileID: 822292760393581166, guid: f19439d0f3acbc1408a6228b0f0073e0, type: 3}
   OriginPlayerPos: {fileID: 7250391244933358618, guid: 24112bd5ce4495046b0f41156a8e43da, type: 3}
 --- !u!4 &1022601075
 Transform:
