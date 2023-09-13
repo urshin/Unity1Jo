@@ -17,8 +17,8 @@ public class PlayerDoubleJumpState : PlayerState
         base.Enter();
 
         //데이터 로드
-        CookiesDataManager.instance.LoadData();
-        MycookiesData data = CookiesDataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
+        UI_DataManager.instance.LoadCookiesData();
+        MycookiesData data = UI_DataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
 
         //Effect재생
         AudioClip effectAudioClip = null;

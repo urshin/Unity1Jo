@@ -9,12 +9,12 @@ public class UIResult_ChangePlayer : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         //데이터 로드
-        CookiesDataManager.instance.LoadData();
+        UI_DataManager.instance.LoadCookiesData();
     }
 
     void Update()
     {
-        MycookiesData data = CookiesDataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
+        MycookiesData data = UI_DataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
         if (data != null)
         {
             int id = data.id;

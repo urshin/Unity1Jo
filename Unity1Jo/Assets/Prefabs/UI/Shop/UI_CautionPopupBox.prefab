@@ -206,7 +206,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 83729b031d5f7fb4c9857009ba381c5b, type: 3}
+    m_Font: {fileID: 12800000, guid: b90d96d21a1170a4bbe022be8088a2b5, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseBtn: {fileID: 2113957164641577429}
+  effectAudioClipPath: E_ClickBtn
 --- !u!1 &7699168098330631593
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +394,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 83729b031d5f7fb4c9857009ba381c5b, type: 3}
+    m_Font: {fileID: 12800000, guid: b90d96d21a1170a4bbe022be8088a2b5, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0

@@ -77,6 +77,4 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             Destroy(player);  
 
     }
-
-
 }

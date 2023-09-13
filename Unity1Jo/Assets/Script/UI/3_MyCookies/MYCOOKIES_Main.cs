@@ -9,7 +9,6 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
     [SerializeField] UIMyCookies uiMyCookies;
     [SerializeField] UIScrollView cookieScrollView;
     [SerializeField] GameObject myCookiesContent;
-    [SerializeField] string bgmAudioClipPath = "BGM_UiShop";
     [Space]
 
 
@@ -22,6 +21,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
     [SerializeField] private float animationDuration = 0.2f; // 애니메이션 지속 시간  
 
     [Header("Audio Sound ")]
+    [SerializeField] string bgmAudioClipPath = "BGM_UiShop";
     [SerializeField] string effectAudioClipPath = "E_ClickBtn";
 
 
@@ -36,7 +36,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
     void Start()
     {
         //데이터 로드
-        CookiesDataManager.instance.LoadData();
+        UI_DataManager.instance.LoadCookiesData();
 
         //BGM재생
         AudioClip bgmAudioClip = GameManager.Instance.LoadAudioClip(bgmAudioClipPath);
@@ -45,7 +45,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
 
         //버튼클릭 정보(id)를 받아서 해당 Event 발생시킴
         EventManager.instance.onSelectBtnClick = (id) => {
-            var data = CookiesDataManager.instance.GetData(id);
+            var data = UI_DataManager.instance.GetCookiesData(id);
 
             //뒤로가기 누르면 LOBBY씬으로 바뀌면서 해당 캐릭터가 출력
             if (UserDataManager.Instance.GetHasCookie(id) == 0) // 쿠키 안가지고 있으면 리턴 
@@ -69,7 +69,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
         };
 
         EventManager.instance.onBuyBtnClick = (id) => {
-            var data = CookiesDataManager.instance.GetData(id);
+            var data = UI_DataManager.instance.GetCookiesData(id);
             Debug.LogFormat("{0},{1},{2}", data.id, data.name, data.price);
 
             float totCoin = GameManager.Instance.totalCoin; // total coin 가져옴 
@@ -89,6 +89,7 @@ public class MYCOOKIES_Main : MonoBehaviour //code by. 하은
                 checkComponent.SetCookieID(data.id);
                 checkComponent.SetCookiePrice(data.price);
                 checkComponent.SetCookieScrollView(cookieScrollView);
+                checkComponent.SetPopupType(Define.PopupType.Cookie);
 
                 // popup animation 
                 checkPopupBox.GetComponent<RectTransform>().DOScale(targetScale, animationDuration).OnComplete(() => {

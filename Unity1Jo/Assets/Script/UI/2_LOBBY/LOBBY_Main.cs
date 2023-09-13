@@ -12,8 +12,8 @@ public class LOBBY_Main : MonoBehaviour //code by.하은
     void Start()
     {
         //데이터 로드
-        CookiesDataManager.instance.LoadData();  
-        MycookiesData data = CookiesDataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
+        UI_DataManager.instance.LoadCookiesData();  
+        MycookiesData data = UI_DataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
         string cookieName = string.Empty;
         if(data != null)
         {

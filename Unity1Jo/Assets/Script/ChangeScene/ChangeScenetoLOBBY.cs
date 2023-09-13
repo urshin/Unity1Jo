@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class ChangeScenetoLOBBY : MonoBehaviour //code by. гою╨
 {
-    [SerializeField] GameObject startBtn;
+    [SerializeField] GameObject backBtn;
 
     public void Awake()
     {
-        startBtn.GetComponent<Button>().onClick.AddListener(GotoLobby);
+        backBtn.GetComponent<Button>().onClick.AddListener(GotoLobby);
     }
 
     public void GotoLobby()

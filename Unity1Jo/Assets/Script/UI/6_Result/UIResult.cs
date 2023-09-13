@@ -20,7 +20,7 @@ public class UIResult : MonoBehaviour
     void Start()
     {
         //데이터 로드
-        CookiesDataManager.instance.LoadData();
+        UI_DataManager.instance.LoadCookiesData();
 
         //Effect재생
         AudioClip effectAudioClip = GameManager.Instance.LoadAudioClip(effectAudioClipPath);
@@ -55,7 +55,7 @@ public class UIResult : MonoBehaviour
         scoreTxt.text = string.Format("{0:#,0}", currentScore);
         coinTxt.text = string.Format("{0:#,0}", currentCoin); //세자릿수마다 ,출력
 
-        MycookiesData data = CookiesDataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
+        MycookiesData data = UI_DataManager.instance.GetMycookiesDatas().Find(cookie => cookie.id == UserDataManager.Instance.GetSelectCookieID());
         if (data != null)
         {
             int id = data.id;
