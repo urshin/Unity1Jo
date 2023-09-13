@@ -48,9 +48,11 @@ public class Player : MonoBehaviour
     [SerializeField] public float jumpPower; // code by. 대석
 
     [Header("Pet")]
-    [SerializeField] Transform PetMiddlePos;
-    [SerializeField] Transform PetSlidePos;
-    [SerializeField] Transform PetJumpPos;
+    [SerializeField] Transform petPos;
+    [SerializeField] Transform petMiddlePos;
+    [SerializeField] Transform petSlidePos;
+    [SerializeField] Transform petJumpPos;
+    [SerializeField] float petGigantic_X_length = 0.3f;  
     
     [Header("Bonus Map Info")]      // code by. 동호
     public float topTime;           // 최대로 올라갈 떄의 시간  
@@ -495,17 +497,29 @@ public class Player : MonoBehaviour
     }
 
     /* pet */
+    public void SetPetParentPos(Vector3 pos)
+    {
+        petPos.localPosition = pos;          
+    } 
+    public Transform GetPetParentPos()
+    {
+        return petPos;
+    }
     public Transform GetPetMiddlePos() //code by.동호
     {
-        return PetMiddlePos;
+        return petMiddlePos;
     }
     public Transform GetPetSlidePos() //code by.동호
     {
-        return PetSlidePos;
+        return petSlidePos;
     }
     public Transform GetPetJumpPos() // code by.동호 
     {
-        return PetJumpPos;
+        return petJumpPos;
+    }
+    public float GetPetGigantic_X_length()
+    {
+        return petGigantic_X_length;
     }
 }
 
