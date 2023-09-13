@@ -99,13 +99,8 @@ public class UI_CheckPopupBox : MonoBehaviour
                 BuyPet();
                 break;
         }
-
-
-
         ClosePopup();  
     }
-    #endregion
-
 
     void BuyCookie()
     {
@@ -124,6 +119,7 @@ public class UI_CheckPopupBox : MonoBehaviour
             cookie.RefreshLock(); //  lock 풀어줌    
         }
     }
+
     void BuyPet()
     {
         //코인사용
@@ -144,6 +140,8 @@ public class UI_CheckPopupBox : MonoBehaviour
             pet.RefreshLock(); //  lock 풀어줌       
         }
     }
+    #endregion
+
     #region 팝업창닫기버튼 기능구현
     void OnCloseBtnClicked(PointerEventData data)
     {
