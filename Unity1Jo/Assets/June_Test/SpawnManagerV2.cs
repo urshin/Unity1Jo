@@ -30,7 +30,7 @@ public class SpawnManagerV2 : MonoBehaviour
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        itembox = GetComponent<ItemBox>();
+       // itembox = GetComponent<ItemBox>();
         PatternNum = 0; //패턴 넘버 초기화
         p.isMapChange = false;
         p.mapcount = 0;
@@ -96,7 +96,9 @@ public class SpawnManagerV2 : MonoBehaviour
 
             if (googleSheet.Listindex == null || googleSheet.Listindex.Count < 1)
             {
+                
                 Debug.Log("값이 없다유");
+                return;
             }
             if (googleSheet.Listindex != null || googleSheet.Listindex.Count > 0)
             {

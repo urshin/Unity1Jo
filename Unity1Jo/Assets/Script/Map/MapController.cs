@@ -29,27 +29,35 @@ public class MapController : MonoBehaviour
     void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-      
-
-
+   
         //GameObject Mbonus = GameObject.Find("BonusMap").gameObject;
         //Mbonus?.SetActive(false);  
 
-        SpawnManager.Instance.ChangeJellyPrefab(SpawnManager.Instance.whatjelly[0], SpawnManager.Instance.image0);
-        SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[0], SpawnManager.Instance.Short0);
-        SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[1], SpawnManager.Instance.Long0);
-        SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[2], SpawnManager.Instance.Slide0);
-        SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[3], SpawnManager.Instance.LongSlide0);
+        //SpawnManager.Instance.ChangeJellyPrefab(SpawnManager.Instance.whatjelly[0], SpawnManager.Instance.image0);
+        //SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[0], SpawnManager.Instance.Short0);
+        //SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[1], SpawnManager.Instance.Long0);
+        //SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[2], SpawnManager.Instance.Slide0);
+        //SpawnManager.Instance.ChangeEnemy(SpawnManager.Instance.whatobstacle[3], SpawnManager.Instance.LongSlide0);
         //SceneManager.LoadScene("DH_MainScene2");      
 
-        if (FindObjectOfType<SpawnManager>() != null)
-            SpawnManager.Instance.gameObject.GetComponent<SpawnManager>().enabled = true;  
+        //if (FindObjectOfType<SpawnManager>() != null)
+        //    SpawnManager.Instance.gameObject.GetComponent<SpawnManager>().enabled = true;  
     }
 
     void Update()
     {
-
-       
+        if(p.mapcount == 0 && !p.isBonusTime)
+        {
+            ChangeMaterial(mat_ovenIn);
+        }
+        else if(p.mapcount == 1 && !p.isBonusTime)
+        {
+            ChangeMaterial(mat_map);
+        }
+        else if (p.mapcount == 2 && !p.isBonusTime)
+        {
+            ChangeMaterial(mat_map1);
+        }
         //if (p.mapcount == 0)
         //{
         //{
