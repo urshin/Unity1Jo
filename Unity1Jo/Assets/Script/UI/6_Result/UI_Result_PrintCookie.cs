@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIResult_ChangePlayer : MonoBehaviour
+public class UI_Result_PrintCookie : MonoBehaviour
 {
     Animator anim;
     void Start()

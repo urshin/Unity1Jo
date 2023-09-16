@@ -8,6 +8,7 @@ public class EventManager //code by. гою╨
 
     public System.Action<int> onSelectBtnClick;
     public System.Action<int> onBuyBtnClick;
+    public System.Action<int> showCookieExplain;
 
     private EventManager() { }
 }

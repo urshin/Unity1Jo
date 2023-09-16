@@ -52,8 +52,6 @@ public class PlayerFallingState : PlayerState
             if (bgmAudioClip2 != null)
                 SoundManager.Instance.Play(bgmAudioClip2, Define.Sound.Bgm);
         }
-
-
     }
 
 

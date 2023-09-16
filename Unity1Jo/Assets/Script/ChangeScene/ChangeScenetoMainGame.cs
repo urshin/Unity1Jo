@@ -16,7 +16,7 @@ public class ChangeScenetoMainGame : MonoBehaviour //code by.하은
 
     public void GotoMainScene()
     {
-        SoundManager.Instance.Clear();
+        //SoundManager.Instance.Clear();
         SceneManager.LoadScene("MainScene");
 
         //Effect재생

@@ -7,6 +7,7 @@ public class UIScrollViewCookiesSelect : MonoBehaviour //code by. гою╨
 {
     public Text cookieName;
     public Image cookieImg;
+    public Button explainBtn;
     public Button selectBtn;
     [SerializeField] GameObject SelectPanel;
     [SerializeField] GameObject BuyPanel;
