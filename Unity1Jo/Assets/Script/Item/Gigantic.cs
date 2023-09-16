@@ -41,7 +41,7 @@ public class Gigantic : MonoBehaviour
             {
                 player.transform.position += new Vector3(0, Size / 10, 0);// 포지션 값 움직이기
                 Player p = player.GetComponent<Player>();
-                Debug.Log("parent pos : " + p.GetPetParentPos().position);    
+                //Debug.Log("parent pos : " + p.GetPetParentPos().position);    
                 p.SetPetParentPos(new Vector3(p.GetPetGigantic_X_length(), 0, 0));              
 
                 for (int i = 0; i < Size; i++) //정한 사이즈 만큼 커짐

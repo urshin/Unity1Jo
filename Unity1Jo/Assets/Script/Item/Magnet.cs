@@ -32,6 +32,16 @@ public class Magnet : MonoBehaviour
 
             Invoke("SelfDestroy", 10); //5초뒤 본인 삭제
 
+
+            //pet magnet 
+            GameObject pet = GameObject.FindGameObjectWithTag("Pet");
+            if(pet != null)
+            {
+                PetController petController = pet.GetComponent<PetController>();
+                petController.SetIsUpdownMoving(false);
+                petController.MoveMangetCenterPos();  
+            }
+
         }
     }
 

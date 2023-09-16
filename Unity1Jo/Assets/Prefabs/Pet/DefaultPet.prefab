@@ -121,3 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   _speed: 9
+  isUpdownMoving: 1
+  centerMagnetPos: {fileID: 6697671866389763467, guid: 3822c39aadf2d924b85dd02f37e49661, type: 3}
