@@ -22,6 +22,8 @@ public class GetItem : MonoBehaviour
         }
         else
             transform.position += new Vector3(-p.GroundScrollSpeed * Time.deltaTime, 0, 0);
+
+
     }
 
    

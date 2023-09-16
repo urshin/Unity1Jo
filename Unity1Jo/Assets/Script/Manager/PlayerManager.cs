@@ -31,7 +31,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         PlayerGameObjectDict.Add(104, cookie_104);
 
         CreatePlayer();
-        CreatePet();  
+        CreatePet();      
     }
 
     private void Start()
