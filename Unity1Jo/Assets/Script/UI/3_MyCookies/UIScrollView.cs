@@ -47,9 +47,6 @@ public class UIScrollView : MonoBehaviour //code by. гою╨
         cookies.buyBtn.onClick.AddListener(() => {
             EventManager.instance.onBuyBtnClick(cookies.GetID());
         });
-        cookies.explainBtn.onClick.AddListener(() => {
-            EventManager.instance.showCookieExplain(cookies.GetID());
-        });
         CookieComponentList.Add(cookies);  
     }
     public List<UIScrollViewCookiesSelect> GetCookieComponentList()
