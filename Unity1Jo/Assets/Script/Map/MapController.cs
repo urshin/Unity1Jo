@@ -99,6 +99,8 @@ public class MapController : MonoBehaviour
     {
         //Transform[] children = transform.GetComponentsInChildren<Transform>();
         Transform[] children = GameObject.Find("DS_Map").transform.GetComponentsInChildren<Transform>();
+        if (children == null)
+            return;  
     
         foreach (Transform child in children)
         {

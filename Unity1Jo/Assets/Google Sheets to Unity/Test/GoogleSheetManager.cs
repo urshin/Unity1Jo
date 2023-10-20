@@ -24,7 +24,16 @@ public class GoogleSheetManager : MonoBehaviour
     public List<int> ListObstacle;
     public List<int> ListGround;
 
-    
+    private void Awake()
+    {
+        Listindex = new List<int>();
+        ListJellyType = new List<int>();
+        ListJellyYpos = new List<int>();
+        ListJellyAmount = new List<int>();
+        ListObstacleType = new List<int>();
+        ListObstacle = new List<int>();
+        ListGround = new List<int>();
+    }
     public void Start()
     {
         URL = Map1;
@@ -33,14 +42,22 @@ public class GoogleSheetManager : MonoBehaviour
 
     public void CreateMap()
     {
-        
-        Listindex = new List<int>();
-        ListJellyType = new List<int>();
-        ListJellyYpos = new List<int>();
-        ListJellyAmount = new List<int>();
-        ListObstacleType = new List<int>();
-        ListObstacle = new List<int>();
-        ListGround = new List<int>();
+
+        //Listindex = new List<int>();
+        //ListJellyType = new List<int>();
+        //ListJellyYpos = new List<int>();
+        //ListJellyAmount = new List<int>();
+        //ListObstacleType = new List<int>();
+        //ListObstacle = new List<int>();
+        //ListGround = new List<int>();
+        Listindex.Clear();
+        ListJellyType.Clear();
+        ListJellyYpos.Clear();
+        ListJellyAmount.Clear();
+        ListObstacleType.Clear();
+        ListObstacle.Clear();
+        ListGround.Clear();  
+
         StartCoroutine("start");
     }
 

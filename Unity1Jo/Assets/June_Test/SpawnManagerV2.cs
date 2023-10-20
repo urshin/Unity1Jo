@@ -27,6 +27,12 @@ public class SpawnManagerV2 : MonoBehaviour
     [SerializeField] GameObject Spawnpos;
 
     [SerializeField] int PatternNum;
+
+    private void Awake()
+    {
+
+
+    }
     private void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -70,25 +76,13 @@ public class SpawnManagerV2 : MonoBehaviour
         }
         if (googleSheet.URL == googleSheet.BonusMap && !p.isBonusTime)
         {
-            StartCoroutine(WaitingTime(3));
+            StartCoroutine(WaitingTime(3));  
         }
 
 
-        IEnumerator WaitingTime(float time)
-        {
-            patternNum = lastPatternum;
-            googleSheet.URL = lastMap;
-            yield return new WaitForSeconds(time);
-            googleSheet.CreateMap();
-            p.DestrtoyObject();
-        }
-
-
-
-    }
-
-    private void FixedUpdate()
-    {
+        // ----------------------------------------------------------
+        if (googleSheet == null)
+            return;
 
         if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)//몬스터 생성 주기
         {
@@ -96,11 +90,11 @@ public class SpawnManagerV2 : MonoBehaviour
 
             if (googleSheet.Listindex == null || googleSheet.Listindex.Count < 1)
             {
-                
+
                 Debug.Log("값이 없다유");
                 return;
             }
-            if (googleSheet.Listindex != null || googleSheet.Listindex.Count > 0)
+            if (googleSheet.Listindex != null || googleSheet.Listindex.Count > 0 || patternNum < googleSheet.Listindex.Count)
             {
                 UpdateMapList();
                 GetMapValue();
@@ -108,8 +102,41 @@ public class SpawnManagerV2 : MonoBehaviour
 
 
         }
-
     }
+    IEnumerator WaitingTime(float time)
+    {
+        patternNum = lastPatternum;
+        googleSheet.URL = lastMap;
+        yield return new WaitForSeconds(time);
+        googleSheet.CreateMap();
+        p.DestrtoyObject();
+    }
+
+    //private void FixedUpdate()
+    //{
+    //    if (googleSheet == null)
+    //        return;  
+
+    //    if (Time.time > LastSpawnTime + SpawnSpeed / p.GroundScrollSpeed)//몬스터 생성 주기
+    //    {
+    //        LastSpawnTime = Time.time;
+
+    //        if (googleSheet.Listindex == null || googleSheet.Listindex.Count < 1)
+    //        {
+                
+    //            Debug.Log("값이 없다유");
+    //            return;
+    //        }
+    //        if (googleSheet.Listindex != null || googleSheet.Listindex.Count > 0 || patternNum < googleSheet.Listindex.Count)  
+    //        {
+    //            UpdateMapList();
+    //            GetMapValue();  
+    //        }
+
+
+    //    }
+
+    //}
 
     void GetMapValue()
     {
@@ -155,11 +182,34 @@ public class SpawnManagerV2 : MonoBehaviour
     }
     void UpdateMapList()
     {
-        jellyType = googleSheet.ListJellyType[PatternNum];
+
+        //Debug.Log($"PatternNum : {PatternNum}");  
+        //Debug.Log($"googleSheet.ListJellyType : {googleSheet.ListJellyType.Count}");
+        if (googleSheet.ListJellyType.Count < 1)
+            return;  
+        if (googleSheet.ListJellyType.Contains((int)patternNum))
+        {
+            jellyType = googleSheet.ListJellyType[PatternNum];      
+        }
+
+        if (PatternNum < 0 || patternNum >= googleSheet.ListJellyYpos.Count)
+            return;
         jellyYpos = googleSheet.ListJellyYpos[PatternNum];
+
+        if (PatternNum < 0 || patternNum >= googleSheet.ListJellyAmount.Count)
+            return;
         jellyAmount = googleSheet.ListJellyAmount[PatternNum];
+
+        if (PatternNum < 0 || patternNum >= googleSheet.ListObstacleType.Count)
+            return;
         obstacleType = googleSheet.ListObstacleType[PatternNum];
+
+        if (PatternNum < 0 || patternNum >= googleSheet.ListObstacle.Count)   
+            return;
         obstaclePos = googleSheet.ListObstacle[PatternNum];
+
+        if (PatternNum < 0 || patternNum >= googleSheet.ListGround.Count)
+            return;
         ground = googleSheet.ListGround[PatternNum];
     }
 }
