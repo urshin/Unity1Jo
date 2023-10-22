@@ -28,10 +28,10 @@
 - 쿠키 특성 구현 
 ![image](https://github.com/urshin/Unity1Jo/assets/46379443/b5ad7f62-7ccd-4783-9a85-603b7f034c9d)
 
-- 보너스 타임 연출 구현
-![image](https://github.com/urshin/Unity1Jo/assets/46379443/828290cc-c2ec-4a14-8ae1-29b9e1497a56)
-  
+- 보너스 타임 연출 및 player state 구현
+![image](https://github.com/urshin/Unity1Jo/assets/46379443/1c076e55-2d02-4023-ba48-45d85a0e9e21)
 
+  
 # 게임 내 사용한 디자인 패턴 
 1. Singleton Pattern
 ![image](https://github.com/urshin/Unity1Jo/assets/46379443/4bed1125-1e38-407f-b883-dcf9b6626a25)
