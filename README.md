@@ -1,5 +1,5 @@
 # Unity1Jo
-- Unity 2D 쿠키런 모작 팀 프로젝트
+- Unity 2D 쿠키런 모작 팀 프로젝트 (toy project)
 - 점프와 슬라이드로 조작을 하며 장애물들을 피해 달리면서 젤리를 먹어 점수를 올리는 게임
 
 ![image](https://github.com/urshin/Unity1Jo/assets/46379443/f09c6285-74fd-4f08-a6ef-665127d83399)
