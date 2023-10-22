@@ -1,5 +1,7 @@
 # Unity1Jo
-Unity 2D 쿠키런 모작 팀프로젝트
+- Unity 2D 쿠키런 모작 팀 프로젝트
+
+![image](https://github.com/urshin/Unity1Jo/assets/46379443/f09c6285-74fd-4f08-a6ef-665127d83399)
 
 # 팀 프로젝트 개요 
 - 제작기간 : 3주
