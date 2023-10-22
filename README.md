@@ -14,6 +14,8 @@
 - 팀원 : 4명
  ![image](https://github.com/urshin/Unity1Jo/assets/46379443/51b41bde-a19f-4b3d-a3fb-dc943f21bf3d)
  
+# 영상  
+- 플레이 영상 링크: https://youtu.be/wNj_AiQ3rXE
 
 # 참여 부분 
 - UI 자동화 환경 생성 및 플레이어 조작 버튼 기능 구현
@@ -26,7 +28,9 @@
 - 쿠키 특성 구현 
 ![image](https://github.com/urshin/Unity1Jo/assets/46379443/b5ad7f62-7ccd-4783-9a85-603b7f034c9d)
 
-
+- 보너스 타임 연출 구현
+![image](https://github.com/urshin/Unity1Jo/assets/46379443/828290cc-c2ec-4a14-8ae1-29b9e1497a56)
+  
 
 # 게임 내 사용한 디자인 패턴 
 1. Singleton Pattern
@@ -35,5 +39,4 @@
 2. State Pattern 
 ![image](https://github.com/urshin/Unity1Jo/assets/46379443/36090e31-f34e-43a9-a9d4-dd5a89f687ad)
 
-# 영상  
-- 플레이 영상 링크: https://youtu.be/wNj_AiQ3rXE
+
